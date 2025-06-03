@@ -1,0 +1,142 @@
+/* Warm Minimalist Palette */
+:root {
+  --dark-brown: #4B3B2B;
+  --cream: #F9F5F0;
+  --white: #FFFFFF;
+  --rust: #C75B39;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--cream);
+  color: var(--dark-brown);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+a {
+  color: var(--rust);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--dark-brown);
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-bottom: 1px solid var(--rust);
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--dark-brown);
+  margin-bottom: 0.5rem;
+}
+header p.tagline {
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--rust);
+}
+
+/* Section titles */
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--dark-brown);
+  border-bottom: 2px solid var(--rust);
+  padding-bottom: 0.25rem;
+}
+
+/* Mission */
+#mission p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Services */
+#services p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+#services ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  color: var(--dark-brown);
+}
+#services ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Projects */
+#projects .project {
+  background: var(--white);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid var(--rust);
+  box-shadow: 0 2px 8px rgba(75, 59, 43, 0.15);
+  border-radius: 4px;
+}
+#projects .project h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--dark-brown);
+  margin-bottom: 0.5rem;
+}
+#projects .project p {
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark-brown);
+}
+#projects .project ul {
+  list-style-type: square;
+  margin-left: 1.25rem;
+  color: var(--dark-brown);
+}
+#projects .project ul li {
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+#projects .note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--rust);
+}
+
+/* Contact */
+#contact p {
+  font-size: 1.1rem;
+}
+#contact a.email {
+  color: var(--rust);
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--dark-brown);
+  border-top: 1px solid var(--rust);
+  margin-top: auto;
+}
+
