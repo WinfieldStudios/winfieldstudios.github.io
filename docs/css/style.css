@@ -55,6 +55,16 @@ header p.tagline {
   font-size: 1.25rem;
   color: var(--rust);
 }
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.logo-icon {
+  width: 64px;
+  height: 64px;
+}
 
 /* Section titles */
 h2 {
