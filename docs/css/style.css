@@ -132,11 +132,23 @@ h2 {
 
 /* Footer */
 footer {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 1.5rem 1rem;
   font-size: 0.9rem;
   color: var(--dark-brown);
   border-top: 1px solid var(--rust);
   margin-top: auto;
 }
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-right {
+  text-align: right;
+}
+
 
