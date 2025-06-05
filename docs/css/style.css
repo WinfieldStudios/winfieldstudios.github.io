@@ -65,20 +65,6 @@ header p.tagline {
   width: 64px;
   height: 64px;
 }
-@media (max-width: 600px) {
-  .header-title {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .logo-icon {
-    width: 128px;
-    height: 128px;
-  }
-  header h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-}
 
 /* Section titles */
 h2 {
@@ -176,3 +162,24 @@ footer {
 }
 
 
+/* MOBILE */
+@media (max-width: 600px) {
+  .header-title {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .logo-icon {
+    width: 128px;
+    height: 128px;
+  }
+  header h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .footer-left {
+    text-align: center;
+  }
+  .footer-right {
+    text-align: center;
+  }
+}
