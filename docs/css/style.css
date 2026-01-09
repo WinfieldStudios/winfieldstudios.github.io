@@ -79,6 +79,18 @@ header p.tagline {
   width: 100%;
   border-bottom: 1px solid var(--nav-border);
   background: var(--nav-bg);
+  position: relative;
+  background-image: url("../assets/textures/walnut_texture_seamless.jpg");
+  background-repeat: repeat;
+  background-size: 600px auto; /* try 600px–1200px */
+}
+/* Darken it so text is readable */
+.topbar::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45); /* tweak 0.30–0.55 */
+  pointer-events: none;
 }
 .topbar-inner{
   width: 100%;
@@ -90,6 +102,9 @@ header p.tagline {
   grid-template-columns: auto 1fr auto; /* NEW */
   align-items: center;
   gap: 1rem;
+
+  position: relative;
+  z-index: 1;
 }
 
 .header-row {
