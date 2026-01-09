@@ -9,19 +9,36 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
+  <header class="site-header">
+  <!-- TOP NAV (consistent everywhere) -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="game.html">Game</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- BRANDING (this can move/change per page later) -->
+  <div class="brand-block">
     <div class="header-title">
       <img src="assets/logo/versions/turtlepixel_nobackground.png" alt="Winfield Studios Logo" class="logo-icon" />
       <h1>Winfield Studios LLC</h1>
     </div>
-    <p class="tagline">Bringing Soul to Machine.</p>
-  </header>
+    <p class="tagline">Bringing Soul to Machine</p>
+  </div>
+</header>
+
 
   <main class="container">
+    <div class="topbar-actions">
+      <a class="cta-button cta-small" href="game.html">DON'T Click this Button...</a>
+    </div>
     <section id="mission">
       <h2>Mission</h2>
-      <p>We started small. Just a couple game devevelopers obsessed with the feeling of a great idea coming to life.</p>
-      <p>Winfield Studios LLC was founded to bring that feeling to others. This studio is about growth, in the strange, organic, mycelial kind of way. We value game feel, immersion, and meaning in even the smallest interactions. Every sound, every tap, every visual choice matters. That’s the magic.</p>
+      <p>At Winfield Studios LLC, we're obsessed with the feeling of a great idea coming to life.</p>
+      <p>We aim to bring that magic to others. We value game feel, immersion and meaning in even the smallest interactions. That's the magic.</p>
       <p>Whether you’re here to play our games or are just curious, thanks for being a part of the beginning.</p>
     </section>
 
@@ -50,6 +67,13 @@
           <li>Trade water for candy</li>
           <li>Consume candy to boost spores per tap and gain passive spores</li>
         </ul>
+        <p><strong>Features:</strong></p>
+        <ul>
+          <li>Autosaves</li>
+          <li>GenAI Art</li>
+          <li>Music & Sound Design</li>
+          <li>Underground Shop</li>
+        </ul>
         <p class="note">Everything is subject to change or adjustment!</p>
         <p><a href="mycorrhizae/privacy-policy/">View Mycorrhizae Privacy Policy</a></p>
       </div>
@@ -71,4 +95,3 @@
   </footer>
 </body>
 </html>
-

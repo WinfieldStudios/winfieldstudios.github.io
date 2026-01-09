@@ -4,6 +4,9 @@
   --cream: #F9F5F0;
   --white: #FFFFFF;
   --rust: #C75B39;
+  --nav-bg: #201712;         /* deep warm brown */
+  --nav-text: #F9F5F0;       /* your cream */
+  --nav-border: rgba(249,245,240,0.18);
 }
 
 /* Reset & Base */
@@ -61,6 +64,109 @@ header p.tagline {
   justify-content: center;
   gap: 1rem;
 }
+.logo-icon {
+  width: 64px;
+  height: 64px;
+}
+
+/* Header nav + CTA */
+.site-header {
+  text-align: center;
+  padding: 0;
+  border-bottom: 1px solid var(--rust);
+}
+.topbar {
+  width: 100%;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+}
+.topbar-inner {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+
+  display: grid;
+  grid-template-columns: 1fr auto; /* nav takes the space, CTA sits on the far right */
+  align-items: center;
+  gap: 1rem;
+}
+.header-row {
+  max-width: 900px;
+  margin: 1.25rem auto 0;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.site-nav {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.nav-link {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  color: var(--nav-text);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.nav-link:hover {
+  color: var(--nav-text);
+  background: rgba(255,255,255,0.10);
+}
+.nav-link.active{
+  background: var(--rust);
+  color: var(--nav-text);
+  border-color: var(--rust);
+}
+.header-actions {
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-small {
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.cta-button {
+  display: inline-block;
+  padding: 0.85rem 1.25rem;
+  border-radius: 10px;
+  background: var(--rust);
+  color: var(--cream);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 6px 18px rgba(75, 59, 43, 0.12);
+}
+.cta-button:hover {
+  color: var(--cream);
+  filter: brightness(0.95);
+}
+.brand-block {
+  padding: 2.25rem 1rem 1.75rem;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .logo-icon {
   width: 64px;
   height: 64px;
@@ -140,6 +246,54 @@ h2 {
   font-weight: 600;
 }
 
+/* Game page */
+.game-intro {
+  margin-top: 0.25rem;
+  font-size: 1.05rem;
+}
+.game-shell {
+  margin: 1.5rem auto 0;
+  max-width: 520px;
+  background: var(--white);
+  border-left: 5px solid var(--rust);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(75, 59, 43, 0.15);
+  overflow: hidden;
+}
+.game-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(199, 91, 57, 0.25);
+  background: rgba(249, 245, 240, 0.55);
+}
+.game-topbar .title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+}
+.game-topbar .status {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+.terminal-screen {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  padding: 1rem;
+  background: #111;
+  color: #f2f2f2;
+  height: 720px;
+  overflow: auto;
+  white-space: pre;
+}
+.terminal-hint {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(199, 91, 57, 0.25);
+  font-size: 0.95rem;
+}
+
 /* Footer */
 footer {
   display: flex;
@@ -152,34 +306,16 @@ footer {
   border-top: 1px solid var(--rust);
   margin-top: auto;
 }
-
-.footer-left {
-  text-align: left;
-}
-
-.footer-right {
-  text-align: right;
-}
-
+.footer-left { text-align: left; }
+.footer-right { text-align: right; }
 
 /* MOBILE */
 @media (max-width: 600px) {
-  .header-title {
-    flex-direction: column;
-    gap: 0.5rem;
+  .topbar-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
-  .logo-icon {
-    width: 128px;
-    height: 128px;
-  }
-  header h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-  .footer-left {
-    text-align: center;
-  }
-  .footer-right {
-    text-align: center;
+  .site-nav {
+    justify-content: center;
   }
 }
