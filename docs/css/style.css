@@ -77,8 +77,8 @@ header p.tagline {
 }
 .topbar {
   width: 100%;
-  background: var(--nav-bg);
   border-bottom: 1px solid var(--nav-border);
+  background: var(--nav-bg);
 }
 .topbar-inner{
   width: 100%;
@@ -147,9 +147,10 @@ header p.tagline {
   justify-content: flex-end;
 }
 .topbar-actions {
+  padding-bottom: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .cta-small {
