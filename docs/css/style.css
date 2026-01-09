@@ -348,7 +348,7 @@ footer {
   .topbar-inner {
     grid-template-columns: 1fr;
     justify-items: center;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
   .topbar-actions{
@@ -356,10 +356,6 @@ footer {
   }
   .site-nav {
     justify-content: center;
-  }
-  .logo-icon {
-    width: 128px;
-    height: 128px;
   }
   .footer-left { text-align: center; }
   .footer-right { text-align: center; }
