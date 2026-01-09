@@ -278,52 +278,22 @@ h2 {
 }
 
 /* Game page */
-.game-intro {
-  margin-top: 0.25rem;
-  font-size: 1.05rem;
-}
-.game-shell {
-  margin: 1.5rem auto 0;
-  max-width: 520px;
-  background: var(--white);
-  border-left: 5px solid var(--rust);
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(75, 59, 43, 0.15);
+.game-wrap{
+  margin: 1rem auto 0;
+  max-width: 900px;
+  border-radius: 12px;
   overflow: hidden;
+  border: 1px solid rgba(75,59,43,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
-.game-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(199, 91, 57, 0.25);
-  background: rgba(249, 245, 240, 0.55);
+
+#game{
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0f0f12; /* nice dark stage */
 }
-.game-topbar .title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
-}
-.game-topbar .status {
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-.terminal-screen {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.95rem;
-  line-height: 1.2;
-  padding: 1rem;
-  background: #111;
-  color: #f2f2f2;
-  height: 720px;
-  overflow: auto;
-  white-space: pre;
-}
-.terminal-hint {
-  padding: 0.75rem 1rem;
-  border-top: 1px solid rgba(199, 91, 57, 0.25);
-  font-size: 0.95rem;
-}
+
 
 /* Footer */
 footer {

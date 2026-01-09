@@ -31,21 +31,14 @@
 
 
   <main class="container">
-    <h2>Game Coming Soon...</h2>
-    <p class="game-intro">This is the start of a terminal-style web prototype. Use <strong>WASD</strong> or the <strong>arrow keys</strong> to move.</p>
+    <h2>Game Prototype</h2>
+    <p class="game-intro">WASD / Arrow keys to move. This is the clean foundation.</p>
 
-    <div class="game-shell" role="application" aria-label="Terminal game prototype">
-      <div class="game-topbar">
-        <div class="title">Web Prototype</div>
-        <div id="gameStatus" class="status">Loading...</div>
-      </div>
-
-      <pre id="terminal" class="terminal-screen" tabindex="0"></pre>
-      <div class="terminal-hint">
-        Click inside the terminal, then move with WASD / Arrow Keys.
-      </div>
+    <div class="game-wrap">
+      <canvas id="game" width="900" height="520"></canvas>
     </div>
   </main>
+
 
   <footer>
     <div class="footer-left">

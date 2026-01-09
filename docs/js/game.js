@@ -1,112 +1,94 @@
 (() => {
-  const terminal = document.getElementById('terminal');
-  const statusEl = document.getElementById('gameStatus');
+  const canvas = document.getElementById("game");
+  if (!canvas) return;
 
-  if (!terminal || !statusEl) return;
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width;
+  const H = canvas.height;
 
-  // Terminal focus so arrow keys work immediately.
-  terminal.focus();
+  // --- Input ---
+  const keys = new Set();
+  window.addEventListener("keydown", (e) => {
+    if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key)) e.preventDefault();
+    keys.add(e.key);
+  });
+  window.addEventListener("keyup", (e) => keys.delete(e.key));
 
-  const W = 28;
-  const H = 22;
-
-  // Simple fixed obstacles (feel free to delete these later).
-  const obstacles = new Set([
-    '6,5', '7,5', '8,5', '9,5', '10,5',
-    '18,9', '18,10', '18,11',
-    '12,15', '13,15', '14,15', '15,15'
-  ]);
-
+  // --- Game state ---
   const player = {
-    x: Math.floor(W / 2),
-    y: Math.floor(H / 2)
+    x: W / 2,
+    y: H / 2,
+    r: 16,
+    speed: 260 // pixels per second
   };
 
-  function isWall(x, y) {
-    return x === 0 || y === 0 || x === W - 1 || y === H - 1;
-  }
+  let last = performance.now();
 
-  function isBlocked(x, y) {
-    if (isWall(x, y)) return true;
-    return obstacles.has(`${x},${y}`);
-  }
+  function update(dt) {
+    let dx = 0, dy = 0;
 
-  function render() {
-    const lines = [];
+    if (keys.has("ArrowUp") || keys.has("w") || keys.has("W")) dy -= 1;
+    if (keys.has("ArrowDown") || keys.has("s") || keys.has("S")) dy += 1;
+    if (keys.has("ArrowLeft") || keys.has("a") || keys.has("A")) dx -= 1;
+    if (keys.has("ArrowRight") || keys.has("d") || keys.has("D")) dx += 1;
 
-    for (let y = 0; y < H; y++) {
-      let line = '';
-      for (let x = 0; x < W; x++) {
-        if (x === player.x && y === player.y) {
-          line += '@';
-          continue;
-        }
-
-        if (isWall(x, y)) {
-          line += '#';
-          continue;
-        }
-
-        if (obstacles.has(`${x},${y}`)) {
-          line += 'M'; // mushroom
-          continue;
-        }
-
-        line += '.';
-      }
-      lines.push(line);
+    // normalize diagonal movement
+    if (dx !== 0 && dy !== 0) {
+      const inv = 1 / Math.sqrt(2);
+      dx *= inv;
+      dy *= inv;
     }
 
-    lines.push('');
-    lines.push('Legend: @ you | # wall | M mushroom');
+    player.x += dx * player.speed * dt;
+    player.y += dy * player.speed * dt;
 
-    terminal.textContent = lines.join('\n');
-    statusEl.textContent = `Pos: (${player.x}, ${player.y})`;
+    // clamp to screen
+    player.x = Math.max(player.r, Math.min(W - player.r, player.x));
+    player.y = Math.max(player.r, Math.min(H - player.r, player.y));
   }
 
-  function move(dx, dy) {
-    const nx = player.x + dx;
-    const ny = player.y + dy;
-    if (isBlocked(nx, ny)) return;
-    player.x = nx;
-    player.y = ny;
-    render();
-  }
+  function draw() {
+    // background
+    ctx.clearRect(0, 0, W, H);
 
-  function keyToDelta(key) {
-    switch (key) {
-      case 'ArrowUp':
-      case 'w':
-      case 'W':
-        return [0, -1];
-      case 'ArrowDown':
-      case 's':
-      case 'S':
-        return [0, 1];
-      case 'ArrowLeft':
-      case 'a':
-      case 'A':
-        return [-1, 0];
-      case 'ArrowRight':
-      case 'd':
-      case 'D':
-        return [1, 0];
-      default:
-        return null;
+    // subtle floor grid (optional but helps)
+    ctx.globalAlpha = 0.18;
+    for (let x = 0; x < W; x += 40) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, H);
+      ctx.stroke();
     }
+    for (let y = 0; y < H; y += 40) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // player
+    ctx.beginPath();
+    ctx.arc(player.x, player.y, player.r, 0, Math.PI * 2);
+    ctx.fill();
+
+    // UI text
+    ctx.clearRect(0,0,0,0); // no-op, just keeping it simple
+    ctx.save();
+    ctx.font = "16px Open Sans, sans-serif";
+    ctx.fillText(`x: ${player.x.toFixed(0)}  y: ${player.y.toFixed(0)}`, 12, 24);
+    ctx.restore();
   }
 
-  document.addEventListener('keydown', (e) => {
-    const delta = keyToDelta(e.key);
-    if (!delta) return;
+  function loop(now) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
 
-    // Prevent the page from scrolling when using arrow keys.
-    e.preventDefault();
-    move(delta[0], delta[1]);
-  });
+    update(dt);
+    draw();
 
-  // Ensure clicking the terminal focuses it.
-  terminal.addEventListener('mousedown', () => terminal.focus());
+    requestAnimationFrame(loop);
+  }
 
-  render();
+  requestAnimationFrame(loop);
 })();
