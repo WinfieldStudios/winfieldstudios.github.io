@@ -80,17 +80,18 @@ header p.tagline {
   background: var(--nav-bg);
   border-bottom: 1px solid var(--nav-border);
 }
-.topbar-inner {
+.topbar-inner{
   width: 100%;
   max-width: none;
   margin: 0;
   padding: 0.75rem 1.25rem;
 
   display: grid;
-  grid-template-columns: 1fr auto; /* nav takes the space, CTA sits on the far right */
+  grid-template-columns: auto 1fr auto; /* NEW */
   align-items: center;
   gap: 1rem;
 }
+
 .header-row {
   max-width: 900px;
   margin: 1.25rem auto 0;
@@ -105,7 +106,7 @@ header p.tagline {
   margin: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
@@ -126,6 +127,20 @@ header p.tagline {
   color: var(--nav-text);
   border-color: var(--rust);
 }
+.nav-brand{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.nav-logo{
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
 .header-actions {
   margin-top: 0;
   display: flex;
@@ -311,11 +326,42 @@ footer {
 
 /* MOBILE */
 @media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .header-title {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .header-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo-icon {
+    width: 128px;
+    height: 128px;
+  }
+  header h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
   .topbar-inner {
     grid-template-columns: 1fr;
     justify-items: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .topbar-actions{
+    justify-content: center;
   }
   .site-nav {
     justify-content: center;
   }
+  .logo-icon {
+    width: 128px;
+    height: 128px;
+  }
+  .footer-left { text-align: center; }
+  .footer-right { text-align: center; }
+  .terminal-screen { height: 60vh; }
 }
