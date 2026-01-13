@@ -313,7 +313,8 @@ footer {
 /* MOBILE */
 @media (max-width: 600px) {
   header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
   }
   .header-title {
     flex-direction: column;
@@ -324,15 +325,10 @@ footer {
     align-items: center;
   }
   .logo-icon {
-    width: 128px;
-    height: 128px;
-  }
-  header h1 {
-    font-size: 2rem;
-    text-align: center;
+    width: 96px;
+    height: 96px;
   }
   .topbar-inner {
-    grid-template-columns: 1fr;
     justify-items: center;
     flex-direction: row;
     align-items: center;
@@ -341,7 +337,12 @@ footer {
     justify-content: center;
   }
   .site-nav {
+    justify-content: right;
+  }
+  footer {
     justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
   }
   .footer-left { text-align: center; }
   .footer-right { text-align: center; }
