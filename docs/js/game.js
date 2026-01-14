@@ -1,10 +1,10 @@
 (() => {
-  const canvas = document.getElementById("game");
-  if (!canvas) return;
+  const CANVAS = document.getElementById("game");
+  if (!CANVAS) return;
 
-  const ctx = canvas.getContext("2d");
-  const W = canvas.width;
-  const H = canvas.height;
+  const CONTEXT = CANVAS.getContext("2d");
+  const WIDTH = CANVAS.width;
+  const HEIGHT = CANVAS.height;
 
   // --- Input ---
   const keys = new Set();
@@ -16,8 +16,8 @@
 
   // --- Game state ---
   const player = {
-    x: W / 2,
-    y: H / 2,
+    x: WIDTH / 2,
+    y: HEIGHT / 2,
     r: 16,
     speed: 260 // pixels per second
   };
@@ -49,35 +49,35 @@
 
   function draw() {
     // background
-    ctx.clearRect(0, 0, W, H);
+    CONTEXT.clearRect(0, 0, WIDTH, HEIGHT);
 
     // subtle floor grid (optional but helps)
-    ctx.globalAlpha = 0.18;
-    for (let x = 0; x < W; x += 40) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, H);
-      ctx.stroke();
+    CONTEXT.globalAlpha = 0.18;
+    for (let x = 0; x < WIDTH; x += 40) {
+      CONTEXT.beginPath();
+      CONTEXT.moveTo(x, 0);
+      CONTEXT.lineTo(x, HEIGHT);
+      CONTEXT.stroke();
     }
-    for (let y = 0; y < H; y += 40) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(W, y);
-      ctx.stroke();
+    for (let y = 0; y < HEIGHT; y += 40) {
+      CONTEXT.beginPath();
+      CONTEXT.moveTo(0, y);
+      CONTEXT.lineTo(WIDTH, y);
+      CONTEXT.stroke();
     }
-    ctx.globalAlpha = 1;
+    CONTEXT.globalAlpha = 1;
 
     // player
-    ctx.beginPath();
-    ctx.arc(player.x, player.y, player.r, 0, Math.PI * 2);
-    ctx.fill();
+    CONTEXT.beginPath();
+    CONTEXT.arc(player.x, player.y, player.r, 0, Math.PI * 2);
+    CONTEXT.fill();
 
     // UI text
-    ctx.clearRect(0,0,0,0); // no-op, just keeping it simple
-    ctx.save();
-    ctx.font = "16px Open Sans, sans-serif";
-    ctx.fillText(`x: ${player.x.toFixed(0)}  y: ${player.y.toFixed(0)}`, 12, 24);
-    ctx.restore();
+    CONTEXT.clearRect(0,0,0,0); // no-op, just keeping it simple
+    CONTEXT.save();
+    CONTEXT.font = "16px Open Sans, sans-serif";
+    CONTEXT.fillText(`x: ${player.x.toFixed(0)}  y: ${player.y.toFixed(0)}`, 12, 24);
+    CONTEXT.restore();
   }
 
   function loop(now) {
