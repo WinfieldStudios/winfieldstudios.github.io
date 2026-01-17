@@ -25,6 +25,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+
 a {
   color: var(--rust);
   text-decoration: none;
@@ -276,24 +277,6 @@ h2 {
   color: var(--rust);
   font-weight: 600;
 }
-
-/* Game page */
-.game-wrap{
-  margin: 1rem auto 0;
-  max-width: 900px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(75,59,43,0.15);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-}
-
-#game{
-  display: block;
-  width: 100%;
-  height: auto;
-  background: #0f0f12; /* nice dark stage */
-}
-
 
 /* Footer */
 footer {
