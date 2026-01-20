@@ -20,29 +20,28 @@ body {
 
 .main {
   display: flex;
+  min-height: 150px;
 }
 
 .left {
+  display: grid;
+  place-items: center;
   width: 350px;
 }
 
-.middle {
-  width: 350px;
-  align-items: center;
+.left h3 {
+  display: flex;
   justify-content: space-between;
-}
-
-.middle h3 {
-  text-align: left;
+  align-items: center;
+  width: 350px;
   font-size: 30px;
 }
 
-/*
-.rock-image {
-  width: 64px;
-  height: 44px;
+.middle {
+  display: grid;
+  place-items: center;
+  width: 350px;
 }
-*/
 
 .rock-image:hover {
   opacity: 0.9;
@@ -55,17 +54,20 @@ body {
 }
 
 .right {
+  display: grid;
+  place-items: center;
   width: 350px;
+  min-height: 300px;
 }
 
 .upgrade {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 300px;
   height: 60px;
   border: 4px solid var(--dark-color);
-  padding: 5px 20px;
+  padding: 5px 10px;
   border-radius: 5px;
   background-color: var(--light-color);
 }
