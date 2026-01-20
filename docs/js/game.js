@@ -26,7 +26,7 @@ function updateRockCount() {
 }
 
 function incrementRocks() {
-  rockCount += 15
+  rockCount += 1
   updateRockCount()
   rockResourceDisplay.classList.remove("hidden")
 }
