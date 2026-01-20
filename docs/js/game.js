@@ -96,7 +96,7 @@ function load() {
     ironoreResourceDisplay.classList.remove("hidden")
     extractResourceDisplay.classList.remove("hidden")
   } else {
-    extractResourceDisplay.classList.remove("hidden")
+    extractResourceDisplay.classList.add("hidden")
   }
   if (ironoreCount + limestoneCount + coalCount == 0) {
     extractResourceDisplay.classList.add("hidden")
