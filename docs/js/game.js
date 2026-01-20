@@ -20,13 +20,15 @@ let extractCost = parseFloat(extractCostSource.innerHTML)
 
 function updateRockCount() {
   rockCountSource.innerHTML = rockCount
+  if (rockCount >= 15) {
+    extractResourceDisplay.classList.remove("hidden")
+  }
 }
 
 function incrementRocks() {
-  rockCount += 15
+  rockCount += 1
   updateRockCount()
   rockResourceDisplay.classList.remove("hidden")
-  extractResourceDisplay.classList.remove("hidden")
 }
 
 function buyExtract() {
