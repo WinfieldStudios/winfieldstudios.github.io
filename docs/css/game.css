@@ -9,7 +9,6 @@ html, body {
 
 body {
   display: grid;
-  justify-items: center;
   height: 100vh;
   margin: 0;
   padding: 30px;
@@ -19,7 +18,11 @@ body {
 }
 
 .main {
-  display: grid;
+  display: flex;
+}
+
+.left {
+  width: 300px;
 }
 
 .left h3 {
