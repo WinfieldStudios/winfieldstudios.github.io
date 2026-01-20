@@ -3,6 +3,10 @@
   --light-color:#F9F5F0;
 }
 
+html, body {
+    touch-action: manipulation;
+}
+
 body {
   display: grid;
   justify-items: center;
