@@ -20,7 +20,8 @@ body {
 }
 
 .rock-image {
-  width: 300px;
+  width: 64px;
+  height: 44px;
 }
 
 .rock-image:hover {
