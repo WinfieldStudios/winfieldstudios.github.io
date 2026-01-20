@@ -1,3 +1,4 @@
+let rockResourceDisplay = document.querySelector('.rock-resource-display')
 let rockCountSource = document.querySelector('.rock-count')
 let rockCount = parseFloat(rockCountSource.innerHTML)
 
@@ -7,8 +8,8 @@ let limestoneCount = parseFloat(limestoneCountSource.innerHTML)
 let coalCountSource = document.querySelector('.coal-count')
 let coalCount = parseFloat(coalCountSource.innerHTML)
 
-let ironCountSource = document.querySelector('.iron-count')
-let ironCount = parseFloat(ironCountSource.innerHTML)
+let ironoreCountSource = document.querySelector('.ironore-count')
+let ironoreCount = parseFloat(ironoreCountSource.innerHTML)
 
 let extractCostSource = document.querySelector('.extract-cost')
 let extractCost = parseFloat(extractCostSource.innerHTML)
@@ -18,7 +19,7 @@ function updateRockCount() {
 }
 
 function incrementRocks() {
-  rockCount += 1
+  rockCount += 15
   updateRockCount()
 }
 
@@ -28,6 +29,7 @@ function buyExtract() {
     updateRockCount()
 
     const roll = Math.floor(Math.random() * 10) + 1
+    console.log(roll)
     if (roll < 6) {
       limestoneCount += 1
       limestoneCountSource.innerHTML = limestoneCount
@@ -35,8 +37,8 @@ function buyExtract() {
       coalCount += 1
       coalCountSource.innerHTML = coalCount
     } else {
-      ironCount += 1
-      ironCountSource.innerHTML = ironCount
+      ironoreCount += 1
+      ironoreCountSource.innerHTML = ironoreCount
     }
   }
 }

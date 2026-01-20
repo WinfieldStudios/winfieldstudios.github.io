@@ -18,6 +18,8 @@ body {
   user-select: none;
 }
 
+.hidden { display: none !important; }
+
 .main {
   display: flex;
   min-height: 150px;
