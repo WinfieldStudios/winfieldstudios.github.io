@@ -9,9 +9,10 @@ html, body {
 
 body {
   display: grid;
-  height: 100vh;
+  place-items: center;
+  height: 98vh;
   margin: 0;
-  padding: 30px;
+  padding: 1vh;
   background-color: var(--light-color);
   color: var(--dark-color);
   user-select: none;
@@ -22,10 +23,16 @@ body {
 }
 
 .left {
-  width: 300px;
+  width: 350px;
 }
 
-.left h3 {
+.middle {
+  width: 350px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.middle h3 {
   text-align: left;
   font-size: 30px;
 }
@@ -47,7 +54,11 @@ body {
   transform: scale(1.02);
 }
 
-.extract {
+.right {
+  width: 350px;
+}
+
+.upgrade {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,11 +90,11 @@ body {
   margin: 0;
 }
 
-.extract-icon {
+.upgrade-icon {
   width: 50px;
 }
 
-.rock-icon {
+.cost-icon {
   width: 20px;
   height: 20px;
 }
