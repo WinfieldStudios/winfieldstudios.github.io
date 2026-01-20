@@ -4,14 +4,19 @@ let parsedRockCount = parseFloat(rockCount.innerHTML)
 let extractCost = document.querySelector('.extract-cost')
 let parsedExtractCost = parseFloat(extractCost.innerHTML)
 
+function updateRockCount() {
+  rockCount.innerHTML = parsedRockCount
+}
+
 function incrementRocks() {
   parsedRockCount += 1
-  rockCount.innerHTML = parsedRockCount
+  updateRockCount()
 }
 
 function buyExtract() {
   if (parsedRockCount >= parsedExtractCost) {
     parsedRockCount -= parsedExtractCost
-    rockCount.innerHTML = parsedRockCount
+    updateRockCount()
+    
   }
 }

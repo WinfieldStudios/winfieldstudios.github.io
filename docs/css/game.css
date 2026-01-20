@@ -52,7 +52,17 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
 }
+/*
+.extract:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
 
+.extract:active {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+*/
 .mid-section h4 {
   margin: 0;
   margin-bottom: 10px;
@@ -76,4 +86,8 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.right-section {
+  justify-items: right;
 }
