@@ -17,6 +17,5 @@ function buyExtract() {
   if (parsedRockCount >= parsedExtractCost) {
     parsedRockCount -= parsedExtractCost
     updateRockCount()
-    
   }
 }
