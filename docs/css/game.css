@@ -1,16 +1,22 @@
+:root {
+  --dark-color:#4B3B2B;
+  --light-color:#F9F5F0;
+}
+
 body {
   display: grid;
   place-items: center;
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: #F9F5F0;
-  color: #4B3B2B;
+  background-color: var(--light-color);
+  color: var(--dark-color);
   user-select: none;
 }
 
 .main {
   display: flex;
+  gap: 200px;
 }
 
 .left h3 {
@@ -34,4 +40,40 @@ body {
 .rock-image:active {
   opacity: 0.8;
   transform: scale(1.02);
+}
+
+.extract {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  height: 60px;
+  border: 4px solid var(--dark-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.mid-section h4 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.mid-section p {
+  margin: 0;
+}
+
+.extract-icon {
+  width: 55px;
+}
+
+.rock-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.cost-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
