@@ -26,7 +26,7 @@ function updateRockCount() {
 }
 
 function incrementRocks() {
-  rockCount += 1
+  rockCount += 15
   updateRockCount()
   rockResourceDisplay.classList.remove("hidden")
 }
@@ -52,4 +52,57 @@ function buyExtract() {
       ironoreResourceDisplay.classList.remove("hidden")
     }
   }
+}
+
+function save() {
+  localStorage.clear()
+
+  localStorage.setItem('rockCount', JSON.stringify(rockCount))
+  localStorage.setItem('limestoneCount', JSON.stringify(limestoneCount))
+  localStorage.setItem('coalCount', JSON.stringify(coalCount))
+  localStorage.setItem('ironoreCount', JSON.stringify(ironoreCount))
+}
+
+function load() {
+  rockCount = JSON.parse(localStorage.getItem('rockCount'))
+  limestoneCount = JSON.parse(localStorage.getItem('limestoneCount'))
+  coalCount = JSON.parse(localStorage.getItem('coalCount'))
+  ironoreCount = JSON.parse(localStorage.getItem('ironoreCount'))
+
+  rockCountSource.innerHTML = Math.round(rockCount)
+  limestoneCountSource.innerHTML = Math.round(limestoneCount)
+  coalCountSource.innerHTML = Math.round(coalCount)
+  ironoreCountSource.innerHTML = Math.round(ironoreCount)
+
+  
+  if (rockCount > 0) {
+    rockResourceDisplay.classList.remove("hidden")
+  } else {
+    rockResourceDisplay.classList.add("hidden")
+  }
+  if (limestoneCount > 0) {
+    limestoneResourceDisplay.classList.remove("hidden")
+    extractResourceDisplay.classList.remove("hidden")
+  } else {
+    extractResourceDisplay.classList.add("hidden")
+  }
+  if (coalCount > 0) {
+    coalResourceDisplay.classList.remove("hidden")
+    extractResourceDisplay.classList.remove("hidden")
+  } else {
+    extractResourceDisplay.classList.add("hidden")
+  }
+  if (ironoreCount > 0) {
+    ironoreResourceDisplay.classList.remove("hidden")
+    extractResourceDisplay.classList.remove("hidden")
+  } else {
+    extractResourceDisplay.classList.remove("hidden")
+  }
+  if (ironoreCount + limestoneCount + coalCount == 0) {
+    extractResourceDisplay.classList.add("hidden")
+  }
+}
+
+function reset() {
+  localStorage.clear()
 }
