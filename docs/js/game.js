@@ -105,4 +105,5 @@ function load() {
 
 function reset() {
   localStorage.clear()
+  load()
 }

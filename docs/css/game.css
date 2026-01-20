@@ -16,6 +16,7 @@ body {
   background-color: var(--light-color);
   color: var(--dark-color);
   user-select: none;
+  /* cursor: url("/assets/cursors/pickaxe.png") 16 16, auto; */
 }
 
 .main {
@@ -132,6 +133,7 @@ body {
   font-weight: 600;
   font-family: inherit;
   border-radius: 6px;
+  background-color: var(--light-color);
 }
 
 .util-button:hover {
