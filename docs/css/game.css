@@ -5,18 +5,17 @@
 
 body {
   display: grid;
-  place-items: center;
+  justify-items: center;
   height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 30px;
   background-color: var(--light-color);
   color: var(--dark-color);
   user-select: none;
 }
 
 .main {
-  display: flex;
-  gap: 200px;
+  display: grid;
 }
 
 .left h3 {
