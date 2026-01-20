@@ -14,6 +14,7 @@ let ironoreResourceDisplay = document.querySelector('.ironore-resource-display')
 let ironoreCountSource = document.querySelector('.ironore-count')
 let ironoreCount = parseFloat(ironoreCountSource.innerHTML)
 
+let extractResourceDisplay = document.querySelector('.extract-resource-display')
 let extractCostSource = document.querySelector('.extract-cost')
 let extractCost = parseFloat(extractCostSource.innerHTML)
 
@@ -25,6 +26,7 @@ function incrementRocks() {
   rockCount += 15
   updateRockCount()
   rockResourceDisplay.classList.remove("hidden")
+  extractResourceDisplay.classList.remove("hidden")
 }
 
 function buyExtract() {
