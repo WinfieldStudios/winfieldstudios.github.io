@@ -1,49 +1,99 @@
-const COST_EXTRACT = 15
+// 
+// DATA
+
 let rocksPerClick = 1
-
-let rockResourceDisplay = document.querySelector('.rock-resource-display')
-let rockCountSource = document.querySelector('.rock-count')
-let rockCount = parseFloat(rockCountSource.innerHTML)
-
-let limestoneResourceDisplay = document.querySelector('.limestone-resource-display')
-let limestoneCountSource = document.querySelector('.limestone-count')
-let limestoneCount = parseFloat(limestoneCountSource.innerHTML)
-
-let coalResourceDisplay = document.querySelector('.coal-resource-display')
-let coalCountSource = document.querySelector('.coal-count')
-let coalCount = parseFloat(coalCountSource.innerHTML)
-
-let ironoreResourceDisplay = document.querySelector('.ironore-resource-display')
-let ironoreCountSource = document.querySelector('.ironore-count')
-let ironoreCount = parseFloat(ironoreCountSource.innerHTML)
-
-let extractButton = document.querySelector('.extract-button')
-let extractCostSource = document.querySelector('.extract-cost')
-let extractCost = parseFloat(extractCostSource.innerHTML)
+let globalPurchaseMultiplier = 1
 
 let rockImageContainer = document.querySelector('.rock-image-container')
 
+/* how to iterate through this dataset in javascript:
+for (const res of Object.values(resources)) {
+  console.log(res.name)
+}
+*/
+const resources = {
+  rocks: {
+    name: 'rocks',
+    countSource: document.querySelector('.rock-count'),
+    displayContainer: document.querySelector('.rock-resource-display'),
+    get count() {
+      return parseFloat(document.querySelector('.rock-count').innerHTML)
+    },
+    set count(value) {
+      this.countSource.innerHTML = value
+    }
+  },
+  limestone: {
+    name: 'limestone',
+    countSource: document.querySelector('.limestone-count'),
+    displayContainer: document.querySelector('.limestone-resource-display'),
+    get count() {
+      return parseFloat(document.querySelector('.limestone-count').innerHTML)
+    },
+    set count(value) {
+      this.countSource.innerHTML = value
+    }
+  },
+  coal: {
+    name: 'coal',
+    countSource: document.querySelector('.coal-count'),
+    displayContainer: document.querySelector('.coal-resource-display'),
+    get count() {
+      return parseFloat(document.querySelector('.coal-count').innerHTML)
+    },
+    set count(value) {
+      this.countSource.innerHTML = value
+    }
+  },
+  ironore: {
+    name: 'ironore',
+    countSource: document.querySelector('.ironore-count'),
+    displayContainer: document.querySelector('.ironore-resource-display'),
+    get count() {
+      return parseFloat(document.querySelector('.ironore-count').innerHTML)
+    },
+    set count(value) {
+      this.countSource.innerHTML = value
+    }
+  }
+}
 
+const { rocks, limestone, coal, ironore } = resources
 
+const purchasables = {
+  extract: {
+    name: 'extract',
+    level: 0,
+    costSource: document.querySelector('.extract-cost'),
+    button: document.querySelector('.extract-button'),
+    get cost() {
+      return parseFloat(document.querySelector('.extract-cost').innerHTML)
+    },
+    set cost(value) {
+      this.costSource.innerHTML = value
+    }
+  }
+}
 
+const { extract } = purchasables
 
-
-
+//
+// CLICKING THE ROCK
 
 function updateRockCount() {
-  rockCountSource.innerHTML = rockCount
-  if (rockCount >= COST_EXTRACT) {
-    extractButton.classList.remove("hidden")
-    extractButton.classList.add("purchasable")
+  rocks.countSource.innerHTML = rocks.count
+  if (rocks.count >= extract.cost * globalPurchaseMultiplier) {
+    extract.button.classList.remove("hidden")
+    extract.button.classList.add("purchasable")
   } else {
-    extractButton.classList.remove("purchasable")
+    extract.button.classList.remove("purchasable")
   }
 }
 
 function incrementRocks(event) {
-  rockCount += rocksPerClick
+  rocks.count += rocksPerClick
   updateRockCount()
-  rockResourceDisplay.classList.remove("hidden")
+  rocks.displayContainer.classList.remove("hidden")
 
   const x = event.offsetX + (Math.floor(Math.random() * 20) + 1) * (Math.floor(Math.random() * 2) == 0 ? 1 : -1)
   const y = event.offsetY - (80 + Math.floor(Math.random() * 30) + 1)
@@ -64,87 +114,81 @@ const timeout = (div) => {
   }, 800)
 }
 
+//
+// PURCHASABLES
+
 function buyExtract() {
-  if (rockCount >= extractCost) {
-    rockCount -= extractCost
+  if (rocks.count >= extract.cost * globalPurchaseMultiplier) {
+    rocks.count -= extract.cost * globalPurchaseMultiplier
     updateRockCount()
 
     const roll = Math.floor(Math.random() * 10) + 1
-    console.log(roll)
+    
     if (roll <= 6) {
-      limestoneCount += 1
-      limestoneCountSource.innerHTML = limestoneCount
-      limestoneResourceDisplay.classList.remove("hidden")
+      limestone.count += 1
+      limestone.countSource.innerHTML = limestone.count
+      limestone.displayContainer.classList.remove("hidden")
     } else if (roll <= 9) {
-      coalCount += 1
-      coalCountSource.innerHTML = coalCount
-      coalResourceDisplay.classList.remove("hidden")
+      coal.count += 1
+      coal.countSource.innerHTML = coal.count
+      coal.displayContainer.classList.remove("hidden")
     } else {
-      ironoreCount += 1
-      ironoreCountSource.innerHTML = ironoreCount
-      ironoreResourceDisplay.classList.remove("hidden")
+      ironore.count += 1
+      ironore.countSource.innerHTML = ironore.count
+      ironore.displayContainer.classList.remove("hidden")
     }
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//
+// SAVE AND LOAD
 
 function save() {
   localStorage.clear()
 
-  localStorage.setItem('rockCount', JSON.stringify(rockCount))
-  localStorage.setItem('limestoneCount', JSON.stringify(limestoneCount))
-  localStorage.setItem('coalCount', JSON.stringify(coalCount))
-  localStorage.setItem('ironoreCount', JSON.stringify(ironoreCount))
+  localStorage.setItem('rockCount', JSON.stringify(rocks.count))
+  localStorage.setItem('limestoneCount', JSON.stringify(limestone.count))
+  localStorage.setItem('coalCount', JSON.stringify(coal.count))
+  localStorage.setItem('ironoreCount', JSON.stringify(ironore.count))
 }
 
 function load() {
-  rockCount = JSON.parse(localStorage.getItem('rockCount'))
-  limestoneCount = JSON.parse(localStorage.getItem('limestoneCount'))
-  coalCount = JSON.parse(localStorage.getItem('coalCount'))
-  ironoreCount = JSON.parse(localStorage.getItem('ironoreCount'))
+  rocks.count = JSON.parse(localStorage.getItem('rockCount'))
+  limestone.count = JSON.parse(localStorage.getItem('limestoneCount'))
+  coal.count = JSON.parse(localStorage.getItem('coalCount'))
+  ironore.count = JSON.parse(localStorage.getItem('ironoreCount'))
 
-  rockCountSource.innerHTML = Math.round(rockCount)
-  limestoneCountSource.innerHTML = Math.round(limestoneCount)
-  coalCountSource.innerHTML = Math.round(coalCount)
-  ironoreCountSource.innerHTML = Math.round(ironoreCount)
+  rocks.countSource.innerHTML = Math.round(rocks.count)
+  limestone.countSource.innerHTML = Math.round(limestone.count)
+  coal.countSource.innerHTML = Math.round(coal.count)
+  ironore.countSource.innerHTML = Math.round(ironore.count)
 
   
-  if (rockCount > 0) {
-    rockResourceDisplay.classList.remove("hidden")
+  if (rocks.count > 0) {
+    rocks.displayContainer.classList.remove("hidden")
   } else {
-    rockResourceDisplay.classList.add("hidden")
+    rocks.displayContainer.classList.add("hidden")
   }
-  if (limestoneCount > 0) {
-    limestoneResourceDisplay.classList.remove("hidden")
-    extractButton.classList.remove("hidden")
+  if (limestone.count > 0) {
+    limestone.displayContainer.classList.remove("hidden")
+    extract.button.classList.remove("hidden")
   }
-  if (coalCount > 0) {
-    coalResourceDisplay.classList.remove("hidden")
-    extractButton.classList.remove("hidden")
+  if (coal.count > 0) {
+    coal.displayContainer.classList.remove("hidden")
+    extract.button.classList.remove("hidden")
   }
-  if (ironoreCount > 0) {
-    ironoreResourceDisplay.classList.remove("hidden")
-    extractButton.classList.remove("hidden")
+  if (ironore.count > 0) {
+    ironore.displayContainer.classList.remove("hidden")
+    extract.button.classList.remove("hidden")
   }
-  if (ironoreCount + limestoneCount + coalCount == 0) {
-    extractButton.classList.add("hidden")
+  if (ironore.count + limestone.count + coal.count == 0) {
+    extract.button.classList.add("hidden")
   }
-  if (rockCount >= COST_EXTRACT) {
-    extractButton.classList.add("purchasable")
-    extractButton.classList.remove("hidden")
+  if (rocks.count >= extract.cost) {
+    extract.button.classList.add("purchasable")
+    extract.button.classList.remove("hidden")
+  } else {
+    extract.button.classList.remove("purchasable")
   }
 }
 
