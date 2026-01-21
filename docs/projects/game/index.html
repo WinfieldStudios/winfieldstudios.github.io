@@ -20,10 +20,12 @@
   <section>
     <div class="main">
       <div class="left">
+
+
         <h3 class="rock-resource-display hidden">
           <span>Rocks:</span>
           <span>
-            <span class="resource-count rock-count">1000</span>
+            <span class="resource-count rock-count">0</span>
             <img src="/assets/images/rock/prototype/pebble_1.png" alt="" class="cost-icon" draggable="false">
           </span>
         </h3>
@@ -41,6 +43,13 @@
             <img src="/assets/icons/coal.png" alt="" class="cost-icon" draggable="false">
           </span>
         </h3>
+        <h3 class="coke-resource-display hidden">
+          <span>Coke:</span>
+          <span>
+            <span class="resource-count coke-count">0</span>
+            <img src="/assets/icons/placeholder.png" alt="" class="cost-icon" draggable="false">
+          </span>
+        </h3>
         <h3 class="ironore-resource-display hidden">
           <span>Iron Ore:</span>
           <span>
@@ -48,30 +57,133 @@
             <img src="/assets/icons/iron_ore.png" alt="" class="cost-icon" draggable="false">
           </span>
         </h3>
+        <h3 class="pigiron-resource-display hidden">
+          <span>Pig Iron:</span>
+          <span>
+            <span class="resource-count pigiron-count">0</span>
+            <img src="/assets/icons/pig_iron.png" alt="" class="cost-icon" draggable="false">
+          </span>
+        </h3>
+        <h3 class="steel-resource-display hidden">
+          <span>Steel:</span>
+          <span>
+            <span class="resource-count steel-count">0</span>
+            <img src="/assets/icons/placeholder.png" alt="" class="cost-icon" draggable="false">
+          </span>
+        </h3>
       </div>
+
+
       <div class="middle">
         <div class="rock-image-container">
-          <img src="/assets/images/rock/prototype/pebble_2.png" alt="" srcset="" class="rock-image" onclick="incrementRocks(event)" draggable="false">
+          <img src="/assets/images/rock/prototype/pebble_2.png" alt="" srcset="" class="rock-image" onclick="clickOnRock(event)" draggable="false">
         </div>
       </div>
+
+
       <div class="right">
-        <div class="extract-button upgrade hidden" onclick="buyExtract()">
+        <div class="extract-button purchasable hidden" onclick="purchaseExtract()">
           <div class="left-section">
-            <img src="/assets/icons/extract.png" alt="" srcset="" class="upgrade-icon" draggable="false">
+            <img src="/assets/icons/extract.png" alt="" srcset="" class="purchasable-icon" draggable="false">
           </div>
           <div class="mid-section">
             <h4>EXTRACT</h4>
             <div class="cost-info">
-              <p>Cost: <span class="extract-cost">15</span></p>
+              <span class="extract-cost">15</span>
               <img src="/assets/images/rock/prototype/pebble_1.png" alt="" class="cost-icon" draggable="false">
             </div>
           </div>
           <div class="right-section">
-            x<span class="multiplier">1</span>
+            x<span class="multiplier">1</span><!---->
+          </div>
+        </div>
+        <div class="reinvest-button purchasable hidden">
+          <div class="left-section">
+            <img src="/assets/icons/rock_upgrade.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h4>REINVEST</h4>
+            <div class="cost-info">
+              <span class="purchasable-cost">10</span>
+              <img src="/assets/icons/limestone.png" alt="" class="cost-icon" draggable="false">
+              <span class="purchasable-cost  hidden">0</span>
+              <img src="/assets/icons/pig_iron.png" alt="" class="cost-icon  hidden" draggable="false">
+            </div>
+          </div>
+          <div class="right-section">
+            x<span class="multiplier">1</span><!---->
+          </div>
+        </div>
+        <div class="roast-button purchasable hidden">
+          <div class="left-section">
+            <img src="/assets/icons/placeholder.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h4>ROAST</h4>
+            <div class="cost-info">
+              <span class="roast-cost">2</span>
+              <img src="/assets/icons/coal.png" alt="" class="cost-icon" draggable="false">
+            </div>
+          </div>
+          <div class="right-section">
+            x<span class="multiplier">1</span><!---->
+          </div>
+        </div>
+        <div class="blast-button purchasable hidden">
+          <div class="left-section">
+            <img src="/assets/icons/placeholder.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h4>BLAST</h4>
+            <div class="cost-info">
+              <span class="blast-cost">10</span>
+              <img src="/assets/icons/placeholder.png" alt="" class="cost-icon" draggable="false">
+              <span class="blast-cost">2</span>
+              <img src="/assets/icons/pig_iron.png" alt="" class="cost-icon" draggable="false">
+            </div>
+          </div>
+          <div class="right-section">
+            x<span class="multiplier">1</span><!---->
+          </div>
+        </div>
+        <div class="smelt-button purchasable hidden">
+          <div class="left-section">
+            <img src="/assets/icons/smelt.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h4>SMELT</h4>
+            <div class="cost-info">
+              <span class="smelt-cost">4</span>
+              <img src="/assets/icons/iron_ore.png" alt="" class="cost-icon" draggable="false">
+              <span class="smelt-cost">2</span>
+              <img src="/assets/icons/placeholder.png" alt="" class="cost-icon" draggable="false">
+              <span class="smelt-cost">1</span>
+              <img src="/assets/icons/limestone.png" alt="" class="cost-icon" draggable="false">
+            </div>
+          </div>
+          <div class="right-section">
+            x<span class="multiplier">1</span><!---->
+          </div>
+        </div>
+        <div class="hire-button purchasable hidden">
+          <div class="left-section">
+            <img src="/assets/icons/worker.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h4>HIRE</h4>
+            <div class="cost-info">
+              <p>Cost: <span class="hire-cost">1</span></p>
+              <img src="/assets/icons/pig_iron.png" alt="" class="cost-icon" draggable="false">
+            </div>
+          </div>
+          <div class="right-section">
+            x<span class="multiplier">1</span><!---->
           </div>
         </div>
       </div>
     </div>
+    
+
     <div class="util-buttons">
       <button class="util-button" onclick="save()">
         Save
