@@ -16,6 +16,7 @@ body {
   background-color: var(--light-color);
   color: var(--dark-color);
   user-select: none;
+  font-family: fantasy;
   /* cursor: url("/assets/cursors/pickaxe.png") 16 16, auto; */
 }
 
@@ -36,18 +37,29 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 95%;
-  font-size: 30px;
+  font-size: 24px;
   border: 1px solid var(--dark-color);
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
   margin: 2px;
+  color: var(--dark-color);
+  box-shadow: 2px 2px 6px var(--dark-color);
+}
+
+.resource-count {
+  color: var(--dark-color);
+  font-weight: 700;
 }
 
 .middle {
   display: grid;
   place-items: center;
   width: 350px;
+}
+
+.rock-image-container {
+  position: relative;
 }
 
 .rock-image:hover {
@@ -76,6 +88,8 @@ body {
   padding: 10px;
   border-radius: 5px;
   background-color: var(--light-color);
+  box-shadow: 2px 2px 6px var(--dark-color);
+  opacity: 0.5;
 }
 /*
 .extract:hover {
@@ -111,6 +125,7 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
+  font-weight: 700;
 }
 
 .right-section {
@@ -118,6 +133,32 @@ body {
 }
 
 .hidden { visibility: hidden !important; }
+.purchasable {
+  opacity: 1;
+}
+.purchasable:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+.purchasable:active {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+
+.fade-up {
+  animation: fade-up 1s;
+}
+
+@keyframes fade-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-65px);
+    opacity: 0;
+  }
+}
 
 .util-buttons {
   position: absolute;
@@ -134,6 +175,7 @@ body {
   font-family: inherit;
   border-radius: 6px;
   background-color: var(--light-color);
+  box-shadow: 1px 1px 1px var(--dark-color);
 }
 
 .util-button:hover {

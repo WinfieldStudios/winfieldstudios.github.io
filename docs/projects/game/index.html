@@ -23,42 +23,44 @@
         <h3 class="rock-resource-display hidden">
           <span>Rocks:</span>
           <span>
-            <span class="rock-count">0</span>
+            <span class="resource-count rock-count">0</span>
             <img src="/assets/images/rock/prototype/pebble_1.png" alt="" class="cost-icon" draggable="false">
           </span>
         </h3>
         <h3 class="limestone-resource-display hidden">
           <span>Limestone:</span>
           <span>
-            <span class="limestone-count">0</span>
+            <span class="resource-count limestone-count">0</span>
             <img src="/assets/icons/limestone.png" alt="" class="cost-icon" draggable="false">
           </span>
         </h3>
         <h3 class="coal-resource-display hidden">
           <span>Coal:</span>
           <span>
-            <span class="coal-count">0</span>
+            <span class="resource-count coal-count">0</span>
             <img src="/assets/icons/coal.png" alt="" class="cost-icon" draggable="false">
           </span>
         </h3>
         <h3 class="ironore-resource-display hidden">
           <span>Iron Ore:</span>
           <span>
-            <span class="ironore-count">0</span>
+            <span class="resource-count ironore-count">0</span>
             <img src="/assets/icons/iron_ore.png" alt="" class="cost-icon" draggable="false">
           </span>
         </h3>
       </div>
       <div class="middle">
-        <img src="/assets/images/rock/prototype/pebble_2.png" alt="" srcset="" class="rock-image" onclick="incrementRocks()" draggable="false">
+        <div class="rock-image-container">
+          <img src="/assets/images/rock/prototype/pebble_2.png" alt="" srcset="" class="rock-image" onclick="incrementRocks(event)" draggable="false">
+        </div>
       </div>
       <div class="right">
-        <div class="extract-resource-display upgrade hidden" onclick="buyExtract()">
+        <div class="extract-button upgrade hidden" onclick="buyExtract()">
           <div class="left-section">
             <img src="/assets/icons/extract.png" alt="" srcset="" class="upgrade-icon" draggable="false">
           </div>
           <div class="mid-section">
-            <h4>Extract</h4>
+            <h4>EXTRACT</h4>
             <div class="cost-info">
               <p>Cost: <span class="extract-cost">15</span></p>
               <img src="/assets/images/rock/prototype/pebble_1.png" alt="" class="cost-icon" draggable="false">

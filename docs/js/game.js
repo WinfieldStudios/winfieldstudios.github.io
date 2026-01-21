@@ -1,3 +1,6 @@
+const COST_EXTRACT = 15
+let rocksPerClick = 1
+
 let rockResourceDisplay = document.querySelector('.rock-resource-display')
 let rockCountSource = document.querySelector('.rock-count')
 let rockCount = parseFloat(rockCountSource.innerHTML)
@@ -14,21 +17,51 @@ let ironoreResourceDisplay = document.querySelector('.ironore-resource-display')
 let ironoreCountSource = document.querySelector('.ironore-count')
 let ironoreCount = parseFloat(ironoreCountSource.innerHTML)
 
-let extractResourceDisplay = document.querySelector('.extract-resource-display')
+let extractButton = document.querySelector('.extract-button')
 let extractCostSource = document.querySelector('.extract-cost')
 let extractCost = parseFloat(extractCostSource.innerHTML)
 
+let rockImageContainer = document.querySelector('.rock-image-container')
+
+
+
+
+
+
+
+
 function updateRockCount() {
   rockCountSource.innerHTML = rockCount
-  if (rockCount >= 15) {
-    extractResourceDisplay.classList.remove("hidden")
+  if (rockCount >= COST_EXTRACT) {
+    extractButton.classList.remove("hidden")
+    extractButton.classList.add("purchasable")
+  } else {
+    extractButton.classList.remove("purchasable")
   }
 }
 
-function incrementRocks() {
-  rockCount += 1
+function incrementRocks(event) {
+  rockCount += rocksPerClick
   updateRockCount()
   rockResourceDisplay.classList.remove("hidden")
+
+  const x = event.offsetX + (Math.floor(Math.random() * 20) + 1) * (Math.floor(Math.random() * 2) == 0 ? 1 : -1)
+  const y = event.offsetY - (80 + Math.floor(Math.random() * 30) + 1)
+
+  const div = document.createElement('div')
+  div.innerHTML = `+${Math.round(rocksPerClick)}`
+  div.style.cssText = `color: var(--dark-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
+  rockImageContainer.appendChild(div)
+
+  div.classList.add('fade-up')
+
+  timeout(div)
+}
+
+const timeout = (div) => {
+  setTimeout(() => {
+    div.remove()
+  }, 800)
 }
 
 function buyExtract() {
@@ -53,6 +86,20 @@ function buyExtract() {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function save() {
   localStorage.clear()
@@ -82,24 +129,22 @@ function load() {
   }
   if (limestoneCount > 0) {
     limestoneResourceDisplay.classList.remove("hidden")
-    extractResourceDisplay.classList.remove("hidden")
-  } else {
-    extractResourceDisplay.classList.add("hidden")
+    extractButton.classList.remove("hidden")
   }
   if (coalCount > 0) {
     coalResourceDisplay.classList.remove("hidden")
-    extractResourceDisplay.classList.remove("hidden")
-  } else {
-    extractResourceDisplay.classList.add("hidden")
+    extractButton.classList.remove("hidden")
   }
   if (ironoreCount > 0) {
     ironoreResourceDisplay.classList.remove("hidden")
-    extractResourceDisplay.classList.remove("hidden")
-  } else {
-    extractResourceDisplay.classList.add("hidden")
+    extractButton.classList.remove("hidden")
   }
   if (ironoreCount + limestoneCount + coalCount == 0) {
-    extractResourceDisplay.classList.add("hidden")
+    extractButton.classList.add("hidden")
+  }
+  if (rockCount >= COST_EXTRACT) {
+    extractButton.classList.add("purchasable")
+    extractButton.classList.remove("hidden")
   }
 }
 
