@@ -104,7 +104,7 @@ const purchasables = {
         name: "coal",
         source: document.querySelector('.smelt-cost-coal'),
         get amount() {
-          return parseFloat(document.querySelector('.smelt-cost-coke').innerHTML)
+          return parseFloat(document.querySelector('.smelt-cost-coal').innerHTML)
         },
         set amount(value) {
           this.source.innerHTML = value
@@ -193,7 +193,7 @@ const resources = {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
-      roast.button.classList.remove("hidden")
+      blast.button.classList.remove("hidden")
     }
   },
   ironore: {
