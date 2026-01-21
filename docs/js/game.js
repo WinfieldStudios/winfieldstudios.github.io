@@ -4,6 +4,7 @@
 let rockLevel = 1
 let pickaxeLevel = 1
 let rocksPerClick = 1
+let workers = 0
 let globalPurchaseMultiplier = 1
 
 let rockImageContainer = document.querySelector('.rock-image-container')
@@ -17,78 +18,148 @@ const purchasables = {
   extract: {
     name: 'extract',
     level: 0,
-    costSource: document.querySelector('.extract-cost'),
-    button: document.querySelector('.extract-button'),
-    get cost() {
-      return parseFloat(document.querySelector('.extract-cost').innerHTML)
+    costs: {
+      rocks: {
+        name: "rocks",
+        source: document.querySelector('.extract-cost'),
+        get amount() {
+          return parseFloat(document.querySelector('.extract-cost').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      }
     },
-    set cost(value) {
-      this.costSource.innerHTML = value
-    }
+    button: document.querySelector('.extract-button')
   },
-  upgrade: {
-    name: 'upgrade',
+  reinvest: {
+    name: 'reinvest',
     level: 0,
-    costSource: document.querySelector('.upgrade-cost'),
-    button: document.querySelector('.upgrade-button'),
-    get cost() {
-      return parseFloat(document.querySelector('.upgrade-cost').innerHTML)
+    costs: {
+      limestone: {
+        name: "limestone",
+        source: document.querySelector('.reinvest-cost-limestone'),
+        get amount() {
+          return parseFloat(document.querySelector('.reinvest-cost-limestone').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      },
+      steel: {
+        name: "steel",
+        source: document.querySelector('.reinvest-cost-steel'),
+        get amount() {
+          return parseFloat(document.querySelector('.reinvest-cost-steel').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      }
     },
-    set cost(value) {
-      this.costSource.innerHTML = value
-    }
+    button: document.querySelector('.reinvest-button'),
   },
   roast: {
     name: 'roast',
     level: 0,
-    costSource: document.querySelector('.roast-cost'),
-    button: document.querySelector('.roast-button'),
-    get cost() {
-      return parseFloat(document.querySelector('.roast-cost').innerHTML)
+    costs: {
+      coal: {
+        name: "coal",
+        source: document.querySelector('.roast-cost'),
+        get amount() {
+          return parseFloat(document.querySelector('.roast-cost').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      }
     },
-    set cost(value) {
-      this.costSource.innerHTML = value
-    }
+    button: document.querySelector('.roast-button')
   },
   blast: {
     name: 'blast',
     level: 0,
-    costSource: document.querySelector('.blast-cost'),
-    button: document.querySelector('.blast-button'),
-    get cost() {
-      return parseFloat(document.querySelector('.blast-cost').innerHTML)
+    costs: {
+      coke: {
+        name: "coke",
+        source: document.querySelector('.blast-cost-coke'),
+        get amount() {
+          return parseFloat(document.querySelector('.blast-cost-coke').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      },
+      pigiron: {
+        name: "pigiron",
+        source: document.querySelector('.blast-cost-pigiron'),
+        get amount() {
+          return parseFloat(document.querySelector('.blast-cost-pigiron').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      }
     },
-    set cost(value) {
-      this.costSource.innerHTML = value
-    }
+    button: document.querySelector('.blast-button'),
   },
   smelt: {
     name: 'smelt',
     level: 0,
-    costSource: document.querySelector('.smelt-cost'),
-    button: document.querySelector('.smelt-button'),
-    get cost() {
-      return parseFloat(document.querySelector('.smelt-cost').innerHTML)
+    costs: {
+      ironore: {
+        name: "ironore",
+        source: document.querySelector('.smelt-cost-ironore'),
+        get amount() {
+          return parseFloat(document.querySelector('.smelt-cost-ironore').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      },
+      coke: {
+        name: "coke",
+        source: document.querySelector('.smelt-cost-coke'),
+        get amount() {
+          return parseFloat(document.querySelector('.smelt-cost-coke').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      },
+      limestone: {
+        name: "limestone",
+        source: document.querySelector('.smelt-cost-limestone'),
+        get amount() {
+          return parseFloat(document.querySelector('.smelt-cost-limestone').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      }
     },
-    set cost(value) {
-      this.costSource.innerHTML = value
-    }
+    button: document.querySelector('.smelt-button'),
   },
   hire: {
     name: 'hire',
     level: 0,
-    costSource: document.querySelector('.hire-cost'),
-    button: document.querySelector('.hire-button'),
-    get cost() {
-      return parseFloat(document.querySelector('.hire-cost').innerHTML)
+    costs: {
+      pigiron: {
+        name: "pigiron",
+        source: document.querySelector('.hire-cost'),
+        get amount() {
+          return parseFloat(document.querySelector('.hire-cost').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      }
     },
-    set cost(value) {
-      this.costSource.innerHTML = value
-    }
+    button: document.querySelector('.hire-button')
   }
 }
 
-const { extract, upgrade, roast, blast, smelt, hire } = purchasables
+const { extract, reinvest, roast, blast, smelt, hire } = purchasables
 
 const resources = {
   rocks: {
@@ -100,16 +171,12 @@ const resources = {
       return parseFloat(document.querySelector('.rock-count').innerHTML)
     },
     set count(value) {
+      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
-      if (rocks.count >= extract.cost * globalPurchaseMultiplier) {
-        extract.button.classList.remove("hidden")
-        extract.button.classList.add("enabled")
-      } else {
-        extract.button.classList.remove("enabled")
-      }
+      extract.button.classList.remove("hidden")
     }
   },
   limestone: {
@@ -121,10 +188,12 @@ const resources = {
       return parseFloat(document.querySelector('.limestone-count').innerHTML)
     },
     set count(value) {
+      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
+      reinvest.button.classList.remove("hidden")
     }
   },
   coal: {
@@ -136,10 +205,12 @@ const resources = {
       return parseFloat(document.querySelector('.coal-count').innerHTML)
     },
     set count(value) {
+      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
+      roast.button.classList.remove("hidden")
     }
   },
   coke: {
@@ -151,10 +222,12 @@ const resources = {
       return parseFloat(document.querySelector('.coke-count').innerHTML)
     },
     set count(value) {
+      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
+      blast.button.classList.remove("hidden")
     }
   },
   ironore: {
@@ -166,10 +239,12 @@ const resources = {
       return parseFloat(document.querySelector('.ironore-count').innerHTML)
     },
     set count(value) {
+      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
+      smelt.button.classList.remove("hidden")
     }
   },
   pigiron: {
@@ -181,10 +256,12 @@ const resources = {
       return parseFloat(document.querySelector('.pigiron-count').innerHTML)
     },
     set count(value) {
+      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
+      hire.button.classList.remove("hidden")
     }
   },
   steel: {
@@ -196,6 +273,7 @@ const resources = {
       return parseFloat(document.querySelector('.steel-count').innerHTML)
     },
     set count(value) {
+      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
@@ -211,7 +289,6 @@ const { rocks, limestone, coal, coke, ironore, pigiron, steel } = resources
 
 function clickOnRock(event) {
   rocks.count += rocksPerClick
-  rocks.displayContainer.classList.remove("hidden")
 
   const x = event.offsetX + (Math.floor(Math.random() * 20) + 1) * (Math.floor(Math.random() * 2) == 0 ? 1 : -1)
   const y = event.offsetY - (50 + Math.floor(Math.random() * 30) + 1)
@@ -230,32 +307,127 @@ const timeout = (div) => {
   setTimeout(() => {
     div.remove()
   }, 800)
+  
+  checkPurchasables()
 }
 
 //
 // PURCHASABLES
 
-function purchaseExtract() {
-  if (rocks.count >= extract.cost * globalPurchaseMultiplier) {
-    rocks.count -= extract.cost * globalPurchaseMultiplier
-
-    const roll = Math.floor(Math.random() * 10) + 1
-    
-    if (roll <= 6) {
-      limestone.count += 1
-      limestone.countSource.innerHTML = limestone.count
-      limestone.displayContainer.classList.remove("hidden")
-    } else if (roll <= 9) {
-      coal.count += 1
-      coal.countSource.innerHTML = coal.count
-      coal.displayContainer.classList.remove("hidden")
-    } else {
-      ironore.count += 1
-      ironore.countSource.innerHTML = ironore.count
-      ironore.displayContainer.classList.remove("hidden")
+function checkPurchasables() {
+  for (const purchasable of Object.values(purchasables)) {
+    purchasable.button.classList.add("enabled")
+    for (const cost of Object.values(purchasable.costs)) {
+      const resource = resources[cost.name]
+      if (!resource) {
+        console.log("Unknown resource: ", cost.name)
+      } else {
+        if (resource.count < cost.amount) {
+          purchasable.button.classList.remove("enabled")
+        }
+      }
     }
   }
 }
+
+function purchaseExtract() {
+  if (rocks.count >= extract.costs.rocks.amount * globalPurchaseMultiplier) {
+    rocks.count -= extract.costs.rocks.amount * globalPurchaseMultiplier
+
+    const roll = Math.floor(Math.random() * 10) + 1
+    
+    if (globalPurchaseMultiplier < 10000) {
+      for (let i = 0; i < globalPurchaseMultiplier; i++) {
+        if (roll <= 6) {
+          limestone.count++
+        } else if (roll <= 9) {
+          coal.count++
+        } else {
+          ironore.count++
+        }
+      }
+    } else {
+      limestone.count += parseInt(0.6 * globalPurchaseMultiplier)
+      coal.count += parseInt(0.3 * globalPurchaseMultiplier)
+      ironore.count += parseInt(0.1 * globalPurchaseMultiplier)
+    }
+
+    extract.level += globalPurchaseMultiplier
+    checkPurchasables()
+  }
+}
+
+function purchaseReinvest() {
+  if (limestone.count >= reinvest.costs.limestone.amount * globalPurchaseMultiplier && steel.count >= reinvest.costs.steel.amount * globalPurchaseMultiplier) {
+    limestone.count -= reinvest.costs.limestone.amount * globalPurchaseMultiplier
+    if (reinvest.costs.steel.amount > 0) {
+      steel.count -= reinvest.costs.steel.amount * globalPurchaseMultiplier
+    }
+
+    reinvest.costs.limestone.amount += 10 * globalPurchaseMultiplier
+    reinvest.costs.steel.amount += globalPurchaseMultiplier
+    rocksPerClick += globalPurchaseMultiplier
+
+    reinvest.level += globalPurchaseMultiplier
+    checkPurchasables()
+  }
+}
+
+function purchaseRoast() {
+  if (coal.count >= roast.costs.coal.amount * globalPurchaseMultiplier) {
+    coal.count -= roast.costs.coal.amount * globalPurchaseMultiplier
+
+    coke.count += globalPurchaseMultiplier
+
+    roast.level += globalPurchaseMultiplier
+    checkPurchasables()
+  }
+}
+
+function purchaseBlast() {
+  if (coke.count >= blast.costs.coke.amount * globalPurchaseMultiplier && pigiron.count >= blast.costs.pigiron.amount * globalPurchaseMultiplier) {
+    coke.count -= blast.costs.coke.amount * globalPurchaseMultiplier
+    pigiron.count -= blast.costs.pigiron.amount
+    
+    steel.count += globalPurchaseMultiplier
+
+    blast.level += globalPurchaseMultiplier
+    checkPurchasables()
+  }
+}
+
+function purchaseSmelt() {
+  if (ironore.count >= smelt.costs.ironore.amount * globalPurchaseMultiplier && coke.count >= smelt.costs.coke.amount * globalPurchaseMultiplier && limestone.count >= smelt.costs.limestone.amount * globalPurchaseMultiplier) {
+    ironore.count -= smelt.costs.ironore.amount * globalPurchaseMultiplier
+    coke.count -= smelt.costs.coke.amount * globalPurchaseMultiplier
+    limestone.count -= smelt.costs.limestone.amount * globalPurchaseMultiplier
+
+    pigiron.count += 2 * globalPurchaseMultiplier
+
+    smelt.level += globalPurchaseMultiplier
+    checkPurchasables()
+  }
+}
+
+function purchaseHire() {
+  if (pigiron.count >= hire.costs.pigiron.amount * globalPurchaseMultiplier) {
+    pigiron.count -= hire.costs.pigiron.amount * globalPurchaseMultiplier
+
+    workers += globalPurchaseMultiplier
+
+    hire.level += globalPurchaseMultiplier
+    checkPurchasables()
+  }
+}
+
+//
+// TIME
+setInterval(() => {
+  if (workers > 0) {
+    rocks.count += workers
+    checkPurchasables()
+  }
+}, 1000)
 
 //
 // SAVE AND LOAD
@@ -307,6 +479,7 @@ function load() {
   } else {
     extract.button.classList.remove("enabled")
   }
+  checkPurchasables()
 }
 
 function reset() {
