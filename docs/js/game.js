@@ -325,13 +325,17 @@ function purchaseExtract() {
 
 function purchaseReinvest() {
   if (limestone.count >= reinvest.costs.limestone.amount * globalPurchaseMultiplier && steel.count >= reinvest.costs.steel.amount * globalPurchaseMultiplier) {
+
     limestone.count -= reinvest.costs.limestone.amount * globalPurchaseMultiplier
+    reinvest.costs.limestone.amount += 10 * globalPurchaseMultiplier
+
     if (reinvest.costs.steel.amount > 0) {
       steel.count -= reinvest.costs.steel.amount * globalPurchaseMultiplier
     }
+    if (reinvest.level >= 3) {
+      reinvest.costs.steel.amount += globalPurchaseMultiplier
+    }
 
-    reinvest.costs.limestone.amount += 10 * globalPurchaseMultiplier
-    reinvest.costs.steel.amount += globalPurchaseMultiplier
     rocksPerClick += globalPurchaseMultiplier
 
     reinvest.level += globalPurchaseMultiplier
