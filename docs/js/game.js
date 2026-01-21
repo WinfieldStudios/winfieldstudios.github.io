@@ -59,32 +59,15 @@ const purchasables = {
     },
     button: document.querySelector('.reinvest-button'),
   },
-  roast: {
-    name: 'roast',
-    level: 0,
-    costs: {
-      coal: {
-        name: "coal",
-        source: document.querySelector('.roast-cost'),
-        get amount() {
-          return parseFloat(document.querySelector('.roast-cost').innerHTML)
-        },
-        set amount(value) {
-          this.source.innerHTML = value
-        }
-      }
-    },
-    button: document.querySelector('.roast-button')
-  },
   blast: {
     name: 'blast',
     level: 0,
     costs: {
-      coke: {
-        name: "coke",
-        source: document.querySelector('.blast-cost-coke'),
+      coal: {
+        name: "coal",
+        source: document.querySelector('.blast-cost-coal'),
         get amount() {
-          return parseFloat(document.querySelector('.blast-cost-coke').innerHTML)
+          return parseFloat(document.querySelector('.blast-cost-coal').innerHTML)
         },
         set amount(value) {
           this.source.innerHTML = value
@@ -117,9 +100,9 @@ const purchasables = {
           this.source.innerHTML = value
         }
       },
-      coke: {
-        name: "coke",
-        source: document.querySelector('.smelt-cost-coke'),
+      coal: {
+        name: "coal",
+        source: document.querySelector('.smelt-cost-coal'),
         get amount() {
           return parseFloat(document.querySelector('.smelt-cost-coke').innerHTML)
         },
@@ -211,23 +194,6 @@ const resources = {
       }
       this.countSource.innerHTML = value
       roast.button.classList.remove("hidden")
-    }
-  },
-  coke: {
-    name: 'coke',
-    gross: 0,
-    countSource: document.querySelector('.coke-count'),
-    displayContainer: document.querySelector('.coke-resource-display'),
-    get count() {
-      return parseFloat(document.querySelector('.coke-count').innerHTML)
-    },
-    set count(value) {
-      this.displayContainer.classList.remove("hidden")
-      if (value > this.count) {
-        this.gross += value - this.count
-      }
-      this.countSource.innerHTML = value
-      blast.button.classList.remove("hidden")
     }
   },
   ironore: {
@@ -373,20 +339,9 @@ function purchaseReinvest() {
   }
 }
 
-function purchaseRoast() {
-  if (coal.count >= roast.costs.coal.amount * globalPurchaseMultiplier) {
-    coal.count -= roast.costs.coal.amount * globalPurchaseMultiplier
-
-    coke.count += globalPurchaseMultiplier
-
-    roast.level += globalPurchaseMultiplier
-    checkPurchasables()
-  }
-}
-
 function purchaseBlast() {
-  if (coke.count >= blast.costs.coke.amount * globalPurchaseMultiplier && pigiron.count >= blast.costs.pigiron.amount * globalPurchaseMultiplier) {
-    coke.count -= blast.costs.coke.amount * globalPurchaseMultiplier
+  if (coal.count >= blast.costs.coal.amount * globalPurchaseMultiplier && pigiron.count >= blast.costs.pigiron.amount * globalPurchaseMultiplier) {
+    coal.count -= blast.costs.coal.amount * globalPurchaseMultiplier
     pigiron.count -= blast.costs.pigiron.amount
     
     steel.count += globalPurchaseMultiplier
@@ -397,9 +352,9 @@ function purchaseBlast() {
 }
 
 function purchaseSmelt() {
-  if (ironore.count >= smelt.costs.ironore.amount * globalPurchaseMultiplier && coke.count >= smelt.costs.coke.amount * globalPurchaseMultiplier && limestone.count >= smelt.costs.limestone.amount * globalPurchaseMultiplier) {
+  if (ironore.count >= smelt.costs.ironore.amount * globalPurchaseMultiplier && coal.count >= smelt.costs.coal.amount * globalPurchaseMultiplier && limestone.count >= smelt.costs.limestone.amount * globalPurchaseMultiplier) {
     ironore.count -= smelt.costs.ironore.amount * globalPurchaseMultiplier
-    coke.count -= smelt.costs.coke.amount * globalPurchaseMultiplier
+    coal.count -= smelt.costs.coal.amount * globalPurchaseMultiplier
     limestone.count -= smelt.costs.limestone.amount * globalPurchaseMultiplier
 
     pigiron.count += 2 * globalPurchaseMultiplier
