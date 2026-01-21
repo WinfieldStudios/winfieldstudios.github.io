@@ -25,10 +25,6 @@ body {
   min-height: 150px;
 }
 
-.resource-icon {
-  height: 20px;
-}
-
 .left {
   display: grid;
   place-items: center;
@@ -118,6 +114,11 @@ body {
 
 .purchasable-icon {
   width: 50px;
+}
+
+.cost-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .cost-info {
