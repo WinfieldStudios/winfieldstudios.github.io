@@ -1,6 +1,8 @@
 // 
 // DATA
 
+const TOTAL_ROCK_IMAGES = 3
+
 let rockLevel = 1
 let pickaxeLevel = 1
 let rocksPerClick = 1
@@ -17,7 +19,7 @@ for (const res of Object.values(resources)) {
 const purchasables = {
   extract: {
     name: 'extract',
-    level: 0,
+    level: 1,
     costs: {
       rocks: {
         name: "rocks",
@@ -34,7 +36,7 @@ const purchasables = {
   },
   reinvest: {
     name: 'reinvest',
-    level: 0,
+    level: 1,
     costs: {
       limestone: {
         name: "limestone",
@@ -61,7 +63,7 @@ const purchasables = {
   },
   blast: {
     name: 'blast',
-    level: 0,
+    level: 1,
     costs: {
       coal: {
         name: "coal",
@@ -88,7 +90,7 @@ const purchasables = {
   },
   smelt: {
     name: 'smelt',
-    level: 0,
+    level: 1,
     costs: {
       ironore: {
         name: "ironore",
@@ -125,7 +127,7 @@ const purchasables = {
   },
   hire: {
     name: 'hire',
-    level: 0,
+    level: 1,
     costs: {
       pigiron: {
         name: "pigiron",
@@ -340,6 +342,11 @@ function purchaseReinvest() {
 
     reinvest.level += globalPurchaseMultiplier
     checkPurchasables()
+
+    if (reinvest.level <= TOTAL_ROCK_IMAGES) {
+      let rockImage = document.querySelector('.rock-image')
+      rockImage.src = `/assets/rocks/${reinvest.level}.png`
+    }
   }
 }
 
