@@ -343,9 +343,11 @@ function purchaseReinvest() {
     reinvest.level += globalPurchaseMultiplier
     checkPurchasables()
 
+    let rockImage = document.querySelector('.rock-image')
     if (reinvest.level <= TOTAL_ROCK_IMAGES) {
-      let rockImage = document.querySelector('.rock-image')
       rockImage.src = `/assets/rocks/${reinvest.level}.png`
+    } else {
+      rockImage.src = `/assets/rocks/${TOTAL_ROCK_IMAGES}.png`
     }
   }
 }
