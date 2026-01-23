@@ -18,5 +18,3 @@
 
 fbq("init", "1013811917635295");
 fbq("track", "PageView");
-fbq('track', 'ViewContent');
-fbq('track', 'Contact');
