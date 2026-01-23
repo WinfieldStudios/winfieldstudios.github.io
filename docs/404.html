@@ -3,121 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Winfield Studios LLC</title>
-  <link rel="icon" type="image/png" href="assets/logo/versions/turtlepixel_nobackground.png">
+  <title>404 — Page Not Found — Winfield Studios</title>
+  <link rel="icon" type="image/png" href="/assets/logo/versions/turtlepixel_nobackground.png">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
-  <!-- Meta Pixel Code -->
   <script src="/js/meta-pixel.js"></script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1013811917635295&ev=PageView&noscript=1" />
-  </noscript>
-  <!-- End Meta Pixel Code -->
+  <style>
+    /* 404-specific styles that blend with the site theme */
+    .container {
+      width: 100%;
+    }
+    .notfound-hero {
+      min-height: 66vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 4rem 1rem;
+      background-image: radial-gradient(circle at 10% 10%, rgba(199,91,57,0.04), transparent 6%), radial-gradient(circle at 90% 90%, rgba(75,59,43,0.03), transparent 8%), url('/assets/textures/walnut_texture_seamless.jpg');
+      background-position: center center;
+      background-repeat: repeat;
+      background-size: 600px auto;
+    }
+    .notfound-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(249,245,240,0.98));
+      border-radius: 14px;
+      padding: 2.25rem 2rem;
+      box-shadow: 0 10px 40px rgba(75,59,43,0.12);
+      max-width: 820px;
+      margin: 0 auto;
+      border-left: 6px solid var(--rust);
+    }
+    .notfound-code{
+      font-family: 'Playfair Display', serif;
+      font-size: 6.25rem;
+      color: var(--dark-brown);
+      line-height: 1;
+      display: inline-block;
+      margin-bottom: 0.25rem;
+      transform-origin: center;
+      animation: float 6s ease-in-out infinite;
+      text-shadow: 0 6px 18px rgba(75,59,43,0.08);
+    }
+    @keyframes float{
+      0% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+      100% { transform: translateY(0) rotate(-1deg); }
+    }
+    .notfound-sub{ font-size: 1.15rem; color: var(--dark-brown); margin-bottom: 1rem; }
+    .notfound-actions{ display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
+    .btn-ghost{ padding:0.65rem 1rem; border-radius:10px; border:1px solid var(--rust); background:transparent; color:var(--dark-brown); font-weight:700; }
+    .btn-primary{ padding:0.65rem 1rem; border-radius:10px; background:var(--rust); color:var(--cream); font-weight:700; }
+    @keyframes bob{ 0%{ transform: translateY(0) rotate(-4deg);} 50%{ transform: translateY(-10px) rotate(4deg);} 100%{ transform: translateY(0) rotate(-4deg);} }
+    @media (max-width:700px){ .notfound-code{ font-size:3.8rem; } .turtle-deco{ display:none; } .notfound-card{ padding:1.25rem; } }
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <!-- TOP NAV (consistent everywhere) -->
     <div class="topbar">
       <div class="topbar-inner">
         <a class="nav-brand" href="/" aria-label="Winfield Studios Home">
-        <img
-          src="assets/logo/versions/turtlepixel_nobackground.png"
-          alt="Winfield Studios Logo"
-          class="nav-logo"
-          />
+          <img src="/assets/logo/versions/turtlepixel_nobackground.png" alt="Winfield Studios Logo" class="nav-logo" />
         </a>
         <nav class="site-nav" aria-label="Primary">
-          <a class="nav-link active" href="/">Home</a>
-          <!--
-          <a class="nav-link" href="/projects/game/" target="_blank" rel="noopener noreferrer">Game</a>
-        -->
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/galmi/">Galmi</a>
         </nav>
       </div>
     </div>
-
-    <!-- BRANDING (this can move/change per page later) -->
     <div class="brand-block">
       <div class="header-title">
-        <img src="assets/logo/versions/turtlepixel_nobackground.png" alt="Winfield Studios Logo" class="logo-icon" />
+        <img src="/assets/logo/versions/turtlepixel_nobackground.png" alt="Winfield Studios Logo" class="logo-icon"/>
         <h1>Winfield Studios LLC</h1>
       </div>
       <p class="tagline">Bringing Soul to Machine</p>
     </div>
   </header>
 
-
   <main class="container">
-    <!--
-    <div class="topbar-actions">
-      <a class="cta-button cta-small" href="game.html">DON'T Click this Button...</a>
-    </div>
-    -->
-    <section id="mission">
-      <h2>Mission</h2>
-      <p>At Winfield Studios LLC, we're obsessed with the feeling of a great idea coming to life.</p>
-      <p>We aim to bring that magic to others. We value game feel, immersion and meaning in even the smallest interactions. That's the magic.</p>
-      <p>Whether you're here to play our games or are just curious, thanks for being a part of the beginning.</p>
-    </section>
-
-    <section id="services">
-      <h2>Services</h2>
-      <p>At Winfield Studios LLC, we craft immersive games and develop intuitive apps designed to engage, educate, and entertain.</p>
-      <ul>
-        <li>Independent Game Development</li>
-        <li>Mobile & Desktop App Development</li>
-        <li>Graphics Design & Audio Engineering</li>
-        <li>Marketing & Sales</li>
-        <li>Consulting</li>
-      </ul>
-    </section>
-
-    <section id="projects">
-
-      <h2>Projects</h2>
-      
-      <div class="topbar-actions">
-        <a class="cta-button cta-small" href="/galmi/" target="_blank" rel="noopener noreferrer" onclick="fbq('trackCustom', 'Clicked-Galmi');">Play Galmi</a>
+    <section class="notfound-hero">
+      <div class="notfound-card" role="main">
+        <div style="position:relative;">
+          <div class="notfound-code">404</div>
+          <p class="notfound-sub">Looks like this page got lost...</p>
+        </div>
+        <p style="color:rgba(75,59,43,0.9);">We couldn't find the page you were looking for.</p><p>Try one of these paths:</p>
+        <div class="notfound-actions">
+          <a class="btn-primary" href="/" onclick="fbq && fbq('trackCustom','Clicked-Home');">Go Home</a>
+          <a class="btn-ghost" href="/galmi/" onclick="fbq && fbq('trackCustom','Clicked-Galmi');">Play Galmi</a>
+        </div>
+        <p style="margin-top:1rem;color:var(--rust);font-style:italic;">Or try searching the site from the menu.</p>
       </div>
-      <div class="project">
-        <h3>Galmi</h3>
-        <p>("GAL-me")</p>
-        <p>A resource manager, clicker game centered around a mysterious rock.</p>
-        <p><strong>Design Pillars:</strong> Idle/Clicker, Resource Management, Companionship, Passive World Building</p>
-        <p><strong>Core Mechanics:</strong></p>
-        <ul>
-          <li>Click Rock to Gain Rocks</li>
-          <li>Trade Down Resources for More Valuable Resources</li>
-          <li>Upgrade Rock and Buying Workers to Increase Rock Production</li>
-          <li>Upgrade Pickaxe to Access New Resources and Progression</li>
-        </ul>
-        <p class="note">Everything is subject to change or adjustment!</p>
-      </div>
-      
-      <div class="topbar-actions">
-        <a class="cta-button cta-small" href="https://testflight.apple.com/join/ZQnvyJKe" target="_blank" rel="noopener noreferrer" onclick="fbq('trackCustom', 'Clicked-Mycorrhizae');">Download Mycorrhizae TestFlight for iOS</a>
-      </div>
-      <div class="project">
-        <h3>Mycorrhizae</h3>
-        <p>("my-kuh-RYE-zee")</p>
-        <p>Mycorrhizae is an iOS clicker game with a mushroom theme. Players tap the screen to gather resources and build a vast mycelium network through strategic upgrades.</p>
-        <p><strong>Design Pillars:</strong> Progression, Strategy, Discovery & Education</p>
-        <p><strong>Core Mechanics:</strong></p>
-        <ul>
-          <li>Tap to collect spores</li>
-          <li>Spend spores to gain water</li>
-          <li>Trade water for candy</li>
-          <li>Consume candy to boost spores per tap and gain passive spores</li>
-        </ul>
-        <p class="note">Mycorrhizae's development is only for iOS. We apologize to everyone else.</p>
-        <p><a href="/mycorrhizae/privacy-policy/">View Mycorrhizae Privacy Policy</a></p>
-      </div>
-
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Get in touch: <a class="email" href="mailto:kyle@winfieldstudios.io" onclick="fbq('track', 'Contact');">kyle@winfieldstudios.io</a></p>
     </section>
   </main>
 
@@ -136,5 +111,12 @@
       2108 N ST STE N, Sacramento, CA 95816 USA
     </div>
   </footer>
+  <script>
+    // small accessibility improvement: focus first action
+    document.addEventListener('DOMContentLoaded', function(){
+      var btn = document.querySelector('.notfound-actions a');
+      if(btn) btn.focus();
+    });
+  </script>
 </body>
 </html>
