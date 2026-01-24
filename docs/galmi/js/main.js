@@ -3,7 +3,6 @@
 
 const TOTAL_ROCK_IMAGES = 3
 
-let rockLevel = 1
 let pickaxeLevel = 1
 let rocksPerClick = 1
 let workers = 0
@@ -156,12 +155,14 @@ const resources = {
       return parseFloat(document.querySelector('.rock-count').innerHTML)
     },
     set count(value) {
-      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
-      extract.button.classList.remove("hidden")
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden")
+        extract.button.classList.remove("hidden")
+      }
     }
   },
   limestone: {
@@ -173,12 +174,14 @@ const resources = {
       return parseFloat(document.querySelector('.limestone-count').innerHTML)
     },
     set count(value) {
-      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
-      reinvest.button.classList.remove("hidden")
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden")
+        reinvest.button.classList.remove("hidden")
+      }
     }
   },
   coal: {
@@ -190,12 +193,14 @@ const resources = {
       return parseFloat(document.querySelector('.coal-count').innerHTML)
     },
     set count(value) {
-      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
-      blast.button.classList.remove("hidden")
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden")
+        blast.button.classList.remove("hidden")
+      }
     }
   },
   ironore: {
@@ -207,12 +212,14 @@ const resources = {
       return parseFloat(document.querySelector('.ironore-count').innerHTML)
     },
     set count(value) {
-      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
-      smelt.button.classList.remove("hidden")
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden")
+        smelt.button.classList.remove("hidden")
+      }
     }
   },
   pigiron: {
@@ -224,12 +231,14 @@ const resources = {
       return parseFloat(document.querySelector('.pigiron-count').innerHTML)
     },
     set count(value) {
-      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
-      hire.button.classList.remove("hidden")
+      if (this.gross > 0)  {
+        this.displayContainer.classList.remove("hidden")
+        hire.button.classList.remove("hidden")
+      }
     }
   },
   steel: {
@@ -241,11 +250,13 @@ const resources = {
       return parseFloat(document.querySelector('.steel-count').innerHTML)
     },
     set count(value) {
-      this.displayContainer.classList.remove("hidden")
       if (value > this.count) {
         this.gross += value - this.count
       }
       this.countSource.innerHTML = value
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden")
+      }
     }
   }
 }
@@ -329,18 +340,17 @@ function purchaseReinvest() {
   if (limestone.count >= reinvest.costs.limestone.amount * globalPurchaseMultiplier && steel.count >= reinvest.costs.steel.amount * globalPurchaseMultiplier) {
 
     limestone.count -= reinvest.costs.limestone.amount * globalPurchaseMultiplier
-    reinvest.costs.limestone.amount += 10 * globalPurchaseMultiplier
-
     if (reinvest.costs.steel.amount > 0) {
       steel.count -= reinvest.costs.steel.amount * globalPurchaseMultiplier
-    }
-    if (reinvest.level >= 3) {
-      reinvest.costs.steel.amount += globalPurchaseMultiplier
     }
 
     rocksPerClick += globalPurchaseMultiplier
 
     reinvest.level += globalPurchaseMultiplier
+    reinvest.costs.limestone.amount += 10 * globalPurchaseMultiplier
+    if (reinvest.level >= 4) {
+      reinvest.costs.steel.amount += globalPurchaseMultiplier
+    }
     checkPurchasables()
 
     let rockImage = document.querySelector('.rock-image')
@@ -403,49 +413,64 @@ setInterval(() => {
 function save() {
   localStorage.clear()
 
-  localStorage.setItem('rockCount', JSON.stringify(rocks.count))
-  localStorage.setItem('limestoneCount', JSON.stringify(limestone.count))
-  localStorage.setItem('coalCount', JSON.stringify(coal.count))
-  localStorage.setItem('ironoreCount', JSON.stringify(ironore.count))
+  localStorage.setItem('pickaxeLevel', JSON.stringify(pickaxeLevel))
+  localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick))
+  localStorage.setItem('workers', JSON.stringify(workers))
+  localStorage.setItem('globalPurchaseMultiplier', JSON.stringify(globalPurchaseMultiplier))
+
+  for (const purchasable of Object.values(purchasables)) {
+    const key = `${purchasable.name}Level`
+    localStorage.setItem(key, JSON.stringify(purchasable.level))
+  }
+  for (const resource of Object.values(resources)) {
+    const countKey = `${resource.name}Count`
+    localStorage.setItem(countKey, JSON.stringify(resource.count))
+    const grossKey = `${resource.name}Gross`
+    localStorage.setItem(grossKey, JSON.stringify(resource.gross))
+  }
 }
 
 function load() {
-  rocks.count = JSON.parse(localStorage.getItem('rockCount'))
-  limestone.count = JSON.parse(localStorage.getItem('limestoneCount'))
-  coal.count = JSON.parse(localStorage.getItem('coalCount'))
-  ironore.count = JSON.parse(localStorage.getItem('ironoreCount'))
 
-  rocks.countSource.innerHTML = Math.round(rocks.count)
-  limestone.countSource.innerHTML = Math.round(limestone.count)
-  coal.countSource.innerHTML = Math.round(coal.count)
-  ironore.countSource.innerHTML = Math.round(ironore.count)
+  const savedPickaxeLevel = JSON.parse(localStorage.getItem('pickaxeLevel'))
+  if (savedPickaxeLevel !== null) {
+    pickaxeLevel = savedPickaxeLevel
+  }
 
-  
-  if (rocks.count > 0) {
-    rocks.displayContainer.classList.remove("hidden")
-  } else {
-    rocks.displayContainer.classList.add("hidden")
+  const savedRocksPerClick = JSON.parse(localStorage.getItem('rocksPerClick'))
+  if (savedRocksPerClick !== null) {
+    rocksPerClick = savedRocksPerClick
   }
-  if (limestone.count > 0) {
-    limestone.displayContainer.classList.remove("hidden")
-    extract.button.classList.remove("hidden")
+
+  const savedWorkers = JSON.parse(localStorage.getItem('workers'))
+  if (savedWorkers !== null) {
+    workers = savedWorkers
   }
-  if (coal.count > 0) {
-    coal.displayContainer.classList.remove("hidden")
-    extract.button.classList.remove("hidden")
+
+  const savedGlobalPurchaseMultiplier = JSON.parse(localStorage.getItem('globalPurchaseMultiplier'))
+  if (savedGlobalPurchaseMultiplier !== null) {
+    globalPurchaseMultiplier = savedGlobalPurchaseMultiplier
   }
-  if (ironore.count > 0) {
-    ironore.displayContainer.classList.remove("hidden")
-    extract.button.classList.remove("hidden")
+
+  for (const purchasable of Object.values(purchasables)) {
+
+    const key = `${purchasable.name}Level`
+    const savedLevel = JSON.parse(localStorage.getItem(key))
+    if (savedLevel !== null) {
+      purchasable.level = savedLevel
+    }
   }
-  if (ironore.count + limestone.count + coal.count == 0) {
-    extract.button.classList.add("hidden")
-  }
-  if (rocks.count >= extract.cost) {
-    extract.button.classList.add("enabled")
-    extract.button.classList.remove("hidden")
-  } else {
-    extract.button.classList.remove("enabled")
+  for (const resource of Object.values(resources)) {
+    const countKey = `${resource.name}Count`
+    const savedCount = JSON.parse(localStorage.getItem(countKey))
+    if (savedCount !== null) {
+      resource.count = savedCount
+    }
+    const grossKey = `${resource.name}Gross`
+    const savedGross = JSON.parse(localStorage.getItem(grossKey))
+    if (savedGross !== null) {
+      resource.gross = savedGross
+    }
   }
   checkPurchasables()
 }
