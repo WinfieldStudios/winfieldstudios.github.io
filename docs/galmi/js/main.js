@@ -2,11 +2,18 @@
 // DATA
 
 const TOTAL_ROCK_IMAGES = 3
+const PICKAXE_STARTING_LEVEL = 1
+const ROCKS_PER_CLICK_STARTING_AMOUNT = 1
+const WORKERS_STARTING_AMOUNT = 0
+const GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT = 1
+const PURCHASABLES_STARTING_LEVEL = 1
+const RESOURCES_STARTING_COUNT = 0
+const RESOURCES_STARTING_GROSS = 0
 
-let pickaxeLevel = 1
-let rocksPerClick = 1
-let workers = 0
-let globalPurchaseMultiplier = 1
+let pickaxeLevel = PICKAXE_STARTING_LEVEL
+let rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT
+let workers = WORKERS_STARTING_AMOUNT
+let globalPurchaseMultiplier = GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT
 
 let rockImageContainer = document.querySelector('.rock-image-container')
 
@@ -18,7 +25,7 @@ for (const res of Object.values(resources)) {
 const purchasables = {
   extract: {
     name: 'extract',
-    level: 1,
+    level: PURCHASABLES_STARTING_LEVEL,
     costs: {
       rocks: {
         name: "rocks",
@@ -35,7 +42,7 @@ const purchasables = {
   },
   reinvest: {
     name: 'reinvest',
-    level: 1,
+    level: PURCHASABLES_STARTING_LEVEL,
     costs: {
       limestone: {
         name: "limestone",
@@ -62,7 +69,7 @@ const purchasables = {
   },
   blast: {
     name: 'blast',
-    level: 1,
+    level: PURCHASABLES_STARTING_LEVEL,
     costs: {
       coal: {
         name: "coal",
@@ -89,7 +96,7 @@ const purchasables = {
   },
   smelt: {
     name: 'smelt',
-    level: 1,
+    level: PURCHASABLES_STARTING_LEVEL,
     costs: {
       ironore: {
         name: "ironore",
@@ -126,7 +133,7 @@ const purchasables = {
   },
   hire: {
     name: 'hire',
-    level: 1,
+    level: PURCHASABLES_STARTING_LEVEL,
     costs: {
       pigiron: {
         name: "pigiron",
@@ -162,6 +169,9 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
         extract.button.classList.remove("hidden")
+      } else {
+        this.displayContainer.classList.add("hidden")
+        extract.button.classList.add("hidden")
       }
     }
   },
@@ -181,6 +191,9 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
         reinvest.button.classList.remove("hidden")
+      } else {
+        this.displayContainer.classList.add("hidden")
+        reinvest.button.classList.add("hidden")
       }
     }
   },
@@ -200,6 +213,9 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
         blast.button.classList.remove("hidden")
+      } else {
+        this.displayContainer.classList.add("hidden")
+        blast.button.classList.add("hidden")
       }
     }
   },
@@ -219,6 +235,9 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
         smelt.button.classList.remove("hidden")
+      } else {
+        this.displayContainer.classList.add("hidden")
+        smelt.button.classList.add("hidden")
       }
     }
   },
@@ -238,6 +257,9 @@ const resources = {
       if (this.gross > 0)  {
         this.displayContainer.classList.remove("hidden")
         hire.button.classList.remove("hidden")
+      } else {
+        this.displayContainer.classList.add("hidden")
+        hire.button.classList.add("hidden")
       }
     }
   },
@@ -256,6 +278,8 @@ const resources = {
       this.countSource.innerHTML = value
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
+      } else {
+        this.displayContainer.classList.add("hidden")
       }
     }
   }
@@ -431,7 +455,7 @@ function save() {
 }
 
 function load() {
-
+  
   const savedPickaxeLevel = JSON.parse(localStorage.getItem('pickaxeLevel'))
   if (savedPickaxeLevel !== null) {
     pickaxeLevel = savedPickaxeLevel
@@ -461,21 +485,83 @@ function load() {
     }
   }
   for (const resource of Object.values(resources)) {
-    const countKey = `${resource.name}Count`
-    const savedCount = JSON.parse(localStorage.getItem(countKey))
-    if (savedCount !== null) {
-      resource.count = savedCount
-    }
     const grossKey = `${resource.name}Gross`
     const savedGross = JSON.parse(localStorage.getItem(grossKey))
     if (savedGross !== null) {
       resource.gross = savedGross
     }
+    const countKey = `${resource.name}Count`
+    const savedCount = JSON.parse(localStorage.getItem(countKey))
+    if (savedCount !== null) {
+      resource.count = savedCount
+    }
   }
   checkPurchasables()
 }
 
-function reset() {
+function restart() {
+  
+  const savedPickaxeLevel = JSON.parse(localStorage.getItem('pickaxeLevel'))
+  if (savedPickaxeLevel !== null) {
+    pickaxeLevel = PICKAXE_STARTING_LEVEL
+  }
+
+  const savedRocksPerClick = JSON.parse(localStorage.getItem('rocksPerClick'))
+  if (savedRocksPerClick !== null) {
+    rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT
+  }
+
+  const savedWorkers = JSON.parse(localStorage.getItem('workers'))
+  if (savedWorkers !== null) {
+    workers = WORKERS_STARTING_AMOUNT
+  }
+
+  const savedGlobalPurchaseMultiplier = JSON.parse(localStorage.getItem('globalPurchaseMultiplier'))
+  if (savedGlobalPurchaseMultiplier !== null) {
+    globalPurchaseMultiplier = GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT
+  }
+
+  for (const purchasable of Object.values(purchasables)) {
+
+    const key = `${purchasable.name}Level`
+    const savedLevel = JSON.parse(localStorage.getItem(key))
+    if (savedLevel !== null) {
+      purchasable.level = PURCHASABLES_STARTING_LEVEL
+    }
+  }
+  for (const resource of Object.values(resources)) {
+    const grossKey = `${resource.name}Gross`
+    const savedGross = JSON.parse(localStorage.getItem(grossKey))
+    if (savedGross !== null) {
+      resource.gross = RESOURCES_STARTING_GROSS
+      resource.displayContainer.classList.add("hidden")
+    }
+    const countKey = `${resource.name}Count`
+    const savedCount = JSON.parse(localStorage.getItem(countKey))
+    if (savedCount !== null) {
+      resource.count = RESOURCES_STARTING_COUNT
+    }
+  }
+  checkPurchasables()
+
+}
+
+function clearSave() {
   localStorage.clear()
-  load()
+
+  localStorage.setItem('pickaxeLevel', JSON.stringify(PICKAXE_STARTING_LEVEL))
+  localStorage.setItem('rocksPerClick', JSON.stringify(ROCKS_PER_CLICK_STARTING_AMOUNT))
+  localStorage.setItem('workers', JSON.stringify(WORKERS_STARTING_AMOUNT))
+  localStorage.setItem('globalPurchaseMultiplier', JSON.stringify(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT))
+
+  for (const purchasable of Object.values(purchasables)) {
+    const key = `${purchasable.name}Level`
+    localStorage.setItem(key, JSON.stringify(PURCHASABLES_STARTING_LEVEL))
+  }
+  for (const resource of Object.values(resources)) {
+    const countKey = `${resource.name}Count`
+    localStorage.setItem(countKey, JSON.stringify(RESOURCES_STARTING_COUNT))
+    const grossKey = `${resource.name}Gross`
+    localStorage.setItem(grossKey, JSON.stringify(RESOURCES_STARTING_GROSS))
+  }
 }

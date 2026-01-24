@@ -157,15 +157,12 @@ body {
   }
 }
 
-.util-buttons {
+.save-button {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 1vh;
+  right: 1vw;
   display: flex;
   gap: 10px;
-}
-
-.util-button {
   padding: 0.5vh 1vh;
   font-size: 2vh;
   font-weight: 600;
@@ -175,7 +172,35 @@ body {
   background-color: var(--light-color);
   box-shadow: 0px 0px 5px var(--dark-color);
 }
+.save-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.save-button:active {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+.save-icon {
+  height: 4vh;
+}
 
+.util-buttons {
+  position: absolute;
+  bottom: 1vh;
+  right: 1vw;
+  display: flex;
+  gap: 10px;
+}
+.util-button {
+  padding: 0.5vh 1vh;
+  font-size: 1.5vh;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: 1vh;
+  background-color: var(--light-color);
+  box-shadow: 0px 0px 5px var(--dark-color);
+}
 .util-button:hover {
   opacity: 0.7;
   cursor: pointer;
@@ -183,8 +208,4 @@ body {
 .util-button:active {
   opacity: 0.8;
   transform: scale(1.02);
-}
-
-.util-icon {
-  height: 4vh;
 }
