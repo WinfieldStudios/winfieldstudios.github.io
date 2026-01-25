@@ -167,7 +167,6 @@ img {
 .fade-up {
   animation: fade-up 1s;
 }
-
 @keyframes fade-up {
   0% {
     transform: translateY(0);
@@ -175,6 +174,28 @@ img {
   }
   100% {
     transform: translateY(-65px);
+    opacity: 0;
+  }
+}
+
+.gain-resource-animation {
+  animation: gain-resource-animation 1s forwards;
+}
+@keyframes gain-resource-animation {
+  0% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(15px);
     opacity: 0;
   }
 }

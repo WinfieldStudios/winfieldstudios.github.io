@@ -185,8 +185,10 @@ const resources = {
       return parseFloat(document.querySelector('.limestone-count').innerHTML)
     },
     set count(value) {
+
       if (value > this.count) {
         this.gross += value - this.count
+        gainResourceParticle(this, value - this.count)
       }
       this.countSource.innerHTML = value
       if (this.gross > 0) {
@@ -207,8 +209,10 @@ const resources = {
       return parseFloat(document.querySelector('.coal-count').innerHTML)
     },
     set count(value) {
+
       if (value > this.count) {
         this.gross += value - this.count
+        gainResourceParticle(this, value - this.count)
       }
       this.countSource.innerHTML = value
       if (this.gross > 0) {
@@ -229,8 +233,10 @@ const resources = {
       return parseFloat(document.querySelector('.ironore-count').innerHTML)
     },
     set count(value) {
+
       if (value > this.count) {
         this.gross += value - this.count
+        gainResourceParticle(this, value - this.count)
       }
       this.countSource.innerHTML = value
       if (this.gross > 0) {
@@ -251,8 +257,10 @@ const resources = {
       return parseFloat(document.querySelector('.pigiron-count').innerHTML)
     },
     set count(value) {
+
       if (value > this.count) {
         this.gross += value - this.count
+        gainResourceParticle(this, value - this.count)
       }
       this.countSource.innerHTML = value
       if (this.gross > 0)  {
@@ -273,8 +281,10 @@ const resources = {
       return parseFloat(document.querySelector('.steel-count').innerHTML)
     },
     set count(value) {
+
       if (value > this.count) {
         this.gross += value - this.count
+        gainResourceParticle(this, value - this.count)
       }
       this.countSource.innerHTML = value
       if (this.gross > 0) {
@@ -302,17 +312,9 @@ function clickOnRock(event) {
   div.style.cssText = `color: var(--dark-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
   rockImageContainer.appendChild(div)
 
-  div.classList.add('fade-up')
+  div.classList.add('gain-resource-animation')
 
   timeout(div)
-}
-
-const timeout = (div) => {
-  setTimeout(() => {
-    div.remove()
-  }, 800)
-  
-  checkPurchasables()
 }
 
 //
@@ -338,19 +340,25 @@ function purchaseExtract() {
   if (rocks.count >= extract.costs.rocks.amount * globalPurchaseMultiplier) {
     rocks.count -= extract.costs.rocks.amount * globalPurchaseMultiplier
 
+    let limestoneToGain = 0
+    let coalToGain = 0
+    let ironoreToGain = 0
+
     let roll = Math.floor(Math.random() * 10) + 1
-    
     if (globalPurchaseMultiplier <= 10000) {
       for (let i = 0; i < globalPurchaseMultiplier; i++) {
         if (roll <= 6) {
-          limestone.count++
+          limestoneToGain++
         } else if (roll <= 9) {
-          coal.count++
+          coalToGain++
         } else {
-          ironore.count++
+          ironoreToGain++
         }
         roll = Math.floor(Math.random() * 10) + 1
       }
+      limestone.count += limestoneToGain
+      coal.count += coalToGain
+      ironore.count += ironoreToGain
     } else {
       limestone.count += parseInt(0.6 * globalPurchaseMultiplier)
       coal.count += parseInt(0.3 * globalPurchaseMultiplier)
@@ -433,12 +441,36 @@ setInterval(() => {
   if (workers > 0) {
     rocks.count += workers
     checkPurchasables()
+
+    gainResourceParticle(rocks, workers)
   }
 }, 1000)
 
 //
-// PURCHASE MULTIPLIER
+// PARTICLE TIMOUT
+const timeout = (div) => {
+  setTimeout(() => {
+    div.remove()
+  }, 800)
+  
+  checkPurchasables()
+}
 
+//
+// GAIN RESOURCE PARTICLES
+function gainResourceParticle(resource, amount) {
+  const x = resource.displayContainer.getBoundingClientRect().right * 1.01 + 5 + (Math.floor(Math.random() * 20) + 1 - 10)
+  const y = resource.displayContainer.getBoundingClientRect().top + (Math.floor(Math.random() * 20) + 1)
+  const div = document.createElement('div')
+  div.innerHTML = `+${amount}`
+  div.style.cssText = `color: var(--dark-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
+  resource.displayContainer.appendChild(div)
+  div.classList.add('gain-resource-animation')
+  timeout(div)
+}
+
+//
+// PURCHASE MULTIPLIER
 function setGlobalPurchaseMultiplier(value) {
   globalPurchaseMultiplier = value
 
@@ -530,6 +562,9 @@ function load() {
     const savedCount = JSON.parse(localStorage.getItem(countKey))
     if (savedCount !== null) {
       resource.count = savedCount
+      if (resource.name === 'rocks') {
+        gainResourceParticle(resource, savedCount)
+      }
     }
   }
   checkPurchasables()
