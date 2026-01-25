@@ -2,7 +2,7 @@
 // DATA
 
 const TOTAL_ROCK_IMAGES = 4
-const ROCKS_PER_CLICK_STARTING_AMOUNT = 1
+const ROCKS_PER_CLICK_STARTING_AMOUNT = 100
 const WORKERS_STARTING_AMOUNT = 0
 const GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT = 1
 const PURCHASABLES_STARTING_LEVEL = 1
@@ -196,9 +196,19 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
         extract.button.classList.remove("hidden")
+        if (this.gross >= 200) {
+          upgradeGalmi.button.classList.remove("hidden")
+        } else {
+          upgradeGalmi.button.classList.add("hidden")
+        }
       } else {
-        this.displayContainer.classList.add("hidden")
         extract.button.classList.add("hidden")
+        upgradeGalmi.button.classList.add("hidden")
+        upgradePickaxe.button.classList.add("hidden")
+        blast.button.classList.add("hidden")
+        smelt.button.classList.add("hidden")
+        hire.button.classList.add("hidden")
+        this.displayContainer.classList.add("hidden")
       }
     }
   },
@@ -219,10 +229,13 @@ const resources = {
       this.countSource.innerHTML = value
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
-        upgradePickaxe.button.classList.remove("hidden")
+        if (this.gross >= 20) {
+          upgradePickaxe.button.classList.remove("hidden")
+        } else {
+          upgradePickaxe.button.classList.add("hidden")
+        }
       } else {
         this.displayContainer.classList.add("hidden")
-        upgradePickaxe.button.classList.add("hidden")
       }
     }
   },
@@ -243,10 +256,10 @@ const resources = {
       this.countSource.innerHTML = value
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
-        blast.button.classList.remove("hidden")
+        smelt.button.classList.remove("hidden")
       } else {
         this.displayContainer.classList.add("hidden")
-        blast.button.classList.add("hidden")
+        smelt.button.classList.add("hidden")
       }
     }
   },
@@ -267,10 +280,8 @@ const resources = {
       this.countSource.innerHTML = value
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
-        smelt.button.classList.remove("hidden")
       } else {
         this.displayContainer.classList.add("hidden")
-        smelt.button.classList.add("hidden")
       }
     }
   },
@@ -376,9 +387,6 @@ function purchaseExtract() {
 
         switch (upgradeGalmi.level) {
           case 1:
-            limestoneToGain += 1
-            break
-          case 2:
             if (roll <= 5) {
               limestoneToGain += 1
             } else {
@@ -386,7 +394,7 @@ function purchaseExtract() {
             }
             break
           default:
-            if (roll <= 4) {
+            if (roll <= 5) {
               limestoneToGain += 1
             } else if (roll <= 8) {
               coalToGain += 1
@@ -418,26 +426,21 @@ function purchaseUpgradeGalmi() {
 
       rocks.count -= upgradeGalmi.costs.rocks.amount
 
-      upgradeGalmi.level += 1
       switch (upgradeGalmi.level) {
-        case 2:
-          upgradeGalmi.costs.rocks.amount = 67
-          break
-        case 3:
+        case 1:
+          ironore.count += 1
           upgradeGalmi.costs.rocks.amount = 2000
           break
-        case 4:
-          upgradeGalmi.costs.rocks.amount = 50000
+        case 2:
+          upgradeGalmi.costs.rocks.amount = 700000
           break
-        case 5:
-          upgradeGalmi.costs.rocks.amount = 670000
-          break
-        case 6:
+        case 3:
           upgradeGalmi.costs.rocks.amount = 2147483647
           break
         default:
-          upgradeGalmi.costs.rocks.amount *= 4
+          upgradeGalmi.costs.rocks.amount *= 400
       }
+      upgradeGalmi.level += 1
       checkPurchasables()
 
       let rockImage = document.querySelector('.rock-image')
@@ -460,12 +463,15 @@ function purchaseUpgradePickaxe() {
         steel.count -= upgradePickaxe.costs.steel.amount
       }
 
-      rocksPerClick += 1
+      blast.button.classList.remove("hidden")
 
       upgradePickaxe.level += 1
-      upgradePickaxe.costs.limestone.amount += 10
       if (upgradePickaxe.level >= 4) {
+        upgradePickaxe.costs.limestone.amount += 10
         upgradePickaxe.costs.steel.amount += 1
+        rocksPerClick += 2
+      } else {
+        rocksPerClick += 1
       }
       checkPurchasables()
     }
@@ -573,7 +579,6 @@ function toggleDarkMode() {
 function save() {
   localStorage.clear()
 
-  localStorage.setItem('pickaxeLevel', JSON.stringify(pickaxeLevel))
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick))
   localStorage.setItem('workers', JSON.stringify(workers))
   localStorage.setItem('darkMode', JSON.stringify(darkMode))
