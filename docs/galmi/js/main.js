@@ -2,7 +2,6 @@
 // DATA
 
 const TOTAL_ROCK_IMAGES = 4
-const PICKAXE_STARTING_LEVEL = 1
 const ROCKS_PER_CLICK_STARTING_AMOUNT = 1
 const WORKERS_STARTING_AMOUNT = 0
 const GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT = 1
@@ -10,7 +9,6 @@ const PURCHASABLES_STARTING_LEVEL = 1
 const RESOURCES_STARTING_COUNT = 0
 const RESOURCES_STARTING_GROSS = 0
 
-let pickaxeLevel = PICKAXE_STARTING_LEVEL
 let rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT
 let workers = WORKERS_STARTING_AMOUNT
 let globalPurchaseMultiplier = GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT
@@ -42,15 +40,32 @@ const purchasables = {
     },
     button: document.querySelector('.extract-button')
   },
-  reinvest: {
-    name: 'reinvest',
+  upgradeGalmi: {
+    name: 'upgrade-galmi',
+    level: PURCHASABLES_STARTING_LEVEL,
+    costs: {
+      rocks: {
+        name: "rocks",
+        source: document.querySelector('.upgrade-galmi-cost-rocks'),
+        get amount() {
+          return parseFloat(document.querySelector('.upgrade-galmi-cost-rocks').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
+      }
+    },
+    button: document.querySelector('.upgrade-galmi-button')
+  },
+  upgradePickaxe: {
+    name: 'upgrade-pickaxe',
     level: PURCHASABLES_STARTING_LEVEL,
     costs: {
       limestone: {
         name: "limestone",
-        source: document.querySelector('.reinvest-cost-limestone'),
+        source: document.querySelector('.upgrade-pickaxe-cost-limestone'),
         get amount() {
-          return parseFloat(document.querySelector('.reinvest-cost-limestone').innerHTML)
+          return parseFloat(document.querySelector('.upgrade-pickaxe-cost-limestone').innerHTML)
         },
         set amount(value) {
           this.source.innerHTML = value
@@ -58,16 +73,16 @@ const purchasables = {
       },
       steel: {
         name: "steel",
-        source: document.querySelector('.reinvest-cost-steel'),
+        source: document.querySelector('.upgrade-pickaxe-cost-steel'),
         get amount() {
-          return parseFloat(document.querySelector('.reinvest-cost-steel').innerHTML)
+          return parseFloat(document.querySelector('.upgrade-pickaxe-cost-steel').innerHTML)
         },
         set amount(value) {
           this.source.innerHTML = value
         }
       }
     },
-    button: document.querySelector('.reinvest-button'),
+    button: document.querySelector('.upgrade-pickaxe-button'),
   },
   blast: {
     name: 'blast',
@@ -146,13 +161,23 @@ const purchasables = {
         set amount(value) {
           this.source.innerHTML = value
         }
+      },
+      limestone: {
+        name: "limestone",
+        source: document.querySelector('.smelt-cost-limestone'),
+        get amount() {
+          return parseFloat(document.querySelector('.smelt-cost-limestone').innerHTML)
+        },
+        set amount(value) {
+          this.source.innerHTML = value
+        }
       }
     },
     button: document.querySelector('.hire-button')
   }
 }
 
-const { extract, reinvest, roast, blast, smelt, hire } = purchasables
+const { extract, upgradeGalmi, upgradePickaxe, roast, blast, smelt, hire } = purchasables
 
 const resources = {
   rocks: {
@@ -194,10 +219,10 @@ const resources = {
       this.countSource.innerHTML = value
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden")
-        reinvest.button.classList.remove("hidden")
+        upgradePickaxe.button.classList.remove("hidden")
       } else {
         this.displayContainer.classList.add("hidden")
-        reinvest.button.classList.add("hidden")
+        upgradePickaxe.button.classList.add("hidden")
       }
     }
   },
@@ -348,12 +373,27 @@ function purchaseExtract() {
     let roll = Math.floor(Math.random() * 10) + 1
     if (globalPurchaseMultiplier <= 10000) {
       for (let i = 0; i < globalPurchaseMultiplier; i++) {
-        if (roll <= 6) {
-          limestoneToGain++
-        } else if (roll <= 9) {
-          coalToGain++
-        } else {
-          ironoreToGain++
+
+        switch (upgradeGalmi.level) {
+          case 1:
+            limestoneToGain += 1
+            break
+          case 2:
+            if (roll <= 5) {
+              limestoneToGain += 1
+            } else {
+              coalToGain += 1
+            }
+            break
+          default:
+            if (roll <= 4) {
+              limestoneToGain += 1
+            } else if (roll <= 8) {
+              coalToGain += 1
+            } else {
+              ironoreToGain += 1
+            }
+            break
         }
         roll = Math.floor(Math.random() * 10) + 1
       }
@@ -371,31 +411,63 @@ function purchaseExtract() {
   }
 }
 
-function purchaseReinvest() {
+function purchaseUpgradeGalmi() {
 
   for (let i = 0; i < globalPurchaseMultiplier; i++) {
-    if (limestone.count >= reinvest.costs.limestone.amount && steel.count >= reinvest.costs.steel.amount) {
+    if (rocks.count >= upgradeGalmi.costs.rocks.amount) {
 
-      limestone.count -= reinvest.costs.limestone.amount
-      if (reinvest.costs.steel.amount > 0) {
-        steel.count -= reinvest.costs.steel.amount
-      }
+      rocks.count -= upgradeGalmi.costs.rocks.amount
 
-      rocksPerClick += 1
-
-      reinvest.level += 1
-      reinvest.costs.limestone.amount += 10
-      if (reinvest.level >= 4) {
-        reinvest.costs.steel.amount += 1
+      upgradeGalmi.level += 1
+      switch (upgradeGalmi.level) {
+        case 2:
+          upgradeGalmi.costs.rocks.amount = 67
+          break
+        case 3:
+          upgradeGalmi.costs.rocks.amount = 2000
+          break
+        case 4:
+          upgradeGalmi.costs.rocks.amount = 50000
+          break
+        case 5:
+          upgradeGalmi.costs.rocks.amount = 670000
+          break
+        case 6:
+          upgradeGalmi.costs.rocks.amount = 2147483647
+          break
+        default:
+          upgradeGalmi.costs.rocks.amount *= 4
       }
       checkPurchasables()
 
       let rockImage = document.querySelector('.rock-image')
-      if (reinvest.level <= TOTAL_ROCK_IMAGES) {
-        rockImage.src = `/galmi/img/rocks/${reinvest.level}.png`
+      if (upgradeGalmi.level <= TOTAL_ROCK_IMAGES) {
+        rockImage.src = `/galmi/img/rocks/${upgradeGalmi.level}.png`
       } else {
         rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`
       }
+    }
+  }
+}
+
+function purchaseUpgradePickaxe() {
+
+  for (let i = 0; i < globalPurchaseMultiplier; i++) {
+    if (limestone.count >= upgradePickaxe.costs.limestone.amount && steel.count >= upgradePickaxe.costs.steel.amount) {
+
+      limestone.count -= upgradePickaxe.costs.limestone.amount
+      if (upgradePickaxe.costs.steel.amount > 0) {
+        steel.count -= upgradePickaxe.costs.steel.amount
+      }
+
+      rocksPerClick += 1
+
+      upgradePickaxe.level += 1
+      upgradePickaxe.costs.limestone.amount += 10
+      if (upgradePickaxe.level >= 4) {
+        upgradePickaxe.costs.steel.amount += 1
+      }
+      checkPurchasables()
     }
   }
 }
