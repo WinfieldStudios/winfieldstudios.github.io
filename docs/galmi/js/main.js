@@ -17,6 +17,7 @@ let globalPurchaseMultiplier = GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT
 let darkMode = false
 
 let rockImageContainer = document.querySelector('.rock-image-container')
+let saveIcon = document.querySelector('.game-buttons')
 
 /* how to iterate through this dataset in javascript:
 for (const res of Object.values(resources)) {
@@ -515,6 +516,15 @@ function save() {
     const grossKey = `${resource.name}Gross`
     localStorage.setItem(grossKey, JSON.stringify(resource.gross))
   }
+
+  const div = document.createElement('div')
+  div.innerHTML = 'Saved!'
+  div.style.cssText = `color: var(--dark-color); position: absolute; top: 6vh; left: 0.5vw; font-size: 15px; font-weight: bold; pointer-events: none;`
+  saveIcon.appendChild(div)
+
+  div.classList.add('gain-resource-animation')
+
+  timeout(div)
 }
 
 function load() {
