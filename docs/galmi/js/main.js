@@ -362,27 +362,30 @@ function purchaseExtract() {
 }
 
 function purchaseReinvest() {
-  if (limestone.count >= reinvest.costs.limestone.amount * globalPurchaseMultiplier && steel.count >= reinvest.costs.steel.amount * globalPurchaseMultiplier) {
 
-    limestone.count -= reinvest.costs.limestone.amount * globalPurchaseMultiplier
-    if (reinvest.costs.steel.amount > 0) {
-      steel.count -= reinvest.costs.steel.amount * globalPurchaseMultiplier
-    }
+  for (let i = 0; i < globalPurchaseMultiplier; i++) {
+    if (limestone.count >= reinvest.costs.limestone.amount && steel.count >= reinvest.costs.steel.amount) {
 
-    rocksPerClick += globalPurchaseMultiplier
+      limestone.count -= reinvest.costs.limestone.amount
+      if (reinvest.costs.steel.amount > 0) {
+        steel.count -= reinvest.costs.steel.amount
+      }
 
-    reinvest.level += globalPurchaseMultiplier
-    reinvest.costs.limestone.amount += 10 * globalPurchaseMultiplier
-    if (reinvest.level >= 4) {
-      reinvest.costs.steel.amount += globalPurchaseMultiplier
-    }
-    checkPurchasables()
+      rocksPerClick += 1
 
-    let rockImage = document.querySelector('.rock-image')
-    if (reinvest.level <= TOTAL_ROCK_IMAGES) {
-      rockImage.src = `/galmi/img/rocks/${reinvest.level}.png`
-    } else {
-      rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`
+      reinvest.level += 1
+      reinvest.costs.limestone.amount += 10
+      if (reinvest.level >= 4) {
+        reinvest.costs.steel.amount += 1
+      }
+      checkPurchasables()
+
+      let rockImage = document.querySelector('.rock-image')
+      if (reinvest.level <= TOTAL_ROCK_IMAGES) {
+        rockImage.src = `/galmi/img/rocks/${reinvest.level}.png`
+      } else {
+        rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`
+      }
     }
   }
 }
