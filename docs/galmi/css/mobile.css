@@ -11,7 +11,30 @@
 }
 
 @media (max-width: 600px) {
+  html, body { 
+    height: 100%; 
+    overflow: hidden; 
+    position: fixed; /* important for iOS */
+    width: 100%;
+    touch-action: none;          /* prevents scroll gestures */
+    overscroll-behavior: none;
+  }
+  body { 
+    min-height: 100svh; 
+    overscroll-behavior: none; 
+    touch-action: manipulation; 
+  }
   .main {
-    width: 85vw;
+    width: 100vw;
+  }
+  label {
+    width: auto;
+    min-width: 0;
+    padding: 5px 2vw;
+    white-space: nowrap;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
   }
 }

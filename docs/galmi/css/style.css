@@ -13,6 +13,7 @@
 
 html, body {
     touch-action: manipulation;
+    overflow: hidden;
 }
 
 body {
