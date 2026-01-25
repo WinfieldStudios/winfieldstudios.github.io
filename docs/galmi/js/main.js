@@ -14,6 +14,7 @@ let pickaxeLevel = PICKAXE_STARTING_LEVEL
 let rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT
 let workers = WORKERS_STARTING_AMOUNT
 let globalPurchaseMultiplier = GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT
+let darkMode = false
 
 let rockImageContainer = document.querySelector('.rock-image-container')
 
@@ -458,6 +459,7 @@ function toggleDarkMode() {
   const targetTheme = currentTheme === "dark" ? "light" : "dark";
   document.documentElement.setAttribute("data-theme", targetTheme);
   document.getElementById("dark-mode-toggle").innerText = targetTheme === "dark" ? "Light" : "Dark";
+  darkMode = targetTheme === "dark" ? true : false
 }
 
 //
@@ -469,6 +471,7 @@ function save() {
   localStorage.setItem('pickaxeLevel', JSON.stringify(pickaxeLevel))
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick))
   localStorage.setItem('workers', JSON.stringify(workers))
+  localStorage.setItem('darkMode', JSON.stringify(darkMode))
 
   for (const purchasable of Object.values(purchasables)) {
     const key = `${purchasable.name}Level`
@@ -499,6 +502,14 @@ function load() {
   const savedWorkers = JSON.parse(localStorage.getItem('workers'))
   if (savedWorkers !== null) {
     workers = savedWorkers
+  }
+
+  const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'))
+  if (savedDarkMode !== null) {
+    darkMode = savedDarkMode
+    if (darkMode) {
+      toggleDarkMode()
+    }
   }
 
   for (const purchasable of Object.values(purchasables)) {
