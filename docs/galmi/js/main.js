@@ -602,11 +602,6 @@ function save() {
 function load() {
 
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT)
-  
-  const savedPickaxeLevel = JSON.parse(localStorage.getItem('pickaxeLevel'))
-  if (savedPickaxeLevel !== null) {
-    pickaxeLevel = savedPickaxeLevel
-  }
 
   const savedRocksPerClick = JSON.parse(localStorage.getItem('rocksPerClick'))
   if (savedRocksPerClick !== null) {
@@ -655,11 +650,6 @@ function load() {
 function restart() {
 
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT)
-  
-  const savedPickaxeLevel = JSON.parse(localStorage.getItem('pickaxeLevel'))
-  if (savedPickaxeLevel !== null) {
-    pickaxeLevel = PICKAXE_STARTING_LEVEL
-  }
 
   const savedRocksPerClick = JSON.parse(localStorage.getItem('rocksPerClick'))
   if (savedRocksPerClick !== null) {
@@ -699,7 +689,6 @@ function restart() {
 function clearSave() {
   localStorage.clear()
 
-  localStorage.setItem('pickaxeLevel', JSON.stringify(PICKAXE_STARTING_LEVEL))
   localStorage.setItem('rocksPerClick', JSON.stringify(ROCKS_PER_CLICK_STARTING_AMOUNT))
   localStorage.setItem('workers', JSON.stringify(WORKERS_STARTING_AMOUNT))
   localStorage.setItem('globalPurchaseMultiplier', JSON.stringify(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT))
