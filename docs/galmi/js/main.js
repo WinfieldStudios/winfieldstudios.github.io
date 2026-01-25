@@ -325,7 +325,7 @@ function checkPurchasables() {
       if (!resource) {
         console.log("Unknown resource: ", cost.name)
       } else {
-        if (resource.count < cost.amount) {
+        if (resource.count < cost.amount * globalPurchaseMultiplier) {
           purchasable.button.classList.remove("enabled")
         }
       }
@@ -432,6 +432,22 @@ setInterval(() => {
 }, 1000)
 
 //
+// PURCHASE MULTIPLIER
+
+function setGlobalPurchaseMultiplier(value) {
+  globalPurchaseMultiplier = value
+
+  const display = document.querySelectorAll('.multiplier')
+  for (const element of display) {
+    element.innerHTML = globalPurchaseMultiplier
+  }
+
+  document.getElementById(`option${globalPurchaseMultiplier}`).checked = true
+
+  checkPurchasables()
+}
+
+//
 // SAVE AND LOAD
 
 function save() {
@@ -440,7 +456,6 @@ function save() {
   localStorage.setItem('pickaxeLevel', JSON.stringify(pickaxeLevel))
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick))
   localStorage.setItem('workers', JSON.stringify(workers))
-  localStorage.setItem('globalPurchaseMultiplier', JSON.stringify(globalPurchaseMultiplier))
 
   for (const purchasable of Object.values(purchasables)) {
     const key = `${purchasable.name}Level`
@@ -455,6 +470,8 @@ function save() {
 }
 
 function load() {
+
+  setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT)
   
   const savedPickaxeLevel = JSON.parse(localStorage.getItem('pickaxeLevel'))
   if (savedPickaxeLevel !== null) {
@@ -469,11 +486,6 @@ function load() {
   const savedWorkers = JSON.parse(localStorage.getItem('workers'))
   if (savedWorkers !== null) {
     workers = savedWorkers
-  }
-
-  const savedGlobalPurchaseMultiplier = JSON.parse(localStorage.getItem('globalPurchaseMultiplier'))
-  if (savedGlobalPurchaseMultiplier !== null) {
-    globalPurchaseMultiplier = savedGlobalPurchaseMultiplier
   }
 
   for (const purchasable of Object.values(purchasables)) {
@@ -500,6 +512,8 @@ function load() {
 }
 
 function restart() {
+
+  setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT)
   
   const savedPickaxeLevel = JSON.parse(localStorage.getItem('pickaxeLevel'))
   if (savedPickaxeLevel !== null) {
@@ -514,11 +528,6 @@ function restart() {
   const savedWorkers = JSON.parse(localStorage.getItem('workers'))
   if (savedWorkers !== null) {
     workers = WORKERS_STARTING_AMOUNT
-  }
-
-  const savedGlobalPurchaseMultiplier = JSON.parse(localStorage.getItem('globalPurchaseMultiplier'))
-  if (savedGlobalPurchaseMultiplier !== null) {
-    globalPurchaseMultiplier = GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT
   }
 
   for (const purchasable of Object.values(purchasables)) {

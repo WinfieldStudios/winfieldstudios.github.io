@@ -157,12 +157,44 @@ body {
   }
 }
 
-.save-button {
+.gpm-selector {
   position: absolute;
   top: 1vh;
   right: 1vw;
+}
+/* 1. Hide the radio circle */
+input[type="radio"] {
+  display: none;
+}
+
+/* 2. Style labels as buttons */
+label {
+  display: inline-block;
+  padding: 10px 20px;
+  color: var(--dark-color);
+  border: none;
+  border-radius: 1vh;
+  background-color: var(--light-color);
+  box-shadow: 0px 0px 5px var(--dark-color);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* 3. Style for the "Selected" button */
+input[type="radio"]:checked + label {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  border-color: var(--light-color);
+}
+
+.game-buttons {
+  position: absolute;
+  top: 1vh;
+  left: 1vw;
   display: flex;
   gap: 10px;
+}
+.game-button {
   padding: 0.5vh 1vh;
   font-size: 2vh;
   font-weight: 600;
@@ -172,11 +204,11 @@ body {
   background-color: var(--light-color);
   box-shadow: 0px 0px 5px var(--dark-color);
 }
-.save-button:hover {
+.game-button:hover {
   opacity: 0.7;
   cursor: pointer;
 }
-.save-button:active {
+.game-button:active {
   opacity: 0.8;
   transform: scale(1.02);
 }
