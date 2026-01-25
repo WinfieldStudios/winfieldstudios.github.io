@@ -24,6 +24,12 @@
     overscroll-behavior: none; 
     touch-action: manipulation; 
   }
+  .main, .left, .right, .middle {
+    touch-action: manipulation;     /* disables double-tap zoom */
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
   .main {
     width: 100vw;
   }
