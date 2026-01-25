@@ -337,9 +337,9 @@ function purchaseExtract() {
   if (rocks.count >= extract.costs.rocks.amount * globalPurchaseMultiplier) {
     rocks.count -= extract.costs.rocks.amount * globalPurchaseMultiplier
 
-    const roll = Math.floor(Math.random() * 10) + 1
+    let roll = Math.floor(Math.random() * 10) + 1
     
-    if (globalPurchaseMultiplier < 10000) {
+    if (globalPurchaseMultiplier <= 10000) {
       for (let i = 0; i < globalPurchaseMultiplier; i++) {
         if (roll <= 6) {
           limestone.count++
@@ -348,6 +348,7 @@ function purchaseExtract() {
         } else {
           ironore.count++
         }
+        roll = Math.floor(Math.random() * 10) + 1
       }
     } else {
       limestone.count += parseInt(0.6 * globalPurchaseMultiplier)
@@ -445,6 +446,15 @@ function setGlobalPurchaseMultiplier(value) {
   document.getElementById(`option${globalPurchaseMultiplier}`).checked = true
 
   checkPurchasables()
+}
+
+//
+// DARK MODE
+function toggleDarkMode() {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const targetTheme = currentTheme === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", targetTheme);
+  document.getElementById("dark-mode-toggle").innerText = targetTheme === "dark" ? "Light" : "Dark";
 }
 
 //

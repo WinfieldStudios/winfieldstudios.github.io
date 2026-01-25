@@ -1,6 +1,14 @@
 :root {
+  /* OLD THEME COLORS
   --dark-color:#4B3B2B;
-  --light-color:#F9F5F0;
+  --light-color:#F9F5F0; 
+  */
+  --dark-color: #2A2A2E;
+  --light-color:#EEF1F4;
+}
+:root[data-theme="dark"] {
+  --dark-color:#EEF1F4;
+  --light-color:#2A2A2E;
 }
 
 html, body {
@@ -17,6 +25,7 @@ body {
   color: var(--dark-color);
   user-select: none;
   /* cursor: url("/assets/cursors/pickaxe.png") 16 16, auto; */
+
 }
 
 .main {
@@ -225,6 +234,7 @@ input[type="radio"]:checked + label {
 }
 .util-button {
   padding: 0.5vh 1vh;
+  color: var(--dark-color);
   font-size: 1.5vh;
   font-weight: 600;
   font-family: inherit;
