@@ -163,8 +163,34 @@
     </div>
     
 
-    <div>
-      <button class="save-button" onclick="save()">
+    <div class="gpm-selector">
+      <input type="radio" name="global-purchase-multiplier" id="option1">
+        <label for="option1" onclick="setGlobalPurchaseMultiplier(1)">
+          x1
+        </label>
+      <input type="radio" name="global-purchase-multiplier" id="option10">
+        <label for="option10" onclick="setGlobalPurchaseMultiplier(10)">
+          x10
+        </label>
+      <input type="radio" name="global-purchase-multiplier" id="option100">
+        <label for="option100" onclick="setGlobalPurchaseMultiplier(100)">
+          x100
+        </label>
+      <input type="radio" name="global-purchase-multiplier" id="option1000">
+        <label for="option1000" onclick="setGlobalPurchaseMultiplier(1000)">
+          x1000
+        </label>
+      <input type="radio" name="global-purchase-multiplier" id="option10000">
+        <label for="option10000" onclick="setGlobalPurchaseMultiplier(10000)">
+          x10000
+        </label>
+      <input type="radio" name="global-purchase-multiplier" id="option100000">
+        <label for="option100000" onclick="setGlobalPurchaseMultiplier(100000)">
+          x100000
+        </label>
+    </div>
+    <div class="game-buttons">
+      <button class="game-button" onclick="save()">
         <img src="/galmi/img/icons/floppy_disk.png" alt="" class="save-icon" draggable="false">
       </button>
       <!--
