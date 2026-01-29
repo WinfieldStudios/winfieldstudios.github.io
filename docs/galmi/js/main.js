@@ -452,6 +452,31 @@ function purchaseUpgradeGalmi() {
     }
   }
 }
+function updateUpgradeGalmi() {
+  switch (upgradeGalmi.level) {
+    case 1:
+      upgradeGalmi.costs.rocks.amount = 67
+      break
+    case 2:
+      upgradeGalmi.costs.rocks.amount = 2000
+      break
+    case 3:
+      upgradeGalmi.costs.rocks.amount = 700000
+      break
+    case 4:
+      upgradeGalmi.costs.rocks.amount = 2147483647
+      break
+    default:
+      console.log("GALMI MAX LEVEL")
+  }
+
+  let rockImage = document.querySelector('.rock-image')
+  if (upgradeGalmi.level <= TOTAL_ROCK_IMAGES) {
+    rockImage.src = `/galmi/img/rocks/${upgradeGalmi.level}.png`
+  } else {
+    rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`
+  }
+}
 
 function purchaseUpgradePickaxe() {
 
@@ -475,6 +500,12 @@ function purchaseUpgradePickaxe() {
       }
       checkPurchasables()
     }
+  }
+}
+function updateUpgradePickaxe() {
+  upgradePickaxe.costs.limestone.amount = 20
+  if (updateUpgradePickaxe >= 4) {
+    upgradePickaxe.costs.limestone.amount += (upgradePickaxe.level - 3) * 10
   }
 }
 
@@ -504,7 +535,8 @@ function purchaseSmelt() {
 }
 
 function purchaseHire() {
-  if (pigiron.count >= hire.costs.pigiron.amount * globalPurchaseMultiplier) {
+  if (limestone.count >= hire.costs.limestone.amount * globalPurchaseMultiplier && pigiron.count >= hire.costs.pigiron.amount * globalPurchaseMultiplier) {
+    limestone.count -= hire.costs.limestone.amount * globalPurchaseMultiplier
     pigiron.count -= hire.costs.pigiron.amount * globalPurchaseMultiplier
 
     workers += globalPurchaseMultiplier
@@ -649,6 +681,8 @@ function load() {
       }
     }
   }
+  updateUpgradeGalmi()
+  updateUpgradePickaxe()
   checkPurchasables()
 }
 
@@ -687,6 +721,8 @@ function restart() {
       resource.count = RESOURCES_STARTING_COUNT
     }
   }
+  updateUpgradeGalmi()
+  updateUpgradePickaxe()
   checkPurchasables()
 
 }
