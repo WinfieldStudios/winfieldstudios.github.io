@@ -134,7 +134,133 @@ const resources = {
       if (this.gross > 0) this.displayContainer.classList.remove("hidden");
       else this.displayContainer.classList.add("hidden");
     }
+  },
+
+  obsidian: {
+    name: 'obsidian',
+    gross: 0,
+    countSource: document.querySelector('.obsidian-count'),
+    displayContainer: document.querySelector('.obsidian-resource-display'),
+    get count() { return parseFloat(document.querySelector('.obsidian-count').innerHTML); },
+    set count(value) {
+      if (value > this.count) {
+        this.gross += value - this.count;
+        gainResourceParticle(this, value - this.count);
+      }
+      this.countSource.innerHTML = value;
+
+      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
+      else this.displayContainer.classList.add("hidden");
+    }
+  },
+
+  chromiumore: {
+    name: 'chromiumore',
+    gross: 0,
+    countSource: document.querySelector('.chromiumore-count'),
+    displayContainer: document.querySelector('.chromiumore-resource-display'),
+    get count() { return parseFloat(document.querySelector('.chromiumore-count').innerHTML); },
+    set count(value) {
+      if (value > this.count) {
+        this.gross += value - this.count;
+        gainResourceParticle(this, value - this.count);
+      }
+      this.countSource.innerHTML = value;
+
+      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
+      else this.displayContainer.classList.add("hidden");
+    }
+  },
+
+  ferrochrome: {
+    name: 'ferrochrome',
+    gross: 0,
+    countSource: document.querySelector('.ferrochrome-count'),
+    displayContainer: document.querySelector('.ferrochrome-resource-display'),
+    get count() { return parseFloat(document.querySelector('.ferrochrome-count').innerHTML); },
+    set count(value) {
+      if (value > this.count) {
+        this.gross += value - this.count;
+        gainResourceParticle(this, value - this.count);
+      }
+      this.countSource.innerHTML = value;
+
+      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
+      else this.displayContainer.classList.add("hidden");
+    }
+  },
+
+  stainlesssteel: {
+    name: 'stainlesssteel',
+    gross: 0,
+    countSource: document.querySelector('.stainlesssteel-count'),
+    displayContainer: document.querySelector('.stainlesssteel-resource-display'),
+    get count() { return parseFloat(document.querySelector('.stainlesssteel-count').innerHTML); },
+    set count(value) {
+      if (value > this.count) {
+        this.gross += value - this.count;
+        gainResourceParticle(this, value - this.count);
+      }
+      this.countSource.innerHTML = value;
+
+      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
+      else this.displayContainer.classList.add("hidden");
+    }
+  },
+
+  aluminum: {
+    name: 'aluminum',
+    gross: 0,
+    countSource: document.querySelector('.aluminum-count'),
+    displayContainer: document.querySelector('.aluminum-resource-display'),
+    get count() { return parseFloat(document.querySelector('.aluminum-count').innerHTML); },
+    set count(value) {
+      if (value > this.count) {
+        this.gross += value - this.count;
+        gainResourceParticle(this, value - this.count);
+      }
+      this.countSource.innerHTML = value;
+
+      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
+      else this.displayContainer.classList.add("hidden");
+    }
+  },
+
+  concrete: {
+    name: 'concrete',
+    gross: 0,
+    countSource: document.querySelector('.concrete-count'),
+    displayContainer: document.querySelector('.concrete-resource-display'),
+    get count() { return parseFloat(document.querySelector('.concrete-count').innerHTML); },
+    set count(value) {
+      if (value > this.count) {
+        this.gross += value - this.count;
+        gainResourceParticle(this, value - this.count);
+      }
+      this.countSource.innerHTML = value;
+
+      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
+      else this.displayContainer.classList.add("hidden");
+    }
+  },
+
+  chromium: {
+    name: 'chromium',
+    gross: 0,
+    countSource: document.querySelector('.chromium-count'),
+    displayContainer: document.querySelector('.chromium-resource-display'),
+    get count() { return parseFloat(document.querySelector('.chromium-count').innerHTML); },
+    set count(value) {
+      if (value > this.count) {
+        this.gross += value - this.count;
+        gainResourceParticle(this, value - this.count);
+      }
+      this.countSource.innerHTML = value;
+
+      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
+      else this.displayContainer.classList.add("hidden");
+    }
   }
 };
 
-const { rocks, limestone, coal, ironore, pigiron, steel } = resources;
+const { rocks, limestone, coal, ironore, pigiron, steel, obsidian, chromiumore, ferrochrome, stainlesssteel, aluminum, concrete, chromium } = resources;

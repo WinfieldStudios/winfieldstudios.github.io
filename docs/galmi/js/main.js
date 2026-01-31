@@ -1,8 +1,8 @@
 // TIME LOOP
 setInterval(() => {
-  if (workers > 0) {
-    rocks.count += workers;
+  if (rocksPerSecond > 0) {
+    rocks.count += rocksPerSecond;
     checkPurchasables();
-    gainResourceParticle(rocks, workers);
+    gainResourceParticle(rocks, rocksPerSecond);
   }
 }, 1000);

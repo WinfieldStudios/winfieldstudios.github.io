@@ -70,8 +70,11 @@ function purchaseUpgradeGalmi() {
         case 3:
           upgradeGalmi.costs.rocks.amount = 2147483647;
           break;
+        case 4:
+          upgradeGalmi.costs.rocks.amount = 9007199254740991;
+          break;
         default:
-          upgradeGalmi.costs.rocks.amount *= 400;
+          upgradeGalmi.costs.rocks.amount = 0 // MAX LEVEL;
       }
 
       upgradeGalmi.level += 1;
@@ -90,7 +93,9 @@ function updateUpgradeGalmi() {
     case 2: upgradeGalmi.costs.rocks.amount = 2000; break;
     case 3: upgradeGalmi.costs.rocks.amount = 700000; break;
     case 4: upgradeGalmi.costs.rocks.amount = 2147483647; break;
-    default: console.log("GALMI MAX LEVEL");
+    case 5: upgradeGalmi.costs.rocks.amount = 9007199254740991; break;
+    default: 
+      upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
   }
 
   let rockImage = document.querySelector('.rock-image');
@@ -121,9 +126,14 @@ function purchaseUpgradePickaxe() {
 
 function updateUpgradePickaxe() {
   upgradePickaxe.costs.limestone.amount = 20;
+  upgradePickaxe.costs.steel.amount = 0;
+  if (upgradePickaxe.level > 1) {
+    blast.button.classList.remove("hidden");
+  }
   // NOTE: your original code had a bug (it checked updateUpgradePickaxe >= 4)
   if (upgradePickaxe.level >= 4) {
     upgradePickaxe.costs.limestone.amount += (upgradePickaxe.level - 3) * 10;
+    upgradePickaxe.costs.steel.amount = (upgradePickaxe.level - 3);
   }
 }
 
@@ -167,11 +177,35 @@ function purchaseHire() {
     limestone.count -= hire.costs.limestone.amount * globalPurchaseMultiplier;
     pigiron.count -= hire.costs.pigiron.amount * globalPurchaseMultiplier;
 
-    workers += globalPurchaseMultiplier;
+    rocksPerSecond += globalPurchaseMultiplier;
 
     hire.level += globalPurchaseMultiplier;
     checkPurchasables();
   }
+}
+
+function purchaseReduce() {
+  console.log("Reduce purchased");
+}
+
+function purchaseRefine() {
+  console.log("Refine purchased");
+}
+
+function purchaseAerate() {
+  console.log("Aerate purchased");
+}
+
+function purchaseProduce() {
+  console.log("Produce purchased");
+}
+
+function purchaseUpgradeWorker() {
+  console.log("Upgrade Worker purchased");
+}
+
+function purchaseHousing() {
+  console.log("Housing purchased");
 }
 
 // MULTIPLIER
