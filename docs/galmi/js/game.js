@@ -9,7 +9,11 @@ function checkPurchasables() {
         console.log("Unknown resource: ", cost.name);
         continue;
       }
-      if (resource.count < cost.amount * globalPurchaseMultiplier) {
+      if (purchasable.name === 'upgrade-galmi' || purchasable.name === 'upgrade-pickaxe') {
+        if (resource.count < cost.amount) {
+          purchasable.button.classList.remove("enabled");
+        }
+      } else if (resource.count < cost.amount * globalPurchaseMultiplier) {
         purchasable.button.classList.remove("enabled");
       }
     }
@@ -20,33 +24,137 @@ function purchaseExtract() {
   if (rocks.count >= extract.costs.rocks.amount * globalPurchaseMultiplier) {
     rocks.count -= extract.costs.rocks.amount * globalPurchaseMultiplier;
 
+    /*
     let limestoneToGain = 0;
     let coalToGain = 0;
     let ironoreToGain = 0;
+    let obsidianToGain = 0;
+    let chromiumoreToGain = 0;
+    let aluminumToGain = 0;
 
-    let roll = Math.floor(Math.random() * 10) + 1;
+    let roll = Math.floor(Math.random() * 10000) + 1;
     if (globalPurchaseMultiplier <= 10000) {
       for (let i = 0; i < globalPurchaseMultiplier; i++) {
         switch (upgradeGalmi.level) {
           case 1:
-            if (roll <= 5) limestoneToGain += 1;
+            if (roll <= 5000) limestoneToGain += 1;
             else coalToGain += 1;
             break;
-          default:
-            if (roll <= 5) limestoneToGain += 1;
-            else if (roll <= 8) coalToGain += 1;
+          case 2:
+            console.log("hello");
+            if (roll <= 5000) limestoneToGain += 1;
+            else if (roll <= 9000) coalToGain += 1;
             else ironoreToGain += 1;
+            console.log("hello");
+            break;
+          case 3:
+            if (roll <= 5000) limestoneToGain += 1;
+            else if (roll <= 9000) coalToGain += 1;
+            else if (roll <= 9900) ironoreToGain += 1;
+            else obsidianToGain += 1;
+            break;
+          case 4:
+            if (roll <= 5000) limestoneToGain += 1;
+            else if (roll <= 9000) coalToGain += 1;
+            else if (roll <= 9900) ironoreToGain += 1;
+            else if (roll <= 9990) obsidianToGain += 1;
+            else chromiumoreToGain += 1;
+            break;
+          default:
+            if (roll <= 5000) limestoneToGain += 1;
+            else if (roll <= 9000) coalToGain += 1;
+            else if (roll <= 9900) ironoreToGain += 1;
+            else if (roll <= 9990) obsidianToGain += 1;
+            else if (roll <= 9999) chromiumoreToGain += 1;
+            else aluminumToGain += 1;
             break;
         }
-        roll = Math.floor(Math.random() * 10) + 1;
+        roll = Math.floor(Math.random() * 10000) + 1;
       }
       limestone.count += limestoneToGain;
       coal.count += coalToGain;
       ironore.count += ironoreToGain;
+      obsidian.count += obsidianToGain;
+      chromiumore.count += chromiumoreToGain;
+      aluminum.count += aluminumToGain;
     } else {
-      limestone.count += parseInt(0.6 * globalPurchaseMultiplier);
-      coal.count += parseInt(0.3 * globalPurchaseMultiplier);
-      ironore.count += parseInt(0.1 * globalPurchaseMultiplier);
+      limestone.count += Math.floor(parseInt(0.5 * globalPurchaseMultiplier));
+      coal.count += parseInt(0.4 * globalPurchaseMultiplier);
+      ironore.count += parseInt(0.09 * globalPurchaseMultiplier);
+      obsidian.count += parseInt(0.009 * globalPurchaseMultiplier);
+      chromiumore.count += parseInt(0.0009 * globalPurchaseMultiplier);
+      aluminum.count += parseInt(0.00009 * globalPurchaseMultiplier);
+      
+    }
+      */
+    if (globalPurchaseMultiplier === 1) {
+
+      let roll = Math.floor(Math.random() * 10000) + 1;
+      switch (upgradeGalmi.level) {
+        case 1:
+          if (roll <= 5000) limestone.count += 1;
+          else coal.count += 1;
+          break;
+        case 2:
+          if (roll <= 5000) limestone.count += 1;
+          else if (roll <= 9000) coal.count += 1;
+          else ironore.count += 1;
+          break;
+        case 3:
+          if (roll <= 5000) limestone.count += 1;
+          else if (roll <= 9000) coal.count += 1;
+          else if (roll <= 9900) ironore.count += 1;
+          else obsidian.count += 1;
+          break;
+        case 4:
+          if (roll <= 5000) limestone.count += 1;
+          else if (roll <= 9000) coal.count += 1;
+          else if (roll <= 9900) ironore.count += 1;
+          else if (roll <= 9990) obsidian.count += 1;
+          else chromium.count += 1;
+          break;
+        default:
+          if (roll <= 5000) limestone.count += 1;
+          else if (roll <= 9000) coal.count += 1;
+          else if (roll <= 9900) ironore.count += 1;
+          else if (roll <= 9990) obsidian.count += 1;
+          else if (roll <= 9999) chromium.count += 1;
+          else aluminum.count += 1;
+          break;
+      }
+    } else {
+      switch (upgradeGalmi.level) {
+        case 1:
+          limestone.count += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          coal.count += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          break;
+        case 2:
+          limestone.count += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          coal.count += Math.floor((globalPurchaseMultiplier * 0.4) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          ironore.count += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05) / 2));
+          break;
+        case 3:
+          limestone.count += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          coal.count += Math.floor((globalPurchaseMultiplier * 0.4) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          ironore.count += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05) / 2));
+          obsidian.count += Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005) / 2));
+          break;
+        case 4:
+          limestone.count += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          coal.count += Math.floor((globalPurchaseMultiplier * 0.4) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          ironore.count += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05) / 2));
+          obsidian.count += Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005) / 2));
+          chromiumore.count += Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005) / 2));
+          break;
+        default:
+          limestone.count += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          coal.count += Math.floor((globalPurchaseMultiplier * 0.4) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
+          ironore.count += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05) / 2));
+          obsidian.count += Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005) / 2));
+          chromiumore.count += Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005) / 2));
+          aluminum.count += Math.floor((globalPurchaseMultiplier * 0.000000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000000005) - (globalPurchaseMultiplier * 0.0000000005) / 2));
+          break;
+      }
     }
 
     extract.level += globalPurchaseMultiplier;
@@ -55,45 +163,48 @@ function purchaseExtract() {
 }
 
 function purchaseUpgradeGalmi() {
-  for (let i = 0; i < globalPurchaseMultiplier; i++) {
-    if (rocks.count >= upgradeGalmi.costs.rocks.amount) {
-      rocks.count -= upgradeGalmi.costs.rocks.amount;
+  if (rocks.count >= upgradeGalmi.costs.rocks.amount) {
+    rocks.count -= upgradeGalmi.costs.rocks.amount;
 
-      switch (upgradeGalmi.level) {
-        case 1:
-          ironore.count += 1;
-          upgradeGalmi.costs.rocks.amount = 2000;
-          break;
-        case 2:
-          upgradeGalmi.costs.rocks.amount = 700000;
-          break;
-        case 3:
-          upgradeGalmi.costs.rocks.amount = 2147483647;
-          break;
-        case 4:
-          upgradeGalmi.costs.rocks.amount = 9007199254740991;
-          break;
-        default:
-          upgradeGalmi.costs.rocks.amount = 0 // MAX LEVEL;
-      }
-
-      upgradeGalmi.level += 1;
-      checkPurchasables();
-
-      let rockImage = document.querySelector('.rock-image');
-      if (upgradeGalmi.level <= TOTAL_ROCK_IMAGES) rockImage.src = `/galmi/img/rocks/${upgradeGalmi.level}.png`;
-      else rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`;
+    switch (upgradeGalmi.level) {
+      case 1:
+        ironore.count += 1;
+        upgradeGalmi.costs.rocks.amount = 4444;
+        upgradeGalmi.level += 1;
+        break;
+      case 2:
+        obsidian.count += 1;
+        upgradeGalmi.costs.rocks.amount = 2147483647;
+        upgradeGalmi.level += 1;
+        break;
+      case 3:
+        chromiumore.count += 1;
+        upgradeGalmi.costs.rocks.amount = 9007199254740991;
+        upgradeGalmi.level += 1;
+        break;
+      case 4:
+        aluminum.count += 1;
+        upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
+        upgradeGalmi.level += 1;
+        break;
+      default:
+        upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL;
     }
+
+    checkPurchasables();
+
+    let rockImage = document.querySelector('.rock-image');
+    if (upgradeGalmi.level <= TOTAL_ROCK_IMAGES) rockImage.src = `/galmi/img/rocks/${upgradeGalmi.level}.png`;
+    else rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`;
   }
 }
 
 function updateUpgradeGalmi() {
   switch (upgradeGalmi.level) {
     case 1: upgradeGalmi.costs.rocks.amount = 67; break;
-    case 2: upgradeGalmi.costs.rocks.amount = 2000; break;
-    case 3: upgradeGalmi.costs.rocks.amount = 700000; break;
-    case 4: upgradeGalmi.costs.rocks.amount = 2147483647; break;
-    case 5: upgradeGalmi.costs.rocks.amount = 9007199254740991; break;
+    case 2: upgradeGalmi.costs.rocks.amount = 4444; break;
+    case 3: upgradeGalmi.costs.rocks.amount = 2147483647; break;
+    case 4: upgradeGalmi.costs.rocks.amount = 9007199254740991; break;
     default: 
       upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
   }
@@ -104,23 +215,21 @@ function updateUpgradeGalmi() {
 }
 
 function purchaseUpgradePickaxe() {
-  for (let i = 0; i < globalPurchaseMultiplier; i++) {
-    if (limestone.count >= upgradePickaxe.costs.limestone.amount && steel.count >= upgradePickaxe.costs.steel.amount) {
-      limestone.count -= upgradePickaxe.costs.limestone.amount;
-      if (upgradePickaxe.costs.steel.amount > 0) steel.count -= upgradePickaxe.costs.steel.amount;
+  if (limestone.count >= upgradePickaxe.costs.limestone.amount && steel.count >= upgradePickaxe.costs.steel.amount) {
+    limestone.count -= upgradePickaxe.costs.limestone.amount;
+    if (upgradePickaxe.costs.steel.amount > 0) steel.count -= upgradePickaxe.costs.steel.amount;
 
-      blast.button.classList.remove("hidden");
+    blast.button.classList.remove("hidden");
 
-      upgradePickaxe.level += 1;
-      if (upgradePickaxe.level >= 4) {
-        upgradePickaxe.costs.limestone.amount += 10;
-        upgradePickaxe.costs.steel.amount += 1;
-        rocksPerClick += 2;
-      } else {
-        rocksPerClick += 1;
-      }
-      checkPurchasables();
+    upgradePickaxe.level += 1;
+    if (upgradePickaxe.level >= 5) {
+      rocksPerClick += Math.floor(upgradePickaxe.level * 2 - 3) + (Math.floor(rocksPerSecond * 0.01));
+      upgradePickaxe.costs.limestone.amount = Math.floor(rocksPerClick * (rocksPerClick * 0.5)) + 1;
+      upgradePickaxe.costs.steel.amount = Math.floor(rocksPerClick / 4 * 2 - 3);
+    } else {
+      rocksPerClick += upgradePickaxe.level * 2 - 3;
     }
+    checkPurchasables();
   }
 }
 
@@ -130,10 +239,9 @@ function updateUpgradePickaxe() {
   if (upgradePickaxe.level > 1) {
     blast.button.classList.remove("hidden");
   }
-  // NOTE: your original code had a bug (it checked updateUpgradePickaxe >= 4)
-  if (upgradePickaxe.level >= 4) {
-    upgradePickaxe.costs.limestone.amount += (upgradePickaxe.level - 3) * 10;
-    upgradePickaxe.costs.steel.amount = (upgradePickaxe.level - 3);
+  if (upgradePickaxe.level >= 5) {
+    upgradePickaxe.costs.limestone.amount = Math.floor(rocksPerClick * (rocksPerClick * 0.5)) + 1;
+    upgradePickaxe.costs.steel.amount = Math.floor(rocksPerClick / 4 * 2 - 3);
   }
 }
 
@@ -186,22 +294,86 @@ function purchaseHire() {
 
 function purchaseReduce() {
   console.log("Reduce purchased");
+  if (
+    chromiumore.count >= reduce.costs.chromiumore.amount * globalPurchaseMultiplier &&
+    coal.count >= reduce.costs.coal.amount * globalPurchaseMultiplier &&
+    limestone.count >= reduce.costs.limestone.amount * globalPurchaseMultiplier
+  ) {
+    chromiumore.count -= reduce.costs.chromiumore.amount * globalPurchaseMultiplier;
+    coal.count -= reduce.costs.coal.amount * globalPurchaseMultiplier;
+
+    ferrochrome.count += globalPurchaseMultiplier;
+
+    reduce.level += globalPurchaseMultiplier;
+    checkPurchasables();
+  }
 }
 
 function purchaseRefine() {
   console.log("Refine purchased");
+  if (
+    ferrochrome.count >= refine.costs.ferrochrome.amount * globalPurchaseMultiplier &&
+    steel.count >= refine.costs.steel.amount * globalPurchaseMultiplier
+  ) {
+    ferrochrome.count -= refine.costs.ferrochrome.amount * globalPurchaseMultiplier;
+    steel.count -= refine.costs.steel.amount * globalPurchaseMultiplier;
+
+    stainlesssteel.count += globalPurchaseMultiplier;
+
+    refine.level += globalPurchaseMultiplier;
+    checkPurchasables();
+  }
 }
 
 function purchaseAerate() {
   console.log("Aerate purchased");
+  if (
+    limestone.count >= aerate.costs.limestone.amount * globalPurchaseMultiplier &&
+    aluminum.count >= aerate.costs.aluminum.amount * globalPurchaseMultiplier
+  ) {
+    limestone.count -= aerate.costs.limestone.amount * globalPurchaseMultiplier;
+    aluminum.count -= aerate.costs.aluminum.amount * globalPurchaseMultiplier;
+
+    concrete.count += globalPurchaseMultiplier;
+
+    aerate.level += globalPurchaseMultiplier;
+    checkPurchasables(); 
+  }
 }
 
 function purchaseProduce() {
   console.log("Produce purchased");
+  if (
+    chromiumore.count >= produce.costs.chromiumore.amount * globalPurchaseMultiplier &&
+    aluminum.count >= produce.costs.aluminum.amount * globalPurchaseMultiplier
+  ) {
+    chromiumore.count -= produce.costs.chromiumore.amount * globalPurchaseMultiplier;
+    aluminum.count -= produce.costs.aluminum.amount * globalPurchaseMultiplier;
+
+    chromium.count += globalPurchaseMultiplier;
+
+    produce.level += globalPurchaseMultiplier;
+    checkPurchasables();
+  }
 }
 
 function purchaseUpgradeWorker() {
   console.log("Upgrade Worker purchased");
+  if (
+    obsidian.count >= upgradeWorker.costs.obsidian.amount * globalPurchaseMultiplier &&
+    steel.count >= upgradeWorker.costs.steel.amount * globalPurchaseMultiplier
+  ) {
+    obsidian.count -= upgradeWorker.costs.obsidian.amount * globalPurchaseMultiplier;
+    steel.count -= upgradeWorker.costs.steel.amount * globalPurchaseMultiplier;
+
+    rocksPerSecondMultiplier *= ((Math.log10(globalPurchaseMultiplier) / 3) + 1) * 1.001; // 1, 2, 3, 4, 5, 6 * 1.001
+    if (upgradeWorker.level <= 10) {
+      rocksPerSecond += 12; // Early game boost
+    }
+    
+    upgradeWorker.level += globalPurchaseMultiplier;
+    checkPurchasables();
+  }
 }
 
 function purchaseHousing() {
@@ -214,7 +386,15 @@ function setGlobalPurchaseMultiplier(value) {
 
   const display = document.querySelectorAll('.multiplier');
   for (const element of display) {
-    element.innerHTML = globalPurchaseMultiplier;
+    switch (globalPurchaseMultiplier) {
+      case 1: element.innerHTML = '1'; break;
+      case 1000: element.innerHTML = '1k'; break;
+      case 1000000: element.innerHTML = '1m'; break;
+      case 1000000000: element.innerHTML = '1b'; break;
+      case 1000000000000: element.innerHTML = '1t'; break;
+      case 1000000000000000: element.innerHTML = '1q'; break;
+      default: element.innerHTML = `x${globalPurchaseMultiplier}`; break;
+    }
   }
 
   document.getElementById(`option${globalPurchaseMultiplier}`).checked = true;

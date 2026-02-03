@@ -149,8 +149,13 @@ const resources = {
       }
       this.countSource.innerHTML = value;
 
-      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
-      else this.displayContainer.classList.add("hidden");
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden");
+        upgradeWorker.button.classList.remove("hidden");
+      } else {
+        this.displayContainer.classList.add("hidden");
+        upgradeWorker.button.classList.add("hidden");
+      }
     }
   },
 
@@ -167,8 +172,13 @@ const resources = {
       }
       this.countSource.innerHTML = value;
 
-      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
-      else this.displayContainer.classList.add("hidden");
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden");
+        reduce.button.classList.remove("hidden");
+      } else {
+        this.displayContainer.classList.add("hidden");
+        reduce.button.classList.add("hidden");
+      }
     }
   },
 
@@ -185,8 +195,13 @@ const resources = {
       }
       this.countSource.innerHTML = value;
 
-      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
-      else this.displayContainer.classList.add("hidden");
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden");
+        refine.button.classList.remove("hidden");
+      } else {
+        this.displayContainer.classList.add("hidden");
+        refine.button.classList.add("hidden");
+      }
     }
   },
 
@@ -221,8 +236,15 @@ const resources = {
       }
       this.countSource.innerHTML = value;
 
-      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
-      else this.displayContainer.classList.add("hidden");
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden");
+        produce.button.classList.remove("hidden");
+        aerate.button.classList.remove("hidden");
+      } else {
+        this.displayContainer.classList.add("hidden");
+        produce.button.classList.add("hidden");
+        aerate.button.classList.add("hidden");
+      }
     }
   },
 
@@ -239,8 +261,13 @@ const resources = {
       }
       this.countSource.innerHTML = value;
 
-      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
-      else this.displayContainer.classList.add("hidden");
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden");
+        housing.button.classList.remove("hidden");
+      } else {
+        this.displayContainer.classList.add("hidden");
+        housing.button.classList.add("hidden");
+      }
     }
   },
 
