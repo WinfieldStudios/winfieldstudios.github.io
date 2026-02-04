@@ -370,12 +370,12 @@ function purchaseHousing() {
   console.log("Housing purchased");
   if (
     concrete.count >= housing.costs.concrete.amount * globalPurchaseMultiplier &&
-    rocks.count >= housing.costs.rocks.amount * globalPurchaseMultiplier
+    chromium.count >= housing.costs.chromium.amount * globalPurchaseMultiplier
   ) {
     concrete.count -= housing.costs.concrete.amount * globalPurchaseMultiplier;
-    rocks.count -= housing.costs.rocks.amount * globalPurchaseMultiplier;
+    chromium.count -= housing.costs.chromium.amount * globalPurchaseMultiplier;
 
-    rocksPerSecondExponent *= ((Math.log10(globalPurchaseMultiplier) / 3) + 1) * 1.001; // 1, 2, 3, 4, 5, 6 * 1.001
+    chromiumPerSecondExponent *= ((Math.log10(globalPurchaseMultiplier) / 3) + 1) * 1.001; // 1, 2, 3, 4, 5, 6 * 1.001
 
     housing.level += globalPurchaseMultiplier;
 

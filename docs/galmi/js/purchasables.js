@@ -232,9 +232,9 @@ const purchasables = {
         set amount(value) { this.source.innerHTML = value; }
       },
       rocks: {
-        name: "rocks",
-        source: document.querySelector('.housing-cost-rocks'),
-        get amount() { return parseFloat(document.querySelector('.housing-cost-rocks').innerHTML); },
+        name: "chromium",
+        source: document.querySelector('.housing-cost-chromium'),
+        get amount() { return parseFloat(document.querySelector('.housing-cost-chromium').innerHTML); },
         set amount(value) { this.source.innerHTML = value; }
       }
     },
