@@ -4,8 +4,6 @@ function save() {
   localStorage.clear();
 
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
-  localStorage.setItem('rocksPerSecond', JSON.stringify(rocksPerSecond));
-  localStorage.setItem('rocksPerSecondExponent', JSON.stringify(rocksPerSecondExponent));
   localStorage.setItem('darkMode', JSON.stringify(darkMode));
 
   for (const purchasable of Object.values(purchasables)) {
@@ -32,18 +30,6 @@ function load() {
 
   const savedRocksPerClick = JSON.parse(localStorage.getItem('rocksPerClick'));
   if (savedRocksPerClick !== null) rocksPerClick = savedRocksPerClick;
-
-  const savedRocksPerSecond = JSON.parse(localStorage.getItem('rocksPerSecond'));
-  if (savedRocksPerSecond !== null) rocksPerSecond = savedRocksPerSecond;
-
-  const savedRocksPerSecondExponent = JSON.parse(localStorage.getItem('rocksPerSecondExponent'));
-  if (savedRocksPerSecondExponent !== null) rocksPerSecondExponent = savedRocksPerSecondExponent;
-
-  // Load workers as rocksPerSecond - this is for backwards compatibility
-  const savedWorkers = JSON.parse(localStorage.getItem('workers'));
-  if (savedWorkers !== null) { 
-    rocksPerSecond += savedWorkers;
-  }
 
   const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
   if (savedDarkMode !== null) {
@@ -76,9 +62,6 @@ function restart() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
 
   if (localStorage.getItem('rocksPerClick') !== null) rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT;
-  if (localStorage.getItem('rocksPerSecond') !== null) rocksPerSecond = ROCKS_PER_SECOND_STARTING_AMOUNT;
-  if (localStorage.getItem('rocksPerSecondExponent') !== null) rocksPerSecondExponent = ROCKS_PER_SECOND_EXPONENT_STARTING_AMOUNT;
-  if (localStorage.getItem('workers') !== null) rocksPerSecond -= JSON.parse(localStorage.getItem('workers'));
 
   for (const purchasable of Object.values(purchasables)) {
     if (localStorage.getItem(`${purchasable.name}Level`) !== null) {
@@ -105,8 +88,6 @@ function clearSave() {
   localStorage.clear();
 
   localStorage.setItem('rocksPerClick', JSON.stringify(ROCKS_PER_CLICK_STARTING_AMOUNT));
-  localStorage.setItem('rocksPerSecond', JSON.stringify(ROCKS_PER_SECOND_STARTING_AMOUNT));
-  localStorage.setItem('rocksPerSecondExponent', JSON.stringify(ROCKS_PER_SECOND_EXPONENT_STARTING_AMOUNT));
 
   for (const purchasable of Object.values(purchasables)) {
     localStorage.setItem(`${purchasable.name}Level`, JSON.stringify(PURCHASABLES_STARTING_LEVEL));

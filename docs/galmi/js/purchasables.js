@@ -44,6 +44,18 @@ const purchasables = {
         source: document.querySelector('.upgrade-pickaxe-cost-steel'),
         get amount() { return parseFloat(document.querySelector('.upgrade-pickaxe-cost-steel').innerHTML); },
         set amount(value) { this.source.innerHTML = value; }
+      },
+      stainlesssteel: {
+        name: "stainlesssteel",
+        source: document.querySelector('.upgrade-pickaxe-cost-stainlesssteel'),
+        get amount() { return parseFloat(document.querySelector('.upgrade-pickaxe-cost-stainlesssteel').innerHTML); },
+        set amount(value) { this.source.innerHTML = value; }
+      },
+      chromium: {
+        name: "chromium",
+        source: document.querySelector('.upgrade-pickaxe-cost-chromium'),
+        get amount() { return parseFloat(document.querySelector('.upgrade-pickaxe-cost-chromium').innerHTML); },
+        set amount(value) { this.source.innerHTML = value; }
       }
     },
     button: document.querySelector('.upgrade-pickaxe-button'),
@@ -231,7 +243,7 @@ const purchasables = {
         get amount() { return parseFloat(document.querySelector('.housing-cost-concrete').innerHTML); },
         set amount(value) { this.source.innerHTML = value; }
       },
-      rocks: {
+      chromium: {
         name: "chromium",
         source: document.querySelector('.housing-cost-chromium'),
         get amount() { return parseFloat(document.querySelector('.housing-cost-chromium').innerHTML); },

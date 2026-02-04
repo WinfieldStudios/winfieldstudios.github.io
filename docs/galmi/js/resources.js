@@ -17,7 +17,7 @@ const resources = {
         this.displayContainer.classList.remove("hidden");
         extract.button.classList.remove("hidden");
 
-        if (this.gross >= 200) upgradeGalmi.button.classList.remove("hidden");
+        if (this.gross >= 200 && upgradeGalmi.level < 5) upgradeGalmi.button.classList.remove("hidden");
         else upgradeGalmi.button.classList.add("hidden");
       } else {
         extract.button.classList.add("hidden");
@@ -46,7 +46,7 @@ const resources = {
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
-        if (this.gross >= 20) upgradePickaxe.button.classList.remove("hidden");
+        if (this.gross >= 4) upgradePickaxe.button.classList.remove("hidden");
         else upgradePickaxe.button.classList.add("hidden");
       } else {
         this.displayContainer.classList.add("hidden");
@@ -111,9 +111,11 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
         hire.button.classList.remove("hidden");
+        blast.button.classList.remove("hidden");
       } else {
         this.displayContainer.classList.add("hidden");
         hire.button.classList.add("hidden");
+        blast.button.classList.add("hidden");
       }
     }
   },

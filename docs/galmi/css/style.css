@@ -79,6 +79,7 @@ img {
 
 .rock-image-container {
   position: relative;
+  min-height: 64px;
 }
 .rock-image {
   max-height: 10vw;
