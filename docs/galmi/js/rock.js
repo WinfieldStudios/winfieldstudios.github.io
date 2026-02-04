@@ -10,6 +10,6 @@ function clickOnRock(event) {
   div.style.cssText = `color: var(--dark-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`;
 
   rockImageContainer.appendChild(div);
-  div.classList.add('gain-resource-animation');
+  div.classList.add('fade-up');
   timeout(div);
 }
