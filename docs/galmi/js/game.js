@@ -174,12 +174,12 @@ function purchaseUpgradeGalmi() {
         break;
       case 2:
         obsidian.count += 1;
-        upgradeGalmi.costs.rocks.amount = 2147483647;
+        upgradeGalmi.costs.rocks.amount = 1234567;
         upgradeGalmi.level += 1;
         break;
       case 3:
         chromiumore.count += 1;
-        upgradeGalmi.costs.rocks.amount = 9007199254740991;
+        upgradeGalmi.costs.rocks.amount = 2147483647;
         upgradeGalmi.level += 1;
         break;
       case 4:
@@ -201,10 +201,10 @@ function purchaseUpgradeGalmi() {
 
 function updateUpgradeGalmi() {
   switch (upgradeGalmi.level) {
-    case 1: upgradeGalmi.costs.rocks.amount = 67; break;
+    case 1: upgradeGalmi.costs.rocks.amount = 64; break;
     case 2: upgradeGalmi.costs.rocks.amount = 4444; break;
-    case 3: upgradeGalmi.costs.rocks.amount = 2147483647; break;
-    case 4: upgradeGalmi.costs.rocks.amount = 9007199254740991; break;
+    case 3: upgradeGalmi.costs.rocks.amount = 1234567; break;
+    case 4: upgradeGalmi.costs.rocks.amount = 2147483647; break;
     default: 
       upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
   }
