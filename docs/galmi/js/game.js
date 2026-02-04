@@ -143,16 +143,16 @@ function purchaseExtract() {
           limestone.count += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
           coal.count += Math.floor((globalPurchaseMultiplier * 0.4) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
           ironore.count += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05) / 2));
-          obsidian.count += Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005) / 2));
-          chromiumore.count += Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005) / 2));
+          obsidian.count += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005) / 2)));
+          chromiumore.count += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005) / 2)));
           break;
         default:
           limestone.count += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
           coal.count += Math.floor((globalPurchaseMultiplier * 0.4) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1) / 2));
           ironore.count += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05) / 2));
-          obsidian.count += Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005) / 2));
-          chromiumore.count += Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005) / 2));
-          aluminum.count += Math.floor((globalPurchaseMultiplier * 0.000000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000000005) - (globalPurchaseMultiplier * 0.0000000005) / 2));
+          obsidian.count += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005) / 2)));
+          chromiumore.count += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005) / 2)));
+          aluminum.count += Math.max(0, Math.floor((globalPurchaseMultiplier * 1e-9) + Math.floor(Math.random() * (globalPurchaseMultiplier * 1e-9) - (globalPurchaseMultiplier * 1e-9) / 2)));
           break;
       }
     }
@@ -293,7 +293,6 @@ function purchaseHire() {
 }
 
 function purchaseReduce() {
-  console.log("Reduce purchased");
   if (
     chromiumore.count >= reduce.costs.chromiumore.amount * globalPurchaseMultiplier &&
     coal.count >= reduce.costs.coal.amount * globalPurchaseMultiplier &&
@@ -310,7 +309,6 @@ function purchaseReduce() {
 }
 
 function purchaseRefine() {
-  console.log("Refine purchased");
   if (
     ferrochrome.count >= refine.costs.ferrochrome.amount * globalPurchaseMultiplier &&
     steel.count >= refine.costs.steel.amount * globalPurchaseMultiplier
@@ -326,7 +324,6 @@ function purchaseRefine() {
 }
 
 function purchaseAerate() {
-  console.log("Aerate purchased");
   if (
     limestone.count >= aerate.costs.limestone.amount * globalPurchaseMultiplier &&
     aluminum.count >= aerate.costs.aluminum.amount * globalPurchaseMultiplier
@@ -342,7 +339,6 @@ function purchaseAerate() {
 }
 
 function purchaseProduce() {
-  console.log("Produce purchased");
   if (
     chromiumore.count >= produce.costs.chromiumore.amount * globalPurchaseMultiplier &&
     aluminum.count >= produce.costs.aluminum.amount * globalPurchaseMultiplier
@@ -358,18 +354,12 @@ function purchaseProduce() {
 }
 
 function purchaseUpgradeWorker() {
-  console.log("Upgrade Worker purchased");
   if (
     obsidian.count >= upgradeWorker.costs.obsidian.amount * globalPurchaseMultiplier &&
     steel.count >= upgradeWorker.costs.steel.amount * globalPurchaseMultiplier
   ) {
     obsidian.count -= upgradeWorker.costs.obsidian.amount * globalPurchaseMultiplier;
     steel.count -= upgradeWorker.costs.steel.amount * globalPurchaseMultiplier;
-
-    rocksPerSecondMultiplier *= ((Math.log10(globalPurchaseMultiplier) / 3) + 1) * 1.001; // 1, 2, 3, 4, 5, 6 * 1.001
-    if (upgradeWorker.level <= 10) {
-      rocksPerSecond += 12; // Early game boost
-    }
     
     upgradeWorker.level += globalPurchaseMultiplier;
     checkPurchasables();
@@ -378,6 +368,19 @@ function purchaseUpgradeWorker() {
 
 function purchaseHousing() {
   console.log("Housing purchased");
+  if (
+    concrete.count >= housing.costs.concrete.amount * globalPurchaseMultiplier &&
+    rocks.count >= housing.costs.rocks.amount * globalPurchaseMultiplier
+  ) {
+    concrete.count -= housing.costs.concrete.amount * globalPurchaseMultiplier;
+    rocks.count -= housing.costs.rocks.amount * globalPurchaseMultiplier;
+
+    rocksPerSecondExponent *= ((Math.log10(globalPurchaseMultiplier) / 3) + 1) * 1.001; // 1, 2, 3, 4, 5, 6 * 1.001
+
+    housing.level += globalPurchaseMultiplier;
+
+    checkPurchasables();
+  }
 }
 
 // MULTIPLIER
