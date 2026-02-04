@@ -150,6 +150,7 @@ img {
 }
 
 .hidden { visibility: hidden !important; }
+.removed { display: none !important; }
 .enabled {
   opacity: 1;
   box-shadow: 0 0 6px var(--dark-color);

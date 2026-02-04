@@ -226,6 +226,7 @@ function purchaseUpgradePickaxe() {
       rocksPerClick += Math.floor(upgradePickaxe.level * 2 - 3) + (Math.floor(rocksPerSecond * 0.01));
       upgradePickaxe.costs.limestone.amount = Math.floor(rocksPerClick * (rocksPerClick * 0.5)) + 1;
       upgradePickaxe.costs.steel.amount = Math.floor(rocksPerClick / 4 * 2 - 3);
+      document.querySelector('.upgrade-pickaxe-cost-steel-display').classList.remove("removed");
     } else {
       rocksPerClick += upgradePickaxe.level * 2 - 3;
     }
@@ -234,7 +235,7 @@ function purchaseUpgradePickaxe() {
 }
 
 function updateUpgradePickaxe() {
-  upgradePickaxe.costs.limestone.amount = 20;
+  upgradePickaxe.costs.limestone.amount = 16;
   upgradePickaxe.costs.steel.amount = 0;
   if (upgradePickaxe.level > 1) {
     blast.button.classList.remove("hidden");
