@@ -390,7 +390,7 @@ input[type="radio"]:checked + label {
   height: 4vh;
   min-height: 24px;
   filter: none;
-
+  background-color: transparent;
 }
 
 .util-buttons {
