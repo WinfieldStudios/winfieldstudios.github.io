@@ -11,6 +11,71 @@
   --light-color:#2A2A2E;
 }
 
+/* Dark theme scenic background - muted night/dusk feel */
+:root[data-theme="dark"] body {
+  background-image:
+    /* Night sky - subtle deep blue tint at top */
+    linear-gradient(
+      to bottom,
+      rgba(40, 60, 90, 0.2) 0%,
+      rgba(40, 60, 90, 0.08) 15%,
+      transparent 30%
+    ),
+    /* Left tree - rounded canopy (darker) */
+    radial-gradient(
+      ellipse 22vw 38vh at -6vw 28%,
+      rgba(18, 30, 15, 0.68) 0%,
+      rgba(18, 30, 15, 0.48) 50%,
+      transparent 70%
+    ),
+    /* Left tree - trunk (darker) */
+    linear-gradient(
+      to right,
+      rgba(18, 14, 10, 0.45) 0%,
+      rgba(18, 14, 10, 0.3) 3vw,
+      rgba(18, 14, 10, 0.12) 5vw,
+      transparent 7vw
+    ),
+    /* Right tree - rounded canopy (darker) */
+    radial-gradient(
+      ellipse 22vw 38vh at 106vw 28%,
+      rgba(18, 30, 15, 0.68) 0%,
+      rgba(18, 30, 15, 0.48) 50%,
+      transparent 70%
+    ),
+    /* Right tree - trunk (darker) */
+    linear-gradient(
+      to left,
+      rgba(18, 14, 10, 0.45) 0%,
+      rgba(18, 14, 10, 0.3) 3vw,
+      rgba(18, 14, 10, 0.12) 5vw,
+      transparent 7vw
+    ),
+    /* Grass blades - SVG (darker for night) */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60' preserveAspectRatio='xMidYMax slice'%3E%3Cpath d='M0 60 L5 35 L8 60 L12 25 L16 60 L22 40 L26 60 L30 20 L35 60 L40 38 L44 60 L50 30 L54 60 L58 42 L62 60 L68 28 L72 60 L76 45 L80 60 L86 32 L90 60 L94 40 L98 60 L104 25 L108 60 L112 38 L116 60 L120 60 Z' fill='rgba(25,40,20,0.55)'/%3E%3Cpath d='M0 60 L3 45 L6 60 L10 38 L14 60 L18 50 L22 60 L28 42 L32 60 L36 48 L40 60 L46 40 L50 60 L54 52 L58 60 L64 44 L68 60 L72 50 L76 60 L82 46 L86 60 L90 52 L94 60 L100 48 L104 60 L108 55 L112 60 L118 50 L120 60 Z' fill='rgba(30,50,25,0.42)'/%3E%3C/svg%3E");
+  background-position:
+    top center,
+    left top,
+    left bottom,
+    right top,
+    right bottom,
+    bottom center;
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100px 8vh;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat-x;
+}
+
 html, body {
     touch-action: manipulation;
     overflow: hidden;
@@ -28,6 +93,68 @@ body {
   user-select: none;
   /* cursor: url("/assets/cursors/pickaxe.png") 16 16, auto; */
 
+  /* === LAYERED SCENIC BACKGROUND === */
+  background-image:
+    /* Sky - subtle blue tint at top */
+    linear-gradient(
+      to bottom,
+      rgba(135, 180, 220, 0.12) 0%,
+      rgba(135, 180, 220, 0.05) 15%,
+      transparent 30%
+    ),
+    /* Left tree - rounded canopy */
+    radial-gradient(
+      ellipse 22vw 38vh at -6vw 28%,
+      rgba(50, 85, 40, 0.42) 0%,
+      rgba(50, 85, 40, 0.26) 50%,
+      transparent 70%
+    ),
+    /* Left tree - trunk */
+    linear-gradient(
+      to right,
+      rgba(55, 40, 25, 0.28) 0%,
+      rgba(55, 40, 25, 0.18) 3vw,
+      rgba(55, 40, 25, 0.07) 5vw,
+      transparent 7vw
+    ),
+    /* Right tree - rounded canopy */
+    radial-gradient(
+      ellipse 22vw 38vh at 106vw 28%,
+      rgba(50, 85, 40, 0.42) 0%,
+      rgba(50, 85, 40, 0.26) 50%,
+      transparent 70%
+    ),
+    /* Right tree - trunk */
+    linear-gradient(
+      to left,
+      rgba(55, 40, 25, 0.28) 0%,
+      rgba(55, 40, 25, 0.18) 3vw,
+      rgba(55, 40, 25, 0.07) 5vw,
+      transparent 7vw
+    ),
+    /* Grass blades - SVG repeating along bottom */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60' preserveAspectRatio='xMidYMax slice'%3E%3Cpath d='M0 60 L5 35 L8 60 L12 25 L16 60 L22 40 L26 60 L30 20 L35 60 L40 38 L44 60 L50 30 L54 60 L58 42 L62 60 L68 28 L72 60 L76 45 L80 60 L86 32 L90 60 L94 40 L98 60 L104 25 L108 60 L112 38 L116 60 L120 60 Z' fill='rgba(70,110,50,0.32)'/%3E%3Cpath d='M0 60 L3 45 L6 60 L10 38 L14 60 L18 50 L22 60 L28 42 L32 60 L36 48 L40 60 L46 40 L50 60 L54 52 L58 60 L64 44 L68 60 L72 50 L76 60 L82 46 L86 60 L90 52 L94 60 L100 48 L104 60 L108 55 L112 60 L118 50 L120 60 Z' fill='rgba(85,125,60,0.26)'/%3E%3C/svg%3E");
+  background-position:
+    top center,
+    left top,
+    left bottom,
+    right top,
+    right bottom,
+    bottom center;
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100px 8vh;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat-x;
 }
 
 img {
