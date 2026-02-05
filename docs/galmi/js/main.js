@@ -3,7 +3,7 @@ setInterval(() => {
   rocksPerSecond = hire.level - 1;
   if (rocksPerSecond > 0) {
     if (housing.level - 1 > 0) {
-      rocksPerSecond *= (1 + (housing.level - 1) * 0.2);
+      rocksPerSecond = Math.floor(rocksPerSecond * (1 + (housing.level - 1) * 0.2));
     }
     rocks.count += rocksPerSecond;
     checkPurchasables();
@@ -16,7 +16,7 @@ setInterval(() => {
       case 5:
         aluminum.count += Math.max(0, Math.floor((extractsPerSecond * 1e-9 + 0.5) + Math.floor(Math.random() * (extractsPerSecond * 1e-9) - (extractsPerSecond * 1e-9 / 2))));
       case 4:
-        chromium.count += Math.max(0, Math.floor((extractsPerSecond * 0.000001 + 0.5) + Math.floor(Math.random() * (extractsPerSecond * 0.0000005) - (extractsPerSecond * 0.0000005 / 2))));
+        chromiumore.count += Math.max(0, Math.floor((extractsPerSecond * 0.000001 + 0.5) + Math.floor(Math.random() * (extractsPerSecond * 0.0000005) - (extractsPerSecond * 0.0000005 / 2))));
       case 3:
         obsidian.count += Math.max(0, Math.floor((extractsPerSecond * 0.001 + 0.5) + Math.floor(Math.random() * (extractsPerSecond * 0.0005) - (extractsPerSecond * 0.0005 / 2))));
       case 2:
