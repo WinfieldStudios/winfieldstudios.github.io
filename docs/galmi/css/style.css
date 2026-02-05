@@ -158,7 +158,7 @@ body {
 }
 
 img {
-  filter: drop-shadow(0 0 3px #EEF1F4);
+  filter: drop-shadow(0 0 3px var(--light-color));
 }
 
 .main {
@@ -389,6 +389,8 @@ input[type="radio"]:checked + label {
 .save-icon {
   height: 4vh;
   min-height: 24px;
+  filter: none;
+
 }
 
 .util-buttons {
