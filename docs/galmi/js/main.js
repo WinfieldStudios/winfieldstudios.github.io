@@ -29,3 +29,9 @@ setInterval(() => {
     checkPurchasables();
   }
 }, 1000);
+
+// AUTO SAVE LOOP
+setInterval(() => {
+  save();
+
+}, 300000); // Every 5 minutes
