@@ -95,7 +95,7 @@ body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
   user-select: none; /* Standard */
-  /* cursor: url("/assets/cursors/pickaxe.png") 16 16, auto; */
+  /* cursor: url("/galmi/img/icons/pickaxe.png") 16 16, auto;*/
 
   /* === LAYERED SCENIC BACKGROUND === */
   background-image:
@@ -232,20 +232,6 @@ img {
   transform: translateY(-2px) scale(1.03);
 }
 
-.rock-image-final-form {
-  height: 500px;
-  padding: 0;
-  margin: 0;
-}
-.rock-image-final-form:hover {
-  opacity: 0.95;
-  cursor: pointer;
-}
-.rock-image-final-form:active {
-  opacity: 0.92;
-  transform: translateY(-1vh) scale(1.01);
-}
-
 .purchasables-container-special {
   display: flex;
   gap: 20px;
@@ -261,6 +247,7 @@ img {
 }
 
 .purchasable {
+  position: relative;
   margin: 5px 0;
   display: flex;
   align-items: center;
@@ -459,30 +446,46 @@ input[type="radio"]:checked + label {
 }
 
 .tooltip {
-  position: relative;
+  position: absolute;
+  top: 5%;
+  left: 95%;
 }
 .dot {
   display: block;
-  margin: 15px;
-  width: 35px;
-  height:35px;
-  border-radius: 50%;
-  background-color: orange;
+  margin: 0;
+  opacity: 0; 
+  transition: opacity .18s ease;
+}
+
+/* when the purchasable card is hovered, make the dot fully visible */
+.purchasable:hover .dot,
+.purchasable:focus-within .dot {
+  opacity: 1;
 }
 .content {
   position: absolute;
-  top: 0px;
-  left: 75px;
-  opacity: 0;
-  transition: opacity .5s ease-in;
+  top: 50%;
+  right: 100%;
+  width: 12vw;
+  height: auto;
+  transform: translateY(-50%);
+  display: none;
+  box-shadow: 0px 0px 5px var(--dark-color);
+  border-radius: 10px;
+  border: 1px solid var(--light-color);
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 10px;
 }
-.content h1,
+.content h1 {
+  margin: 0;
+  font-size: 14px;
+}
 .content p {
   margin: 0;
+  font-size: 12px;
+
 }
 .dot:hover + .content {
-  opacity: 1;
-}
-.specificLocation {
-  margin-left: 100px;
+  display: block;
 }

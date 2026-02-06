@@ -176,8 +176,13 @@ function purchaseUpgradeGalmi() {
     checkPurchasables();
 
     let rockImage = document.querySelector('.rock-image');
-    if (upgradeGalmi.level <= TOTAL_ROCK_IMAGES) rockImage.src = `/galmi/img/rocks/${upgradeGalmi.level}.png`;
-    else rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`;
+    if (upgradeGalmi.level < TOTAL_ROCK_IMAGES) {
+      rockImage.src = `/galmi/img/rocks/${upgradeGalmi.level}.png`;
+    } else {
+      rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`;
+      upgradeGalmi.button.classList.add("removed");
+      console.log("MAX ROCK LEVEL REACHED");
+    }
   }
 }
 
@@ -194,15 +199,12 @@ function updateUpgradeGalmi() {
   }
 
   let rockImage = document.querySelector('.rock-image');
-  if (upgradeGalmi.level <= TOTAL_ROCK_IMAGES) {
+  if (upgradeGalmi.level < TOTAL_ROCK_IMAGES) {
     rockImage.src = `/galmi/img/rocks/${upgradeGalmi.level}.png`;
-    if (upgradeGalmi.level === 5) {
-      rockImage.classList.replace("rock-image", "rock-image-final-form");
-    } else {
-      rockImage.classList.replace("rock-image-final-form", "rock-image");
-    }
   } else {
     rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`;
+    upgradeGalmi.button.classList.add("removed");
+    console.log("MAX ROCK LEVEL REACHED");
   }
 }
 
@@ -329,6 +331,8 @@ function purchaseHire() {
 
     hire.level += globalPurchaseMultiplier;
     checkPurchasables();
+
+    document.querySelector('.worker-count').innerHTML = hire.level - 1;
   }
 }
 
