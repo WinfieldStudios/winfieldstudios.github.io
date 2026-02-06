@@ -98,6 +98,7 @@ body {
   margin: 0;
   padding: 1vh;
   font-size: 1vw;
+  font-weight: lighter;
   font-family: "CodeStyle";
   background-color: var(--light-color);
   color: var(--dark-color);
@@ -201,7 +202,6 @@ img {
   align-items: center;
   width: 95%;
   min-height: 32px;
-  font-size: 1.25vw;
   border: 1px solid var(--dark-color);
   border-radius: 5px;
   padding: 0.5vw;

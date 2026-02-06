@@ -181,7 +181,6 @@ function purchaseUpgradeGalmi() {
     } else {
       rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`;
       upgradeGalmi.button.classList.add("removed");
-      console.log("MAX ROCK LEVEL REACHED");
     }
   }
 }
