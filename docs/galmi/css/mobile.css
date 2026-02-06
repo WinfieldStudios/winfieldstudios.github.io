@@ -8,6 +8,9 @@
   .mid-section h4 {
     font-size: 12px;
   }
+  .rock-image-final-form {
+    height: 300px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -32,6 +35,12 @@
   }
   .middle {
     width: 200px;
+  }
+  .rock-image-final-form {
+    height: 150px;
+  }
+  .purchasables-container-special {
+    display: grid;
   }
   .main {
     width: 100vw;

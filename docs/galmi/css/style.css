@@ -176,6 +176,8 @@ img {
 }
 
 .left {
+  display: grid;
+  margin: 10vh 0 10vh 0;
   place-items: center;
   width: 20vw;
   min-width: 150px;
@@ -203,8 +205,13 @@ img {
 }
 
 .middle {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  box-sizing: border-box;
   width: 50vw;
 }
 
@@ -213,20 +220,41 @@ img {
   min-height: 64px;
 }
 .rock-image {
-  max-height: 10vw;
+  max-height: 30vw;
+  min-width: 44px;
 }
-
 .rock-image:hover {
   opacity: 0.9;
   cursor: pointer;
 }
-
 .rock-image:active {
   opacity: 0.8;
-  transform: scale(1.02);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.rock-image-final-form {
+  height: 500px;
+  padding: 0;
+  margin: 0;
+}
+.rock-image-final-form:hover {
+  opacity: 0.95;
+  cursor: pointer;
+}
+.rock-image-final-form:active {
+  opacity: 0.92;
+  transform: translateY(-1vh) scale(1.01);
+}
+
+.purchasables-container-special {
+  display: flex;
+  gap: 20px;
+  margin-top: 5vh;
 }
 
 .right {
+  display: grid;
+  margin: 10vh 0 10vh 0;
   place-items: center;
   width: 20vw;
   min-height: 50vh;
@@ -428,4 +456,33 @@ input[type="radio"]:checked + label {
 .util-button:active {
   opacity: 0.8;
   transform: scale(1.02);
+}
+
+.tooltip {
+  position: relative;
+}
+.dot {
+  display: block;
+  margin: 15px;
+  width: 35px;
+  height:35px;
+  border-radius: 50%;
+  background-color: orange;
+}
+.content {
+  position: absolute;
+  top: 0px;
+  left: 75px;
+  opacity: 0;
+  transition: opacity .5s ease-in;
+}
+.content h1,
+.content p {
+  margin: 0;
+}
+.dot:hover + .content {
+  opacity: 1;
+}
+.specificLocation {
+  margin-left: 100px;
 }

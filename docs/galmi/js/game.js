@@ -169,7 +169,7 @@ function purchaseUpgradeGalmi() {
         upgradeGalmi.level += 1;
         break;
       default:
-        upgradeGalmi.button.classList.add("hidden");
+        upgradeGalmi.button.classList.add("removed");
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL;
     }
 
@@ -182,19 +182,28 @@ function purchaseUpgradeGalmi() {
 }
 
 function updateUpgradeGalmi() {
+  upgradeGalmi.button.classList.remove("removed");
   switch (upgradeGalmi.level) {
     case 1: upgradeGalmi.costs.rocks.amount = 64; break;
     case 2: upgradeGalmi.costs.rocks.amount = 4444; break;
     case 3: upgradeGalmi.costs.rocks.amount = 1000011; break;
     case 4: upgradeGalmi.costs.rocks.amount = 2147483647; break;
     default: 
-      upgradeGalmi.button.classList.add("hidden");
+      upgradeGalmi.button.classList.add("removed");
       upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
   }
 
   let rockImage = document.querySelector('.rock-image');
-  if (upgradeGalmi.level <= TOTAL_ROCK_IMAGES) rockImage.src = `/galmi/img/rocks/${upgradeGalmi.level}.png`;
-  else rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`;
+  if (upgradeGalmi.level <= TOTAL_ROCK_IMAGES) {
+    rockImage.src = `/galmi/img/rocks/${upgradeGalmi.level}.png`;
+    if (upgradeGalmi.level === 5) {
+      rockImage.classList.replace("rock-image", "rock-image-final-form");
+    } else {
+      rockImage.classList.replace("rock-image-final-form", "rock-image");
+    }
+  } else {
+    rockImage.src = `/galmi/img/rocks/${TOTAL_ROCK_IMAGES}.png`;
+  }
 }
 
 function purchaseUpgradePickaxe() {
@@ -423,12 +432,13 @@ function setGlobalPurchaseMultiplier(value) {
   for (const element of display) {
     switch (globalPurchaseMultiplier) {
       case 1: element.innerHTML = '1'; break;
-      case 1000: element.innerHTML = '1k'; break;
-      case 1000000: element.innerHTML = '1m'; break;
-      case 1000000000: element.innerHTML = '1b'; break;
-      case 1000000000000: element.innerHTML = '1t'; break;
-      case 1000000000000000: element.innerHTML = '1q'; break;
-      default: element.innerHTML = `x${globalPurchaseMultiplier}`; break;
+      case 100: element.innerHTML = '100'; break;
+      case 10000: element.innerHTML = '10K'; break;
+      case 1000000: element.innerHTML = '1M'; break;
+      case 1000000000: element.innerHTML = '1B'; break;
+      case 1000000000000: element.innerHTML = '1T'; break;
+      case 1000000000000000: element.innerHTML = '1Q'; break;
+      default: element.innerHTML = `${globalPurchaseMultiplier}`; break;
     }
   }
 

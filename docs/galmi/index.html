@@ -126,115 +126,117 @@
 
 
       <div class="middle">
-        <div class="galmi-and-pickaxe-upgrades">
-          <!--GALMI UPGRADE--> 
-          <div class="upgrade-galmi-button purchasable hidden" onclick="purchaseUpgradeGalmi(); fbq('trackCustom', 'Clicked-Upgrade-Galmi');">
-            <div class="left-section">
-              <img src="/galmi/img/icons/rock_upgrade.png" alt="" srcset="" class="purchasable-icon" draggable="false">
-            </div>
-            <div class="mid-section">
-              <h4>GROW</h4>
-              <div class="cost-info">
-                <span class="upgrade-galmi-cost-rocks">64</span>
-                <img src="/galmi/img/rocks/1.png" alt="" class="resource-icon" draggable="false">
-              </div>
-            </div>
-            <div class="right-section">
-              x1
-            </div>
-          </div>
-
-          <!-- PICKAXE UPGRADE-->
-          <div class="upgrade-pickaxe-button purchasable hidden" onclick="purchaseUpgradePickaxe(); fbq('trackCustom', 'Clicked-Upgrade-Pickaxe');">
-            <div class="left-section">
-              <img src="/galmi/img/icons/pickaxe.png" alt="" srcset="" class="purchasable-icon" draggable="false">
-            </div>
-            <div class="mid-section">
-              <h4>UPGRADE</h4>
-              <div class="cost-info">
-                <div class="upgrade-pickaxe-cost-limestone-display">
-                  <span class="upgrade-pickaxe-cost-limestone">16</span>
-                  <img src="/galmi/img/icons/limestone.png" alt="" class="resource-icon" draggable="false">
-                </div>
-                <div class="upgrade-pickaxe-cost-steel-display">
-                  <span class="upgrade-pickaxe-cost-steel">0</span>
-                  <img src="/galmi/img/icons/steel.png" alt="" class="resource-icon" draggable="false">
-                </div>
-                <div class="upgrade-pickaxe-cost-stainlesssteel-display">
-                  <span class="upgrade-pickaxe-cost-stainlesssteel">0</span>
-                  <img src="/galmi/img/icons/stainlesssteel.png" alt="" class="resource-icon" draggable="false">
-                </div>
-                <div class="upgrade-pickaxe-cost-chromium-display">
-                  <span class="upgrade-pickaxe-cost-chromium">0</span>
-                  <img src="/galmi/img/icons/chromium.png" alt="" class="resource-icon" draggable="false">
-                </div>
-              </div>
-            </div>
-            <div class="right-section">
-              x1
-            </div>
-          </div>
-        </div>
         <div>
           <div class="rock-image-container">
             <img src="/galmi/img/rocks/1.png" alt="" srcset="" class="rock-image" onclick="clickOnRock(event); fbq('trackCustom', 'Clicked-Rock');" draggable="false">
           </div>
         </div>
-        <div>
-          <!--HIRE--> 
-          <div class="hire-button purchasable hidden" onclick="purchaseHire()">
-            <div class="left-section">
-              <img src="/galmi/img/icons/worker.png" alt="" srcset="" class="purchasable-icon" draggable="false">
-            </div>
-            <div class="mid-section">
-              <h4>HIRE</h4>
-              <div class="cost-info">
-                <span class="hire-cost-limestone">8</span>
-                <img src="/galmi/img/icons/limestone.png" alt="" class="resource-icon" draggable="false">
-                <p><span class="hire-cost-pigiron">1</span></p>
-                <img src="/galmi/img/icons/pig_iron.png" alt="" class="resource-icon" draggable="false">
+        <div class="purchasables-container-special">
+          <div class="galmi-and-pickaxe-upgrades">
+            <!--GALMI UPGRADE--> 
+            <div class="upgrade-galmi-button purchasable hidden" onclick="purchaseUpgradeGalmi(); fbq('trackCustom', 'Clicked-Upgrade-Galmi');">
+              <div class="left-section">
+                <img src="/galmi/img/icons/rock_upgrade.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+              </div>
+              <div class="mid-section">
+                <h4>GROW</h4>
+                <div class="cost-info">
+                  <span class="upgrade-galmi-cost-rocks">64</span>
+                  <img src="/galmi/img/rocks/1.png" alt="" class="resource-icon" draggable="false">
+                </div>
+              </div>
+              <div class="right-section">
+                x1
               </div>
             </div>
-            <div class="right-section">
-              x<span class="multiplier">1</span><!---->
+
+            <!-- PICKAXE UPGRADE-->
+            <div class="upgrade-pickaxe-button purchasable hidden" onclick="purchaseUpgradePickaxe(); fbq('trackCustom', 'Clicked-Upgrade-Pickaxe');">
+              <div class="left-section">
+                <img src="/galmi/img/icons/pickaxe.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+              </div>
+              <div class="mid-section">
+                <h4>UPGRADE</h4>
+                <div class="cost-info">
+                  <div class="upgrade-pickaxe-cost-limestone-display">
+                    <span class="upgrade-pickaxe-cost-limestone">16</span>
+                    <img src="/galmi/img/icons/limestone.png" alt="" class="resource-icon" draggable="false">
+                  </div>
+                  <div class="upgrade-pickaxe-cost-steel-display">
+                    <span class="upgrade-pickaxe-cost-steel">0</span>
+                    <img src="/galmi/img/icons/steel.png" alt="" class="resource-icon" draggable="false">
+                  </div>
+                  <div class="upgrade-pickaxe-cost-stainlesssteel-display">
+                    <span class="upgrade-pickaxe-cost-stainlesssteel">0</span>
+                    <img src="/galmi/img/icons/stainlesssteel.png" alt="" class="resource-icon" draggable="false">
+                  </div>
+                  <div class="upgrade-pickaxe-cost-chromium-display">
+                    <span class="upgrade-pickaxe-cost-chromium">0</span>
+                    <img src="/galmi/img/icons/chromium.png" alt="" class="resource-icon" draggable="false">
+                  </div>
+                </div>
+              </div>
+              <div class="right-section">
+                x1
+              </div>
             </div>
           </div>
-
-          <!--UPGRADE WORKER (PROMOTE)--> 
-          <div class="upgrade-worker-button purchasable hidden" onclick="purchaseUpgradeWorker()">
-            <div class="left-section">
-              <img src="/galmi/img/icons/promote.png" alt="" srcset="" class="purchasable-icon" draggable="false">
-            </div>
-            <div class="mid-section">
-              <h4>PROMOTE</h4>
-              <div class="cost-info">
-                <span class="upgrade-worker-cost-obsidian">2</span>
-                <img src="/galmi/img/icons/obsidian.png" alt="" class="resource-icon" draggable="false">
-                <p><span class="upgrade-worker-cost-steel">1</span></p>
-                <img src="/galmi/img/icons/steel.png" alt="" class="resource-icon" draggable="false">
+          <div>
+            <!--HIRE--> 
+            <div class="hire-button purchasable hidden" onclick="purchaseHire()">
+              <div class="left-section">
+                <img src="/galmi/img/icons/worker.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+              </div>
+              <div class="mid-section">
+                <h4>HIRE</h4>
+                <div class="cost-info">
+                  <span class="hire-cost-limestone">8</span>
+                  <img src="/galmi/img/icons/limestone.png" alt="" class="resource-icon" draggable="false">
+                  <p><span class="hire-cost-pigiron">1</span></p>
+                  <img src="/galmi/img/icons/pig_iron.png" alt="" class="resource-icon" draggable="false">
+                </div>
+              </div>
+              <div class="right-section">
+                x<span class="multiplier">1</span><!---->
               </div>
             </div>
-            <div class="right-section">
-              x<span class="multiplier">1</span><!---->
-            </div>
-          </div>
 
-          <!--HOUSING--> 
-          <div class="housing-button purchasable hidden" onclick="purchaseHousing()">
-            <div class="left-section">
-              <img src="/galmi/img/icons/housing.png" alt="" srcset="" class="purchasable-icon" draggable="false">
-            </div>
-            <div class="mid-section">
-              <h4>HOUSING</h4>
-              <div class="cost-info">
-                <span class="housing-cost-concrete">2</span>
-                <img src="/galmi/img/icons/concrete.png" alt="" class="resource-icon" draggable="false">
-                <p><span class="housing-cost-chromium">1</span></p>
-                <img src="/galmi/img/icons/chromium.png" alt="" class="resource-icon" draggable="false">
+            <!--UPGRADE WORKER (PROMOTE)--> 
+            <div class="upgrade-worker-button purchasable hidden" onclick="purchaseUpgradeWorker()">
+              <div class="left-section">
+                <img src="/galmi/img/icons/promote.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+              </div>
+              <div class="mid-section">
+                <h4>PROMOTE</h4>
+                <div class="cost-info">
+                  <span class="upgrade-worker-cost-obsidian">2</span>
+                  <img src="/galmi/img/icons/obsidian.png" alt="" class="resource-icon" draggable="false">
+                  <p><span class="upgrade-worker-cost-steel">1</span></p>
+                  <img src="/galmi/img/icons/steel.png" alt="" class="resource-icon" draggable="false">
+                </div>
+              </div>
+              <div class="right-section">
+                x<span class="multiplier">1</span><!---->
               </div>
             </div>
-            <div class="right-section">
-              x<span class="multiplier">1</span><!---->
+
+            <!--HOUSING--> 
+            <div class="housing-button purchasable hidden" onclick="purchaseHousing()">
+              <div class="left-section">
+                <img src="/galmi/img/icons/housing.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+              </div>
+              <div class="mid-section">
+                <h4>HOUSING</h4>
+                <div class="cost-info">
+                  <span class="housing-cost-concrete">2</span>
+                  <img src="/galmi/img/icons/concrete.png" alt="" class="resource-icon" draggable="false">
+                  <p><span class="housing-cost-chromium">1</span></p>
+                  <img src="/galmi/img/icons/chromium.png" alt="" class="resource-icon" draggable="false">
+                </div>
+              </div>
+              <div class="right-section">
+                x<span class="multiplier">1</span><!---->
+              </div>
             </div>
           </div>
         </div>
@@ -385,25 +387,29 @@
         <label for="option1" onclick="setGlobalPurchaseMultiplier(1)">
           x1
         </label>
-      <input type="radio" name="global-purchase-multiplier" id="option1000">
-        <label for="option1000" onclick="setGlobalPurchaseMultiplier(1000)">
-          x1k
+      <input type="radio" name="global-purchase-multiplier" id="option100">
+        <label for="option100" onclick="setGlobalPurchaseMultiplier(100)">
+          x100
+        </label>
+      <input type="radio" name="global-purchase-multiplier" id="option10000">
+        <label for="option10000" onclick="setGlobalPurchaseMultiplier(10000)">
+          x10K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000">
         <label for="option1000000" onclick="setGlobalPurchaseMultiplier(1000000)">
-          x1m
+          x1M
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000">
         <label for="option1000000000" onclick="setGlobalPurchaseMultiplier(1000000000)">
-          x1b
+          x1B
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000000">
         <label for="option1000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000)">
-          x1t
+          x1T
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000000000">
         <label for="option1000000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000000)">
-          x1q
+          x1Q
         </label>
     </div>
     <div class="game-buttons">
