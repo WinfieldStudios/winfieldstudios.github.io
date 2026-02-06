@@ -20,7 +20,7 @@ const resources = {
 
 
         if (this.gross >= 200 && upgradeGalmi.level < 5) upgradeGalmi.button.classList.remove("hidden");
-        else upgradeGalmi.button.classList.add("removed");
+        else if (upgradeGalmi.level === 5) upgradeGalmi.button.classList.add("removed");
       } else {
         extract.button.classList.add("hidden");
         upgradeGalmi.button.classList.add("hidden");
