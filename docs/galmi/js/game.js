@@ -408,6 +408,9 @@ function purchaseUpgradeWorker() {
     
     upgradeWorker.level += globalPurchaseMultiplier;
     checkPurchasables();
+
+    document.querySelector('.worker-promoted-count').innerHTML = upgradeWorker.level - 1;
+
   }
 }
 
@@ -425,6 +428,9 @@ function purchaseHousing() {
     housing.level += globalPurchaseMultiplier;
 
     checkPurchasables();
+
+     document.querySelector('.worker-housing-count').innerHTML = housing.level - 1;
+
   }
 }
 
