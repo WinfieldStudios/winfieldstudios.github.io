@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Galmi - Playtest</title>
+  <title>Galmi</title>
   <link rel="icon" type="image/png" href="/galmi/img/rocks/3.png">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/galmi/css/style.css" />
@@ -132,7 +132,7 @@
           </div>
         </div>
         <div class="purchasables-container-special">
-          <div class="galmi-and-pickaxe-upgrades">
+          <div>
             <!--GALMI UPGRADE-->
             <div class="upgrade-galmi-button purchasable hidden" onclick="purchaseUpgradeGalmi(); fbq('trackCustom', 'Clicked-Upgrade-Galmi');">
               <div class="left-section">
@@ -198,6 +198,35 @@
                 x1
               </div>
             </div>
+
+            <!--HOUSING--> 
+            <div class="housing-button purchasable hidden" onclick="purchaseHousing()">
+              <div class="left-section">
+                <img src="/galmi/img/icons/housing.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+              </div>
+              <div class="mid-section">
+                <h4>HOUSING</h4>
+                <div class="cost-info">
+                  <span class="housing-cost-concrete">2</span>
+                  <img src="/galmi/img/icons/concrete.png" alt="" class="resource-icon" draggable="false">
+                  <p><span class="housing-cost-chromium">1</span></p>
+                  <img src="/galmi/img/icons/chromium.png" alt="" class="resource-icon" draggable="false">
+               
+                  <div class="tooltip">
+                    <span class="dot">?</span>
+                    <div class="content">
+                      <h1>Section 8 Housing</h1>
+                      <p>Provides Housing for your Workers.</p>
+                      <p>Total Housing: <span class="worker-housing-count">0</span></p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="right-section">
+                x<span class="multiplier">1</span><!---->
+              </div>
+            </div>
           </div>
           <div>
             <!--HIRE--> 
@@ -248,35 +277,6 @@
                       <p>Promoted Workers give the Resources you would have gotten from Extracting, but without consuming any Rocks.</p>
                       <p>They can be a bit Inconsistent in their Resource Generation. You can Promote without any Workers.</p>
                       <p>Total Promoted Workers: <span class="worker-promoted-count">0</span></p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="right-section">
-                x<span class="multiplier">1</span><!---->
-              </div>
-            </div>
-
-            <!--HOUSING--> 
-            <div class="housing-button purchasable hidden" onclick="purchaseHousing()">
-              <div class="left-section">
-                <img src="/galmi/img/icons/housing.png" alt="" srcset="" class="purchasable-icon" draggable="false">
-              </div>
-              <div class="mid-section">
-                <h4>HOUSING</h4>
-                <div class="cost-info">
-                  <span class="housing-cost-concrete">2</span>
-                  <img src="/galmi/img/icons/concrete.png" alt="" class="resource-icon" draggable="false">
-                  <p><span class="housing-cost-chromium">1</span></p>
-                  <img src="/galmi/img/icons/chromium.png" alt="" class="resource-icon" draggable="false">
-               
-                  <div class="tooltip">
-                    <span class="dot">?</span>
-                    <div class="content">
-                      <h1>Section 8 Housing</h1>
-                      <p>Provides Housing for your Workers.</p>
-                      <p>Total Housing: <span class="worker-housing-count">0</span></p>
                     </div>
                   </div>
 
@@ -524,7 +524,7 @@
         </label>
     </div>
     <div class="game-buttons">
-      <button class="game-button" onclick="save()">
+      <button class="game-button" onclick="save('SAVED!')">
         <img src="/galmi/img/icons/floppy_disk.png" alt="" class="save-icon" draggable="false">
       </button>
       <!--
@@ -535,10 +535,10 @@
     </div>
     <div class="util-buttons">
       <button class="util-button" onclick="toggleDarkMode()">
-        <span id="dark-mode-toggle">Dark</span> Mode
+        <span id="dark-mode-toggle">DARK</span>-MODE
       </button>
       <button class="util-button" onclick="restart()">
-        Restart
+        RESTART
       </button>
     </div>
   </section>

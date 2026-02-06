@@ -32,6 +32,6 @@ setInterval(() => {
 
 // AUTO SAVE LOOP
 setInterval(() => {
-  save();
+  save('AUTO-SAVE...');
 
 }, 300000); // Every 5 minutes

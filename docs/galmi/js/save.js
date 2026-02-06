@@ -1,6 +1,6 @@
 // SAVE / LOAD / RESET
 
-function save() {
+function save(textPlayed = "SAVED!") {
   localStorage.clear();
 
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
@@ -17,7 +17,7 @@ function save() {
   }
 
   const div = document.createElement('div');
-  div.innerHTML = 'Saved!';
+  div.innerHTML = textPlayed;
   div.style.cssText = `color: var(--dark-color); position: absolute; top: 6vh; left: 0.5vw; font-size: 15px; font-weight: bold; pointer-events: none;`;
   saveIcon.appendChild(div);
 

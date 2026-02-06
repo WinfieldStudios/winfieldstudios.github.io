@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Pixelated';
+  src: url(/galmi/css/fonts/Tiny5-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'CodeStyle';
+  src: url(/galmi/css/fonts/GoogleSansCode-Regular.ttf) format('truetype');
+}
+
+
 :root {
   /* OLD THEME COLORS
   --dark-color:#4B3B2B;
@@ -88,6 +98,7 @@ body {
   margin: 0;
   padding: 1vh;
   font-size: 1vw;
+  font-family: "CodeStyle";
   background-color: var(--light-color);
   color: var(--dark-color);
   -webkit-touch-callout: none; /* iOS Safari: disable callout on long press */
@@ -179,7 +190,7 @@ img {
   display: grid;
   margin: 10vh 0 10vh 0;
   place-items: center;
-  width: 20vw;
+  width: 24vw;
   min-width: 150px;
   box-sizing: border-box;
 }
@@ -201,7 +212,7 @@ img {
 
 .resource-count {
   color: var(--dark-color);
-  font-weight: 700;
+  font-weight: lighter;
 }
 
 .middle {

@@ -462,7 +462,7 @@ function toggleDarkMode() {
   const targetTheme = currentTheme === "dark" ? "light" : "dark";
 
   document.documentElement.setAttribute("data-theme", targetTheme);
-  document.getElementById("dark-mode-toggle").innerText = targetTheme === "dark" ? "Light" : "Dark";
+  document.getElementById("dark-mode-toggle").innerText = targetTheme === "dark" ? "LIGHT" : "DARK";
 
   darkMode = targetTheme === "dark";
 }
