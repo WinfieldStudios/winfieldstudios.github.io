@@ -3,6 +3,7 @@
 function save(textPlayed = "SAVED!") {
   localStorage.clear();
 
+  localStorage.setItem('totalClicksEver', JSON.stringify(totalClicksEver));
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
   localStorage.setItem('darkMode', JSON.stringify(darkMode));
 
@@ -27,6 +28,9 @@ function save(textPlayed = "SAVED!") {
 
 function load() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
+
+  const savedTotalClicksEver = JSON.parse(localStorage.getItem('totalClicksEver'));
+  if (savedTotalClicksEver !== null) totalClicksEver = savedTotalClicksEver;
 
   const savedRocksPerClick = JSON.parse(localStorage.getItem('rocksPerClick'));
   if (savedRocksPerClick !== null) rocksPerClick = savedRocksPerClick;
@@ -56,11 +60,23 @@ function load() {
   updateUpgradeGalmi();
   updateUpgradePickaxe();
   checkPurchasables();
+  document.querySelector('.purchased-total-extract').innerHTML = extract.level;
+  document.querySelector('.purchased-total-blast').innerHTML = blast.level - 1;
+  document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
+  document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
+  document.querySelector('.purchased-total-refine').innerHTML = refine.level - 1;
+  document.querySelector('.purchased-total-aerate').innerHTML = aerate.level - 1;
+  document.querySelector('.purchased-total-produce').innerHTML = produce.level - 1;
+  document.querySelector('.purchased-total-workers').innerHTML = hire.level - 1;
+  document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
+  document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
+  document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
 }
 
 function restart() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
 
+  if (localStorage.getItem('totalClicksEver') !== null) totalClicksEver = TOTAL_CLICKS_EVER_STARTING_AMOUNT;
   if (localStorage.getItem('rocksPerClick') !== null) rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT;
 
   for (const purchasable of Object.values(purchasables)) {
@@ -82,11 +98,19 @@ function restart() {
   updateUpgradeGalmi();
   updateUpgradePickaxe();
   checkPurchasables();
+  document.querySelector('.purchased-total-extract').innerHTML = extract.level;
+  document.querySelector('.purchased-total-blast').innerHTML = blast.level - 1;
+  document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
+  document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
+  document.querySelector('.purchased-total-refine').innerHTML = refine.level - 1;
+  document.querySelector('.purchased-total-aerate').innerHTML = aerate.level - 1;
+  document.querySelector('.purchased-total-produce').innerHTML = produce.level - 1;
 }
 
 function clearSave() {
   localStorage.clear();
 
+  localStorage.setItem('totalClicksEver', JSON.stringify(TOTAL_CLICKS_EVER_STARTING_AMOUNT));
   localStorage.setItem('rocksPerClick', JSON.stringify(ROCKS_PER_CLICK_STARTING_AMOUNT));
 
   for (const purchasable of Object.values(purchasables)) {
@@ -96,4 +120,14 @@ function clearSave() {
     localStorage.setItem(`${resource.name}Count`, JSON.stringify(RESOURCES_STARTING_COUNT));
     localStorage.setItem(`${resource.name}Gross`, JSON.stringify(RESOURCES_STARTING_GROSS));
   }
+  updateUpgradeGalmi();
+  updateUpgradePickaxe();
+  checkPurchasables();
+  document.querySelector('.purchased-total-extract').innerHTML = extract.level;
+  document.querySelector('.purchased-total-blast').innerHTML = blast.level - 1;
+  document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
+  document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
+  document.querySelector('.purchased-total-refine').innerHTML = refine.level - 1;
+  document.querySelector('.purchased-total-aerate').innerHTML = aerate.level - 1;
+  document.querySelector('.purchased-total-produce').innerHTML = produce.level - 1;
 }
