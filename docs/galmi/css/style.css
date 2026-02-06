@@ -90,7 +90,11 @@ body {
   font-size: 1vw;
   background-color: var(--light-color);
   color: var(--dark-color);
-  user-select: none;
+  -webkit-touch-callout: none; /* iOS Safari: disable callout on long press */
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  user-select: none; /* Standard */
   /* cursor: url("/assets/cursors/pickaxe.png") 16 16, auto; */
 
   /* === LAYERED SCENIC BACKGROUND === */
@@ -158,7 +162,7 @@ body {
 }
 
 img {
-  filter: drop-shadow(0 0 3px var(--light-color));
+  filter: drop-shadow(0 0 3px #EEF1F4);
 }
 
 .main {
@@ -240,6 +244,10 @@ img {
   border-radius: 5px;
   background-color: var(--light-color);
   opacity: 0.5;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 /*
 .extract:hover {
@@ -265,6 +273,7 @@ img {
 .purchasable-icon {
   height: 3vw;
   min-height: 20px;
+  -webkit-user-drag: none;
 }
 
 .cost-info {
@@ -389,7 +398,7 @@ input[type="radio"]:checked + label {
 .save-icon {
   height: 4vh;
   min-height: 24px;
-  filter: none;
+  filter: drop-shadow(0 0 3px #EEF1F4);
   background-color: transparent;
 }
 
