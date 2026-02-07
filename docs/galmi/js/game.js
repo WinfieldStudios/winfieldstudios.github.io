@@ -414,6 +414,7 @@ function purchaseProduce() {
 }
 
 function purchaseUpgradeWorker() {
+  console.log(upgradeWorker.costs);
   if (
     obsidian.count >= upgradeWorker.costs.obsidian.amount * globalPurchaseMultiplier &&
     steel.count >= upgradeWorker.costs.steel.amount * globalPurchaseMultiplier
@@ -430,11 +431,13 @@ function purchaseUpgradeWorker() {
 }
 
 function purchaseHousing() {
-  console.log("Housing purchased");
+  
   if (
+     obsidian.count >= housing.costs.obsidian.amount * globalPurchaseMultiplier &&
     concrete.count >= housing.costs.concrete.amount * globalPurchaseMultiplier &&
     chromium.count >= housing.costs.chromium.amount * globalPurchaseMultiplier
   ) {
+    obsidian.count -= housing.costs.obsidian.amount * globalPurchaseMultiplier;
     concrete.count -= housing.costs.concrete.amount * globalPurchaseMultiplier;
     chromium.count -= housing.costs.chromium.amount * globalPurchaseMultiplier;
 

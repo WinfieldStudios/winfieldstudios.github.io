@@ -248,6 +248,12 @@ const purchasables = {
         source: document.querySelector('.housing-cost-chromium'),
         get amount() { return parseFloat(document.querySelector('.housing-cost-chromium').innerHTML); },
         set amount(value) { this.source.innerHTML = value; }
+      },
+      obsidian: {
+        name: "obsidian",
+        source: document.querySelector('.housing-cost-obsidian'),
+        get amount() { return parseFloat(document.querySelector('.housing-cost-obsidian').innerHTML); },
+        set amount(value) { this.source.innerHTML = value; }
       }
     },
     button: document.querySelector('.housing-button')
