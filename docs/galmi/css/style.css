@@ -14,11 +14,23 @@
   --light-color:#F9F5F0; 
   */
   --dark-color: #2A2A2E;
+  --dark-color-faded:rgba(42, 42, 46, 0.5);
+  --dark-color-faded-full:rgba(42, 42, 46, 0.08);
+  --dark-color-faded-completely:rgba(42, 42, 46, 0.03);
   --light-color:#EEF1F4;
+  --light-color-faded:rgba(238, 241, 244, 0.5);
+  --light-color-faded-full:rgba(238, 241, 244, 0.08);
+  --light-color-faded-completely:rgba(238, 241, 244, 0.03);
 }
 :root[data-theme="dark"] {
   --dark-color:#EEF1F4;
+  --dark-color-faded: rgba(238, 241, 244, 0.5);
+  --dark-color-faded-full: rgba(238, 241, 244, 0.08);
+  --dark-color-faded-completely:rgba(238, 241, 244, 0.03);
   --light-color:#2A2A2E;
+  --light-color-faded:rgba(42, 42, 46, 0.5);
+  --light-color-faded-full:rgba(42, 42, 46, 0.08);
+  --light-color-faded-completely:rgba(42, 42, 46, 0.03);
 }
 
 /* Dark theme scenic background - muted night/dusk feel */
@@ -99,7 +111,7 @@ body {
   padding: 1vh;
   font-size: 1vw;
   font-weight: lighter;
-  font-family: "CodeStyle";
+  font-family: "Pixelated";
   background-color: var(--light-color);
   color: var(--dark-color);
   -webkit-touch-callout: none; /* iOS Safari: disable callout on long press */
@@ -208,11 +220,13 @@ img {
   box-sizing: border-box;
   margin: 3px;
   color: var(--dark-color);
+  background-color: var(--light-color-faded);
 }
 
 .resource-count {
   color: var(--dark-color);
   font-weight: lighter;
+  font-family: "CodeStyle";
 }
 
 .middle {
@@ -231,7 +245,7 @@ img {
   min-height: 64px;
 }
 .rock-image {
-  max-height: 30vw;
+  max-height: 22vw;
   min-width: 44px;
 }
 .rock-image:hover {
@@ -268,8 +282,8 @@ img {
   border: 1px solid var(--dark-color);
   padding: 1vh;
   border-radius: 5px;
-  background-color: var(--light-color);
-  opacity: 0.5;
+  color: var(--dark-color-faded);
+  background-color: var(--dark-color-faded-full);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -305,7 +319,7 @@ img {
 .cost-info {
   display: flex;
   gap: 5px;
-  font-weight: 700;
+  font-family: "CodeStyle";
 }
 
 .right-section {
@@ -315,16 +329,20 @@ img {
 .hidden { visibility: hidden !important; }
 .removed { display: none !important; }
 .enabled {
-  opacity: 1;
+  color: var(--dark-color);
+  background-color: var(--light-color);
   box-shadow: 0 0 6px var(--dark-color);
 }
 .enabled:hover {
-  opacity: 0.9;
+  background-color: var(--dark-color-faded-completely);
   cursor: pointer;
 }
 .enabled:active {
-  opacity: 0.8;
+  background-color: var(--dark-color-faded-full);
   transform: scale(1.02);
+  .content {
+    transform: scale(0.98) translateX(0.4vw);  /* Inverse of 1.02 */
+  }
 }
 
 .fade-up {
@@ -381,7 +399,6 @@ label {
   width: 4vw;
   min-width: 48px;
   text-align: center;
-  font-weight: 600;
   color: var(--dark-color);
   border: none;
   border-radius: 10px;
@@ -408,7 +425,6 @@ input[type="radio"]:checked + label {
 .game-button {
   padding: 0.5vh 1vh;
   font-size: 2vh;
-  font-weight: 600;
   font-family: inherit;
   border: none;
   background-color: transparent;
@@ -440,7 +456,6 @@ input[type="radio"]:checked + label {
   height: 20px;
   font-size: 12px;
   color: var(--dark-color);
-  font-weight: 600;
   font-family: inherit;
   border: none;
   border-radius: 10px;
@@ -459,7 +474,7 @@ input[type="radio"]:checked + label {
 .tooltip {
   position: absolute;
   top: 5%;
-  left: 94%;
+  left: 2%;
 }
 .dot {
   display: block;
@@ -471,23 +486,29 @@ input[type="radio"]:checked + label {
 /* when the purchasable card is hovered, make the dot fully visible */
 .purchasable:hover .dot,
 .purchasable:focus-within .dot {
-  opacity: 1;
+  opacity: 0.4;
 }
 .content {
   position: absolute;
-  top: 50%;
-  right: 100%;
-  width: 15vw;
+  top: 0%;
+  right: 1vw;
+  width: 16vw;
   height: auto;
-  transform: translateY(-50%);
-  display: none;
-  font-weight: 100;
+  display: block;  /* Change from display: none */
+  opacity: 0;      /* Start fully transparent */
+  pointer-events: none;  /* Prevent interaction when hidden */
   box-shadow: 0px 0px 5px var(--dark-color);
   border-radius: 10px;
   border: 1px solid var(--light-color);
   background-color: var(--dark-color);
   color: var(--light-color);
   padding: 10px;
+  transition: opacity 0.18s ease;  /* Add transition here */
+}
+
+.dot:hover + .content {
+  opacity: 1;  /* Fade in on hover */
+  pointer-events: auto;
 }
 .content h1 {
   margin: 0;
@@ -497,9 +518,6 @@ input[type="radio"]:checked + label {
   margin: 0;
   font-size: 12px;
 
-}
-.dot:hover + .content {
-  display: block;
 }
 .info-icon {
   width: 16px;

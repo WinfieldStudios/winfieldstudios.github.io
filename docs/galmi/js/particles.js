@@ -13,7 +13,7 @@ function gainResourceParticle(resource, amount) {
   sign = "";
   if (amount > 0) sign = "+";
   div.innerHTML = `${sign}${amount}`;
-  div.style.cssText = `color: var(--dark-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`;
+  div.style.cssText = `color: var(--dark-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; font-weight: lighter; font-family: "CodeStyle"; pointer-events: none;`;
   resource.displayContainer.appendChild(div);
 
   div.classList.add('gain-resource-animation');
