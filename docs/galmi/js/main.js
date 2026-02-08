@@ -129,7 +129,7 @@ function toggleScientificNotation() {
   for (const resource of Object.values(resources)) {
     const span = resource.displayContainer.querySelector('.resource-count');
     if (span) {
-      span.innerHTML = formatNumber(resource.count);
+      span.innerHTML = formatNumberWithCommas(resource.count);
     }
   }
 }
@@ -179,5 +179,8 @@ function formatNumber(num) {
 
 // FORMAT NUMBERS FOR COMMAS
 function formatNumberWithCommas(num) {
+  if (num >= 1e10) {
+    return formatNumber(num);
+  }
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

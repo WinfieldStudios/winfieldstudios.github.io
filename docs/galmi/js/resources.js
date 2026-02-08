@@ -13,16 +13,16 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
         extract.button.classList.remove("hidden");
         upgradeGalmi.button.classList.remove("removed");
 
-
-        if (this.gross >= 200 && upgradeGalmi.level < 5) upgradeGalmi.button.classList.remove("hidden");
-        else if (upgradeGalmi.level === 5) upgradeGalmi.button.classList.add("removed");
+        if (upgradeGalmi.level === 5) upgradeGalmi.button.classList.add("removed");
+        if (this.gross >= 200) upgradeGalmi.button.classList.remove("hidden");
+        
       } else {
         extract.button.classList.add("hidden");
         upgradeGalmi.button.classList.add("hidden");
@@ -47,7 +47,7 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -71,7 +71,7 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -95,7 +95,7 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) this.displayContainer.classList.remove("hidden");
       else this.displayContainer.classList.add("hidden");
@@ -114,7 +114,7 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -140,10 +140,15 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
-      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
-      else this.displayContainer.classList.add("hidden");
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden");
+        upgradeWorker.button.classList.remove("hidden");
+      } else {
+        this.displayContainer.classList.add("hidden");
+        upgradeWorker.button.classList.add("hidden");
+      }
     }
   },
 
@@ -159,14 +164,12 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
-        upgradeWorker.button.classList.remove("hidden");
       } else {
         this.displayContainer.classList.add("hidden");
-        upgradeWorker.button.classList.add("hidden");
       }
     }
   },
@@ -183,7 +186,7 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -207,7 +210,7 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -231,7 +234,7 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) this.displayContainer.classList.remove("hidden");
       else this.displayContainer.classList.add("hidden");
@@ -250,7 +253,7 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -276,7 +279,7 @@ const resources = {
         this.gross += value - this.count;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -300,7 +303,7 @@ const resources = {
         this.gross += value - this.currentCount;
       }
       this.currentCount = value;
-      this.countSource.innerHTML = formatNumber(value);
+      this.countSource.innerHTML = formatNumberWithCommas(value);
 
       if (this.gross > 0) this.displayContainer.classList.remove("hidden");
       else this.displayContainer.classList.add("hidden");

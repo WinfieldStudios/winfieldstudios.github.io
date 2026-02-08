@@ -126,6 +126,33 @@
 
 
       <div class="middle">
+        
+        <!--GALMI UPGRADE-->
+        <div class="upgrade-galmi-button purchasable hidden" onclick="purchaseUpgradeGalmi(); fbq('trackCustom', 'Clicked-Upgrade-Galmi');">
+          <div class="left-section">
+            <img src="/galmi/img/icons/rock_upgrade.png" alt="" srcset="" class="purchasable-icon" draggable="false">
+          </div>
+          <div class="mid-section">
+            <h4>GROW</h4>
+            <div class="cost-info">
+              <span class="upgrade-galmi-cost-rocks"></span>
+              <img src="/galmi/img/rocks/1.png" alt="" class="resource-icon" draggable="false">
+            
+              <div class="tooltip">
+                <span class="dot">i</span>
+                <div class="content">
+                  <h1>Unlock a New Base-Resource: <img src="/galmi/img/icons/iron_ore.png" alt="" class="resource-icon next-base-resource" draggable="false"></h1>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <br>
+          <div class="right-section">
+            x1
+          </div>
+        </div>
+        <div><br><br><br><br></div>
         <div>
           <div class="rock-image-container">
             <img src="/galmi/img/rocks/1.png" alt="" srcset="" class="rock-image" onclick="clickOnRock(event); fbq('trackCustom', 'Clicked-Rock');" draggable="false">
@@ -133,31 +160,6 @@
         </div>
         <div class="purchasables-container-special">
           <div>
-            <!--GALMI UPGRADE-->
-            <div class="upgrade-galmi-button purchasable hidden" onclick="purchaseUpgradeGalmi(); fbq('trackCustom', 'Clicked-Upgrade-Galmi');">
-              <div class="left-section">
-                <img src="/galmi/img/icons/rock_upgrade.png" alt="" srcset="" class="purchasable-icon" draggable="false">
-              </div>
-              <div class="mid-section">
-                <h4>GROW</h4>
-                <div class="cost-info">
-                  <span class="upgrade-galmi-cost-rocks"></span>
-                  <img src="/galmi/img/rocks/1.png" alt="" class="resource-icon" draggable="false">
-               
-                  <div class="tooltip">
-                    <span class="dot">i</span>
-                    <div class="content">
-                      <h1>Unlock a New Base-Resource: <img src="/galmi/img/icons/iron_ore.png" alt="" class="resource-icon next-base-resource" draggable="false"></h1>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <br>
-              <div class="right-section">
-                x1
-              </div>
-            </div>
 
             <!-- PICKAXE UPGRADE-->
             <div class="upgrade-pickaxe-button purchasable hidden" onclick="purchaseUpgradePickaxe(); fbq('trackCustom', 'Clicked-Upgrade-Pickaxe');">
@@ -191,6 +193,7 @@
 
                 </div>
               </div>
+              <br>
               <div class="right-section">
                 x1
               </div>
