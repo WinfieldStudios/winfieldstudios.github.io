@@ -27,119 +27,78 @@ function purchaseExtract() {
   if (rocks.count >= extract.costs.rocks.amount * globalPurchaseMultiplier) {
     rocks.count -= extract.costs.rocks.amount * globalPurchaseMultiplier;
 
-    /*
-    let limestoneToGain = 0;
-    let coalToGain = 0;
-    let ironoreToGain = 0;
-    let obsidianToGain = 0;
-    let chromiumoreToGain = 0;
-    let aluminumToGain = 0;
+    limestoneToAdd = 0;
+    coalToAdd = 0;
+    ironoreToAdd = 0;
+    obsidianToAdd = 0;
+    chromiumoreToAdd = 0;
+    aluminumToAdd = 0;
 
-    let roll = Math.floor(Math.random() * 10000) + 1;
-    if (globalPurchaseMultiplier <= 10000) {
-      for (let i = 0; i < globalPurchaseMultiplier; i++) {
-        switch (upgradeGalmi.level) {
-          case 1:
-            if (roll <= 5000) limestoneToGain += 1;
-            else coalToGain += 1;
-            break;
-          case 2:
-            console.log("hello");
-            if (roll <= 5000) limestoneToGain += 1;
-            else if (roll <= 9000) coalToGain += 1;
-            else ironoreToGain += 1;
-            console.log("hello");
-            break;
-          case 3:
-            if (roll <= 5000) limestoneToGain += 1;
-            else if (roll <= 9000) coalToGain += 1;
-            else if (roll <= 9900) ironoreToGain += 1;
-            else obsidianToGain += 1;
-            break;
-          case 4:
-            if (roll <= 5000) limestoneToGain += 1;
-            else if (roll <= 9000) coalToGain += 1;
-            else if (roll <= 9900) ironoreToGain += 1;
-            else if (roll <= 9990) obsidianToGain += 1;
-            else chromiumoreToGain += 1;
-            break;
-          default:
-            if (roll <= 5000) limestoneToGain += 1;
-            else if (roll <= 9000) coalToGain += 1;
-            else if (roll <= 9900) ironoreToGain += 1;
-            else if (roll <= 9990) obsidianToGain += 1;
-            else if (roll <= 9999) chromiumoreToGain += 1;
-            else aluminumToGain += 1;
-            break;
-        }
-        roll = Math.floor(Math.random() * 10000) + 1;
-      }
-      limestone.count += limestoneToGain;
-      coal.count += coalToGain;
-      ironore.count += ironoreToGain;
-      obsidian.count += obsidianToGain;
-      chromiumore.count += chromiumoreToGain;
-      aluminum.count += aluminumToGain;
-    } else {
-      limestone.count += Math.floor(parseInt(0.5 * globalPurchaseMultiplier));
-      coal.count += parseInt(0.4 * globalPurchaseMultiplier);
-      ironore.count += parseInt(0.09 * globalPurchaseMultiplier);
-      obsidian.count += parseInt(0.009 * globalPurchaseMultiplier);
-      chromiumore.count += parseInt(0.0009 * globalPurchaseMultiplier);
-      aluminum.count += parseInt(0.00009 * globalPurchaseMultiplier);
-      
-    }
-      */
     if (globalPurchaseMultiplier === 1) {
 
       let roll = Math.floor(Math.random() * 10000) + 1;
       switch (upgradeGalmi.level) {
         case 1:
-          if (roll <= 5000) limestone.count += 1;
-          else coal.count += 1;
+          if (roll <= 5000) limestoneToAdd += 1;
+          else coalToAdd += 1;
           break;
         case 2:
-          if (roll <= 5000) limestone.count += 1;
-          else if (roll <= 9000) coal.count += 1;
-          else ironore.count += 1;
+          if (roll <= 5000) limestoneToAdd += 1;
+          else if (roll <= 9000) coalToAdd += 1;
+          else ironoreToAdd += 1;
           break;
         case 3:
-          if (roll <= 5000) limestone.count += 1;
-          else if (roll <= 9000) coal.count += 1;
-          else if (roll <= 9900) ironore.count += 1;
-          else obsidian.count += 1;
+          if (roll <= 5000) limestoneToAdd += 1;
+          else if (roll <= 9000) coalToAdd += 1;
+          else if (roll <= 9900) ironoreToAdd += 1;
+          else obsidianToAdd += 1;
           break;
         case 4:
-          if (roll <= 5000) limestone.count += 1;
-          else if (roll <= 9000) coal.count += 1;
-          else if (roll <= 9900) ironore.count += 1;
-          else if (roll <= 9990) obsidian.count += 1;
-          else chromium.count += 1;
+          if (roll <= 5000) limestoneToAdd += 1;
+          else if (roll <= 9000) coalToAdd += 1;
+          else if (roll <= 9900) ironoreToAdd += 1;
+          else if (roll <= 9990) obsidianToAdd += 1;
+          else chromiumToAdd += 1;
           break;
         default:
-          if (roll <= 5000) limestone.count += 1;
-          else if (roll <= 9000) coal.count += 1;
-          else if (roll <= 9900) ironore.count += 1;
-          else if (roll <= 9990) obsidian.count += 1;
-          else if (roll <= 9999) chromium.count += 1;
-          else aluminum.count += 1;
+          if (roll <= 5000) limestoneToAdd += 1;
+          else if (roll <= 9000) coalToAdd += 1;
+          else if (roll <= 9900) ironoreToAdd += 1;
+          else if (roll <= 9990) obsidianToAdd += 1;
+          else if (roll <= 9999) chromiumToAdd += 1;
+          else aluminumToAdd += 1;
           break;
       }
     } else {
       switch (upgradeGalmi.level) {
         case 5:
-          aluminum.count += Math.max(0, Math.floor((globalPurchaseMultiplier * 1e-9) + Math.floor(Math.random() * (globalPurchaseMultiplier * 1e-9) - (globalPurchaseMultiplier * 1e-9 / 2))));
+          aluminumToAdd += Math.max(0, Math.floor((globalPurchaseMultiplier * 1e-9) + Math.floor(Math.random() * (globalPurchaseMultiplier * 1e-9) - (globalPurchaseMultiplier * 1e-9 / 2))));
         case 4:
-          chromiumore.count += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005 / 2))));
+          chromiumoreToAdd += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005 / 2))));
         case 3:
-          obsidian.count += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005 / 2))));
+          obsidianToAdd += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005 / 2))));
         case 2:
-          ironore.count += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05 / 2)));
+          ironoreToAdd += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05 / 2)));
         default:
-          limestone.count += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1 / 2)));
-          coal.count += Math.floor((globalPurchaseMultiplier * 0.4) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1 / 2)));
+          limestoneToAdd += Math.floor((globalPurchaseMultiplier * 0.5) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1 / 2)));
+          coalToAdd += Math.floor((globalPurchaseMultiplier * 0.4) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.1) - (globalPurchaseMultiplier * 0.1 / 2)));
       }
     }
+
+    limestone.count += limestoneToAdd;
+    coal.count += coalToAdd;
+    ironore.count += ironoreToAdd;
+    obsidian.count += obsidianToAdd;
+    chromiumore.count += chromiumoreToAdd;
+    aluminum.count += aluminumToAdd;
+
+    if (limestoneToAdd > 0) gainResourceParticle(limestone, limestoneToAdd);
+    if (coalToAdd > 0) gainResourceParticle(coal, coalToAdd);
+    if (ironoreToAdd > 0) gainResourceParticle(ironore, ironoreToAdd);
+    if (obsidianToAdd > 0) gainResourceParticle(obsidian, obsidianToAdd);
+    if (chromiumoreToAdd > 0) gainResourceParticle(chromiumore, chromiumoreToAdd);
+    if (aluminumToAdd > 0) gainResourceParticle(aluminum, aluminumToAdd);
+
 
     extract.level += globalPurchaseMultiplier;
     checkPurchasables();
@@ -155,21 +114,25 @@ function purchaseUpgradeGalmi() {
     switch (upgradeGalmi.level) {
       case 1:
         ironore.count += 1;
+        gainResourceParticle(ironore, 1);
         upgradeGalmi.costs.rocks.amount = 4444;
         upgradeGalmi.level += 1;
         break;
       case 2:
         obsidian.count += 1;
+        gainResourceParticle(obsidian, 1);
         upgradeGalmi.costs.rocks.amount = 1000011;
         upgradeGalmi.level += 1;
         break;
       case 3:
         chromiumore.count += 1;
+        gainResourceParticle(chromiumore, 1);
         upgradeGalmi.costs.rocks.amount = 2147483647;
         upgradeGalmi.level += 1;
         break;
       case 4:
         aluminum.count += 1;
+        gainResourceParticle(aluminum, 1);
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
         upgradeGalmi.level += 1;
         break;
@@ -364,6 +327,7 @@ function purchaseBlast() {
     pigiron.count -= blast.costs.pigiron.amount * globalPurchaseMultiplier;
 
     steel.count += globalPurchaseMultiplier;
+    gainResourceParticle(steel, globalPurchaseMultiplier);
 
     blast.level += globalPurchaseMultiplier;
     checkPurchasables();
@@ -383,6 +347,7 @@ function purchaseSmelt() {
     limestone.count -= smelt.costs.limestone.amount * globalPurchaseMultiplier;
 
     pigiron.count += globalPurchaseMultiplier;
+    gainResourceParticle(pigiron, globalPurchaseMultiplier);
 
     smelt.level += globalPurchaseMultiplier;
     checkPurchasables();
@@ -417,6 +382,7 @@ function purchaseReduce() {
     limestone.count -= reduce.costs.limestone.amount * globalPurchaseMultiplier;
 
     ferrochrome.count += globalPurchaseMultiplier;
+    gainResourceParticle(ferrochrome, globalPurchaseMultiplier);
 
     reduce.level += globalPurchaseMultiplier;
     checkPurchasables();
@@ -434,6 +400,7 @@ function purchaseRefine() {
     steel.count -= refine.costs.steel.amount * globalPurchaseMultiplier;
 
     stainlesssteel.count += globalPurchaseMultiplier;
+    gainResourceParticle(stainlesssteel, globalPurchaseMultiplier);
 
     refine.level += globalPurchaseMultiplier;
     checkPurchasables();
@@ -451,6 +418,7 @@ function purchaseAerate() {
     aluminum.count -= aerate.costs.aluminum.amount * globalPurchaseMultiplier;
 
     concrete.count += globalPurchaseMultiplier;
+    gainResourceParticle(concrete, globalPurchaseMultiplier);
 
     aerate.level += globalPurchaseMultiplier;
     checkPurchasables(); 
@@ -468,6 +436,7 @@ function purchaseProduce() {
     aluminum.count -= produce.costs.aluminum.amount * globalPurchaseMultiplier;
 
     chromium.count += globalPurchaseMultiplier;
+    gainResourceParticle(chromium, globalPurchaseMultiplier);
 
     produce.level += globalPurchaseMultiplier;
     checkPurchasables();

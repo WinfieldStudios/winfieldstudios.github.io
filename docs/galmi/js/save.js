@@ -65,7 +65,6 @@ function load() {
     const savedCount = JSON.parse(localStorage.getItem(`${resource.name}Count`));
     if (savedCount !== null) {
       resource.count = savedCount;
-      if (resource.name === 'rocks') gainResourceParticle(resource, savedCount);
     }
   }
 

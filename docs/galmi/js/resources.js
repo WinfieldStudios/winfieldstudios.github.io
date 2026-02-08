@@ -45,7 +45,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -70,7 +69,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -95,7 +93,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -115,7 +112,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -142,7 +138,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -162,7 +157,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -187,7 +181,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -212,7 +205,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -237,7 +229,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -257,7 +248,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -284,7 +274,6 @@ const resources = {
     set count(value) {
       if (value > this.count) {
         this.gross += value - this.count;
-        gainResourceParticle(this, value - this.count);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
@@ -309,7 +298,6 @@ const resources = {
     set count(value) {
       if (value > this.currentCount) {
         this.gross += value - this.currentCount;
-        gainResourceParticle(this, value - this.currentCount);
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumber(value);
