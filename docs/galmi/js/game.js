@@ -16,6 +16,8 @@ function checkPurchasables() {
       } else if (resource.count < cost.amount * globalPurchaseMultiplier) {
         purchasable.button.classList.remove("enabled");
       }
+      // Change displayed cost to reflect multiplier
+      cost.source.innerHTML = formatNumber(cost.amount * globalPurchaseMultiplier);
     }
   }
 }
@@ -510,37 +512,4 @@ function purchaseHousing() {
      document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
 
   }
-}
-
-// MULTIPLIER
-function setGlobalPurchaseMultiplier(value) {
-  globalPurchaseMultiplier = value;
-
-  const display = document.querySelectorAll('.multiplier');
-  for (const element of display) {
-    switch (globalPurchaseMultiplier) {
-      case 1: element.innerHTML = '1'; break;
-      case 100: element.innerHTML = '100'; break;
-      case 10000: element.innerHTML = '10K'; break;
-      case 1000000: element.innerHTML = '1M'; break;
-      case 1000000000: element.innerHTML = '1B'; break;
-      case 1000000000000: element.innerHTML = '1T'; break;
-      case 1000000000000000: element.innerHTML = '1Q'; break;
-      default: element.innerHTML = `${globalPurchaseMultiplier}`; break;
-    }
-  }
-
-  document.getElementById(`option${globalPurchaseMultiplier}`).checked = true;
-  checkPurchasables();
-}
-
-// DARK MODE
-function toggleDarkMode() {
-  const currentTheme = document.documentElement.getAttribute("data-theme");
-  const targetTheme = currentTheme === "dark" ? "light" : "dark";
-
-  document.documentElement.setAttribute("data-theme", targetTheme);
-  document.getElementById("dark-mode-toggle").innerText = targetTheme === "dark" ? "LIGHT" : "DARK";
-
-  darkMode = targetTheme === "dark";
 }

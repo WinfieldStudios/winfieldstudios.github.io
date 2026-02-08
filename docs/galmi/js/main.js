@@ -73,20 +73,43 @@ function toggleDarkMode() {
   const targetTheme = currentTheme === "dark" ? "light" : "dark";
 
   document.documentElement.setAttribute("data-theme", targetTheme);
-  document.getElementById("dark-mode-toggle").innerText = targetTheme === "dark" ? "LIGHT" : "DARK";
+  document.getElementById("dark-mode-toggle").innerText = targetTheme === "dark" ? "DARK" : "LIGHT";
 
   darkMode = targetTheme === "dark";
+}
+
+// TOGGLE SCIENTIFIC NOTATION
+function toggleScientificNotation() {
+  showingScientificNotation = !showingScientificNotation;
+  const toggle = document.getElementById("scientific-notation-toggle");
+  toggle.innerText = showingScientificNotation ? "SCIENTIFIC" : "ABBREVIATED";
+  checkPurchasables();
+  for (const resource of Object.values(resources)) {
+    const span = resource.displayContainer.querySelector('.resource-count');
+    if (span) {
+      span.innerHTML = formatNumber(resource.count);
+    }
+  }
 }
 
 // FORMAT NUMBERS FOR DISPLAY (E.G. 1024 -> 1.024K, 123425899906842624 -> 123.4Q, 1234000000000000000 -> 1.126e18, ETC.)
 // FOR NUMBERS 1E15 AND ABOVE, USE EXPONENTIAL NOTATION TO PREVENT DISPLAY ISSUES. FOR NUMBERS BELOW 1E15, USE SUFFIXES (K, M, B, T, Q) FOR BETTER READABILITY.
 // ALSO, ONLY SHOW 4 TOTAL NUMBERS (E.G. 1.234K, 12.34M, 123.4B, ETC.) TO PREVENT DISPLAY ISSUES AND IMPROVE READABILITY.
 function formatNumber(num) {
-  if (num >= 1e15 || showingScientificNotation) {
-    return num.toExponential(3).replace('+', '');
+  if (num >= 1e18) {
+    return num.toExponential(0).replace('+', '');
+  }
+
+  if (showingScientificNotation) {
+    if (num > 999) {
+      return num.toExponential(num % 1000 === 0 ? 0 : 3).replace('+', '');
+    } else {
+      return num.toString();
+    }
   }
 
   const tiers = [
+    { value: 1e15, suffix: 'Q' },
     { value: 1e12, suffix: 'T' },
     { value: 1e9, suffix: 'B' },
     { value: 1e6, suffix: 'M' },

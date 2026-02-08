@@ -6,6 +6,7 @@ function save(textPlayed = "SAVED!") {
   localStorage.setItem('totalClicksEver', JSON.stringify(totalClicksEver));
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
   localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  localStorage.setItem('showingScientificNotation', JSON.stringify(showingScientificNotation));
 
   for (const purchasable of Object.values(purchasables)) {
     const key = `${purchasable.name}Level`;
@@ -38,7 +39,18 @@ function load() {
   const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
   if (savedDarkMode !== null) {
     darkMode = savedDarkMode;
+    document.getElementById("dark-mode-toggle").innerText = darkMode ? "DARK" : "LIGHT";
     if (darkMode) toggleDarkMode();
+  }
+
+  const savedNotation = JSON.parse(localStorage.getItem('showingScientificNotation'));
+  if (savedNotation !== null) {
+    showingScientificNotation = savedNotation;
+    document.getElementById("scientific-notation-toggle").innerText = showingScientificNotation ? "SCIENTIFIC" : "ABBREVIATED";
+    if (showingScientificNotation) {
+      showingScientificNotation = false;
+      toggleScientificNotation();
+    }
   }
 
   for (const purchasable of Object.values(purchasables)) {
