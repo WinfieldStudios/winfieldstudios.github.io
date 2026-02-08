@@ -77,6 +77,7 @@ function purchaseExtract() {
           chromiumoreToAdd += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005 / 2))));
         case 3:
           obsidianToAdd += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005 / 2))));
+          if (globalPurchaseMultiplier === 100) obsidianToAdd += Math.random() < 0.1 ? 1 : 0;
         case 2:
           ironoreToAdd += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05 / 2)));
         default:
