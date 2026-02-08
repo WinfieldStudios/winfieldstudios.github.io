@@ -12,7 +12,7 @@ function gainResourceParticle(resource, amount) {
   const div = document.createElement('div');
   sign = "";
   if (amount > 0) sign = "+";
-  div.innerHTML = `${sign}${amount}`;
+  div.innerHTML = `${sign}${formatNumber(amount)}`;
   div.style.cssText = `color: var(--dark-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; font-weight: lighter; font-family: "CodeStyle"; pointer-events: none;`;
   resource.displayContainer.appendChild(div);
 

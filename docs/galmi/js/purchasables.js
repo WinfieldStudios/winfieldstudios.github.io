@@ -7,9 +7,16 @@ const purchasables = {
     costs: {
       rocks: {
         name: "rocks",
+        cost: EXTRACT_COST_ROCKS,
         source: document.querySelector('.extract-cost'),
-        get amount() { return parseFloat(document.querySelector('.extract-cost').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value);
+        }
       }
     },
     button: document.querySelector('.extract-button')
@@ -21,9 +28,16 @@ const purchasables = {
     costs: {
       rocks: {
         name: "rocks",
+        cost: UPGRADE_GALMI_BASE_COST_ROCKS,
         source: document.querySelector('.upgrade-galmi-cost-rocks'),
-        get amount() { return parseFloat(document.querySelector('.upgrade-galmi-cost-rocks').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumberWithCommas(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumberWithCommas(value); 
+        }
       }
     },
     button: document.querySelector('.upgrade-galmi-button')
@@ -35,27 +49,55 @@ const purchasables = {
     costs: {
       limestone: {
         name: "limestone",
+        cost: UPGRADE_PICKAXE_BASE_COST_LIMESTONE,
         source: document.querySelector('.upgrade-pickaxe-cost-limestone'),
-        get amount() { return parseFloat(document.querySelector('.upgrade-pickaxe-cost-limestone').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       steel: {
         name: "steel",
+        cost: UPGRADE_PICKAXE_BASE_COST_STEEL,
         source: document.querySelector('.upgrade-pickaxe-cost-steel'),
-        get amount() { return parseFloat(document.querySelector('.upgrade-pickaxe-cost-steel').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       stainlesssteel: {
         name: "stainlesssteel",
+        cost: UPGRADE_PICKAXE_BASE_COST_STAINLESSSTEEL,
         source: document.querySelector('.upgrade-pickaxe-cost-stainlesssteel'),
-        get amount() { return parseFloat(document.querySelector('.upgrade-pickaxe-cost-stainlesssteel').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       chromium: {
         name: "chromium",
+        cost: UPGRADE_PICKAXE_BASE_COST_CHROMIUM,
         source: document.querySelector('.upgrade-pickaxe-cost-chromium'),
-        get amount() { return parseFloat(document.querySelector('.upgrade-pickaxe-cost-chromium').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       }
     },
     button: document.querySelector('.upgrade-pickaxe-button'),
@@ -67,15 +109,29 @@ const purchasables = {
     costs: {
       coal: {
         name: "coal",
+        cost: BLAST_COST_COAL,
         source: document.querySelector('.blast-cost-coal'),
-        get amount() { return parseFloat(document.querySelector('.blast-cost-coal').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       pigiron: {
         name: "pigiron",
+        cost: BLAST_COST_PIGIRON,
         source: document.querySelector('.blast-cost-pigiron'),
-        get amount() { return parseFloat(document.querySelector('.blast-cost-pigiron').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       }
     },
     button: document.querySelector('.blast-button'),
@@ -87,21 +143,42 @@ const purchasables = {
     costs: {
       ironore: {
         name: "ironore",
+        cost: SMELT_COST_IRONORE,
         source: document.querySelector('.smelt-cost-ironore'),
-        get amount() { return parseFloat(document.querySelector('.smelt-cost-ironore').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       coal: {
         name: "coal",
+        cost: SMELT_COST_COAL,
         source: document.querySelector('.smelt-cost-coal'),
-        get amount() { return parseFloat(document.querySelector('.smelt-cost-coal').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       limestone: {
         name: "limestone",
+        cost: SMELT_COST_LIMESTONE,
         source: document.querySelector('.smelt-cost-limestone'),
-        get amount() { return parseFloat(document.querySelector('.smelt-cost-limestone').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       }
     },
     button: document.querySelector('.smelt-button'),
@@ -113,15 +190,29 @@ const purchasables = {
     costs: {
       pigiron: {
         name: "pigiron",
+        cost: HIRE_COST_PIGIRON,
         source: document.querySelector('.hire-cost-pigiron'),
-        get amount() { return parseFloat(document.querySelector('.hire-cost-pigiron').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       limestone: {
         name: "limestone",
+        cost: HIRE_COST_LIMESTONE,
         source: document.querySelector('.hire-cost-limestone'),
-        get amount() { return parseFloat(document.querySelector('.hire-cost-limestone').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       }
     },
     button: document.querySelector('.hire-button')
@@ -133,21 +224,42 @@ const purchasables = {
     costs: {
       chromiumore: {
         name: "chromiumore",
+        cost: REDUCE_COST_CHROMIUMORE,
         source: document.querySelector('.reduce-cost-chromiumore'),
-        get amount() { return parseFloat(document.querySelector('.reduce-cost-chromiumore').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       coal: {
         name: "coal",
+        cost: REDUCE_COST_COAL,
         source: document.querySelector('.reduce-cost-coal'),
-        get amount() { return parseFloat(document.querySelector('.reduce-cost-coal').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       limestone: {
         name: "limestone",
+        cost: REDUCE_COST_LIMESTONE,
         source: document.querySelector('.reduce-cost-limestone'),
-        get amount() { return parseFloat(document.querySelector('.reduce-cost-limestone').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
     },
     button: document.querySelector('.reduce-button')
@@ -159,15 +271,29 @@ const purchasables = {
     costs: {
       ferrochrome: {
         name: "ferrochrome",
+        cost: REFINE_COST_FERROCHROME,
         source: document.querySelector('.refine-cost-ferrochrome'),
-        get amount() { return parseFloat(document.querySelector('.refine-cost-ferrochrome').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       steel: {
         name: "steel",
+        cost: REFINE_COST_STEEL,
         source: document.querySelector('.refine-cost-steel'),
-        get amount() { return parseFloat(document.querySelector('.refine-cost-steel').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       }
     },
     button: document.querySelector('.refine-button')
@@ -179,15 +305,42 @@ const purchasables = {
     costs: {
       aluminum: {
         name: "aluminum",
+        cost: MIX_COST_ALUMINUM,
         source: document.querySelector('.aerate-cost-aluminum'),
-        get amount() { return parseFloat(document.querySelector('.aerate-cost-aluminum').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       limestone: {
         name: "limestone",
+        cost: MIX_COST_LIMESTONE,
         source: document.querySelector('.aerate-cost-limestone'),
-        get amount() { return parseFloat(document.querySelector('.aerate-cost-limestone').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
+      },
+      stainlesssteel: {
+        name: "stainlesssteel",
+        cost: MIX_COST_STAINLESSSTEEL,
+        source: document.querySelector('.aerate-cost-stainlesssteel'),
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       }
     },
     button: document.querySelector('.aerate-button')
@@ -199,15 +352,29 @@ const purchasables = {
     costs: {
       chromiumore: {
         name: "chromiumore",
+        cost: PRODUCE_COST_CHROMIUMORE,
         source: document.querySelector('.produce-cost-chromiumore'),
-        get amount() { return parseFloat(document.querySelector('.produce-cost-chromiumore').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       aluminum: {
         name: "aluminum",
+        cost: PRODUCE_COST_ALUMINUM,
         source: document.querySelector('.produce-cost-aluminum'),
-        get amount() { return parseFloat(document.querySelector('.produce-cost-aluminum').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       }
     },
     button: document.querySelector('.produce-button')
@@ -219,15 +386,29 @@ const purchasables = {
     costs: {
       obsidian: {
         name: "obsidian",
+        cost: PROMOTE_COST_OBSIDIAN,
         source: document.querySelector('.upgrade-worker-cost-obsidian'),
-        get amount() { return parseFloat(document.querySelector('.upgrade-worker-cost-obsidian').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       steel: {
         name: "steel",
+        cost: PROMOTE_COST_STEEL,
         source: document.querySelector('.upgrade-worker-cost-steel'),
-        get amount() { return parseFloat(document.querySelector('.upgrade-worker-cost-steel').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       }
     },
     button: document.querySelector('.upgrade-worker-button')
@@ -239,21 +420,42 @@ const purchasables = {
     costs: {
       concrete: {
         name: "concrete",
+        cost: HOUSING_COST_CONCRETE,
         source: document.querySelector('.housing-cost-concrete'),
-        get amount() { return parseFloat(document.querySelector('.housing-cost-concrete').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       chromium: {
         name: "chromium",
+        cost: HOUSING_COST_CHROMIUM,
         source: document.querySelector('.housing-cost-chromium'),
-        get amount() { return parseFloat(document.querySelector('.housing-cost-chromium').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       },
       obsidian: {
         name: "obsidian",
+        cost: HOUSING_COST_OBSIDIAN,
         source: document.querySelector('.housing-cost-obsidian'),
-        get amount() { return parseFloat(document.querySelector('.housing-cost-obsidian').innerHTML); },
-        set amount(value) { this.source.innerHTML = value; }
+        get amount() { 
+          this.source.innerHTML = formatNumber(this.cost);
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
       }
     },
     button: document.querySelector('.housing-button')

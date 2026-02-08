@@ -44,3 +44,75 @@ setInterval(() => {
   save('AUTO-SAVE...');
 
 }, 300000); // Every 5 minutes
+
+// MULTIPLIER
+function setGlobalPurchaseMultiplier(value) {
+  globalPurchaseMultiplier = value;
+
+  const display = document.querySelectorAll('.multiplier');
+  for (const element of display) {
+    switch (globalPurchaseMultiplier) {
+      case 1: element.innerHTML = '1'; break;
+      case 100: element.innerHTML = '100'; break;
+      case 10000: element.innerHTML = '10K'; break;
+      case 1000000: element.innerHTML = '1M'; break;
+      case 1000000000: element.innerHTML = '1B'; break;
+      case 1000000000000: element.innerHTML = '1T'; break;
+      case 1000000000000000: element.innerHTML = '1Q'; break;
+      default: element.innerHTML = `${globalPurchaseMultiplier}`; break;
+    }
+  }
+
+  document.getElementById(`option${globalPurchaseMultiplier}`).checked = true;
+  checkPurchasables();
+}
+
+// DARK MODE
+function toggleDarkMode() {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const targetTheme = currentTheme === "dark" ? "light" : "dark";
+
+  document.documentElement.setAttribute("data-theme", targetTheme);
+  document.getElementById("dark-mode-toggle").innerText = targetTheme === "dark" ? "LIGHT" : "DARK";
+
+  darkMode = targetTheme === "dark";
+}
+
+// FORMAT NUMBERS FOR DISPLAY (E.G. 1024 -> 1.024K, 123425899906842624 -> 123.4Q, 1234000000000000000 -> 1.126e18, ETC.)
+// FOR NUMBERS 1E15 AND ABOVE, USE EXPONENTIAL NOTATION TO PREVENT DISPLAY ISSUES. FOR NUMBERS BELOW 1E15, USE SUFFIXES (K, M, B, T, Q) FOR BETTER READABILITY.
+// ALSO, ONLY SHOW 4 TOTAL NUMBERS (E.G. 1.234K, 12.34M, 123.4B, ETC.) TO PREVENT DISPLAY ISSUES AND IMPROVE READABILITY.
+function formatNumber(num) {
+  if (num >= 1e15 || showingScientificNotation) {
+    return num.toExponential(3).replace('+', '');
+  }
+
+  const tiers = [
+    { value: 1e12, suffix: 'T' },
+    { value: 1e9, suffix: 'B' },
+    { value: 1e6, suffix: 'M' },
+    { value: 1e3, suffix: 'K' }
+  ];
+  
+  // For numbers in the thousands (1,000 - 9,999) show commas instead of abbreviation
+  // if (num >= 1000 && num < 10000) {
+  //   return formatNumberWithCommas(Math.round(num));
+  // }
+
+  for (const tier of tiers) {
+    if (num >= tier.value) {
+      const v = num / tier.value;
+      let s = v.toPrecision(4);
+      s = s.replace(/\.0+$/,'');
+      s = s.replace(/(\.[0-9]*?)0+$/,'$1');
+      s = s.replace(/\.$/, '');
+      return s + tier.suffix;
+    }
+  }
+
+  return num.toString();
+}
+
+// FORMAT NUMBERS FOR COMMAS
+function formatNumberWithCommas(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
