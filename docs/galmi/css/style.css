@@ -264,6 +264,7 @@ img {
 }
 
 .right {
+  position: relative;
   display: grid;
   margin: 10vh 0 10vh 0;
   place-items: center;
@@ -323,7 +324,11 @@ img {
 }
 
 .right-section {
+  position: absolute;
   justify-items: right;
+  right: 1vw;
+  top: 1vh;
+  opacity: 0.5;
 }
 
 .hidden { visibility: hidden !important; }

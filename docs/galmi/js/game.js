@@ -13,6 +13,7 @@ function checkPurchasables() {
         if (resource.count < cost.amount) {
           purchasable.button.classList.remove("enabled");
         }
+        break;
       } else if (resource.count < cost.amount * globalPurchaseMultiplier) {
         purchasable.button.classList.remove("enabled");
       }
