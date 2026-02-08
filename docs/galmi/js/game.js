@@ -324,7 +324,7 @@ function updateUpgradePickaxe() {
     upgradePickaxe.costs.limestone.amount = ((upgradePickaxe.level - 1) * 3) + 11;
     limestoneDisplay.classList.remove("removed");
   } else if (upgradePickaxe.level <= 16) {
-    upgradePickaxe.costs.limestone.amount = 256;
+    upgradePickaxe.costs.limestone.amount = 512;
     upgradePickaxe.costs.steel.amount = (upgradePickaxe.level - 4) * 4;
     limestoneDisplay.classList.remove("removed");
     steelDisplay.classList.remove("removed");
