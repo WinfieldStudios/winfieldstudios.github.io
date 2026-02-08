@@ -211,7 +211,8 @@ img {
 .left h3 {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
+  gap: 0.5rem; 
   width: 95%;
   min-height: 32px;
   border: 1px solid var(--dark-color);
@@ -227,6 +228,8 @@ img {
   color: var(--dark-color);
   font-weight: lighter;
   font-family: "CodeStyle";
+  align-items: center; 
+  gap: 0.5rem; 
 }
 
 .middle {
@@ -496,7 +499,7 @@ input[type="radio"]:checked + label {
 .content {
   position: absolute;
   top: 0%;
-  right: 1vw;
+  right: 1.25vw;
   width: 16vw;
   height: auto;
   display: block;  /* Change from display: none */
@@ -518,6 +521,9 @@ input[type="radio"]:checked + label {
 .content h1 {
   margin: 0;
   font-size: 14px;
+}
+.tooltip .content h1 { 
+  display: flex; align-items: center; gap: 0.5rem; 
 }
 .content p {
   margin: 0;

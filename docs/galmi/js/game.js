@@ -108,6 +108,9 @@ function purchaseExtract() {
 }
 
 function purchaseUpgradeGalmi() {
+
+  nextBaseResourceIcon = document.querySelector('.next-base-resource');
+
   if (rocks.count >= upgradeGalmi.costs.rocks.amount) {
     rocks.count -= upgradeGalmi.costs.rocks.amount;
 
@@ -115,18 +118,21 @@ function purchaseUpgradeGalmi() {
       case 1:
         ironore.count += 1;
         gainResourceParticle(ironore, 1);
+        nextBaseResourceIcon.src = "/galmi/img/icons/obsidian.png";
         upgradeGalmi.costs.rocks.amount = 4444;
         upgradeGalmi.level += 1;
         break;
       case 2:
         obsidian.count += 1;
         gainResourceParticle(obsidian, 1);
+        nextBaseResourceIcon.src = "/galmi/img/icons/chromiumore.png";
         upgradeGalmi.costs.rocks.amount = 1000011;
         upgradeGalmi.level += 1;
         break;
       case 3:
         chromiumore.count += 1;
         gainResourceParticle(chromiumore, 1);
+        nextBaseResourceIcon.src = "/galmi/img/icons/aluminum.png";
         upgradeGalmi.costs.rocks.amount = 2147483647;
         upgradeGalmi.level += 1;
         break;
@@ -155,12 +161,15 @@ function purchaseUpgradeGalmi() {
 }
 
 function updateUpgradeGalmi() {
+
+  nextBaseResourceIcon = document.querySelector('.next-base-resource');
+
   upgradeGalmi.button.classList.remove("removed");
   switch (upgradeGalmi.level) {
-    case 1: upgradeGalmi.costs.rocks.amount = 64; break;
-    case 2: upgradeGalmi.costs.rocks.amount = 4444; break;
-    case 3: upgradeGalmi.costs.rocks.amount = 1000011; break;
-    case 4: upgradeGalmi.costs.rocks.amount = 2147483647; break;
+    case 1: upgradeGalmi.costs.rocks.amount = 64; nextBaseResourceIcon.src = "/galmi/img/icons/iron_ore.png"; break;
+    case 2: upgradeGalmi.costs.rocks.amount = 4444; nextBaseResourceIcon.src = "/galmi/img/icons/obsidian.png"; break;
+    case 3: upgradeGalmi.costs.rocks.amount = 1000011; nextBaseResourceIcon.src = "/galmi/img/icons/chromiumore.png"; break;
+    case 4: upgradeGalmi.costs.rocks.amount = 2147483647; nextBaseResourceIcon.src = "/galmi/img/icons/aluminum.png"; break;
     default: 
       upgradeGalmi.button.classList.add("removed");
       upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
