@@ -96,6 +96,7 @@ function setGlobalPurchaseMultiplier(value) {
     switch (globalPurchaseMultiplier) {
       case 1: element.innerHTML = '1'; break;
       case 100: element.innerHTML = '100'; break;
+      case 1000: element.innerHTML = '1K'; break;
       case 10000: element.innerHTML = '10K'; break;
       case 1000000: element.innerHTML = '1M'; break;
       case 1000000000: element.innerHTML = '1B'; break;
