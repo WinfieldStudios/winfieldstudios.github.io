@@ -433,13 +433,13 @@ function purchaseUpgradeWorker() {
 function purchaseHousing() {
   
   if (
-     obsidian.count >= housing.costs.obsidian.amount * globalPurchaseMultiplier &&
     concrete.count >= housing.costs.concrete.amount * globalPurchaseMultiplier &&
-    chromium.count >= housing.costs.chromium.amount * globalPurchaseMultiplier
+    chromium.count >= housing.costs.chromium.amount * globalPurchaseMultiplier &&
+    obsidian.count >= housing.costs.obsidian.amount * globalPurchaseMultiplier
   ) {
-    obsidian.count -= housing.costs.obsidian.amount * globalPurchaseMultiplier;
     concrete.count -= housing.costs.concrete.amount * globalPurchaseMultiplier;
     chromium.count -= housing.costs.chromium.amount * globalPurchaseMultiplier;
+    obsidian.count -= housing.costs.obsidian.amount * globalPurchaseMultiplier;
 
     // *= ((Math.log10(globalPurchaseMultiplier) / 3) + 1) * 1.001; // 1, 2, 3, 4, 5, 6 * 1.001
 
