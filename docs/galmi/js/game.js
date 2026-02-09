@@ -73,11 +73,13 @@ function purchaseExtract() {
       switch (upgradeGalmi.level) {
         case 5:
           aluminumToAdd += Math.max(0, Math.floor((globalPurchaseMultiplier * 1e-9) + Math.floor(Math.random() * (globalPurchaseMultiplier * 1e-9) - (globalPurchaseMultiplier * 1e-9 / 2))));
+          aluminumToAdd += (Math.random() * globalPurchaseMultiplier) < (globalPurchaseMultiplier * 1e-9) ? 1 : 0;
         case 4:
           chromiumoreToAdd += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.000001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0000005) - (globalPurchaseMultiplier * 0.0000005 / 2))));
+          chromiumoreToAdd += (Math.random() * globalPurchaseMultiplier) < (globalPurchaseMultiplier * 0.000001) ? 1 : 0;
         case 3:
           obsidianToAdd += Math.max(0, Math.floor((globalPurchaseMultiplier * 0.001) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.0005) - (globalPurchaseMultiplier * 0.0005 / 2))));
-          if (globalPurchaseMultiplier === 100) obsidianToAdd += Math.random() < 0.1 ? 1 : 0;
+          obsidianToAdd += (Math.random() * globalPurchaseMultiplier) < (globalPurchaseMultiplier * 0.001) ? 1 : 0;
         case 2:
           ironoreToAdd += Math.floor((globalPurchaseMultiplier * 0.1) + Math.floor(Math.random() * (globalPurchaseMultiplier * 0.05) - (globalPurchaseMultiplier * 0.05 / 2)));
         default:
