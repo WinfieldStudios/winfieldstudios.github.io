@@ -391,7 +391,7 @@ img {
 
 .gpm-selector {
   position: absolute;
-  bottom: 1vh;
+  bottom: 1.5vh;
   right: 1vw;
 }
 /* 1. Hide the radio circle */

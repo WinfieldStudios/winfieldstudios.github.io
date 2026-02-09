@@ -10,7 +10,6 @@ const purchasables = {
         cost: EXTRACT_COST_ROCKS,
         source: document.querySelector('.extract-cost'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -31,7 +30,6 @@ const purchasables = {
         cost: UPGRADE_GALMI_BASE_COST_ROCKS,
         source: document.querySelector('.upgrade-galmi-cost-rocks'),
         get amount() { 
-          this.source.innerHTML = formatNumberWithCommas(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -52,7 +50,6 @@ const purchasables = {
         cost: UPGRADE_PICKAXE_BASE_COST_LIMESTONE,
         source: document.querySelector('.upgrade-pickaxe-cost-limestone'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -65,7 +62,6 @@ const purchasables = {
         cost: UPGRADE_PICKAXE_BASE_COST_STEEL,
         source: document.querySelector('.upgrade-pickaxe-cost-steel'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -78,7 +74,6 @@ const purchasables = {
         cost: UPGRADE_PICKAXE_BASE_COST_STAINLESSSTEEL,
         source: document.querySelector('.upgrade-pickaxe-cost-stainlesssteel'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -91,7 +86,6 @@ const purchasables = {
         cost: UPGRADE_PICKAXE_BASE_COST_CHROMIUM,
         source: document.querySelector('.upgrade-pickaxe-cost-chromium'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -112,7 +106,6 @@ const purchasables = {
         cost: BLAST_COST_COAL,
         source: document.querySelector('.blast-cost-coal'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -125,7 +118,6 @@ const purchasables = {
         cost: BLAST_COST_PIGIRON,
         source: document.querySelector('.blast-cost-pigiron'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -146,7 +138,6 @@ const purchasables = {
         cost: SMELT_COST_IRONORE,
         source: document.querySelector('.smelt-cost-ironore'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -159,7 +150,6 @@ const purchasables = {
         cost: SMELT_COST_COAL,
         source: document.querySelector('.smelt-cost-coal'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -172,7 +162,6 @@ const purchasables = {
         cost: SMELT_COST_LIMESTONE,
         source: document.querySelector('.smelt-cost-limestone'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -193,7 +182,6 @@ const purchasables = {
         cost: HIRE_COST_PIGIRON,
         source: document.querySelector('.hire-cost-pigiron'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -206,7 +194,6 @@ const purchasables = {
         cost: HIRE_COST_LIMESTONE,
         source: document.querySelector('.hire-cost-limestone'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -227,7 +214,6 @@ const purchasables = {
         cost: REDUCE_COST_CHROMIUMORE,
         source: document.querySelector('.reduce-cost-chromiumore'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -240,7 +226,6 @@ const purchasables = {
         cost: REDUCE_COST_COAL,
         source: document.querySelector('.reduce-cost-coal'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -253,7 +238,6 @@ const purchasables = {
         cost: REDUCE_COST_LIMESTONE,
         source: document.querySelector('.reduce-cost-limestone'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -274,7 +258,6 @@ const purchasables = {
         cost: REFINE_COST_FERROCHROME,
         source: document.querySelector('.refine-cost-ferrochrome'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -287,7 +270,6 @@ const purchasables = {
         cost: REFINE_COST_STEEL,
         source: document.querySelector('.refine-cost-steel'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -308,7 +290,6 @@ const purchasables = {
         cost: MIX_COST_ALUMINUM,
         source: document.querySelector('.aerate-cost-aluminum'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -321,7 +302,6 @@ const purchasables = {
         cost: MIX_COST_LIMESTONE,
         source: document.querySelector('.aerate-cost-limestone'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -334,7 +314,6 @@ const purchasables = {
         cost: MIX_COST_STAINLESSSTEEL,
         source: document.querySelector('.aerate-cost-stainlesssteel'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -355,7 +334,6 @@ const purchasables = {
         cost: PRODUCE_COST_CHROMIUMORE,
         source: document.querySelector('.produce-cost-chromiumore'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -368,7 +346,6 @@ const purchasables = {
         cost: PRODUCE_COST_ALUMINUM,
         source: document.querySelector('.produce-cost-aluminum'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -389,7 +366,6 @@ const purchasables = {
         cost: PROMOTE_COST_OBSIDIAN,
         source: document.querySelector('.upgrade-worker-cost-obsidian'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -402,7 +378,6 @@ const purchasables = {
         cost: PROMOTE_COST_STEEL,
         source: document.querySelector('.upgrade-worker-cost-steel'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -423,7 +398,6 @@ const purchasables = {
         cost: HOUSING_COST_CONCRETE,
         source: document.querySelector('.housing-cost-concrete'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -436,7 +410,6 @@ const purchasables = {
         cost: HOUSING_COST_CHROMIUM,
         source: document.querySelector('.housing-cost-chromium'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
@@ -449,7 +422,6 @@ const purchasables = {
         cost: HOUSING_COST_OBSIDIAN,
         source: document.querySelector('.housing-cost-obsidian'),
         get amount() { 
-          this.source.innerHTML = formatNumber(this.cost);
           return this.cost; 
         },
         set amount(value) { 
