@@ -422,10 +422,12 @@ function purchaseRefine() {
 function purchaseAerate() {
   if (
     limestone.count >= aerate.costs.limestone.amount * globalPurchaseMultiplier &&
-    aluminum.count >= aerate.costs.aluminum.amount * globalPurchaseMultiplier
+    aluminum.count >= aerate.costs.aluminum.amount * globalPurchaseMultiplier &&
+    stainlesssteel.count >= aerate.costs.stainlesssteel.amount * globalPurchaseMultiplier
   ) {
     limestone.count -= aerate.costs.limestone.amount * globalPurchaseMultiplier;
     aluminum.count -= aerate.costs.aluminum.amount * globalPurchaseMultiplier;
+    stainlesssteel.count -= aerate.costs.stainlesssteel.amount * globalPurchaseMultiplier;
 
     concrete.count += globalPurchaseMultiplier;
     gainResourceParticle(concrete, globalPurchaseMultiplier);
