@@ -309,7 +309,7 @@ function updateUpgradePickaxe() {
     limestoneDisplay.classList.remove("removed");
     steelDisplay.classList.remove("removed");
   } else if (upgradePickaxe.level <= 64) {
-    upgradePickaxe.costs.steel.amount = 1024;
+    upgradePickaxe.costs.steel.amount = 1000;
     upgradePickaxe.costs.stainlesssteel.amount = Math.pow((upgradePickaxe.level - 16), 2);
     steelDisplay.classList.remove("removed");
     stainlesssteelDisplay.classList.remove("removed");
