@@ -22,6 +22,8 @@ const resources = {
 
         if (upgradeGalmi.level === 5) upgradeGalmi.button.classList.add("removed");
         if (this.gross >= 200) upgradeGalmi.button.classList.remove("hidden");
+
+        if (this.gross > 9999999999) document.querySelector('.scientific-notation-toggle-display').classList.remove("removed");
         
       } else {
         extract.button.classList.add("hidden");

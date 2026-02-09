@@ -40,7 +40,7 @@ function load() {
   if (savedDarkMode !== null) {
     darkMode = savedDarkMode;
     document.getElementById("dark-mode-toggle").innerText = darkMode ? "DARK" : "LIGHT";
-    if (darkMode) toggleDarkMode();
+    if (!darkMode) toggleDarkMode();
   }
 
   const savedNotation = JSON.parse(localStorage.getItem('showingScientificNotation'));

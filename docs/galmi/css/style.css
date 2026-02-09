@@ -13,24 +13,24 @@
   --dark-color:#4B3B2B;
   --light-color:#F9F5F0; 
   */
-  --dark-color: #2A2A2E;
-  --dark-color-faded:rgba(42, 42, 46, 0.5);
-  --dark-color-faded-full:rgba(42, 42, 46, 0.08);
-  --dark-color-faded-completely:rgba(42, 42, 46, 0.03);
-  --light-color:#EEF1F4;
-  --light-color-faded:rgba(238, 241, 244, 0.5);
-  --light-color-faded-full:rgba(238, 241, 244, 0.08);
-  --light-color-faded-completely:rgba(238, 241, 244, 0.03);
+  --primary-color:#EEF1F4;
+  --primary-color-faded: rgba(238, 241, 244, 0.5);
+  --primary-color-faded-full: rgba(238, 241, 244, 0.08);
+  --primary-color-faded-completely:rgba(238, 241, 244, 0.03);
+  --secondary-color:#2A2A2E;
+  --secondary-color-faded:rgba(42, 42, 46, 0.5);
+  --secondary-color-faded-full:rgba(42, 42, 46, 0.08);
+  --secondary-color-faded-completely:rgba(42, 42, 46, 0.03);
 }
-:root[data-theme="dark"] {
-  --dark-color:#EEF1F4;
-  --dark-color-faded: rgba(238, 241, 244, 0.5);
-  --dark-color-faded-full: rgba(238, 241, 244, 0.08);
-  --dark-color-faded-completely:rgba(238, 241, 244, 0.03);
-  --light-color:#2A2A2E;
-  --light-color-faded:rgba(42, 42, 46, 0.5);
-  --light-color-faded-full:rgba(42, 42, 46, 0.08);
-  --light-color-faded-completely:rgba(42, 42, 46, 0.03);
+:root[data-theme="light"] {
+  --primary-color: #2A2A2E;
+  --primary-color-faded:rgba(42, 42, 46, 0.5);
+  --primary-color-faded-full:rgba(42, 42, 46, 0.08);
+  --primary-color-faded-completely:rgba(42, 42, 46, 0.03);
+  --secondary-color:#EEF1F4;
+  --secondary-color-faded:rgba(238, 241, 244, 0.5);
+  --secondary-color-faded-full:rgba(238, 241, 244, 0.08);
+  --secondary-color-faded-completely:rgba(238, 241, 244, 0.03);
 }
 
 /* Dark theme scenic background - muted night/dusk feel */
@@ -112,8 +112,8 @@ body {
   font-size: 1vw;
   font-weight: lighter;
   font-family: "Pixelated";
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   -webkit-touch-callout: none; /* iOS Safari: disable callout on long press */
   -webkit-user-select: none; /* Safari/Chrome */
   -moz-user-select: none; /* Firefox */
@@ -215,17 +215,17 @@ img {
   gap: 0.5rem; 
   width: 95%;
   min-height: 32px;
-  border: 1px solid var(--dark-color);
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
   padding: 0.5vw;
   box-sizing: border-box;
   margin: 3px;
-  color: var(--dark-color);
-  background-color: var(--light-color-faded);
+  color: var(--primary-color);
+  background-color: var(--secondary-color-faded);
 }
 
 .resource-count {
-  color: var(--dark-color);
+  color: var(--primary-color);
   font-weight: lighter;
   font-family: "CodeStyle";
   align-items: center; 
@@ -283,11 +283,11 @@ img {
   justify-content: space-around;
   width: 15vw;
   min-width: 150px;
-  border: 1px solid var(--dark-color);
+  border: 1px solid var(--primary-color);
   padding: 1vh;
   border-radius: 5px;
-  color: var(--dark-color-faded);
-  background-color: var(--dark-color-faded-full);
+  color: var(--primary-color-faded);
+  background-color: var(--primary-color-faded-full);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -337,16 +337,16 @@ img {
 .hidden { visibility: hidden !important; }
 .removed { display: none !important; }
 .enabled {
-  color: var(--dark-color);
-  background-color: var(--light-color);
-  box-shadow: 0 0 6px var(--dark-color);
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 6px var(--primary-color);
 }
 .enabled:hover {
-  background-color: var(--dark-color-faded-completely);
+  background-color: var(--primary-color-faded-completely);
   cursor: pointer;
 }
 .enabled:active {
-  background-color: var(--dark-color-faded-full);
+  background-color: var(--primary-color-faded-full);
   transform: scale(1.02);
   .content {
     transform: scale(0.98) translateX(0.4vw);  /* Inverse of 1.02 */
@@ -407,20 +407,20 @@ label {
   width: 4vw;
   min-width: 48px;
   text-align: center;
-  color: var(--dark-color);
+  color: var(--primary-color);
   border: none;
   border-radius: 10px;
-  background-color: var(--light-color);
-  box-shadow: 0px 0px 5px var(--dark-color);
+  background-color: var(--secondary-color);
+  box-shadow: 0px 0px 5px var(--primary-color);
   cursor: pointer;
   transition: background 0.3s;
 }
 
 /* 3. Style for the "Selected" button */
 input[type="radio"]:checked + label {
-  background-color: var(--dark-color);
-  color: var(--light-color);
-  border-color: var(--light-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .game-buttons {
@@ -463,12 +463,12 @@ input[type="radio"]:checked + label {
   width: 100px;
   height: 20px;
   font-size: 12px;
-  color: var(--dark-color);
+  color: var(--primary-color);
   font-family: inherit;
   border: none;
   border-radius: 10px;
-  background-color: var(--light-color);
-  box-shadow: 0px 0px 5px var(--dark-color);
+  background-color: var(--secondary-color);
+  box-shadow: 0px 0px 5px var(--primary-color);
 }
 .util-button:hover {
   opacity: 0.7;
@@ -505,11 +505,11 @@ input[type="radio"]:checked + label {
   display: block;  /* Change from display: none */
   opacity: 0;      /* Start fully transparent */
   pointer-events: none;  /* Prevent interaction when hidden */
-  box-shadow: 0px 0px 5px var(--dark-color);
+  box-shadow: 0px 0px 5px var(--primary-color);
   border-radius: 10px;
-  border: 1px solid var(--light-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  border: 1px solid var(--secondary-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   padding: 10px;
   transition: opacity 0.18s ease;  /* Add transition here */
 }
