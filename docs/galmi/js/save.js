@@ -71,7 +71,7 @@ function load() {
   updateUpgradeGalmi();
   updateUpgradePickaxe();
   checkPurchasables();
-  document.querySelector('.purchased-total-extract').innerHTML = extract.level;
+  document.querySelector('.purchased-total-extract').innerHTML = extract.level - 1;
   document.querySelector('.purchased-total-blast').innerHTML = blast.level - 1;
   document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
   document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
@@ -109,13 +109,17 @@ function restart() {
   updateUpgradeGalmi();
   updateUpgradePickaxe();
   checkPurchasables();
-  document.querySelector('.purchased-total-extract').innerHTML = extract.level;
+  document.querySelector('.purchased-total-extract').innerHTML = extract.level - 1;
   document.querySelector('.purchased-total-blast').innerHTML = blast.level - 1;
   document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
   document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
   document.querySelector('.purchased-total-refine').innerHTML = refine.level - 1;
   document.querySelector('.purchased-total-aerate').innerHTML = aerate.level - 1;
   document.querySelector('.purchased-total-produce').innerHTML = produce.level - 1;
+  document.querySelector('.purchased-total-workers').innerHTML = hire.level - 1;
+  document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
+  document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
+  document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
 }
 
 function clearSave() {
@@ -134,11 +138,15 @@ function clearSave() {
   updateUpgradeGalmi();
   updateUpgradePickaxe();
   checkPurchasables();
-  document.querySelector('.purchased-total-extract').innerHTML = extract.level;
+  document.querySelector('.purchased-total-extract').innerHTML = extract.level - 1;
   document.querySelector('.purchased-total-blast').innerHTML = blast.level - 1;
   document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
   document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
   document.querySelector('.purchased-total-refine').innerHTML = refine.level - 1;
   document.querySelector('.purchased-total-aerate').innerHTML = aerate.level - 1;
   document.querySelector('.purchased-total-produce').innerHTML = produce.level - 1;
+  document.querySelector('.purchased-total-workers').innerHTML = hire.level - 1;
+  document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
+  document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
+  document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
 }
