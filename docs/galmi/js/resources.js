@@ -14,7 +14,9 @@ const resources = {
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
-
+      
+      document.querySelector('.scientific-notation-toggle-display').classList.add("removed");
+      
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
         extract.button.classList.remove("hidden");

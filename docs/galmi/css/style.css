@@ -391,7 +391,7 @@ img {
 
 .gpm-selector {
   position: absolute;
-  top: 1vh;
+  bottom: 1vh;
   right: 1vw;
 }
 /* 1. Hide the radio circle */
@@ -423,10 +423,14 @@ input[type="radio"]:checked + label {
   border-color: var(--secondary-color);
 }
 
+.gpm-label-hidden {
+  display: none;
+}
+
 .game-buttons {
   position: absolute;
   top: 1vh;
-  left: 1vw;
+  right: 1vw;
   display: flex;
   gap: 10px;
 }
@@ -454,8 +458,8 @@ input[type="radio"]:checked + label {
 
 .util-buttons {
   position: absolute;
-  bottom: 1vh;
-  right: 1vw;
+  top: 1vh;
+  left: 1vw;
   display: flex;
   gap: 10px;
 }
@@ -498,7 +502,7 @@ input[type="radio"]:checked + label {
 }
 .content {
   position: absolute;
-  top: 0%;
+  bottom: -150%;
   right: 1.25vw;
   width: 16vw;
   height: auto;
