@@ -69,6 +69,18 @@ const purchasables = {
           this.source.innerHTML = formatNumber(value); 
         }
       },
+      obsidian: {
+        name: "obsidian",
+        cost: UPGRADE_PICKAXE_BASE_COST_OBSIDIAN,
+        source: document.querySelector('.upgrade-pickaxe-cost-obsidian'),
+        get amount() { 
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
+      },
       stainlesssteel: {
         name: "stainlesssteel",
         cost: UPGRADE_PICKAXE_BASE_COST_STAINLESSSTEEL,
