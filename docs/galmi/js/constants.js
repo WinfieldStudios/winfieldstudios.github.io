@@ -48,6 +48,7 @@ const HOUSING_COST_OBSIDIAN = 1000000;
 
 let totalClicksEver = TOTAL_CLICKS_EVER_STARTING_AMOUNT;
 let rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT;
+let hasExtractedAfterUpgradingPickaxe = false;
 let globalPurchaseMultiplier = GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT;
 let darkMode = true;
 let showingScientificNotation = false;

@@ -5,6 +5,7 @@ function save(textPlayed = "SAVED!") {
 
   localStorage.setItem('totalClicksEver', JSON.stringify(totalClicksEver));
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
+  localStorage.setItem('hasExtractedAfterUpgradingPickaxe', JSON.stringify(hasExtractedAfterUpgradingPickaxe));
   localStorage.setItem('darkMode', JSON.stringify(darkMode));
   localStorage.setItem('showingScientificNotation', JSON.stringify(showingScientificNotation));
 
@@ -34,7 +35,11 @@ function load() {
   if (savedTotalClicksEver !== null) totalClicksEver = savedTotalClicksEver;
 
   const savedRocksPerClick = JSON.parse(localStorage.getItem('rocksPerClick'));
-  if (savedRocksPerClick !== null) rocksPerClick = savedRocksPerClick;
+  if (savedRocksPerClick !== null) rocksPerClick = savedRocksPerClick; 
+
+  const savedHasExtractedAfterUpgradingPickaxe = JSON.parse(localStorage.getItem('hasExtractedAfterUpgradingPickaxe'));
+  if (savedHasExtractedAfterUpgradingPickaxe !== null) hasExtractedAfterUpgradingPickaxe = savedHasExtractedAfterUpgradingPickaxe;
+  else hasExtractedAfterUpgradingPickaxe = true;
 
   const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
   if (savedDarkMode !== null) {
@@ -89,6 +94,7 @@ function restart() {
 
   if (localStorage.getItem('totalClicksEver') !== null) totalClicksEver = TOTAL_CLICKS_EVER_STARTING_AMOUNT;
   if (localStorage.getItem('rocksPerClick') !== null) rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT;
+  if (localStorage.getItem('hasExtractedAfterUpgradingPickaxe') !== null) hasExtractedAfterUpgradingPickaxe = false;
 
   for (const purchasable of Object.values(purchasables)) {
     if (localStorage.getItem(`${purchasable.name}Level`) !== null) {
@@ -127,6 +133,7 @@ function clearSave() {
 
   localStorage.setItem('totalClicksEver', JSON.stringify(TOTAL_CLICKS_EVER_STARTING_AMOUNT));
   localStorage.setItem('rocksPerClick', JSON.stringify(ROCKS_PER_CLICK_STARTING_AMOUNT));
+  localStorage.getItem('hasExtractedAfterUpgradingPickaxe', JSON.stringify(false));
 
   for (const purchasable of Object.values(purchasables)) {
     localStorage.setItem(`${purchasable.name}Level`, JSON.stringify(PURCHASABLES_STARTING_LEVEL));

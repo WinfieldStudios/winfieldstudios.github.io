@@ -17,3 +17,16 @@ pickaxeIcons.forEach(src => {
   img.src = src;
 });
 
+// PRELOAD MORE IMAGES
+const preloadImages = [
+  '/galmi/img/rocks/1.png',
+  '/galmi/img/rocks/2.png',
+  '/galmi/img/rocks/3.png',
+  '/galmi/img/rocks/4.png',
+  '/galmi/img/rocks/5.png'
+]
+
+preloadImages.forEach(src => {
+  const img = new Image();
+  img.src = src;
+})
