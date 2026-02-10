@@ -313,7 +313,7 @@ function updateUpgradePickaxe() {
   upgradePickaxe.costs.chromium.amount = 0; chromiumDisplay.classList.add("removed");
 
   if (upgradePickaxe.level <= 10) {
-    upgradePickaxe.costs.limestone.amount = Math.ceil(Math.log2(((upgradePickaxe.level) * (upgradePickaxe.level)))) + 10;
+    upgradePickaxe.costs.limestone.amount = Math.ceil(Math.log2(upgradePickaxe.level) * Math.log2(upgradePickaxe.level) * Math.log2(upgradePickaxe.level)) + 10;
     limestoneDisplay.classList.remove("removed");
     if (upgradePickaxe.level === 1) {
       pickaxeIcon.src = pickaxeIcons[0];
