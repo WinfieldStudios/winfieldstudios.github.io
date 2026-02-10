@@ -1,5 +1,6 @@
 // PURCHASABLES LOGIC
 function checkPurchasables() {
+
   checkMultiplierTiers();
   
   for (const purchasable of Object.values(purchasables)) {
@@ -267,16 +268,12 @@ function purchaseUpgradePickaxe() {
 
     if (upgradePickaxe.level <= 5) {
       rocksPerClick = upgradePickaxe.level;
-      pickaxeIcon.src = pickaxeIcons[1];
     } else if (upgradePickaxe.level <= 17) {
       rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross)));
-      pickaxeIcon.src = pickaxeIcons[2];
     } else if (upgradePickaxe.level <= 65) {
       rocksPerClick += Math.max(4, Math.floor(Math.log2(rocks.gross))) * Math.max(8, Math.floor(Math.log2(rocks.gross)));
-      pickaxeIcon.src = pickaxeIcons[3];
     } else {
       rocksPerClick += Math.floor(rocks.gross * 0.0001);
-      pickaxeIcon.src = pickaxeIcons[4];
     }
     updateUpgradePickaxe();
 
@@ -309,21 +306,27 @@ function updateUpgradePickaxe() {
   if (upgradePickaxe.level <= 4) {
     upgradePickaxe.costs.limestone.amount = ((upgradePickaxe.level - 1) * 3) + 11;
     limestoneDisplay.classList.remove("removed");
+    if (upgradePickaxe.level === 1) {
+      pickaxeIcon.src = pickaxeIcons[0];
+    }
   } else if (upgradePickaxe.level <= 16) {
     upgradePickaxe.costs.limestone.amount = 512;
     upgradePickaxe.costs.steel.amount = (upgradePickaxe.level - 4) * 4;
     limestoneDisplay.classList.remove("removed");
     steelDisplay.classList.remove("removed");
+    pickaxeIcon.src = pickaxeIcons[1];
   } else if (upgradePickaxe.level <= 64) {
     upgradePickaxe.costs.steel.amount = 1000;
     upgradePickaxe.costs.stainlesssteel.amount = Math.pow((upgradePickaxe.level - 16), 2);
     steelDisplay.classList.remove("removed");
     stainlesssteelDisplay.classList.remove("removed");
+    pickaxeIcon.src = pickaxeIcons[2];
   } else {
     upgradePickaxe.costs.stainlesssteel.amount = 8192;
     upgradePickaxe.costs.chromium.amount = Math.pow(2, (upgradePickaxe.level - 64));
     stainlesssteelDisplay.classList.remove("removed");
     chromiumDisplay.classList.remove("removed");
+    pickaxeIcon.src = pickaxeIcons[3];
   }
 
   document.querySelector('.purchased-total-pickaxe').innerHTML = upgradePickaxe.level - 1;
@@ -429,23 +432,23 @@ function purchaseRefine() {
   }
 }
 
-function purchaseAerate() {
+function purchaseMix() {
   if (
-    limestone.count >= aerate.costs.limestone.amount * globalPurchaseMultiplier &&
-    aluminum.count >= aerate.costs.aluminum.amount * globalPurchaseMultiplier &&
-    stainlesssteel.count >= aerate.costs.stainlesssteel.amount * globalPurchaseMultiplier
+    limestone.count >= mix.costs.limestone.amount * globalPurchaseMultiplier &&
+    aluminum.count >= mix.costs.aluminum.amount * globalPurchaseMultiplier &&
+    stainlesssteel.count >= mix.costs.stainlesssteel.amount * globalPurchaseMultiplier
   ) {
-    limestone.count -= aerate.costs.limestone.amount * globalPurchaseMultiplier;
-    aluminum.count -= aerate.costs.aluminum.amount * globalPurchaseMultiplier;
-    stainlesssteel.count -= aerate.costs.stainlesssteel.amount * globalPurchaseMultiplier;
+    limestone.count -= mix.costs.limestone.amount * globalPurchaseMultiplier;
+    aluminum.count -= mix.costs.aluminum.amount * globalPurchaseMultiplier;
+    stainlesssteel.count -= mix.costs.stainlesssteel.amount * globalPurchaseMultiplier;
 
     concrete.count += globalPurchaseMultiplier;
     gainResourceParticle(concrete, globalPurchaseMultiplier);
 
-    aerate.level += globalPurchaseMultiplier;
+    mix.level += globalPurchaseMultiplier;
     checkPurchasables(); 
 
-    document.querySelector('.purchased-total-aerate').innerHTML = aerate.level - 1;
+    document.querySelector('.purchased-total-mix').innerHTML = mix.level - 1;
   }
 }
 

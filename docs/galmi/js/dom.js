@@ -9,7 +9,6 @@ const pickaxeIcons = [
   '/galmi/img/icons/pickaxe.png',
   '/galmi/img/icons/pickaxe.png',
   '/galmi/img/icons/pickaxe.png',
-  '/galmi/img/icons/pickaxe.png',
   '/galmi/img/icons/chromitestaff.png'
 ];
 

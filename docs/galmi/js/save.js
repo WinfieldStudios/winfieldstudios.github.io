@@ -76,7 +76,7 @@ function load() {
   document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
   document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
   document.querySelector('.purchased-total-refine').innerHTML = refine.level - 1;
-  document.querySelector('.purchased-total-aerate').innerHTML = aerate.level - 1;
+  document.querySelector('.purchased-total-mix').innerHTML = mix.level - 1;
   document.querySelector('.purchased-total-produce').innerHTML = produce.level - 1;
   document.querySelector('.purchased-total-workers').innerHTML = hire.level - 1;
   document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
@@ -114,7 +114,7 @@ function restart() {
   document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
   document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
   document.querySelector('.purchased-total-refine').innerHTML = refine.level - 1;
-  document.querySelector('.purchased-total-aerate').innerHTML = aerate.level - 1;
+  document.querySelector('.purchased-total-mix').innerHTML = mix.level - 1;
   document.querySelector('.purchased-total-produce').innerHTML = produce.level - 1;
   document.querySelector('.purchased-total-workers').innerHTML = hire.level - 1;
   document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
@@ -143,7 +143,7 @@ function clearSave() {
   document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
   document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
   document.querySelector('.purchased-total-refine').innerHTML = refine.level - 1;
-  document.querySelector('.purchased-total-aerate').innerHTML = aerate.level - 1;
+  document.querySelector('.purchased-total-mix').innerHTML = mix.level - 1;
   document.querySelector('.purchased-total-produce').innerHTML = produce.level - 1;
   document.querySelector('.purchased-total-workers').innerHTML = hire.level - 1;
   document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;

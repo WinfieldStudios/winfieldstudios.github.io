@@ -281,14 +281,14 @@ const purchasables = {
     button: document.querySelector('.refine-button')
   },
 
-  aerate: {
-    name: 'aerate',
+  mix: {
+    name: 'mix',
     level: PURCHASABLES_STARTING_LEVEL,
     costs: {
       aluminum: {
         name: "aluminum",
         cost: MIX_COST_ALUMINUM,
-        source: document.querySelector('.aerate-cost-aluminum'),
+        source: document.querySelector('.mix-cost-aluminum'),
         get amount() { 
           return this.cost; 
         },
@@ -300,7 +300,7 @@ const purchasables = {
       limestone: {
         name: "limestone",
         cost: MIX_COST_LIMESTONE,
-        source: document.querySelector('.aerate-cost-limestone'),
+        source: document.querySelector('.mix-cost-limestone'),
         get amount() { 
           return this.cost; 
         },
@@ -312,7 +312,7 @@ const purchasables = {
       stainlesssteel: {
         name: "stainlesssteel",
         cost: MIX_COST_STAINLESSSTEEL,
-        source: document.querySelector('.aerate-cost-stainlesssteel'),
+        source: document.querySelector('.mix-cost-stainlesssteel'),
         get amount() { 
           return this.cost; 
         },
@@ -322,7 +322,7 @@ const purchasables = {
         }
       }
     },
-    button: document.querySelector('.aerate-button')
+    button: document.querySelector('.mix-button')
   },
 
   produce: {
@@ -434,4 +434,4 @@ const purchasables = {
   }
 }
 
-const { extract, upgradeGalmi, upgradePickaxe, blast, smelt, hire, reduce, refine, aerate, produce, upgradeWorker, housing } = purchasables
+const { extract, upgradeGalmi, upgradePickaxe, blast, smelt, hire, reduce, refine, mix, produce, upgradeWorker, housing } = purchasables
