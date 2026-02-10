@@ -391,7 +391,7 @@ img {
 
 .gpm-selector {
   position: absolute;
-  bottom: 1.5vh;
+  top: 1vh;
   right: 1vw;
 }
 /* 1. Hide the radio circle */
@@ -430,7 +430,7 @@ input[type="radio"]:checked + label {
 .game-buttons {
   position: absolute;
   top: 1vh;
-  right: 1vw;
+  left: 1vw;
   display: flex;
   gap: 10px;
 }
@@ -458,8 +458,8 @@ input[type="radio"]:checked + label {
 
 .util-buttons {
   position: absolute;
-  top: 1vh;
-  left: 1vw;
+  bottom: 1.5vh;
+  right: 1vw;
   display: flex;
   gap: 10px;
 }
