@@ -88,7 +88,7 @@
   }
   .upgrade-galmi-button {
     position: absolute;
-    top: 5vh;
+    top: 6vh;
   }
   .rock-image-container {
     position: relative;
@@ -101,7 +101,7 @@
   .purchasables-container-special {
     display: flex;
     position: absolute;
-    top: 28vh;
+    top: 25vh;
   }
   .right {
     position: absolute;
