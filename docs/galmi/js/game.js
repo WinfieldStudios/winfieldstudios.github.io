@@ -111,6 +111,11 @@ function purchaseExtract() {
     extract.level += globalPurchaseMultiplier;
     checkPurchasables();
 
+    if (upgradePickaxe.level > 1) {
+      upgradeGalmi.button.classList.remove("hidden");
+      hasExtractedAfterUpgradingPickaxe = true;
+    }
+
     document.querySelector('.purchased-total-extract').innerHTML = extract.level;
   }
 }
