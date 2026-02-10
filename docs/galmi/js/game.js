@@ -303,27 +303,27 @@ function updateUpgradePickaxe() {
   upgradePickaxe.costs.stainlesssteel.amount = 0; stainlesssteelDisplay.classList.add("removed");
   upgradePickaxe.costs.chromium.amount = 0; chromiumDisplay.classList.add("removed");
 
-  if (upgradePickaxe.level <= 4) {
-    upgradePickaxe.costs.limestone.amount = ((upgradePickaxe.level - 1) * 3) + 11;
+  if (upgradePickaxe.level <= 10) {
+    upgradePickaxe.costs.limestone.amount = Math.ceil(Math.log2(((upgradePickaxe.level) * (upgradePickaxe.level)))) + 10;
     limestoneDisplay.classList.remove("removed");
     if (upgradePickaxe.level === 1) {
       pickaxeIcon.src = pickaxeIcons[0];
     }
-  } else if (upgradePickaxe.level <= 16) {
-    upgradePickaxe.costs.limestone.amount = 512;
-    upgradePickaxe.costs.steel.amount = (upgradePickaxe.level - 4) * 4;
+  } else if (upgradePickaxe.level <= 20) {
+    upgradePickaxe.costs.limestone.amount = 100 + Math.floor(upgradePickaxe.level / 5) * 200 * Math.ceil(Math.log2(((upgradePickaxe.level - 10))));
+    upgradePickaxe.costs.steel.amount = (upgradePickaxe.level - 10) * 4;
     limestoneDisplay.classList.remove("removed");
     steelDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[1];
-  } else if (upgradePickaxe.level <= 64) {
+  } else if (upgradePickaxe.level <= 50) {
     upgradePickaxe.costs.steel.amount = 1000;
-    upgradePickaxe.costs.stainlesssteel.amount = Math.pow((upgradePickaxe.level - 16), 2);
+    upgradePickaxe.costs.stainlesssteel.amount = Math.pow((upgradePickaxe.level - 20), 2);
     steelDisplay.classList.remove("removed");
     stainlesssteelDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[2];
   } else {
-    upgradePickaxe.costs.stainlesssteel.amount = 8192;
-    upgradePickaxe.costs.chromium.amount = Math.pow(2, (upgradePickaxe.level - 64));
+    upgradePickaxe.costs.stainlesssteel.amount = 10000;
+    upgradePickaxe.costs.chromium.amount = Math.pow(2, (upgradePickaxe.level - 50));
     stainlesssteelDisplay.classList.remove("removed");
     chromiumDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[3];
