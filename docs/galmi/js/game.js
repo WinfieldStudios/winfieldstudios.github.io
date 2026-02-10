@@ -266,14 +266,14 @@ function purchaseUpgradePickaxe() {
 
     upgradePickaxe.level += 1;
 
-    if (upgradePickaxe.level <= 5) {
+    if (upgradePickaxe.level <= 11) {
       rocksPerClick = upgradePickaxe.level;
-    } else if (upgradePickaxe.level <= 17) {
-      rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross)));
-    } else if (upgradePickaxe.level <= 65) {
-      rocksPerClick += Math.max(4, Math.floor(Math.log2(rocks.gross))) * Math.max(8, Math.floor(Math.log2(rocks.gross)));
+    } else if (upgradePickaxe.level <= 21) {
+      rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
+    } else if (upgradePickaxe.level <= 51) {
+      rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
     } else {
-      rocksPerClick += Math.floor(rocks.gross * 0.0001);
+      rocksPerClick += Math.floor(rocks.gross * 0.00001);
     }
     updateUpgradePickaxe();
 
