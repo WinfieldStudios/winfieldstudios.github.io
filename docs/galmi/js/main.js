@@ -190,56 +190,52 @@ function formatNumberWithCommas(num) {
 // MULTIPLIER TIER UNLOCKING
 function checkMultiplierTiers() {
 
-  const totalResources = Object.values(resources).reduce((sum, resource) => sum + resource.gross, 0);
-
-  // Unlock Defaults when player has accumulated 1K+ total resources
-  if (totalResources >= 600) {
+  // Unlock Defaults when player has accumulated 160+ total resources
+  if (rocks.gross >= 10) {
     document.querySelector('label[for="option1"]').classList.remove("gpm-label-hidden");
     document.querySelector('label[for="option10"]').classList.remove("gpm-label-hidden");
-    document.querySelector('label[for="option100"]').classList.remove("gpm-label-hidden");
   } else {
     document.querySelector('label[for="option1"]').classList.add("gpm-label-hidden");
     document.querySelector('label[for="option10"]').classList.add("gpm-label-hidden");
+  }
+
+  if (rocks.gross >= 100 * EXTRACT_COST_ROCKS) {
+    document.querySelector('label[for="option100"]').classList.remove("gpm-label-hidden");
+  } else {
     document.querySelector('label[for="option100"]').classList.add("gpm-label-hidden");
   }
 
-  // Unlock x1K when player has accumulated 10K+ total resources
-  if (totalResources >= 10000) {
+  if (rocks.gross >= 1000 * EXTRACT_COST_ROCKS) {
     document.querySelector('label[for="option1000"]').classList.remove("gpm-label-hidden");
   } else {
     document.querySelector('label[for="option1000"]').classList.add("gpm-label-hidden");
   }
   
-  // Unlock x10K when player has accumulated 100K+ total resources
-  if (totalResources >= 100000) {
+  if (rocks.gross >= 10000 * EXTRACT_COST_ROCKS) {
     document.querySelector('label[for="option10000"]').classList.remove("gpm-label-hidden");
   } else {
     document.querySelector('label[for="option10000"]').classList.add("gpm-label-hidden");
   }
   
-  // Unlock x1M when player has accumulated 1M+ total resources
-  if (totalResources >= 1000000) {
+  if (rocks.gross >= 1000000 * EXTRACT_COST_ROCKS) {
     document.querySelector('label[for="option1000000"]').classList.remove("gpm-label-hidden");
   } else {
     document.querySelector('label[for="option1000000"]').classList.add("gpm-label-hidden");
   }
   
-  // Unlock x1B when player has accumulated 1B+ total resources
-  if (totalResources >= 1000000000) {
+  if (rocks.gross >= 1000000000 * EXTRACT_COST_ROCKS) {
     document.querySelector('label[for="option1000000000"]').classList.remove("gpm-label-hidden");
   } else {
     document.querySelector('label[for="option1000000000"]').classList.add("gpm-label-hidden");
   }
   
-  // Unlock x1T when player has accumulated 1T+ total resources
-  if (totalResources >= 1000000000000) {
+  if (rocks.gross >= 1000000000000 * EXTRACT_COST_ROCKS) {
     document.querySelector('label[for="option1000000000000"]').classList.remove("gpm-label-hidden");
   } else {
     document.querySelector('label[for="option1000000000000"]').classList.add("gpm-label-hidden");
   }
   
-  // Unlock x1Q when player has accumulated 1Q+ total resources
-  if (totalResources >= 1000000000000000) {
+  if (rocks.gross >= 1000000000000000) {
     document.querySelector('label[for="option1000000000000000"]').classList.remove("gpm-label-hidden");
   } else {
     document.querySelector('label[for="option1000000000000000"]').classList.add("gpm-label-hidden");
