@@ -48,7 +48,7 @@
     top: -40vh;
     left: -50vw;
     margin: 0;
-    width: 20vw;
+    width: 25vw;
     height: 0;
     min-width: none;
   }
@@ -106,7 +106,7 @@
   .right {
     position: absolute;
     top: -40vh;
-    right: -15vw;
+    right: -14vw;
     margin: 0;
     width: 0;
     height: 0;
@@ -118,7 +118,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 25vw;
+    width: 30vw;
     height: 4vh;
     min-width: 0;
   }
