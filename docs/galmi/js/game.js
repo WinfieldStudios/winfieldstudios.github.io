@@ -267,12 +267,16 @@ function purchaseUpgradePickaxe() {
 
     if (upgradePickaxe.level <= 5) {
       rocksPerClick = upgradePickaxe.level;
+      pickaxeIcon.src = pickaxeIcons[1];
     } else if (upgradePickaxe.level <= 17) {
       rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross)));
+      pickaxeIcon.src = pickaxeIcons[2];
     } else if (upgradePickaxe.level <= 65) {
       rocksPerClick += Math.max(4, Math.floor(Math.log2(rocks.gross))) * Math.max(8, Math.floor(Math.log2(rocks.gross)));
+      pickaxeIcon.src = pickaxeIcons[3];
     } else {
       rocksPerClick += Math.floor(rocks.gross * 0.0001);
+      pickaxeIcon.src = pickaxeIcons[4];
     }
     updateUpgradePickaxe();
 
