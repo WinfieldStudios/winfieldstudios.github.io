@@ -300,11 +300,11 @@ function purchaseUpgradePickaxe() {
 
 function updateUpgradePickaxe() {
 
-  limestoneDisplay = document.querySelector('.upgrade-pickaxe-cost-limestone-display');
-  steelDisplay = document.querySelector('.upgrade-pickaxe-cost-steel-display');
-  obsidianDisplay = document.querySelector('.upgrade-pickaxe-cost-obsidian-display');
-  stainlesssteelDisplay = document.querySelector('.upgrade-pickaxe-cost-stainlesssteel-display');
-  chromiumDisplay = document.querySelector('.upgrade-pickaxe-cost-chromium-display');
+  limestoneDisplay = document.getElementById('upgrade-pickaxe-cost-limestone-display');
+  steelDisplay = document.getElementById('upgrade-pickaxe-cost-steel-display');
+  obsidianDisplay = document.getElementById('upgrade-pickaxe-cost-obsidian-display');
+  stainlesssteelDisplay = document.getElementById('upgrade-pickaxe-cost-stainlesssteel-display');
+  chromiumDisplay = document.getElementById('upgrade-pickaxe-cost-chromium-display');
 
   upgradePickaxe.costs.limestone.amount = 0; limestoneDisplay.classList.add("removed");
   upgradePickaxe.costs.steel.amount = 0; steelDisplay.classList.add("removed");

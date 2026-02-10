@@ -33,17 +33,112 @@
     user-select: none;
     -webkit-touch-callout: none;
   }
-  .middle {
-    width: 200px;
+  .main {
+    position: absolute;
+    height: 0;
+    width: 0;
   }
-  .rock-image-final-form {
-    height: 150px;
+
+  .resource-icon {
+    height: 1vh;
+    min-height: 0;
+  }
+  .left {
+    position: absolute;
+    top: -40vh;
+    left: -50vw;
+    margin: 0;
+    width: 34vw;
+    height: 0;
+    min-width: none;
+  }
+  .left h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    font-size: 1vh;
+    gap: 0.5rem; 
+    width: 95%;
+    min-height: 3vh;
+    border: 0.5px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 0.5vw;
+    box-sizing: border-box;
+    margin: 3px;
+    color: var(--primary-color);
+    background-color: var(--secondary-color-faded);
+  }
+  .resource-count {
+    color: var(--primary-color);
+    font-weight: lighter;
+    font-family: "CodeStyle";
+    align-items: center; 
+    gap: 0.5rem; 
+    font-size: 1vh;
+  }
+  .middle {
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-around;
+    top: -20vh;
+    left: 0;
+    margin: 0;
+    width: 0;
+    height: 0;
+  }
+  .rock-image {
+    max-height: 16vw;
+    min-width: 44px;
   }
   .purchasables-container-special {
-    display: grid;
+    display: flex;
   }
-  .main {
-    width: 100vw;
+  .right {
+    position: absolute;
+    top: -40vh;
+    right: -18vw;
+    margin: 0;
+    width: 0;
+    height: 0;
+    min-height: 0;
+  }
+  .purchasable {
+    position: relative;
+    margin: 0.75vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 25vw;
+    height: 4vh;
+    min-width: 0;
+  }
+  .mid-section h4 {
+    font-size: 1vh;
+  }
+
+  .mid-section p {
+    margin: 0;
+    font-size: 1vh;
+  }
+
+  .purchasable-icon {
+    height: 3vh;
+    min-height: 0;
+    -webkit-user-drag: none;
+  }
+
+  .cost-info {
+    display: flex;
+    gap: 5px;
+    font-family: "CodeStyle";
+  }
+
+  .right-section {
+    position: absolute;
+    justify-items: right;
+    right: 1vw;
+    top: 1vh;
+    opacity: 0.5;
   }
   .gpm-selector {
     right: 20px;
@@ -61,5 +156,9 @@
   .util-buttons {
     bottom: 20px;
     right: 20px;
+  }
+  .util-button {
+    width: 80px;
+    font-size: 8px;
   }
 }
