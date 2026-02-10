@@ -85,7 +85,7 @@ setInterval(() => {
 setInterval(() => {
   save('AUTO-SAVE...');
 
-}, 300000); // Every 5 minutes
+}, 120000); // Every 2 minutes
 
 // MULTIPLIER
 function setGlobalPurchaseMultiplier(value) {
