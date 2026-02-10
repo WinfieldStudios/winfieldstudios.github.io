@@ -101,7 +101,7 @@
   .purchasables-container-special {
     display: flex;
     position: absolute;
-    top: 25vh;
+    top: 20vh;
   }
   .right {
     position: absolute;
