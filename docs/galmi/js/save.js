@@ -39,6 +39,7 @@ function load() {
 
   const savedHasExtractedAfterUpgradingPickaxe = JSON.parse(localStorage.getItem('hasExtractedAfterUpgradingPickaxe'));
   if (savedHasExtractedAfterUpgradingPickaxe !== null) hasExtractedAfterUpgradingPickaxe = savedHasExtractedAfterUpgradingPickaxe;
+  else hasExtractedAfterUpgradingPickaxe = true;
 
   const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
   if (savedDarkMode !== null) {
