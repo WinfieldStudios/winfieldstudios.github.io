@@ -329,6 +329,18 @@ const purchasables = {
     name: 'produce',
     level: PURCHASABLES_STARTING_LEVEL,
     costs: {
+      aluminum: {
+        name: "aluminum",
+        cost: PRODUCE_COST_ALUMINUM,
+        source: document.querySelector('.produce-cost-aluminum'),
+        get amount() { 
+          return this.cost; 
+        },
+        set amount(value) { 
+          this.cost = value;
+          this.source.innerHTML = formatNumber(value); 
+        }
+      },
       chromiumore: {
         name: "chromiumore",
         cost: PRODUCE_COST_CHROMIUMORE,
@@ -341,10 +353,10 @@ const purchasables = {
           this.source.innerHTML = formatNumber(value); 
         }
       },
-      aluminum: {
-        name: "aluminum",
-        cost: PRODUCE_COST_ALUMINUM,
-        source: document.querySelector('.produce-cost-aluminum'),
+      ferrochrome: {
+        name: "ferrochrome",
+        cost: PRODUCE_COST_FERROCHROME,
+        source: document.querySelector('.produce-cost-ferrochrome'),
         get amount() { 
           return this.cost; 
         },
