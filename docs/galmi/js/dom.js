@@ -7,8 +7,8 @@ let saveIcon = document.querySelector('.game-buttons');
 // PRELOAD IMAGES
 const pickaxeIcons = [
   '/galmi/img/icons/pickaxe.png',
-  '/galmi/img/icons/pickaxe.png',
-  '/galmi/img/icons/pickaxe.png',
+  '/galmi/img/icons/pickaxesteel.png',
+  '/galmi/img/icons/pickaxestainlessobsidian.png',
   '/galmi/img/icons/chromitestaff.png'
 ];
 
