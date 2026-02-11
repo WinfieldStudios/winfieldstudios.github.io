@@ -236,14 +236,14 @@ function updateExtractTooltip() {
     case 4:
       coalExtractTooltipChance = "40%"; coalExtractTooltipChanceDisplay.classList.remove("removed"); coalExtractTooltipIcon.classList.remove("removed");
       ironoreExtractTooltipChance = "9.99%"; ironoreExtractTooltipChanceDisplay.classList.remove("removed"); ironoreExtractTooltipIcon.classList.remove("removed");  
-      obsidianExtractTooltipChance = "0.009%"; obsidianExtractTooltipChanceDisplay.classList.remove("removed"); obsidianExtractTooltipIcon.classList.remove("removed");
+      obsidianExtractTooltipChance = "0.00999%"; obsidianExtractTooltipChanceDisplay.classList.remove("removed"); obsidianExtractTooltipIcon.classList.remove("removed");
       chromiumoreExtractTooltipChance = "0.00001%"; chromiumoreExtractTooltipChanceDisplay.classList.remove("removed"); chromiumoreExtractTooltipIcon.classList.remove("removed");
       break;
     default:
       coalExtractTooltipChance = "40%"; coalExtractTooltipChanceDisplay.classList.remove("removed"); coalExtractTooltipIcon.classList.remove("removed");
       ironoreExtractTooltipChance = "9.99%"; ironoreExtractTooltipChanceDisplay.classList.remove("removed"); ironoreExtractTooltipIcon.classList.remove("removed");
-      obsidianExtractTooltipChance = "0.009%"; obsidianExtractTooltipChanceDisplay.classList.remove("removed"); obsidianExtractTooltipIcon.classList.remove("removed");
-      chromiumoreExtractTooltipChance = "0.000009%"; chromiumoreExtractTooltipChanceDisplay.classList.remove("removed"); chromiumoreExtractTooltipIcon.classList.remove("removed");
+      obsidianExtractTooltipChance = "0.00999%"; obsidianExtractTooltipChanceDisplay.classList.remove("removed"); obsidianExtractTooltipIcon.classList.remove("removed");
+      chromiumoreExtractTooltipChance = "0.00000999%"; chromiumoreExtractTooltipChanceDisplay.classList.remove("removed"); chromiumoreExtractTooltipIcon.classList.remove("removed");
       aluminumExtractTooltipChance = "0.00000001%"; aluminumExtractTooltipChanceDisplay.classList.remove("removed"); aluminumExtractTooltipIcon.classList.remove("removed");
       break;
   }
