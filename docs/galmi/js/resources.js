@@ -263,10 +263,12 @@ const resources = {
         this.displayContainer.classList.remove("hidden");
         produce.button.classList.remove("hidden");
         mix.button.classList.remove("hidden");
+        housing.button.classList.remove("hidden");
       } else {
         this.displayContainer.classList.add("hidden");
         produce.button.classList.add("hidden");
         mix.button.classList.add("hidden");
+        housing.button.classList.add("hidden");
       }
     }
   },
@@ -290,7 +292,6 @@ const resources = {
         housing.button.classList.remove("hidden");
       } else {
         this.displayContainer.classList.add("hidden");
-        housing.button.classList.add("hidden");
       }
     }
   },
