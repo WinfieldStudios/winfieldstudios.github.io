@@ -262,6 +262,7 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
         produce.button.classList.remove("hidden");
+        mix.button.classList.remove("hidden");
       } else {
         this.displayContainer.classList.add("hidden");
         produce.button.classList.add("hidden");
