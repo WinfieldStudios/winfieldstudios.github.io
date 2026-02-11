@@ -21,7 +21,7 @@ function save(textPlayed = "SAVED!") {
 
   const div = document.createElement('div');
   div.innerHTML = textPlayed;
-  div.style.cssText = `color: var(--dark-color); position: absolute; top: 6vh; left: 0.5vw; font-size: 15px; font-weight: bold; pointer-events: none;`;
+  div.style.cssText = `color: var(--primary-color); position: absolute; top: 6vh; left: 0.5vw; font-size: 15px; font-weight: bold; pointer-events: none;`;
   saveIcon.appendChild(div);
 
   div.classList.add('gain-resource-animation');

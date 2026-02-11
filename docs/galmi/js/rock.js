@@ -9,7 +9,7 @@ function clickOnRock(event) {
 
   const div = document.createElement('div');
   div.innerHTML = `+${Math.round(rocksPerClick)}`;
-  div.style.cssText = `color: var(--dark-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; font-weight: lighter; font-family: "CodeStyle"; pointer-events: none;`;
+  div.style.cssText = `color: var(--primary-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; font-weight: lighter; font-family: "CodeStyle"; pointer-events: none;`;
 
   rockImageContainer.appendChild(div);
   div.classList.add('fade-up');

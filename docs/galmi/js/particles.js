@@ -13,8 +13,8 @@ function gainResourceParticle(resource, amount, isPassive = false, fontSize = 18
   sign = "";
   if (amount > 0) sign = "+";
   div.innerHTML = `${sign}${formatNumber(amount)}`;
-  div.style.cssText = `color: var(--dark-color); position: absolute; top: ${y}px; left: ${x}px; font-size: ${fontSize}px; font-weight: lighter; font-family: "CodeStyle"; pointer-events: none;`;
-  if (isPassive) div.style.color = 'var(--dark-color-faded)';
+  div.style.cssText = `color: var(--primary-color); position: absolute; top: ${y}px; left: ${x}px; font-size: ${fontSize}px; font-weight: lighter; font-family: "CodeStyle"; pointer-events: none;`;
+  if (isPassive) div.style.color = 'var(--primary-color-faded)';
   resource.displayContainer.appendChild(div);
 
   div.classList.add('gain-resource-animation');
