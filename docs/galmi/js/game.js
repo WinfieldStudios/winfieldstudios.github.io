@@ -337,7 +337,7 @@ function updateUpgradePickaxe() {
     pickaxeIcon.src = pickaxeIcons[3];
   }
 
-  document.querySelector('.purchased-total-pickaxe').innerHTML = upgradePickaxe.level - 1;
+  document.querySelector('.purchased-total-pickaxe').innerHTML = formatNumber(upgradePickaxe.level - 1);
   /*
   if (upgradePickaxe.level > 1) {
     blast.button.classList.remove("hidden");
@@ -363,7 +363,7 @@ function purchaseBlast() {
     blast.level += globalPurchaseMultiplier;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-blast').innerHTML = blast.level - 1;
+    document.querySelector('.purchased-total-blast').innerHTML = formatNumber(blast.level - 1);
   }
 }
 
@@ -383,7 +383,7 @@ function purchaseSmelt() {
     smelt.level += globalPurchaseMultiplier;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-smelt').innerHTML = smelt.level - 1;
+    document.querySelector('.purchased-total-smelt').innerHTML = formatNumber(smelt.level - 1);
   }
 }
 
@@ -398,7 +398,7 @@ function purchaseHire() {
     hire.level += globalPurchaseMultiplier;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-workers').innerHTML = hire.level - 1;
+    document.querySelector('.purchased-total-workers').innerHTML = formatNumber(hire.level - 1);
   }
 }
 
@@ -418,7 +418,7 @@ function purchaseReduce() {
     reduce.level += globalPurchaseMultiplier;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-reduce').innerHTML = reduce.level - 1;
+    document.querySelector('.purchased-total-reduce').innerHTML = formatNumber(reduce.level - 1);
   }
 }
 
@@ -436,7 +436,7 @@ function purchaseRefine() {
     refine.level += globalPurchaseMultiplier;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-refine').innerHTML = refine.level - 1;
+    document.querySelector('.purchased-total-refine').innerHTML = formatNumber(refine.level - 1);
   }
 }
 
@@ -456,7 +456,7 @@ function purchaseMix() {
     mix.level += globalPurchaseMultiplier;
     checkPurchasables(); 
 
-    document.querySelector('.purchased-total-mix').innerHTML = mix.level - 1;
+    document.querySelector('.purchased-total-mix').innerHTML = formatNumber(mix.level - 1);
   }
 }
 
@@ -474,7 +474,7 @@ function purchaseProduce() {
     produce.level += globalPurchaseMultiplier;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-produce').innerHTML = produce.level - 1;
+    document.querySelector('.purchased-total-produce').innerHTML = formatNumber(produce.level - 1);
   }
 }
 
@@ -490,7 +490,7 @@ function purchaseUpgradeWorker() {
     upgradeWorker.level += globalPurchaseMultiplier;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
+    document.querySelector('.purchased-total-promoted').innerHTML = formatNumber(upgradeWorker.level - 1);
 
   }
 }
@@ -512,7 +512,7 @@ function purchaseHousing() {
 
     checkPurchasables();
 
-     document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
+     document.querySelector('.purchased-total-housing').innerHTML = formatNumber(housing.level - 1);
 
   }
 }
