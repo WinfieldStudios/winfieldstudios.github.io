@@ -226,7 +226,7 @@ img {
 .resource-count {
   color: var(--primary-color);
   font-weight: lighter;
-  font-family: "CodeStyle";
+  font-family: "Pixelated";
   align-items: center; 
   gap: 0.5rem; 
 }
@@ -321,7 +321,7 @@ img {
 .cost-info {
   display: flex;
   gap: 5px;
-  font-family: "CodeStyle";
+  font-family: "Pixelated";
 }
 
 .right-section {
