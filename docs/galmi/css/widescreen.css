@@ -1,0 +1,20 @@
+/* =====================================================
+   GALMI – ULTRAWIDE SCALE + CENTER (NO LAYOUT CHANGES)
+   ===================================================== */
+
+@media (min-aspect-ratio: 21/9) {
+
+  /* Center everything */
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Scale the entire game down slightly */
+  .main {
+    transform: scale(0.5);          /* 👈 adjust this if needed */
+    transform-origin: center center;
+  }
+
+}
