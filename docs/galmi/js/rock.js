@@ -8,7 +8,7 @@ function clickOnRock(event) {
   const y = event.offsetY - (50 + Math.floor(Math.random() * 30) + 1);
 
   const div = document.createElement('div');
-  div.innerHTML = `+${Math.round(rocksPerClick)}`;
+  div.innerHTML = `+${formatNumber(Math.round(rocksPerClick))}`;
   div.style.cssText = `color: var(--primary-color); position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; font-weight: lighter; font-family: "Pixelated"; pointer-events: none;`;
 
   rockImageContainer.appendChild(div);
