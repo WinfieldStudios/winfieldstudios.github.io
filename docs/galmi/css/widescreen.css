@@ -1,0 +1,16 @@
+@media (min-aspect-ratio: 21/9) {
+
+  /* Center*/
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Scale the entire game down */
+  .main {
+    transform: scale(0.5);
+    transform-origin: center center;
+  }
+
+}
