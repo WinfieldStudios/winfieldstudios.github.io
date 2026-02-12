@@ -18,7 +18,7 @@ setInterval(() => {
 
     switch (upgradeGalmi.level) {
       case 5:
-        aluminumToAdd += Math.max(0, Math.floor((baseResourcesPerSecond * 0.00000001 + 0.5) + Math.floor(Math.random() * (baseResourcesPerSecond * 0.000000005) - (baseResourcesPerSecond * 0.000000005 / 2))));
+        aluminumToAdd += Math.max(0, Math.floor((baseResourcesPerSecond * 0.000000001 + 0.5) + Math.floor(Math.random() * (baseResourcesPerSecond * 0.0000000005) - (baseResourcesPerSecond * 0.0000000005 / 2))));
       case 4:
         chromiumoreToAdd += Math.max(0, Math.floor((baseResourcesPerSecond * 0.000001 + 0.5) + Math.floor(Math.random() * (baseResourcesPerSecond * 0.0000005) - (baseResourcesPerSecond * 0.0000005 / 2))));
       case 3:
@@ -56,12 +56,12 @@ setInterval(() => {
     concreteToAdd = 0;
     chromiumToAdd = 0;
 
-    pigironToAdd += Math.max(0, Math.floor((resourcesPerSecond * 1 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.5) - (resourcesPerSecond * 0.5 / 2))));
+    pigironToAdd += Math.max(0, Math.floor((resourcesPerSecond * 10 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.5) - (resourcesPerSecond * 0.5 / 2))));
     steelToAdd += Math.max(0, Math.floor((resourcesPerSecond * 1 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.5) - (resourcesPerSecond * 0.5 / 2))));
-    ferrochromeToAdd += Math.max(0, Math.floor((resourcesPerSecond * 0.5 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.1) - (resourcesPerSecond * 0.1 / 2))));
-    stainlesssteelToAdd += Math.max(0, Math.floor((resourcesPerSecond * 0.1 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.02) - (resourcesPerSecond * 0.02 / 2))));
-    concreteToAdd += Math.max(0, Math.floor((resourcesPerSecond * 0.01 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.0005) - (resourcesPerSecond * 0.005 / 2))));
-    chromiumToAdd += Math.max(0, Math.floor((resourcesPerSecond * 0.005 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.0002) - (resourcesPerSecond * 0.002 / 2))));
+    ferrochromeToAdd += Math.max(0, Math.floor((resourcesPerSecond * 0.2 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.1) - (resourcesPerSecond * 0.1 / 2))));
+    stainlesssteelToAdd += Math.max(0, Math.floor((resourcesPerSecond * 0.05 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.025) - (resourcesPerSecond * 0.025 / 2))));
+    concreteToAdd += Math.max(0, Math.floor((resourcesPerSecond * 0.01 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.005) - (resourcesPerSecond * 0.005 / 2))));
+    chromiumToAdd += Math.max(0, Math.floor((resourcesPerSecond * 0.001 + 0.5) + Math.floor(Math.random() * (resourcesPerSecond * 0.0005) - (resourcesPerSecond * 0.0005 / 2))));
     
     pigiron.count += pigironToAdd;
     steel.count += steelToAdd;
