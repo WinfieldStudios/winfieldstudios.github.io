@@ -502,7 +502,7 @@ input[type="radio"]:checked + label {
 }
 .content {
   position: absolute;
-  bottom: -150%;
+  top: 0%;
   right: 1.25vw;
   width: 16vw;
   height: auto;

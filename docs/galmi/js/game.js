@@ -116,7 +116,7 @@ function purchaseExtract() {
       hasExtractedAfterUpgradingPickaxe = true;
     }
 
-    document.querySelector('.purchased-total-extract').innerHTML = extract.level;
+    document.querySelector('.purchased-total-extract').innerHTML = formatNumber(extract.level);
   }
 }
 
