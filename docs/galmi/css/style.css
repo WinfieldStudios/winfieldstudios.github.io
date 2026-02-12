@@ -216,7 +216,6 @@ img {
   width: 95%;
   min-height: 32px;
   border: 1px solid var(--primary-color);
-  border-radius: 5px;
   padding: 0.5vw;
   box-sizing: border-box;
   margin: 3px;
@@ -285,7 +284,6 @@ img {
   min-width: 150px;
   border: 0.5px solid var(--primary-color);
   padding: 1vh;
-  border-radius: 5px;
   color: var(--primary-color-faded);
   background-color: var(--primary-color-faded-full);
   -webkit-user-select: none;
