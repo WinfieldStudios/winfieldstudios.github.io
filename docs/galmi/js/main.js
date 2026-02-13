@@ -191,7 +191,7 @@ function formatNumberWithCommas(num) {
 function checkMultiplierTiers() {
 
   // Unlock Defaults when player has accumulated 160+ total resources
-  if (rocks.gross >= 10) {
+  if (rocks.gross >= 10 * EXTRACT_COST_ROCKS) {
     document.querySelector('label[for="option1"]').classList.remove("gpm-label-hidden");
     document.querySelector('label[for="option10"]').classList.remove("gpm-label-hidden");
   } else {
