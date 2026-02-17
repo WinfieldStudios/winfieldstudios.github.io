@@ -230,7 +230,7 @@ img {
   box-sizing: border-box;
   margin: 2px;
   color: var(--primary-color);
-  background-color: var(--button-color-enabled);
+  background-color: var(--button-color-enabled );
 }
 
 .resource-count {
@@ -358,11 +358,11 @@ img {
   cursor: pointer;
 }
 .enabled:active {
-  color: var(--primary-color);
-  background-color: var(--button-color-enabled-active);
+  color: var(--primary-color-faded-barely);
+  background-color: var(--secondary-color);
   transform: scale(0.98);
   .content {
-    transform: scale(0.98) translateX(0.4vw);  /* Inverse of 1.02 */
+    transform: scale(1.03) translateX(-0.5vw);  /* Inverse of 1.02 */
   }
 }
 
