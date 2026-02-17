@@ -79,6 +79,9 @@ setInterval(() => {
 
     checkPurchasables();
   }
+
+  totalSecondsPlayed++;
+  document.getElementById('stats-total-seconds-played').innerHTML = totalSecondsPlayed;
 }, 1000);
 
 // AUTO SAVE LOOP

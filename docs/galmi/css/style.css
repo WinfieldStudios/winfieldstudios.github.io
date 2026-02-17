@@ -491,7 +491,7 @@ input[type="radio"]:checked + label {
   display: block;
   margin: 0;
   opacity: 0; 
-  transition: opacity .18s ease;
+  transition: opacity .5s ease;
 }
 
 /* when the purchasable card is hovered, make the dot fully visible */
@@ -514,7 +514,7 @@ input[type="radio"]:checked + label {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   padding: 10px;
-  transition: opacity 0.18s ease;  /* Add transition here */
+  transition: opacity 0.25s ease;  /* Add transition here */
 }
 
 .dot:hover + .content {
@@ -535,4 +535,55 @@ input[type="radio"]:checked + label {
 }
 .info-icon {
   width: 16px;
+}
+
+.stats-tooltip {
+  position: absolute;
+  font-family: 'CodeStyle';
+  bottom: 1.5vh;
+  left: 1vw;
+  display: flex;
+  gap: 10px;
+}
+.stats-dot {
+  display: block;
+  margin: 0;
+  font-size: 18px;
+  color: var(--primary-color);
+  border: none;
+  opacity: 0.8;
+}
+.stats-content {
+  position: absolute;
+  bottom: 0%;
+  left: 150%;
+  width: 16vw;
+  height: auto;
+  display: block;  /* Change from display: none */
+  opacity: 0;      /* Start fully transparent */
+  pointer-events: none;  /* Prevent interaction when hidden */
+  box-shadow: 0px 0px 5px var(--primary-color);
+  border-radius: 10px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 10px;
+  transition: opacity 1s ease-out;  /* Add transition here */
+}
+
+.stats-dot:hover + .stats-content {
+  opacity: 1;  /* Fade in on hover */
+  pointer-events: auto;
+}
+.stats-content h1 {
+  margin: 0;
+  font-size: 14px;
+}
+.stats-tooltip .stats-content h1 { 
+  display: flex; align-items: center; gap: 0.5rem; 
+}
+.stats-content p {
+  margin: 0;
+  font-size: 12px;
+
 }

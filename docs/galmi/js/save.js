@@ -3,6 +3,7 @@
 function save(textPlayed = "SAVED!") {
   localStorage.clear();
 
+  localStorage.setItem('totalSecondsPlayed', JSON.stringify(totalSecondsPlayed));
   localStorage.setItem('totalClicksEver', JSON.stringify(totalClicksEver));
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
   localStorage.setItem('hasExtractedAfterUpgradingPickaxe', JSON.stringify(hasExtractedAfterUpgradingPickaxe));
@@ -30,6 +31,9 @@ function save(textPlayed = "SAVED!") {
 
 function load() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
+
+  const savedTotalSecondsPlayed = JSON.parse(localStorage.getItem('totalSecondsPlayed'));
+  if (savedTotalSecondsPlayed !== null) totalSecondsPlayed = savedTotalSecondsPlayed;
 
   const savedTotalClicksEver = JSON.parse(localStorage.getItem('totalClicksEver'));
   if (savedTotalClicksEver !== null) totalClicksEver = savedTotalClicksEver;
@@ -86,11 +90,13 @@ function load() {
   document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
   document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
+  document.getElementById('stats-total-seconds-played').innerHTML = totalSecondsPlayed;
 }
 
 function restart() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
 
+  if (localStorage.getItem('totalSecondsPlayed') !== null) totalSecondsPlayed = TOTAL_SECONDS_PLAYED_STARTING_AMOUNT;
   if (localStorage.getItem('totalClicksEver') !== null) totalClicksEver = TOTAL_CLICKS_EVER_STARTING_AMOUNT;
   if (localStorage.getItem('rocksPerClick') !== null) rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT;
   if (localStorage.getItem('hasExtractedAfterUpgradingPickaxe') !== null) hasExtractedAfterUpgradingPickaxe = false;
@@ -125,11 +131,13 @@ function restart() {
   document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
   document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
+  document.getElementById('stats-total-seconds-played').innerHTML = totalSecondsPlayed;
 }
 
 function clearSave() {
   localStorage.clear();
 
+  localStorage.setItem('totalSecondsPlayed', JSON.stringify(TOTAL_SECONDS_PLAYED_STARTING_AMOUNT));
   localStorage.setItem('totalClicksEver', JSON.stringify(TOTAL_CLICKS_EVER_STARTING_AMOUNT));
   localStorage.setItem('rocksPerClick', JSON.stringify(ROCKS_PER_CLICK_STARTING_AMOUNT));
   localStorage.getItem('hasExtractedAfterUpgradingPickaxe', JSON.stringify(false));
@@ -155,4 +163,5 @@ function clearSave() {
   document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
   document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
+  document.getElementById('stats-total-seconds-played').innerHTML = totalSecondsPlayed;
 }
