@@ -4,6 +4,7 @@ const purchasables = {
   extract: {
     name: 'extract',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       rocks: {
         name: "rocks",
@@ -44,6 +45,7 @@ const purchasables = {
   upgradePickaxe: {
     name: 'upgrade-pickaxe',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       limestone: {
         name: "limestone",
@@ -112,6 +114,7 @@ const purchasables = {
   blast: {
     name: 'blast',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       coal: {
         name: "coal",
@@ -144,6 +147,7 @@ const purchasables = {
   smelt: {
     name: 'smelt',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       ironore: {
         name: "ironore",
@@ -188,6 +192,7 @@ const purchasables = {
   hire: {
     name: 'hire',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       pigiron: {
         name: "pigiron",
@@ -220,6 +225,7 @@ const purchasables = {
   reduce: {
     name: 'reduce',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       chromiumore: {
         name: "chromiumore",
@@ -264,6 +270,7 @@ const purchasables = {
   refine: {
     name: 'refine',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       ferrochrome: {
         name: "ferrochrome",
@@ -296,6 +303,7 @@ const purchasables = {
   mix: {
     name: 'mix',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       aluminum: {
         name: "aluminum",
@@ -340,6 +348,7 @@ const purchasables = {
   produce: {
     name: 'produce',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       aluminum: {
         name: "aluminum",
@@ -384,6 +393,7 @@ const purchasables = {
   upgradeWorker: {
     name: 'upgrade-worker',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       obsidian: {
         name: "obsidian",
@@ -416,6 +426,7 @@ const purchasables = {
   housing: {
     name: 'housing',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       concrete: {
         name: "concrete",

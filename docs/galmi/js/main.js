@@ -99,6 +99,7 @@ function setGlobalPurchaseMultiplier(value) {
       case 100: element.innerHTML = '100'; break;
       case 1000: element.innerHTML = '1K'; break;
       case 10000: element.innerHTML = '10K'; break;
+      case 100000: element.innerHTML = '100K'; break;
       case 1000000: element.innerHTML = '1M'; break;
       case 1000000000: element.innerHTML = '1B'; break;
       case 1000000000000: element.innerHTML = '1T'; break;
@@ -215,6 +216,12 @@ function checkMultiplierTiers() {
     document.querySelector('label[for="option10000"]').classList.remove("gpm-label-hidden");
   } else {
     document.querySelector('label[for="option10000"]').classList.add("gpm-label-hidden");
+  }
+  
+  if (rocks.gross >= 100000 * EXTRACT_COST_ROCKS) {
+    document.querySelector('label[for="option100000"]').classList.remove("gpm-label-hidden");
+  } else {
+    document.querySelector('label[for="option100000"]').classList.add("gpm-label-hidden");
   }
   
   if (rocks.gross >= 1000000 * EXTRACT_COST_ROCKS) {

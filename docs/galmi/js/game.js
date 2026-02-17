@@ -109,6 +109,7 @@ function purchaseExtract() {
 
 
     extract.level += globalPurchaseMultiplier;
+    extract.clicked++;
     checkPurchasables();
 
     if (upgradePickaxe.level > 1) {
@@ -116,7 +117,8 @@ function purchaseExtract() {
       hasExtractedAfterUpgradingPickaxe = true;
     }
 
-    document.querySelector('.purchased-total-extract').innerHTML = formatNumber(extract.level);
+    document.querySelector('.purchased-total-extract').innerHTML = formatNumber(extract.level - 1);
+    document.getElementById('purchased-clicked-extract').innerHTML = formatNumber(extract.clicked);
   }
 }
 
@@ -361,9 +363,11 @@ function purchaseBlast() {
     gainResourceParticle(steel, globalPurchaseMultiplier);
 
     blast.level += globalPurchaseMultiplier;
+    blast.clicked++;
     checkPurchasables();
 
     document.querySelector('.purchased-total-blast').innerHTML = formatNumber(blast.level - 1);
+    document.getElementById('purchased-clicked-blast').innerHTML = formatNumber(blast.clicked);
   }
 }
 
@@ -381,9 +385,11 @@ function purchaseSmelt() {
     gainResourceParticle(pigiron, globalPurchaseMultiplier);
 
     smelt.level += globalPurchaseMultiplier;
+    smelt.clicked++;
     checkPurchasables();
 
     document.querySelector('.purchased-total-smelt').innerHTML = formatNumber(smelt.level - 1);
+    document.getElementById('purchased-clicked-smelt').innerHTML = formatNumber(smelt.clicked);
   }
 }
 
@@ -396,9 +402,11 @@ function purchaseHire() {
     pigiron.count -= hire.costs.pigiron.amount * globalPurchaseMultiplier;
 
     hire.level += globalPurchaseMultiplier;
+    hire.clicked++;
     checkPurchasables();
 
     document.querySelector('.purchased-total-workers').innerHTML = formatNumber(hire.level - 1);
+    document.getElementById('purchased-clicked-workers').innerHTML = formatNumber(hire.clicked);
   }
 }
 
@@ -416,9 +424,11 @@ function purchaseReduce() {
     gainResourceParticle(ferrochrome, globalPurchaseMultiplier);
 
     reduce.level += globalPurchaseMultiplier;
+    reduce.clicked++;
     checkPurchasables();
 
     document.querySelector('.purchased-total-reduce').innerHTML = formatNumber(reduce.level - 1);
+    document.getElementById('purchased-clicked-reduce').innerHTML = formatNumber(reduce.clicked);
   }
 }
 
@@ -434,9 +444,11 @@ function purchaseRefine() {
     gainResourceParticle(stainlesssteel, globalPurchaseMultiplier);
 
     refine.level += globalPurchaseMultiplier;
+    refine.clicked++;
     checkPurchasables();
 
     document.querySelector('.purchased-total-refine').innerHTML = formatNumber(refine.level - 1);
+    document.getElementById('purchased-clicked-refine').innerHTML = formatNumber(refine.clicked);
   }
 }
 
@@ -454,9 +466,11 @@ function purchaseMix() {
     gainResourceParticle(concrete, globalPurchaseMultiplier);
 
     mix.level += globalPurchaseMultiplier;
+    mix.clicked++;
     checkPurchasables(); 
 
     document.querySelector('.purchased-total-mix').innerHTML = formatNumber(mix.level - 1);
+    document.getElementById('purchased-clicked-mix').innerHTML = formatNumber(mix.clicked);
   }
 }
 
@@ -472,9 +486,11 @@ function purchaseProduce() {
     gainResourceParticle(chromium, globalPurchaseMultiplier);
 
     produce.level += globalPurchaseMultiplier;
+    produce.clicked++;
     checkPurchasables();
 
     document.querySelector('.purchased-total-produce').innerHTML = formatNumber(produce.level - 1);
+    document.getElementById('purchased-clicked-produce').innerHTML = formatNumber(produce.clicked);
   }
 }
 
@@ -488,9 +504,11 @@ function purchaseUpgradeWorker() {
     steel.count -= upgradeWorker.costs.steel.amount * globalPurchaseMultiplier;
     
     upgradeWorker.level += globalPurchaseMultiplier;
+    upgradeWorker.clicked++;
     checkPurchasables();
 
     document.querySelector('.purchased-total-promoted').innerHTML = formatNumber(upgradeWorker.level - 1);
+    document.getElementById('purchased-clicked-promoted').innerHTML = formatNumber(upgradeWorker.clicked);
 
   }
 }
@@ -509,10 +527,12 @@ function purchaseHousing() {
     // *= ((Math.log10(globalPurchaseMultiplier) / 3) + 1) * 1.001; // 1, 2, 3, 4, 5, 6 * 1.001
 
     housing.level += globalPurchaseMultiplier;
+    housing.clicked++;
 
     checkPurchasables();
 
-     document.querySelector('.purchased-total-housing').innerHTML = formatNumber(housing.level - 1);
+    document.querySelector('.purchased-total-housing').innerHTML = formatNumber(housing.level - 1);
+    document.getElementById('purchased-clicked-housing').innerHTML = formatNumber(housing.clicked);
 
   }
 }
