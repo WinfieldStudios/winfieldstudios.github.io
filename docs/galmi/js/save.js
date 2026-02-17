@@ -10,6 +10,8 @@ function save(textPlayed = "SAVED!") {
   localStorage.setItem('darkMode', JSON.stringify(darkMode));
   localStorage.setItem('showingScientificNotation', JSON.stringify(showingScientificNotation));
 
+  localStorage.setItem('timeWhenPlayerSaved', JSON.stringify(Date.now() / 1000));
+
   for (const purchasable of Object.values(purchasables)) {
     const key = `${purchasable.name}Level`;
     localStorage.setItem(key, JSON.stringify(purchasable.level));
@@ -91,6 +93,15 @@ function load() {
   document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
   document.getElementById('stats-total-seconds-played').innerHTML = totalSecondsPlayed;
+
+  const timeWhenPlayerSaved = JSON.parse(localStorage.getItem('timeWhenPlayerSaved'));
+  if (timeWhenPlayerSaved !== null) {
+    currentTime = Date.now() / 1000
+    if (timeWhenPlayerSaved < currentTime - AUTOSAVE_INTERVAL_SECONDS) {
+      generateIncome(currentTime - timeWhenPlayerSaved);
+      save("WELCOME BACK!");
+    }
+  }
 }
 
 function restart() {
