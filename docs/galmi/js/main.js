@@ -3,7 +3,12 @@ setInterval(() => {
   generateIncome(1);
 
   totalSecondsPlayed++;
-  document.getElementById('stats-total-seconds-played').innerHTML = totalSecondsPlayed;
+  time = "";
+  time += Math.floor(totalSecondsPlayed / 86400) + "d, ";
+  time += Math.floor((totalSecondsPlayed % 86400) / 3600) + "h, ";
+  time += Math.floor((totalSecondsPlayed % 3600) / 60) + "m, ";
+  time += Math.floor(totalSecondsPlayed % 60) + "s";
+  document.getElementById('stats-total-seconds-played').innerHTML = time;
 }, 1000);
 
 // AUTO SAVE LOOP
