@@ -542,7 +542,7 @@ input[type="radio"]:checked + label {
   display: block;  /* Change from display: none */
   opacity: 0;      /* Start fully transparent */
   pointer-events: none;  /* Prevent interaction when hidden */
-  box-shadow: 0px 0px 100px var(--primary-color-faded-more);
+  box-shadow: 0px 0px 100px var(--primary-color-faded-full);
   border: 1px solid var(--primary-color);
   background-color: var(--secondary-color);
   color: var(--primary-color);
