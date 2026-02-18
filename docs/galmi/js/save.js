@@ -113,7 +113,7 @@ function load() {
       save("WELCOME BACK!");
     }
     timeStats[2] += Math.floor(currentTime - timeWhenPlayerSaved);
-    document.getElementById('stats-total-seconds-offline').innerHTML = formatSeconds(timeStats[2] / 1000);
+    document.getElementById('stats-total-seconds-offline').innerHTML = timestamp(timeStats[2]);
   }
 }
 
@@ -160,7 +160,7 @@ function restart() {
   document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
   document.getElementById('stats-total-seconds-played').innerHTML = timestamp(timeStats[1]);
-  document.getElementById('stats-total-seconds-offline').innerHTML = formatSeconds(timeStats[2] / 1000);
+  document.getElementById('stats-total-seconds-offline').innerHTML = timestamp(timeStats[2]);
   document.getElementById('stats-timestamp-grow1').innerHTML = timestamp(timeStats[3])
   document.getElementById('stats-timestamp-grow2').innerHTML = timestamp(timeStats[4])
   document.getElementById('stats-timestamp-grow3').innerHTML = timestamp(timeStats[5])
