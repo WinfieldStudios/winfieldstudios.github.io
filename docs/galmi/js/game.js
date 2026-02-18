@@ -289,6 +289,10 @@ function purchaseUpgradePickaxe() {
     } else if (upgradePickaxe.level <= 51) {
       rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
     } else {
+      if (timeStats[8] == 0) {
+        timeStats[8] = Date.now() - timeStats[0];
+        document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
+      }
       rocksPerClick += Math.floor(rocks.gross * 0.0001);
     }
     updateUpgradePickaxe();

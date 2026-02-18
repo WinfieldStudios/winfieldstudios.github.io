@@ -36,7 +36,9 @@
           <span>ROCKS:</span>
           <span>
             <span class="resource-count rock-count">0</span>
-            <img src="/galmi/img/rocks/1.png" alt="Rocks Icon" class="resource-icon" draggable="false">
+            <span>
+              <img src="/galmi/img/rocks/1.png" alt="Rocks Icon" class="resource-icon" draggable="false">
+            </span>
           </span>
         </h3>
         <h3 class="limestone-resource-display hidden">
@@ -210,7 +212,6 @@
                     <div class="content">
                       <h1>Gain Rocks-per-Click</h1>
                       <p>Purchased: <span class="purchased-total-pickaxe">0</span></p>
-                      <p>Total Rock Clicks: <span class="total-clicks-ever">0</span></p>
                     </div>
                   </div>
 
@@ -242,7 +243,7 @@
                     <div class="content">
                       <h1>Gain Random Resources Passively</h1>
                       <p>Purchased: <span class="purchased-total-housing">0</span></p>
-                      <p>Used: <span id="purchased-clicked-housing">0</span></p>
+                      <p>Clicks: <span id="purchased-clicked-housing">0</span></p>
                     </div>
                   </div>
 
@@ -273,7 +274,7 @@
                     <div class="content">
                       <h1>Gain 1 Rock-per-Second</h1>
                       <p>Purchased: <span class="purchased-total-workers">0</span></p>
-                      <p>Used: <span id="purchased-clicked-workers">0</span></p>
+                      <p>Clicks: <span id="purchased-clicked-workers">0</span></p>
                     </div>
                   </div>
 
@@ -303,7 +304,7 @@
                     <div class="content">
                       <h1>Gain Random Base-Resources Passively</h1>
                       <p>Purchased: <span class="purchased-total-promoted">0</span></p>
-                      <p>Used: <span id="purchased-clicked-promoted">0</span></p>
+                      <p>Clicks: <span id="purchased-clicked-promoted">0</span></p>
                     </div>
                   </div>
 
@@ -336,7 +337,7 @@
                 <div class="content">
                   <h1>Gain a Random Base-Resource</h1>
                   <p>Purchased: <span class="purchased-total-extract">0</span></p>
-                  <p>Used: <span id="purchased-clicked-extract">0</span></p>
+                  <p>Clicks: <span id="purchased-clicked-extract">0</span></p>
                   <h1>Chances:</h1>
                   <p><img src="/galmi/img/icons/limestone.png" alt="" class="info-icon" draggable="false"> 50%</p>
                   <p><img src="/galmi/img/icons/coal.png" alt="" class="info-icon extract-tooltip-coal-icon" draggable="false"> <span class="extract-tooltip-chance-coal"></span></p>
@@ -378,7 +379,7 @@
                 <div class="content">
                   <h1>Gain 1 Iron <img src="/galmi/img/icons/pig_iron.png" alt="" class="info-icon" draggable="false"></h1>
                   <p>Purchased: <span class="purchased-total-smelt">0</span></p>
-                  <p>Used: <span id="purchased-clicked-smelt">0</span></p>
+                  <p>Clicks: <span id="purchased-clicked-smelt">0</span></p>
                 </div>
               </div>
 
@@ -408,7 +409,7 @@
                 <div class="content">
                   <h1>Gain 1 Steel <img src="/galmi/img/icons/steel.png" alt="" class="info-icon" draggable="false"></h1>
                   <p>Purchased: <span class="purchased-total-blast">0</span></p>
-                  <p>Used: <span id="purchased-clicked-blast">0</span></p>
+                  <p>Clicks: <span id="purchased-clicked-blast">0</span></p>
                 </div>
               </div>
 
@@ -442,7 +443,7 @@
                 <div class="content">
                   <h1>Gain 1 Ferrochrome <img src="/galmi/img/icons/ferrochrome.png" alt="" class="info-icon" draggable="false"></h1>
                   <p>Purchased: <span class="purchased-total-reduce">0</span></p>
-                  <p>Used: <span id="purchased-clicked-reduce">0</span></p>
+                  <p>Clicks: <span id="purchased-clicked-reduce">0</span></p>
                 </div>
               </div>
 
@@ -472,7 +473,7 @@
                 <div class="content">
                   <h1>Gain 1 Stainless Steel <img src="/galmi/img/icons/stainlesssteel.png" alt="" class="info-icon" draggable="false"></h1>
                   <p>Purchased: <span class="purchased-total-refine">0</span></p>
-                  <p>Used: <span id="purchased-clicked-refine">0</span></p>
+                  <p>Clicks: <span id="purchased-clicked-refine">0</span></p>
                 </div>
               </div>
 
@@ -506,7 +507,7 @@
                 <div class="content">
                   <h1>Gain 1 Concrete <img src="/galmi/img/icons/concrete.png" alt="" class="info-icon" draggable="false"></h1>
                   <p>Purchased: <span class="purchased-total-mix">0</span></p>
-                  <p>Used: <span id="purchased-clicked-mix">0</span></p>
+                  <p>Clicks: <span id="purchased-clicked-mix">0</span></p>
                 </div>
               </div>
 
@@ -538,7 +539,7 @@
                 <div class="content">
                   <h1>Gain 1 Chromium <img src="/galmi/img/icons/chromium.png" alt="" class="info-icon" draggable="false"></h1>
                   <p>Purchased: <span class="purchased-total-produce">0</span></p>
-                  <p>Used: <span id="purchased-clicked-produce">0</span></p>
+                  <p>Clicks: <span id="purchased-clicked-produce">0</span></p>
                 </div>
               </div>
 
@@ -620,13 +621,73 @@
       <span class="stats-dot">i</span>
       <div class="stats-content">
         <div>
+          <p>~ Time Tracking ~</p>
           <p>Play Time: <span id="stats-total-seconds-played">0</span></p>
-          <p>~Time AFK: <span id="stats-total-seconds-offline">0</span></p>
+          <p>Time Spent Offline: <span id="stats-total-seconds-offline">0</span></p>
           <br>
-          <p>----Grow Once: <span id="stats-timestamp-grow1">0</span></p>
-          <p>---Grow Again: <span id="stats-timestamp-grow2">0</span></p>
-          <p>-Galmi's Face: <span id="stats-timestamp-grow3">0</span></p>
-          <p>---Final Form: <span id="stats-timestamp-grow4">0</span></p>
+          <p>~ Timestamps ~</p>
+          <p>Grow 1: <span id="stats-timestamp-grow1">0</span></p>
+          <p>Grow 2: <span id="stats-timestamp-grow2">0</span></p>
+          <p>Grow 3: <span id="stats-timestamp-grow3">0</span></p>
+          <p>Grow 4: <span id="stats-timestamp-grow4">0</span></p>
+          <p>Chromite Staff: <span id="stats-timestamp-toolt4">0</span></p>
+          <br>
+          <p>~ Total Resources Ever Made ~</p>
+          <p>
+            <img src="/galmi/img/rocks/1.png" alt="rocks icon" class="info-icon" draggable="false">
+            <span id="gross-rocks">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/limestone.png" alt="limestone icon" class="info-icon" draggable="false">
+            <span id="gross-limestone">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/coal.png" alt="coal icon" class="info-icon" draggable="false">
+            <span id="gross-coal">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/iron_ore.png" alt="ironore icon" class="info-icon" draggable="false">
+            <span id="gross-ironore">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/pig_iron.png" alt="pigiron icon" class="info-icon" draggable="false">
+            <span id="gross-pigiron">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/steel.png" alt="steel icon" class="info-icon" draggable="false">
+            <span id="gross-steel">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/obsidian.png" alt="obsidian icon" class="info-icon" draggable="false">
+            <span id="gross-obsidian">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/chromiumore.png" alt="chromiumore icon" class="info-icon" draggable="false">
+            <span id="gross-chromiumore">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/ferrochrome.png" alt="ferrochrome icon" class="info-icon" draggable="false">
+            <span id="gross-ferrochrome">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/stainlesssteel.png" alt="stainlesssteel icon" class="info-icon" draggable="false">
+            <span id="gross-stainlesssteel">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/aluminum.png" alt="aluminum icon" class="info-icon" draggable="false">
+            <span id="gross-aluminum">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/concrete.png" alt="concrete icon" class="info-icon" draggable="false">
+            <span id="gross-concrete">0</span>
+          </p>
+          <p>
+            <img src="/galmi/img/icons/chromium.png" alt="chromium icon" class="info-icon" draggable="false">
+            <span id="gross-chromium">0</span>
+          </p>
+          <br>
+          <p>~ Other Stats ~</p>
+          <p>Total Clicks on Galmi: <span class="total-clicks-ever">0</span></p>
         </div>
         <br>
         <p>v.0.4.15</p>

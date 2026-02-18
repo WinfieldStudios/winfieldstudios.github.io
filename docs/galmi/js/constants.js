@@ -64,5 +64,6 @@ const timeStats = [
     0, // [4] Unix time at grow 2
     0, // [5] Unix time at grow 3
     0, // [6] Unix time at grow 4
-    0  // [7] Unix time at grow 5 (might not be used)
+    0, // [7] Unix time at grow 5 (might not be used)
+    0  // [8] Unix time at tier 4 tool (pickaxe upgrade)
 ]
