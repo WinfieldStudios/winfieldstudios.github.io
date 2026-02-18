@@ -1,21 +1,34 @@
 // TIME LOOP
 setInterval(() => {
   generateIncome(1);
-
-  totalSecondsPlayed++;
-  time = "";
-  time += Math.floor(totalSecondsPlayed / 86400) + "d, ";
-  time += Math.floor((totalSecondsPlayed % 86400) / 3600) + "h, ";
-  time += Math.floor((totalSecondsPlayed % 3600) / 60) + "m, ";
-  time += Math.floor(totalSecondsPlayed % 60) + "s";
-  document.getElementById('stats-total-seconds-played').innerHTML = time;
 }, 1000);
+setInterval(() => {
+  timeStats[1] = (Date.now() - timeStats[0])
+  document.getElementById('stats-total-seconds-played').innerHTML = timestamp(timeStats[1]);
+}, 50);
+
+// CONVERT SECONDS TO TIME FORMAT STRING
+function formatSeconds(seconds)  {
+  time = "";
+  time += Math.floor(seconds / 3600) + ":";
+  time += Math.floor((seconds % 3600) / 60) + ":";
+  time += Math.floor(seconds % 60);
+  return time;
+}
+function timestamp(milliseconds) {
+  time = "";
+  time += Math.floor(milliseconds / 3600000) + ":";
+  time += Math.floor((milliseconds % 3600000) / 60000) + ":";
+  time += Math.floor((milliseconds % 60000) / 1000) + ".";
+  time += Math.floor(milliseconds % 1000);
+  return time;
+}
 
 // AUTO SAVE LOOP
 setInterval(() => {
   save('AUTO-SAVE...');
 
-}, AUTOSAVE_INTERVAL_SECONDS * 1000); // Every 2 minutes
+}, AUTOSAVE_INTERVAL_SECONDS); // Every 2 minutes
 
 // OFFLINE INCOME
 function generateIncome(seconds) {

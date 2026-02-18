@@ -3,14 +3,18 @@
 function save(textPlayed = "SAVED!") {
   localStorage.clear();
 
-  localStorage.setItem('totalSecondsPlayed', JSON.stringify(totalSecondsPlayed));
   localStorage.setItem('totalClicksEver', JSON.stringify(totalClicksEver));
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
   localStorage.setItem('hasExtractedAfterUpgradingPickaxe', JSON.stringify(hasExtractedAfterUpgradingPickaxe));
   localStorage.setItem('darkMode', JSON.stringify(darkMode));
   localStorage.setItem('showingScientificNotation', JSON.stringify(showingScientificNotation));
 
-  localStorage.setItem('timeWhenPlayerSaved', JSON.stringify(Date.now() / 1000));
+  localStorage.setItem('timeWhenPlayerSaved', JSON.stringify(Date.now()));
+
+  for (let i = 0; i < timeStats.length; i++) {
+    const key = `timeStat${i}`;
+    localStorage.setItem(key, JSON.stringify(timeStats[i]));
+  }
 
   for (const purchasable of Object.values(purchasables)) {
     const key = `${purchasable.name}Level`;
@@ -34,9 +38,6 @@ function save(textPlayed = "SAVED!") {
 function load() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
 
-  const savedTotalSecondsPlayed = JSON.parse(localStorage.getItem('totalSecondsPlayed'));
-  if (savedTotalSecondsPlayed !== null) totalSecondsPlayed = savedTotalSecondsPlayed;
-
   const savedTotalClicksEver = JSON.parse(localStorage.getItem('totalClicksEver'));
   if (savedTotalClicksEver !== null) totalClicksEver = savedTotalClicksEver;
 
@@ -52,6 +53,12 @@ function load() {
     document.getElementById("dark-mode-toggle").innerText = darkMode ? "DARK" : "LIGHT";
     if (!darkMode) toggleDarkMode();
   }
+
+  for (let i = 0; i < timeStats.length; i++) {
+    const savedTimeStat = JSON.parse(localStorage.getItem(`timeStat${i}`));
+    if (savedTimeStat !== null) timeStats[i] = savedTimeStat;
+  }
+  if (timeStats[0] == 0) timeStats[0] = Date.now();
 
   const savedNotation = JSON.parse(localStorage.getItem('showingScientificNotation'));
   if (savedNotation !== null) {
@@ -92,25 +99,35 @@ function load() {
   document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
   document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
-  document.getElementById('stats-total-seconds-played').innerHTML = totalSecondsPlayed;
+  document.getElementById('stats-total-seconds-played').innerHTML = timestamp(timeStats[1]);
+  document.getElementById('stats-timestamp-grow1').innerHTML = timestamp(timeStats[3])
+  document.getElementById('stats-timestamp-grow2').innerHTML = timestamp(timeStats[4])
+  document.getElementById('stats-timestamp-grow3').innerHTML = timestamp(timeStats[5])
+  document.getElementById('stats-timestamp-grow4').innerHTML = timestamp(timeStats[6])
 
   const timeWhenPlayerSaved = JSON.parse(localStorage.getItem('timeWhenPlayerSaved'));
   if (timeWhenPlayerSaved !== null) {
-    currentTime = Date.now() / 1000
+    currentTime = Date.now();
     if (timeWhenPlayerSaved < currentTime - AUTOSAVE_INTERVAL_SECONDS) {
       generateIncome(currentTime - timeWhenPlayerSaved);
       save("WELCOME BACK!");
     }
+    timeStats[2] += Math.floor(currentTime - timeWhenPlayerSaved);
+    document.getElementById('stats-total-seconds-offline').innerHTML = formatSeconds(timeStats[2] / 1000);
   }
 }
 
 function restart() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
 
-  if (localStorage.getItem('totalSecondsPlayed') !== null) totalSecondsPlayed = TOTAL_SECONDS_PLAYED_STARTING_AMOUNT;
   if (localStorage.getItem('totalClicksEver') !== null) totalClicksEver = TOTAL_CLICKS_EVER_STARTING_AMOUNT;
   if (localStorage.getItem('rocksPerClick') !== null) rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT;
   if (localStorage.getItem('hasExtractedAfterUpgradingPickaxe') !== null) hasExtractedAfterUpgradingPickaxe = false;
+  
+  for (let i = 0; i < timeStats.length; i++) {
+    timeStats[i] = 0;
+  }
+  timeStats[0] = Date.now();
 
   for (const purchasable of Object.values(purchasables)) {
     if (localStorage.getItem(`${purchasable.name}Level`) !== null) {
@@ -142,7 +159,12 @@ function restart() {
   document.querySelector('.purchased-total-housing').innerHTML = housing.level - 1;
   document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
-  document.getElementById('stats-total-seconds-played').innerHTML = totalSecondsPlayed;
+  document.getElementById('stats-total-seconds-played').innerHTML = timestamp(timeStats[1]);
+  document.getElementById('stats-total-seconds-offline').innerHTML = formatSeconds(timeStats[2] / 1000);
+  document.getElementById('stats-timestamp-grow1').innerHTML = timestamp(timeStats[3])
+  document.getElementById('stats-timestamp-grow2').innerHTML = timestamp(timeStats[4])
+  document.getElementById('stats-timestamp-grow3').innerHTML = timestamp(timeStats[5])
+  document.getElementById('stats-timestamp-grow4').innerHTML = timestamp(timeStats[6])
 }
 
 function clearSave() {
