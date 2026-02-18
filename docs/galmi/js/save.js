@@ -111,11 +111,11 @@ function load() {
     currentTime = Date.now();
     if (timeWhenPlayerSaved < currentTime - AUTOSAVE_INTERVAL_SECONDS) {
       generateIncome(currentTime - timeWhenPlayerSaved);
-      save("WELCOME BACK!");
     }
     timeStats[2] += Math.floor(currentTime - timeWhenPlayerSaved);
     document.getElementById('stats-total-seconds-offline').innerHTML = timestamp(timeStats[2]);
   }
+  save("HELLO!");
 }
 
 function restart() {
