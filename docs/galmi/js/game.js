@@ -287,7 +287,7 @@ function purchaseUpgradePickaxe() {
     } else if (upgradePickaxe.level <= 21) {
       rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
     } else if (upgradePickaxe.level <= 51) {
-      rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
+      rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
     } else {
       if (timeStats[8] == 0) {
         timeStats[8] = Date.now() - timeStats[0];
@@ -338,7 +338,7 @@ function updateUpgradePickaxe() {
     steelDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[1];
   } else if (upgradePickaxe.level <= 50) {
-    upgradePickaxe.costs.obsidian.amount = 1000;
+    upgradePickaxe.costs.obsidian.amount = ((upgradePickaxe.level - 50) * 100) + 200;
     upgradePickaxe.costs.stainlesssteel.amount = Math.ceil(Math.pow((upgradePickaxe.level - 20), 1.8));
     obsidianDisplay.classList.remove("removed");
     stainlesssteelDisplay.classList.remove("removed");
