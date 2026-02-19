@@ -50,29 +50,6 @@ function spawnSon() {
   sonEl.style.left = `${x}px`;
 
   sonEl.addEventListener("click", (event) => {
-    // 1) Pulse explosion at click point
-    const pulse = document.createElement("div");
-    pulse.className = "cursor-glow";
-    pulse.style.left = `${event.clientX - 40}px`;
-    pulse.style.top = `${event.clientY - 40}px`;
-    document.body.appendChild(pulse);
-    setTimeout(() => pulse.remove(), 600);
-
-    // 2) Cursor-follow glow (short duration)
-    const followGlow = document.createElement("div");
-    followGlow.className = "cursor-follow-glow";
-    document.body.appendChild(followGlow);
-
-    const followInterval = setInterval(() => {
-      followGlow.style.left = `${mouseX}px`;
-      followGlow.style.top = `${mouseY}px`;
-    }, 10);
-
-    setTimeout(() => {
-      clearInterval(followInterval);
-      followGlow.remove();
-    }, SON.bonusDurationMs);
-
     despawnSon();
     activateSonBonus();
   });
@@ -102,14 +79,19 @@ function activateSonBonus() {
     // Apply bonus
     rocksPerClick *= SON.clickMultiplier;
 
+    // make Galmi glow gold while bonus is active
+    const rockImage = document.querySelector('.rock-image');
+    if (rockImage) rockImage.classList.add('son-active');
+
     // Bonus message particle
-    if (document.getElementById("particle-layer")) {
-      const msg = document.createElement("div");
-      msg.textContent = `SON BLESSING ☀ x${SON.clickMultiplier} CLICKS`;
-      msg.style.cssText = `color: var(--primary-color); position: fixed; top: 10vh; left: 50%; transform: translateX(-50%); font-size: 18px; font-family: "Pixelated"; pointer-events: none;`;
-      document.getElementById("particle-layer").appendChild(msg);
-      setTimeout(() => msg.remove(), SON.bonusDurationMs);
-    }
+    // if (document.getElementById("particle-layer")) {
+    //   const msg = document.createElement("div");
+   const msg = document.createElement("div");
+   msg.textContent = `SON BLESSING ☀ x${SON.clickMultiplier} CLICKS`;
+   msg.style.cssText = `color: var(--primary-color); position: fixed; top: 10vh; left: 50%; transform: translateX(-50%); font-size: 18px; font-family: "Pixelated"; pointer-events: none;`;
+    //   document.getElementById("particle-layer").appendChild(msg);
+    //   setTimeout(() => msg.remove(), SON.bonusDurationMs);
+    // }
   }
 
   sonBonusEndTimeout = setTimeout(() => {
@@ -124,6 +106,10 @@ function deactivateSonBonus() {
   window.sonBonusActive = false;
 
   rocksPerClick = Math.max(1, Math.floor(rocksPerClick / SON.clickMultiplier));
+
+  //remove gold glow when bonus ends
+  const rockImage = document.querySelector('.rock-image');
+  if (rockImage) rockImage.classList.remove('son-active');
 }
 
 window.addEventListener("load", () => {
