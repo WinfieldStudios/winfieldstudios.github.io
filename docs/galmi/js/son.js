@@ -16,8 +16,8 @@ window.addEventListener("mousemove", (e) => {
 });
 
 const SON = {
-  minSpawnMs: 1, // 5 minutes
-  maxSpawnMs: 1, // 15 minutes
+  minSpawnMs: 300000, // 5 minutes
+  maxSpawnMs: 900000, // 15 minutes
   lifetimeMs: 12000,
 
   bonusDurationMs: 7000,
@@ -86,9 +86,8 @@ function activateSonBonus() {
     // Bonus message particle
     // if (document.getElementById("particle-layer")) {
     //   const msg = document.createElement("div");
-   const msg = document.createElement("div");
-   msg.textContent = `SON BLESSING ☀ x${SON.clickMultiplier} CLICKS`;
-   msg.style.cssText = `color: var(--primary-color); position: fixed; top: 10vh; left: 50%; transform: translateX(-50%); font-size: 18px; font-family: "Pixelated"; pointer-events: none;`;
+    //   msg.textContent = `SON BLESSING ☀ x${SON.clickMultiplier} CLICKS`;
+    //   msg.style.cssText = `color: var(--primary-color); position: fixed; top: 10vh; left: 50%; transform: translateX(-50%); font-size: 18px; font-family: "Pixelated"; pointer-events: none;`;
     //   document.getElementById("particle-layer").appendChild(msg);
     //   setTimeout(() => msg.remove(), SON.bonusDurationMs);
     // }
