@@ -4,7 +4,7 @@ let sonEl = null;
 let sonSpawnTimeout = null;
 let sonDespawnTimeout = null;
 
-let sonBonusActive = false;
+window.sonBonusActive = false;
 let sonBonusEndTimeout = null;
 
 // track mouse position for cursor-follow glow
@@ -16,8 +16,8 @@ window.addEventListener("mousemove", (e) => {
 });
 
 const SON = {
-  minSpawnMs: 300000, // 5 minutes
-  maxSpawnMs: 900000, // 15 minutes
+  minSpawnMs: 1, // 5 minutes
+  maxSpawnMs: 1, // 15 minutes
   lifetimeMs: 12000,
 
   bonusDurationMs: 7000,
@@ -96,8 +96,8 @@ function despawnSon() {
 function activateSonBonus() {
   clearTimeout(sonBonusEndTimeout);
 
-  if (!sonBonusActive) {
-    sonBonusActive = true;
+  if (!window.sonBonusActive) {
+    window.sonBonusActive = true;
 
     // Apply bonus
     rocksPerClick *= SON.clickMultiplier;
@@ -120,8 +120,8 @@ function activateSonBonus() {
 }
 
 function deactivateSonBonus() {
-  if (!sonBonusActive) return;
-  sonBonusActive = false;
+  if (!window.sonBonusActive) return;
+  window.sonBonusActive = false;
 
   rocksPerClick = Math.max(1, Math.floor(rocksPerClick / SON.clickMultiplier));
 }
