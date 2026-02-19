@@ -623,3 +623,10 @@ input[type="radio"]:checked + label {
 .timestamp {
   font-size: 12px;
 }
+
+#particle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
