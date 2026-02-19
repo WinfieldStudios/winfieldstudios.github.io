@@ -16,8 +16,8 @@ window.addEventListener("mousemove", (e) => {
 });
 
 const SON = {
-  minSpawnMs: 1, // 5 minutes
-  maxSpawnMs: 1, // 15 minutes
+  minSpawnMs: 300000, // 5 minutes
+  maxSpawnMs: 900000, // 15 minutes
   lifetimeMs: 12000,
 
   bonusDurationMs: 7000,
