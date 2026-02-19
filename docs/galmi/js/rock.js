@@ -1,5 +1,8 @@
 
+let canRockTalkTimeout = null;
 let galmiTalkMessageTimeout = null;
+
+let canRockTalk = true;
 let isGalmiTalking = false;
 
 // CLICKING THE ROCK
@@ -7,6 +10,8 @@ function clickOnRock(event) {
   rocks.count += rocksPerClick;
   totalClicksEver++;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
+
+  if (canRockTalk == true) rockTalk();
 
   const x = event.offsetX + (Math.floor(Math.random() * 20) + 1) * (Math.floor(Math.random() * 2) == 0 ? 1 : -1);
   const y = event.offsetY - (50 + Math.floor(Math.random() * 30) + 1);
@@ -31,6 +36,14 @@ function rockTalk() {
     isGalmiTalking = true;
     galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, 3000);
   }
+
+  // Reset the cooldown + (re)start the 15s unlock timer
+  canRockTalk = false;
+
+  if (canRockTalkTimeout) clearTimeout(canRockTalkTimeout);
+  canRockTalkTimeout = setTimeout(() => {
+    canRockTalk = true;
+  }, 15000);
 }
 
 function getVoiceline() {

@@ -32,6 +32,8 @@ function purchaseExtract() {
   if (rocks.count >= extract.costs.rocks.amount * globalPurchaseMultiplier) {
     rocks.count -= extract.costs.rocks.amount * globalPurchaseMultiplier;
 
+    if (canRockTalk == true) rockTalk();
+
     limestoneToAdd = 0;
     coalToAdd = 0;
     ironoreToAdd = 0;
@@ -170,6 +172,8 @@ function purchaseUpgradeGalmi() {
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL;
     }
 
+    if (canRockTalk == true) rockTalk();
+
     checkPurchasables();
 
     let rockImage = document.querySelector('.rock-image');
@@ -280,6 +284,8 @@ function purchaseUpgradePickaxe() {
     if (upgradePickaxe.costs.stainlesssteel.amount > 0) stainlesssteel.count -= upgradePickaxe.costs.stainlesssteel.amount;
     if (upgradePickaxe.costs.chromium.amount > 0) chromium.count -= upgradePickaxe.costs.chromium.amount;
 
+    if (canRockTalk == true) rockTalk();
+
     upgradePickaxe.level += 1;
 
     if (upgradePickaxe.level <= 11) {
@@ -371,6 +377,8 @@ function purchaseBlast() {
     coal.count -= blast.costs.coal.amount * globalPurchaseMultiplier;
     pigiron.count -= blast.costs.pigiron.amount * globalPurchaseMultiplier;
 
+    if (canRockTalk == true) rockTalk();
+
     steel.count += globalPurchaseMultiplier;
     gainResourceParticle(steel, globalPurchaseMultiplier);
 
@@ -393,6 +401,8 @@ function purchaseSmelt() {
     coal.count -= smelt.costs.coal.amount * globalPurchaseMultiplier;
     limestone.count -= smelt.costs.limestone.amount * globalPurchaseMultiplier;
 
+    if (canRockTalk == true) rockTalk();
+
     pigiron.count += globalPurchaseMultiplier;
     gainResourceParticle(pigiron, globalPurchaseMultiplier);
 
@@ -413,6 +423,8 @@ function purchaseHire() {
     limestone.count -= hire.costs.limestone.amount * globalPurchaseMultiplier;
     pigiron.count -= hire.costs.pigiron.amount * globalPurchaseMultiplier;
 
+    if (canRockTalk == true) rockTalk();
+
     hire.level += globalPurchaseMultiplier;
     hire.clicked++;
     checkPurchasables();
@@ -431,6 +443,8 @@ function purchaseReduce() {
     chromiumore.count -= reduce.costs.chromiumore.amount * globalPurchaseMultiplier;
     coal.count -= reduce.costs.coal.amount * globalPurchaseMultiplier;
     limestone.count -= reduce.costs.limestone.amount * globalPurchaseMultiplier;
+
+    if (canRockTalk == true) rockTalk();
 
     ferrochrome.count += globalPurchaseMultiplier;
     gainResourceParticle(ferrochrome, globalPurchaseMultiplier);
@@ -451,6 +465,8 @@ function purchaseRefine() {
   ) {
     ferrochrome.count -= refine.costs.ferrochrome.amount * globalPurchaseMultiplier;
     steel.count -= refine.costs.steel.amount * globalPurchaseMultiplier;
+
+    if (canRockTalk == true) rockTalk();
 
     stainlesssteel.count += globalPurchaseMultiplier;
     gainResourceParticle(stainlesssteel, globalPurchaseMultiplier);
@@ -474,6 +490,8 @@ function purchaseMix() {
     aluminum.count -= mix.costs.aluminum.amount * globalPurchaseMultiplier;
     stainlesssteel.count -= mix.costs.stainlesssteel.amount * globalPurchaseMultiplier;
 
+    if (canRockTalk == true) rockTalk();
+
     concrete.count += globalPurchaseMultiplier;
     gainResourceParticle(concrete, globalPurchaseMultiplier);
 
@@ -493,6 +511,8 @@ function purchaseProduce() {
   ) {
     chromiumore.count -= produce.costs.chromiumore.amount * globalPurchaseMultiplier;
     aluminum.count -= produce.costs.aluminum.amount * globalPurchaseMultiplier;
+
+    if (canRockTalk == true) rockTalk();
 
     chromium.count += globalPurchaseMultiplier;
     gainResourceParticle(chromium, globalPurchaseMultiplier);
@@ -514,6 +534,8 @@ function purchaseUpgradeWorker() {
   ) {
     obsidian.count -= upgradeWorker.costs.obsidian.amount * globalPurchaseMultiplier;
     steel.count -= upgradeWorker.costs.steel.amount * globalPurchaseMultiplier;
+
+    if (canRockTalk == true) rockTalk();
     
     upgradeWorker.level += globalPurchaseMultiplier;
     upgradeWorker.clicked++;
@@ -535,6 +557,8 @@ function purchaseHousing() {
     concrete.count -= housing.costs.concrete.amount * globalPurchaseMultiplier;
     chromium.count -= housing.costs.chromium.amount * globalPurchaseMultiplier;
     obsidian.count -= housing.costs.obsidian.amount * globalPurchaseMultiplier;
+
+    if (canRockTalk == true) rockTalk();
 
     // *= ((Math.log10(globalPurchaseMultiplier) / 3) + 1) * 1.001; // 1, 2, 3, 4, 5, 6 * 1.001
 
