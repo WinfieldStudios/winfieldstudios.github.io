@@ -370,15 +370,16 @@ img {
 .enabled:hover {
   color: var(--primary-color);
   background-color: var(--button-color-enabled-hover);
-  transform: scale(1.02);
+  transform: scale(1.01);
   cursor: pointer;
 }
 .enabled:active {
   color: var(--primary-color-faded-barely);
   background-color: var(--secondary-color);
-  transform: scale(0.98);
+  box-shadow: 0 0 4px var(--primary-color);
+  transform: scale(0.99);
   .content {
-    transform: scale(1.03) translateX(-0.5vw);  /* Inverse of 1.02 */
+    transform: scale(1.025) translateX(-0.3vw);  /* Inverse of 1.02 */
   }
 }
 
