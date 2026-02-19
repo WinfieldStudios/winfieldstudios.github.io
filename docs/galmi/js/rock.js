@@ -81,7 +81,7 @@ function getVoiceline() {
         "good job us!",
         "is that... upgrade?",
         "i got FACE now!",
-        "am baby. but TOUGH baby.",
+        "im a buff baby...",
         "we growin'!"
       ];
       break;
@@ -142,7 +142,8 @@ function getVoiceline() {
         "DON'T STOP NOW, WE'RE IN THE ZONE.",
         "I BELIEVE IN YOU, BRO. FULLY.",
         "WATER? IRON? WHATEVER. WE EAT IT ALL.",
-        "WE'RE NOT JUST ROCK. WE'RE LEGEND."
+        "WE'RE NOT JUST ROCK. WE'RE LEGEND.",
+        "...AND I DANCE LIKE A MAN!"
       ];
       break;
 

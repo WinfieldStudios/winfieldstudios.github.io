@@ -643,7 +643,7 @@ input[type="radio"]:checked + label {
   filter: drop-shadow(0 0 14px rgba(255, 200, 80, 0.95));
 
   /* NEW: slow fall */
-  animation: son-fall 10s linear forwards, son-drift 1s ease-in-out infinite alternate;
+  animation: son-fall 30s linear forwards, son-drift 1s ease-in-out infinite alternate;
 }
 
 @keyframes son-fall {

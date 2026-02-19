@@ -17,8 +17,8 @@ window.addEventListener("mousemove", (e) => {
 
 const SON = {
   minSpawnMs: 300000, // 5 minutes
-  maxSpawnMs: 900000, // 15 minutes
-  lifetimeMs: 12000,
+  maxSpawnMs: 420000, // 7 minutes
+  lifetimeMs: 40000,
 
   bonusDurationMs: 7000,
   clickMultiplier: 1000,
