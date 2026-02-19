@@ -175,6 +175,7 @@ function purchaseUpgradeGalmi() {
     if (canRockTalk == true) rockTalk();
 
     checkPurchasables();
+    document.getElementById('stats-galmi-level').innerHTML = upgradeGalmi.level;
 
     let rockImage = document.querySelector('.rock-image');
     if (upgradeGalmi.level < TOTAL_ROCK_IMAGES) {
@@ -201,6 +202,8 @@ function updateUpgradeGalmi() {
       upgradeGalmi.button.classList.add("removed");
       upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
   }
+  
+  document.getElementById('stats-galmi-level').innerHTML = upgradeGalmi.level;
 
   let rockImage = document.querySelector('.rock-image');
   if (upgradeGalmi.level < TOTAL_ROCK_IMAGES) {

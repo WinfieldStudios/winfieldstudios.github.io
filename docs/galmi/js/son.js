@@ -41,7 +41,13 @@ function randInt(min, max) {
 
 function scheduleNextSon() {
   clearTimeout(powerupGoldenSpawnTimeout);
-  const delay = randInt(SON.baseTimeUntilSpawnsMin + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 30000), SON.baseTimeUntilSpawnsMax + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 45000));
+  let min = getPowerupGoldenSpawnTimeMin();
+  let max = getPowerupGoldenSpawnTimeMax();
+  const delay = randInt(min, max);
+  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
+  document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
+  document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
+  document.getElementById('stats-powerups-golden-spawnrate').innerHTML = `${Math.floor(min / 1000)}-${Math.floor(max / 1000)}s`;
   powerupGoldenSpawnTimeout = setTimeout(spawnSon, delay);
 }
 
@@ -87,9 +93,6 @@ function activateSonBonus() {
   if (!window.isPowerupGoldenActive) {
     window.isPowerupGoldenActive = true;
 
-    totalPowerupsGolden++;
-    document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
-
     // Apply bonus
     originalRocksPerClick = rocksPerClick;
     rocksPerClick *= getPowerupRocksPerClickMultiplier();
@@ -98,6 +101,8 @@ function activateSonBonus() {
     // make Galmi glow gold while bonus is active
     const rockImage = document.querySelector('.rock-image');
     if (rockImage) rockImage.classList.add('son-active');
+
+    totalPowerupsGolden++;
 
     // Bonus message particle
     // if (document.getElementById("particle-layer")) {
@@ -111,7 +116,7 @@ function activateSonBonus() {
 
   powerupGoldenBonusEndTimeout = setTimeout(() => {
     deactivateSonBonus();
-  }, SON.basePowerupDuration + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 1000));
+  }, getPowerupGoldenDuration());
 
   scheduleNextSon();
 }
@@ -150,4 +155,16 @@ function getPowerupRocksPerClickMultiplier() {
       break;
   }
   return powerupRocksPerClickMultiplier;
+}
+
+function getPowerupGoldenSpawnTimeMin() {
+  return SON.baseTimeUntilSpawnsMin + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 30000);
+}
+
+function getPowerupGoldenSpawnTimeMax() {
+  return SON.baseTimeUntilSpawnsMax + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 45000);
+}
+
+function getPowerupGoldenDuration() {
+  return SON.basePowerupDuration + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 1000);
 }
