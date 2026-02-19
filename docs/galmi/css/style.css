@@ -633,8 +633,8 @@ input[type="radio"]:checked + label {
 #son {
   position: fixed;
   top: -60px;
-  width: 56px;
-  height: 56px;
+  width: fixed;
+  height: 40px;
   z-index: 9998;
   cursor: pointer;
   user-select: none;

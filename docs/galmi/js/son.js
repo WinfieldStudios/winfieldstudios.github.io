@@ -20,8 +20,8 @@ const SON = {
   maxSpawnMs: 900000, // 15 minutes
   lifetimeMs: 12000,
 
-  bonusDurationMs: 5000,
-  clickMultiplier: 950,
+  bonusDurationMs: 7000,
+  clickMultiplier: 1000,
 };
 
 function randInt(min, max) {
@@ -71,7 +71,7 @@ function spawnSon() {
     setTimeout(() => {
       clearInterval(followInterval);
       followGlow.remove();
-    }, 7000);
+    }, SON.bonusDurationMs);
 
     despawnSon();
     activateSonBonus();
@@ -108,7 +108,7 @@ function activateSonBonus() {
       msg.textContent = `SON BLESSING ☀ x${SON.clickMultiplier} CLICKS`;
       msg.style.cssText = `color: var(--primary-color); position: fixed; top: 10vh; left: 50%; transform: translateX(-50%); font-size: 18px; font-family: "Pixelated"; pointer-events: none;`;
       document.getElementById("particle-layer").appendChild(msg);
-      setTimeout(() => msg.remove(), 1200);
+      setTimeout(() => msg.remove(), SON.bonusDurationMs);
     }
   }
 
