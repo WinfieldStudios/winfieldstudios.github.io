@@ -344,7 +344,7 @@ function updateUpgradePickaxe() {
     steelDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[1];
   } else if (upgradePickaxe.level <= 50) {
-    upgradePickaxe.costs.obsidian.amount = ((upgradePickaxe.level - 50) * 100) + 200;
+    upgradePickaxe.costs.obsidian.amount = ((upgradePickaxe.level - 21) * 100) + 200;
     upgradePickaxe.costs.stainlesssteel.amount = Math.ceil(Math.pow((upgradePickaxe.level - 20), 1.8));
     obsidianDisplay.classList.remove("removed");
     stainlesssteelDisplay.classList.remove("removed");
