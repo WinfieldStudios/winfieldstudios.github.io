@@ -617,7 +617,6 @@ input[type="radio"]:checked + label {
 .stats-content p {
   margin: 0;
   font-size: 12px;
-
 }
 
 .timestamp {

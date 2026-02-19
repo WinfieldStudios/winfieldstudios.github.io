@@ -289,7 +289,7 @@ function purchaseUpgradePickaxe() {
     upgradePickaxe.level += 1;
 
     if (upgradePickaxe.level <= 11) {
-      rocksPerClick = upgradePickaxe.level;
+      rocksPerClick++;
     } else if (upgradePickaxe.level <= 21) {
       rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
     } else if (upgradePickaxe.level <= 51) {

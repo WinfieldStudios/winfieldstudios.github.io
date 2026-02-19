@@ -3,6 +3,8 @@
 let powerupGoldenDocumentElement = null;
 let powerupGoldenSpawnTimeout = null;
 let powerupGoldenDespawnTimeout = null;
+let originalRocksPerClick = 0;
+let bonusRocksPerClick = 0;
 
 window.isPowerupGoldenActive = false;
 let powerupGoldenBonusEndTimeout = null;
@@ -80,7 +82,9 @@ function activateSonBonus() {
     document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
 
     // Apply bonus
+    originalRocksPerClick = rocksPerClick;
     rocksPerClick *= SON.baseClickMultiplier;
+    bonusRocksPerClick = rocksPerClick - originalRocksPerClick;
 
     // make Galmi glow gold while bonus is active
     const rockImage = document.querySelector('.rock-image');
@@ -107,7 +111,7 @@ function deactivateSonBonus() {
   if (!window.isPowerupGoldenActive) return;
   window.isPowerupGoldenActive = false;
 
-  rocksPerClick = Math.max(1, Math.floor(rocksPerClick / SON.baseClickMultiplier));
+  rocksPerClick = Math.ceil(rocksPerClick - bonusRocksPerClick);
 
   //remove gold glow when bonus ends
   const rockImage = document.querySelector('.rock-image');
