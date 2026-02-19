@@ -105,7 +105,7 @@ function activateSonBonus() {
     // Bonus message particle
     if (document.getElementById("particle-layer")) {
       const msg = document.createElement("div");
-      msg.textContent = `SON BLESSING ☀ x${SON.clickMultiplier} CLICKS`;
+      msg.textContent = `OVERTIME! x${SON.clickMultiplier} CLICKS`;
       msg.style.cssText = `color: var(--primary-color); position: fixed; top: 10vh; left: 50%; transform: translateX(-50%); font-size: 18px; font-family: "Pixelated"; pointer-events: none;`;
       document.getElementById("particle-layer").appendChild(msg);
       setTimeout(() => msg.remove(), SON.bonusDurationMs);
