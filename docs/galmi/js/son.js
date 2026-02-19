@@ -21,7 +21,7 @@ const SON = {
   lifetimeMs: 40000,
 
   bonusDurationMs: 7000,
-  clickMultiplier: 1000,
+  clickMultiplier: 10,
 };
 
 function randInt(min, max) {

@@ -132,16 +132,15 @@ function getVoiceline() {
         "hm...",
         "hmm....",
         "hMMM....!",
-        "uh....",
         "u— ...",
-        "a— ...",
+        "asdf...",
         "ngh....",
         "grr....",
         "rrr.....",
         "k—k— ...",
         "c—cl— ...",
         "I— ...",
-        "m— ...",
+        "m—mph!...",
         ".....(pls help)",
         ".....(i am trying ok)"
       ];
