@@ -76,6 +76,9 @@ function activateSonBonus() {
   if (!window.sonBonusActive) {
     window.sonBonusActive = true;
 
+    totalPowerUpsGolden++;
+    document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerUpsGolden;
+
     // Apply bonus
     rocksPerClick *= SON.clickMultiplier;
 
