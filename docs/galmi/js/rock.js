@@ -34,7 +34,7 @@ function rockTalk() {
     galmiTalkMessage.style.cssText = `color: var(--primary-color); position: fixed; top: 12vh; left: 52.25%; transform: translateX(-50%); font-size: 20px; font-family: "Pixelated"; pointer-events: none;`;
     document.getElementById("particle-layer").appendChild(galmiTalkMessage);
     isGalmiTalking = true;
-    galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, 3000);
+    galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, 4500);
   }
 
   // Reset the cooldown + (re)start the 15s unlock timer
@@ -43,7 +43,7 @@ function rockTalk() {
   if (canRockTalkTimeout) clearTimeout(canRockTalkTimeout);
   canRockTalkTimeout = setTimeout(() => {
     canRockTalk = true;
-  }, 15000);
+  }, 10000);
 }
 
 function getVoiceline() {
@@ -51,40 +51,166 @@ function getVoiceline() {
 
   switch (upgradeGalmi.level) {
     case 1:
-    case 2:
-    case 3:
       voicelines = ["..."];
       break;
-
-    case 4: // baby rock
+    case 2:
       voicelines = [
-        "ga ga... rock!",
-        "me click?",
-        "more tap! yay!",
-        "u my friend!",
-        "i wuv clicks.",
-        "rocky happy!",
-        "hehe! tickle!",
-        "i made number go up!",
-        "big rock soon!",
-        "i try! i try!",
-        "what dat?",
-        "wow! shiny!",
-        "u strong finger!",
-        "tap tap tap!",
-        "more! more!",
-        "i hungry... minerals?",
-        "rock go brrr!",
-        "i sleepy... nope! click!",
-        "look! i do it!",
-        "no stop!",
-        "good job us!",
-        "is that... upgrade?",
-        "i got FACE now!",
-        "im a buff baby...",
-        "we growin'!"
+        "...",
+        "....",
+        ".....",
+        "......",
+        "...",
+        "....",
+        ".....",
+        "......",
+        "...",
+        "....",
+        ".....",
+        "......",
+        "...",
+        "....",
+        ".....",
+        "......",
+        "...",
+        "....",
+        ".....",
+        "......",
+        "...?"
       ];
       break;
+    case 3:
+      voicelines = [
+
+        // For Sure
+        "...",
+        "..!",
+        "....",
+        ".....?",
+        ".....!",
+        "?.....",
+        "!.....",
+        ". . .",
+        ".......",
+        "....!",
+        "........",
+        "........?",
+        ".........!",
+        ". . . . .",
+        "..........",
+        "...!....!",
+        "....!....",
+        "..?.........?",
+        ".!...!.....!",
+        ". . . . . . .",
+        "...",
+        "..!",
+        "....",
+        ".....?",
+        ".....!",
+        "?.....",
+        "!.....",
+        ". . .",
+        ".......",
+        "....!",
+        "........",
+        "........?",
+        ".........!",
+        ". . . . .",
+        "..........",
+        "...!....!",
+        "....!....",
+        "..?.........?",
+        ".!...!.....!",
+        ". . . . . . .",
+        "(╥﹏╥)",
+        
+        // Unsure
+        "*stone noises*",
+        "*404 mouth not found*",
+        "*confused pebble sounds*",
+        "*shakes violently*",
+        "hm...",
+        "hmm....",
+        "hMMM....!",
+        "uh....",
+        "u— ...",
+        "a— ...",
+        "ngh....",
+        "grr....",
+        "rrr.....",
+        "k—k— ...",
+        "c—cl— ...",
+        "I— ...",
+        "m— ...",
+        ".....(pls help)",
+        ".....(i am trying ok)"
+      ];
+      break;
+
+    case 4: // early 2010s internet speak rock
+      voicelines = [
+        
+        // For Sure:
+        "im a buff baby...",
+        "i hungry for minerals :3",
+        "67",
+        "unirocktualowkenuinely",
+        "(˶ᵔ ᵕ ᵔ˶)",
+        "(¬_¬\")",
+        "(๑ᵔ⤙ᵔ๑)",
+        "get rekt",
+        "git gud",
+        "gg ez",
+        "smh my head",
+        "dank minerals detected",
+        "yolo",
+        "swag rock reporting in",
+        "all your rock are belong to us",
+        "personally, i prefer the ground",
+        "im helping!!1!",
+        "rawr xD",
+        "hehe derp.",
+        "i can haz clicks?",
+        "LE CLICK.",
+        "trolololol",
+        "click harder senpai",
+        "y u stop clickin",
+        "rock.exe has stopped working",
+
+        // Unsure:
+        "omg im talkin now o_o",
+        "u mad? im rock.",
+        "lolwut",
+        "brb becoming legendary.",
+        "pls click. thx.",
+        "no u.",
+        "IM A ROCK. deal w/ it.",
+        "so wow. much mineral.",
+        "epic win.",
+        "epic fail... jk we gud.",
+        "i liek dis.",
+        "you jelly?",
+        "2 stronk 4 u.",
+        "i'm smol but fierce >:3",
+        "huehuehue",
+        "dat click tho",
+        "such progress. wow.",
+        "i can haz upgrade plz",
+        "don't panic. it's just a rock.",
+        "omnomnom minerals",
+        "like a boss.",
+        "this is fine.",
+        "FIRST. (jk)",
+        "keyboard cat would be proud",
+        "okay but srsly keep clickin",
+        "ayy lmao",
+        "i'm not crying ur crying",
+        "i'm baby... but also a unit",
+        "hold up... is this power??",
+        "click click boom"
+      ];
+      break;
+
 
     // case 5: // rock hard dude (stern / intense)
     //   voicelines = [
@@ -118,32 +244,41 @@ function getVoiceline() {
 
     case 5: // giga chad gym bro (supportive hype)
       voicelines = [
+
+        // For Sure:
+        "...AND I DANCE LIKE A MAN!",
         "YES BRO! THAT'S A CLEAN REP!",
-        "WE'RE ASCENDING, KING.",
-        "LOCK IN. BREATHE. CLICK.",
         "LIGHTWEIGHT, BABY!",
         "THE PUMP IS REAL. THE ROCK IS REALER.",
+        "STAY HARD. STAY KIND. STAY CLICKING.",
+        "I'M ROCK HARD RIGHT NOW.",
+        "i love you",
+        "BRO I'M PROUD OF YOU. NO JOKE.",
+        "THAT UPGRADE? ABSOLUTE UNIT MOVE.",
+        "LET'S GO! MINERAL MINDSET.",
+        "BRO... WE'RE CRACKED.",
+        "AIN'T NOTHIN' BUT A PEANUT.",
+        "AIN'T NUTH' TO IT BUT TO DO IT.",
+        "I'M ROCK SOLID...",
+        "DON'T STOP NOW, PLEASE.",
+        "CHROMITE? IRON? WHATEVER. WE EAT IT ALL.",
+
+        // Unsure:
+        "WE'RE ASCENDING, KING.",
+        "LOCK IN. BREATHE. CLICK.",
         "ONE MORE CLICK. NOW ANOTHER.",
         "YOU'RE BUILT DIFFERENT. I CAN TELL.",
-        "STAY HARD. STAY KIND. STAY CLICKING.",
-        "BRO I'M PROUD OF YOU. NO JOKE.",
         "WE DON'T CHASE MOTIVATION. WE CHASE RESULTS.",
-        "THAT UPGRADE? ABSOLUTE UNIT MOVE.",
         "YOU'RE NOT TIRED. YOU'RE ADAPTING.",
-        "LET'S GO! MINERAL MINDSET.",
         "BIG ENERGY. BIG ROCK.",
         "THIS IS WHAT PEAK EVOLUTION LOOKS LIKE.",
         "YOU'RE A MACHINE. BUT WITH A SOUL.",
         "KEEP GOING. FUTURE YOU IS CHEERING.",
         "RESPECT. DISCIPLINE. CONSISTENCY.",
-        "BRO… WE'RE CRACKED.",
         "THAT'S IT. THAT'S THE GRINDSET.",
         "YOU CLICK LIKE YOU MEAN IT.",
         "DON'T STOP NOW, WE'RE IN THE ZONE.",
-        "I BELIEVE IN YOU, BRO. FULLY.",
-        "WATER? IRON? WHATEVER. WE EAT IT ALL.",
-        "WE'RE NOT JUST ROCK. WE'RE LEGEND.",
-        "...AND I DANCE LIKE A MAN!"
+        "I BELIEVE IN YOU, BRO. FULLY."
       ];
       break;
 
