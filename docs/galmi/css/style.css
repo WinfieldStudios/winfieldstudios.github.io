@@ -376,7 +376,6 @@ img {
 .enabled:active {
   color: var(--primary-color-faded-barely);
   background-color: var(--secondary-color);
-  box-shadow: 0px 0px 50px var(--primary-color-faded-more);
   transform: scale(0.98);
   .content {
     transform: scale(1.03) translateX(-0.5vw);  /* Inverse of 1.02 */
