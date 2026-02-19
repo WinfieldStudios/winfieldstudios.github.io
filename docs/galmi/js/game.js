@@ -134,6 +134,8 @@ function purchaseUpgradeGalmi() {
         ironore.count += 1;
         gainResourceParticle(ironore, 1);
         nextBaseResourceIcon.src = "/galmi/img/icons/obsidian.png";
+        timeStats[3] = Date.now() - timeStats[0];
+        document.getElementById('stats-timestamp-grow1').innerHTML = timestamp(timeStats[3])
         upgradeGalmi.costs.rocks.amount = 4444;
         upgradeGalmi.level += 1;
         break;
@@ -141,6 +143,8 @@ function purchaseUpgradeGalmi() {
         obsidian.count += 1;
         gainResourceParticle(obsidian, 1);
         nextBaseResourceIcon.src = "/galmi/img/icons/chromiumore.png";
+        timeStats[4] = Date.now() - timeStats[0];
+        document.getElementById('stats-timestamp-grow2').innerHTML = timestamp(timeStats[4])
         upgradeGalmi.costs.rocks.amount = 1000011;
         upgradeGalmi.level += 1;
         break;
@@ -148,12 +152,16 @@ function purchaseUpgradeGalmi() {
         chromiumore.count += 1;
         gainResourceParticle(chromiumore, 1);
         nextBaseResourceIcon.src = "/galmi/img/icons/aluminum.png";
+        timeStats[5] = Date.now() - timeStats[0];
+        document.getElementById('stats-timestamp-grow3').innerHTML = timestamp(timeStats[5])
         upgradeGalmi.costs.rocks.amount = 2147483647;
         upgradeGalmi.level += 1;
         break;
       case 4:
         aluminum.count += 1;
         gainResourceParticle(aluminum, 1);
+        timeStats[6] = Date.now() - timeStats[0];
+        document.getElementById('stats-timestamp-grow4').innerHTML = timestamp(timeStats[6])
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
         upgradeGalmi.level += 1;
         break;
@@ -281,6 +289,10 @@ function purchaseUpgradePickaxe() {
     } else if (upgradePickaxe.level <= 51) {
       rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
     } else {
+      if (timeStats[8] == 0) {
+        timeStats[8] = Date.now() - timeStats[0];
+        document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
+      }
       rocksPerClick += Math.floor(rocks.gross * 0.0001);
     }
     updateUpgradePickaxe();

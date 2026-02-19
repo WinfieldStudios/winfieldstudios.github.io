@@ -5,6 +5,8 @@ const TOTAL_ROCK_IMAGES = 5;
 const PASSIVE_PARTICLE_FONT_SIZE = 12;
 const PASSIVE_PARTICLE_RANGE = 5;
 
+const AUTOSAVE_INTERVAL_SECONDS = 120000;
+
 const TOTAL_CLICKS_EVER_STARTING_AMOUNT = 0;
 const ROCKS_PER_CLICK_STARTING_AMOUNT = 1;
 const GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT = 1;
@@ -53,3 +55,15 @@ let hasExtractedAfterUpgradingPickaxe = false;
 let globalPurchaseMultiplier = GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT;
 let darkMode = true;
 let showingScientificNotation = false;
+
+const timeStats = [
+    0, // [0] time when game started in Unix Epoch
+    0, // [1] total play time in seconds
+    0, // [2] total time offline in seconds
+    0, // [3] Unix time at grow 1
+    0, // [4] Unix time at grow 2
+    0, // [5] Unix time at grow 3
+    0, // [6] Unix time at grow 4
+    0, // [7] Unix time at grow 5 (might not be used)
+    0  // [8] Unix time at tier 4 tool (pickaxe upgrade)
+]

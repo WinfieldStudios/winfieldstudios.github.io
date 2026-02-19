@@ -1,12 +1,49 @@
 // TIME LOOP
 setInterval(() => {
-  rocksPerSecond = hire.level - 1;
+  generateIncome(1);
+}, 1000);
+setInterval(() => {
+  timeStats[1] = (Date.now() - timeStats[0])
+  document.getElementById('stats-total-seconds-played').innerHTML = timestamp(timeStats[1]);
+}, 50);
+
+// CONVERT SECONDS TO TIME FORMAT STRING
+function formatSeconds(seconds)  {
+  time = "";
+  time += Math.floor(seconds / 3600) + ":";
+  time += Math.floor((seconds % 3600) / 60) + ":";
+  time += Math.floor(seconds % 60);
+  return time;
+}
+function timestamp(milliseconds) {
+  time = "";
+  time += Math.floor(milliseconds / 3600000) + ":";
+  time += Math.floor((milliseconds % 3600000) / 60000) + ":";
+  time += Math.floor((milliseconds % 60000) / 1000) + ".";
+  time += Math.floor(milliseconds % 1000);
+  return time;
+}
+
+// AUTO SAVE LOOP
+setInterval(() => {
+  save('AUTO-SAVE...');
+
+}, AUTOSAVE_INTERVAL_SECONDS); // Every 2 minutes
+
+// OFFLINE INCOME
+function generateIncome(seconds) {
+  
+  if (seconds <= 1) seconds = 1;
+  if (seconds > 1) seconds = Math.floor(seconds / 2);
+  if (seconds >= 1000000) seconds = 1000000;
+
+  rocksPerSecond = (hire.level - 1) * seconds;
   if (rocksPerSecond > 0) {
     rocks.count += rocksPerSecond;
     checkPurchasables();
     gainResourceParticle(rocks, rocksPerSecond, true, PASSIVE_PARTICLE_FONT_SIZE, PASSIVE_PARTICLE_RANGE);
   }
-  baseResourcesPerSecond = upgradeWorker.level - 1;
+  baseResourcesPerSecond = (upgradeWorker.level - 1) * seconds;
   if (baseResourcesPerSecond > 0) {
 
     aluminumToAdd = 0;
@@ -46,7 +83,7 @@ setInterval(() => {
   
   }
 
-  resourcesPerSecond = housing.level - 1;
+  resourcesPerSecond = (housing.level - 1) * seconds;
   if (resourcesPerSecond > 0) {
 
     pigironToAdd = 0;
@@ -79,13 +116,7 @@ setInterval(() => {
 
     checkPurchasables();
   }
-}, 1000);
-
-// AUTO SAVE LOOP
-setInterval(() => {
-  save('AUTO-SAVE...');
-
-}, 120000); // Every 2 minutes
+}
 
 // MULTIPLIER
 function setGlobalPurchaseMultiplier(value) {

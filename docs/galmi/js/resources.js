@@ -7,13 +7,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.rock-count'),
     displayContainer: document.querySelector('.rock-resource-display'),
+    statsGross: document.getElementById('gross-rocks'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
       
       document.querySelector('.scientific-notation-toggle-display').classList.add("removed");
       
@@ -45,13 +47,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.limestone-count'),
     displayContainer: document.querySelector('.limestone-resource-display'),
+    statsGross: document.getElementById('gross-limestone'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -69,13 +73,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.coal-count'),
     displayContainer: document.querySelector('.coal-resource-display'),
+    statsGross: document.getElementById('gross-coal'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -93,13 +99,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.ironore-count'),
     displayContainer: document.querySelector('.ironore-resource-display'),
+    statsGross: document.getElementById('gross-ironore'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) this.displayContainer.classList.remove("hidden");
       else this.displayContainer.classList.add("hidden");
@@ -112,13 +120,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.pigiron-count'),
     displayContainer: document.querySelector('.pigiron-resource-display'),
+    statsGross: document.getElementById('gross-pigiron'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -138,13 +148,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.steel-count'),
     displayContainer: document.querySelector('.steel-resource-display'),
+    statsGross: document.getElementById('gross-steel'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -162,13 +174,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.obsidian-count'),
     displayContainer: document.querySelector('.obsidian-resource-display'),
+    statsGross: document.getElementById('gross-obsidian'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -184,13 +198,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.chromiumore-count'),
     displayContainer: document.querySelector('.chromiumore-resource-display'),
+    statsGross: document.getElementById('gross-chromiumore'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -208,13 +224,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.ferrochrome-count'),
     displayContainer: document.querySelector('.ferrochrome-resource-display'),
+    statsGross: document.getElementById('gross-ferrochrome'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -232,13 +250,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.stainlesssteel-count'),
     displayContainer: document.querySelector('.stainlesssteel-resource-display'),
+    statsGross: document.getElementById('gross-stainlesssteel'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) this.displayContainer.classList.remove("hidden");
       else this.displayContainer.classList.add("hidden");
@@ -251,13 +271,15 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.aluminum-count'),
     displayContainer: document.querySelector('.aluminum-resource-display'),
+    statsGross: document.getElementById('gross-aluminum'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count;
+        this.gross += value - this.count; 
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -278,6 +300,7 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.concrete-count'),
     displayContainer: document.querySelector('.concrete-resource-display'),
+    statsGross: document.getElementById('gross-concrete'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -285,6 +308,7 @@ const resources = {
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
@@ -301,6 +325,7 @@ const resources = {
     currentCount: 0,
     countSource: document.querySelector('.chromium-count'),
     displayContainer: document.querySelector('.chromium-resource-display'),
+    statsGross: document.getElementById('gross-chromium'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.currentCount) {
@@ -308,6 +333,7 @@ const resources = {
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
+      this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
