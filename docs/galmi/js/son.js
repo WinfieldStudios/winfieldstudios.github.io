@@ -1,11 +1,11 @@
 // SON (Golden-style bonus for Galmi)
 
-let sonEl = null;
-let sonSpawnTimeout = null;
-let sonDespawnTimeout = null;
+let powerupGoldenDocumentElement = null;
+let powerupGoldenSpawnTimeout = null;
+let powerupGoldenDespawnTimeout = null;
 
-window.sonBonusActive = false;
-let sonBonusEndTimeout = null;
+window.isPowerupGoldenActive = false;
+let powerupGoldenBonusEndTimeout = null;
 
 // track mouse position for cursor-follow glow
 let mouseX = 0;
@@ -16,12 +16,12 @@ window.addEventListener("mousemove", (e) => {
 });
 
 const SON = {
-  minSpawnMs: 300000, // 5 minutes
-  maxSpawnMs: 420000, // 7 minutes
-  lifetimeMs: 40000,
+  baseTimeUntilSpawnsMin: 300000, // 5 minutes
+  baseTimeUntilSpawnsMax: 420000, // 7 minutes
+  timeUntilElementDespawnsWhenFalling: 40000,
 
-  bonusDurationMs: 7000,
-  clickMultiplier: 10,
+  basePowerupDuration: 7000,
+  baseClickMultiplier: 10,
 };
 
 function randInt(min, max) {
@@ -29,58 +29,58 @@ function randInt(min, max) {
 }
 
 function scheduleNextSon() {
-  clearTimeout(sonSpawnTimeout);
-  const delay = randInt(SON.minSpawnMs, SON.maxSpawnMs);
-  sonSpawnTimeout = setTimeout(spawnSon, delay);
+  clearTimeout(powerupGoldenSpawnTimeout);
+  const delay = randInt(SON.baseTimeUntilSpawnsMin, SON.baseTimeUntilSpawnsMax);
+  powerupGoldenSpawnTimeout = setTimeout(spawnSon, delay);
 }
 
 function spawnSon() {
-  if (sonEl) return;
+  if (powerupGoldenDocumentElement) return;
 
-  sonEl = document.createElement("img");
-  sonEl.id = "son";
+  powerupGoldenDocumentElement = document.createElement("img");
+  powerupGoldenDocumentElement.id = "son";
   const rockImage = document.querySelector('.rock-image');
-  sonEl.src = rockImage ? rockImage.src : SON.imgSrc;
+  powerupGoldenDocumentElement.src = rockImage ? rockImage.src : SON.imgSrc;
 
-  sonEl.alt = "Son";
-  sonEl.draggable = false;
+  powerupGoldenDocumentElement.alt = "Son";
+  powerupGoldenDocumentElement.draggable = false;
 
   const pad = 60;
   const x = randInt(pad, Math.max(pad, window.innerWidth - pad - 56));
-  sonEl.style.left = `${x}px`;
+  powerupGoldenDocumentElement.style.left = `${x}px`;
 
-  sonEl.addEventListener("click", (event) => {
+  powerupGoldenDocumentElement.addEventListener("click", (event) => {
     despawnSon();
     activateSonBonus();
   });
 
-  document.body.appendChild(sonEl);
+  document.body.appendChild(powerupGoldenDocumentElement);
 
-  clearTimeout(sonDespawnTimeout);
-  sonDespawnTimeout = setTimeout(() => {
+  clearTimeout(powerupGoldenDespawnTimeout);
+  powerupGoldenDespawnTimeout = setTimeout(() => {
     despawnSon();
     scheduleNextSon();
-  }, SON.lifetimeMs);
+  }, SON.timeUntilElementDespawnsWhenFalling);
 }
 
 function despawnSon() {
-  if (!sonEl) return;
-  sonEl.remove();
-  sonEl = null;
-  clearTimeout(sonDespawnTimeout);
+  if (!powerupGoldenDocumentElement) return;
+  powerupGoldenDocumentElement.remove();
+  powerupGoldenDocumentElement = null;
+  clearTimeout(powerupGoldenDespawnTimeout);
 }
 
 function activateSonBonus() {
-  clearTimeout(sonBonusEndTimeout);
+  clearTimeout(powerupGoldenBonusEndTimeout);
 
-  if (!window.sonBonusActive) {
-    window.sonBonusActive = true;
+  if (!window.isPowerupGoldenActive) {
+    window.isPowerupGoldenActive = true;
 
-    totalPowerUpsGolden++;
-    document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerUpsGolden;
+    totalPowerupsGolden++;
+    document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
 
     // Apply bonus
-    rocksPerClick *= SON.clickMultiplier;
+    rocksPerClick *= SON.baseClickMultiplier;
 
     // make Galmi glow gold while bonus is active
     const rockImage = document.querySelector('.rock-image');
@@ -89,25 +89,25 @@ function activateSonBonus() {
     // Bonus message particle
     // if (document.getElementById("particle-layer")) {
     //   const msg = document.createElement("div");
-    //   msg.textContent = `SON BLESSING ☀ x${SON.clickMultiplier} CLICKS`;
+    //   msg.textContent = `SON BLESSING ☀ x${SON.baseClickMultiplier} CLICKS`;
     //   msg.style.cssText = `color: var(--primary-color); position: fixed; top: 10vh; left: 50%; transform: translateX(-50%); font-size: 18px; font-family: "Pixelated"; pointer-events: none;`;
     //   document.getElementById("particle-layer").appendChild(msg);
-    //   setTimeout(() => msg.remove(), SON.bonusDurationMs);
+    //   setTimeout(() => msg.remove(), SON.basePowerupDuration);
     // }
   }
 
-  sonBonusEndTimeout = setTimeout(() => {
+  powerupGoldenBonusEndTimeout = setTimeout(() => {
     deactivateSonBonus();
-  }, SON.bonusDurationMs);
+  }, SON.basePowerupDuration);
 
   scheduleNextSon();
 }
 
 function deactivateSonBonus() {
-  if (!window.sonBonusActive) return;
-  window.sonBonusActive = false;
+  if (!window.isPowerupGoldenActive) return;
+  window.isPowerupGoldenActive = false;
 
-  rocksPerClick = Math.max(1, Math.floor(rocksPerClick / SON.clickMultiplier));
+  rocksPerClick = Math.max(1, Math.floor(rocksPerClick / SON.baseClickMultiplier));
 
   //remove gold glow when bonus ends
   const rockImage = document.querySelector('.rock-image');

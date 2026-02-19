@@ -50,7 +50,7 @@ const HOUSING_COST_OBSIDIAN = 1000;
 
 // STATE
 
-let totalPowerUpsGolden = TOTAL_POWERUPS_GOLDEN_STARTING_AMOUNT;
+let totalPowerupsGolden = TOTAL_POWERUPS_GOLDEN_STARTING_AMOUNT;
 let totalClicksEver = TOTAL_CLICKS_EVER_STARTING_AMOUNT;
 let rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT;
 let hasExtractedAfterUpgradingPickaxe = false;

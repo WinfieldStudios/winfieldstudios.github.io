@@ -3,7 +3,7 @@
 function save(textPlayed = "SAVED!") {
   localStorage.clear();
 
-  localStorage.setItem('totalPowerUpsGolden', JSON.stringify(totalPowerUpsGolden));
+  localStorage.setItem('totalPowerupsGolden', JSON.stringify(totalPowerupsGolden));
   localStorage.setItem('totalClicksEver', JSON.stringify(totalClicksEver));
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
   localStorage.setItem('hasExtractedAfterUpgradingPickaxe', JSON.stringify(hasExtractedAfterUpgradingPickaxe));
@@ -39,8 +39,8 @@ function save(textPlayed = "SAVED!") {
 function load() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
 
-  const savedTotalPowerUpsGolden = JSON.parse(localStorage.getItem('totalPowerUpsGolden'));
-  if (savedTotalPowerUpsGolden !== null) totalPowerUpsGolden = savedTotalPowerUpsGolden;
+  const savedTotalPowerupsGolden = JSON.parse(localStorage.getItem('totalPowerupsGolden'));
+  if (savedTotalPowerupsGolden !== null) totalPowerupsGolden = savedTotalPowerupsGolden;
 
   const savedTotalClicksEver = JSON.parse(localStorage.getItem('totalClicksEver'));
   if (savedTotalClicksEver !== null) totalClicksEver = savedTotalClicksEver;
@@ -109,7 +109,7 @@ function load() {
   document.getElementById('stats-timestamp-grow4').innerHTML = timestamp(timeStats[6])
   document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
-  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerUpsGolden;
+  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
 
   const timeWhenPlayerSaved = JSON.parse(localStorage.getItem('timeWhenPlayerSaved'));
   if (timeWhenPlayerSaved !== null) {
@@ -126,7 +126,7 @@ function load() {
 function restart() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
 
-  if (localStorage.getItem('totalPowerUpsGolden') !== null) totalPowerUpsGolden = TOTAL_POWERUPS_GOLDEN_STARTING_AMOUNT;
+  if (localStorage.getItem('totalPowerupsGolden') !== null) totalPowerupsGolden = TOTAL_POWERUPS_GOLDEN_STARTING_AMOUNT;
   if (localStorage.getItem('totalClicksEver') !== null) totalClicksEver = TOTAL_CLICKS_EVER_STARTING_AMOUNT;
   if (localStorage.getItem('rocksPerClick') !== null) rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT;
   if (localStorage.getItem('hasExtractedAfterUpgradingPickaxe') !== null) hasExtractedAfterUpgradingPickaxe = false;
@@ -173,7 +173,7 @@ function restart() {
   document.getElementById('stats-timestamp-grow4').innerHTML = timestamp(timeStats[6])
   document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
-  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerUpsGolden;
+  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
 }
 
 function clearSave() {
@@ -206,5 +206,5 @@ function clearSave() {
   document.querySelector('.purchased-total-promoted').innerHTML = upgradeWorker.level - 1;
   document.getElementById('stats-total-seconds-played').innerHTML = totalSecondsPlayed;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
-  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerUpsGolden;
+  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
 }
