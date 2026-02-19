@@ -1,4 +1,4 @@
-// SON (Golden-style bonus for Galmi)
+// SON (Golden Power Up!)
 
 let powerupGoldenDocumentElement = null;
 let powerupGoldenSpawnTimeout = null;
@@ -17,13 +17,22 @@ window.addEventListener("mousemove", (e) => {
   mouseY = e.clientY;
 });
 
+// POWER UP OBJECT
+// we call it "SON" because it's Galmi's son that is falling
 const SON = {
-  baseTimeUntilSpawnsMin: 300000, // 5 minutes
-  baseTimeUntilSpawnsMax: 420000, // 7 minutes
-  timeUntilElementDespawnsWhenFalling: 40000,
-
-  basePowerupDuration: 7000,
+  // Power Bonus
   baseClickMultiplier: 10,
+
+  // spawn the power up every...
+  baseTimeUntilSpawnsMin: 60000, // 60 to
+  baseTimeUntilSpawnsMax: 90000, // 90 seconds.
+
+  // Make the power up last for...
+  basePowerupDuration: 5000, // 5 seconds.
+
+  // This is the amount of time that the element exists for while falling...
+  // ...it needs to just be long enough to fall past the bottom of the screen.
+  timeUntilElementDespawnsWhenFalling: 40000,
 };
 
 function randInt(min, max) {
@@ -32,7 +41,7 @@ function randInt(min, max) {
 
 function scheduleNextSon() {
   clearTimeout(powerupGoldenSpawnTimeout);
-  const delay = randInt(SON.baseTimeUntilSpawnsMin, SON.baseTimeUntilSpawnsMax);
+  const delay = randInt(SON.baseTimeUntilSpawnsMin + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 30000), SON.baseTimeUntilSpawnsMax + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 45000));
   powerupGoldenSpawnTimeout = setTimeout(spawnSon, delay);
 }
 
@@ -83,7 +92,7 @@ function activateSonBonus() {
 
     // Apply bonus
     originalRocksPerClick = rocksPerClick;
-    rocksPerClick *= SON.baseClickMultiplier;
+    rocksPerClick *= getPowerupRocksPerClickMultiplier();
     bonusRocksPerClick = rocksPerClick - originalRocksPerClick;
 
     // make Galmi glow gold while bonus is active
@@ -102,7 +111,7 @@ function activateSonBonus() {
 
   powerupGoldenBonusEndTimeout = setTimeout(() => {
     deactivateSonBonus();
-  }, SON.basePowerupDuration);
+  }, SON.basePowerupDuration + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 1000));
 
   scheduleNextSon();
 }
@@ -121,3 +130,24 @@ function deactivateSonBonus() {
 window.addEventListener("load", () => {
   scheduleNextSon();
 });
+
+function getPowerupRocksPerClickMultiplier() {
+  let powerupRocksPerClickMultiplier = 2;
+  switch (upgradeGalmi.level) {
+    case 6:
+    case 5:
+      powerupRocksPerClickMultiplier = SON.baseClickMultiplier * totalPowerupsGolden * 100;
+      break;
+    case 4:
+      powerupRocksPerClickMultiplier = SON.baseClickMultiplier * totalPowerupsGolden;
+      break;
+    case 3:
+    case 2:
+      powerupRocksPerClickMultiplier = (2 + totalPowerupsGolden);
+      break;
+    default:
+      powerupRocksPerClickMultiplier = 2;
+      break;
+  }
+  return powerupRocksPerClickMultiplier;
+}
