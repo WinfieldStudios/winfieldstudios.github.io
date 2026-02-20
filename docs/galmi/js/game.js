@@ -176,6 +176,8 @@ function purchaseUpgradeGalmi() {
 
     checkPurchasables();
     document.getElementById('stats-galmi-level').innerHTML = upgradeGalmi.level;
+    document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
+    document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
 
     let rockImage = document.querySelector('.rock-image');
     if (upgradeGalmi.level < TOTAL_ROCK_IMAGES) {

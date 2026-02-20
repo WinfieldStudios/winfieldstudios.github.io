@@ -45,9 +45,7 @@ function scheduleNextSon() {
   let max = getPowerupGoldenSpawnTimeMax();
   const delay = randInt(min, max);
   document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
-  document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
-  document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
-  document.getElementById('stats-powerups-golden-spawnrate').innerHTML = `${Math.floor(min / 1000)}-${Math.floor(max / 1000)}s`;
+  document.getElementById('stats-powerups-golden-spawnrate').innerHTML = `~${Math.floor((Math.ceil((min + max) / 2000) + 30) / 60)}m`;
   powerupGoldenSpawnTimeout = setTimeout(spawnSon, delay);
 }
 
@@ -103,6 +101,7 @@ function activateSonBonus() {
     if (rockImage) rockImage.classList.add('son-active');
 
     totalPowerupsGolden++;
+    document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
 
     // Bonus message particle
     // if (document.getElementById("particle-layer")) {
@@ -126,6 +125,8 @@ function deactivateSonBonus() {
   window.isPowerupGoldenActive = false;
 
   rocksPerClick = Math.ceil(rocksPerClick - bonusRocksPerClick);
+  document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
+  document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
 
   //remove gold glow when bonus ends
   const rockImage = document.querySelector('.rock-image');
@@ -168,10 +169,3 @@ function getPowerupGoldenSpawnTimeMax() {
 function getPowerupGoldenDuration() {
   return SON.basePowerupDuration + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 1000);
 }
-
-// UPDATE
-setInterval(() => {
-  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
-  document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
-  document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
-}, 500);
