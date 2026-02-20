@@ -110,7 +110,6 @@ function load() {
   document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
   document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
-  document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
 
   const timeWhenPlayerSaved = JSON.parse(localStorage.getItem('timeWhenPlayerSaved'));
   if (timeWhenPlayerSaved !== null) {
@@ -175,7 +174,6 @@ function restart() {
   document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
   document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
-  document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
 }
 
 function clearSave() {
