@@ -17,14 +17,6 @@ window.addEventListener("mousemove", (e) => {
   mouseY = e.clientY;
 });
 
-// UPDATE
-setInterval(() => {
-  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
-  document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
-  document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
-  document.getElementById('stats-powerups-golden-spawnrate').innerHTML = `${Math.floor(min / 1000)}-${Math.floor(max / 1000)}s`;
-}, 500);
-
 // POWER UP OBJECT
 // we call it "SON" because it's Galmi's son that is falling
 const SON = {
@@ -176,3 +168,10 @@ function getPowerupGoldenSpawnTimeMax() {
 function getPowerupGoldenDuration() {
   return SON.basePowerupDuration + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 1000);
 }
+
+// UPDATE
+setInterval(() => {
+  document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
+  document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
+  document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
+}, 500);
