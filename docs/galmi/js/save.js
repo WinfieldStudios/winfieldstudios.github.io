@@ -5,6 +5,7 @@ function save(textPlayed = "SAVED!") {
 
   localStorage.setItem('totalPowerupsGolden', JSON.stringify(totalPowerupsGolden));
   localStorage.setItem('totalClicksEver', JSON.stringify(totalClicksEver));
+  localStorage.setItem('clicksPerSecondRecordedMax', JSON.stringify(clicksPerSecondRecordedMax));
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
   localStorage.setItem('hasExtractedAfterUpgradingPickaxe', JSON.stringify(hasExtractedAfterUpgradingPickaxe));
   localStorage.setItem('darkMode', JSON.stringify(darkMode));
@@ -44,6 +45,9 @@ function load() {
 
   const savedTotalClicksEver = JSON.parse(localStorage.getItem('totalClicksEver'));
   if (savedTotalClicksEver !== null) totalClicksEver = savedTotalClicksEver;
+
+  const savedClicksPerSecondRecordedMax = JSON.parse(localStorage.getItem('clicksPerSecondRecordedMax'));
+  if (savedClicksPerSecondRecordedMax !== null) clicksPerSecondRecordedMax = savedClicksPerSecondRecordedMax;
 
   const savedRocksPerClick = JSON.parse(localStorage.getItem('rocksPerClick'));
   if (savedRocksPerClick !== null) rocksPerClick = savedRocksPerClick; 
@@ -112,6 +116,7 @@ function load() {
   document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
   document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
   document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
+  document.getElementById('stats-cps-max').innerHTML = getClicksPerSecondRecord();
 
   const timeWhenPlayerSaved = JSON.parse(localStorage.getItem('timeWhenPlayerSaved'));
   if (timeWhenPlayerSaved !== null) {
@@ -131,6 +136,7 @@ function restart() {
 
   if (localStorage.getItem('totalPowerupsGolden') !== null) totalPowerupsGolden = TOTAL_POWERUPS_GOLDEN_STARTING_AMOUNT;
   if (localStorage.getItem('totalClicksEver') !== null) totalClicksEver = TOTAL_CLICKS_EVER_STARTING_AMOUNT;
+  if (localStorage.getItem('clicksPerSecondRecordedMax') !== null) clicksPerSecondRecordedMax = CLICKS_PER_SECOND_RECORDED_MAX_STARTING_AMOUNT;
   if (localStorage.getItem('rocksPerClick') !== null) rocksPerClick = ROCKS_PER_CLICK_STARTING_AMOUNT;
   if (localStorage.getItem('hasExtractedAfterUpgradingPickaxe') !== null) hasExtractedAfterUpgradingPickaxe = false;
   
@@ -179,6 +185,7 @@ function restart() {
   document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
   document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
   document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
+  document.getElementById('stats-cps-max').innerHTML = getClicksPerSecondRecord();
   scheduleNextSon();
 }
 

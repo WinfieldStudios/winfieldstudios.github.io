@@ -178,7 +178,7 @@
         <div><br><br><br><br><br></div>
         <div>
           <div class="rock-image-container">
-            <img src="/galmi/img/rocks/1.png" alt="" srcset="" class="rock-image" onclick="clickOnRock(event); fbq('trackCustom', 'Clicked-Rock');" draggable="false">
+            <img src="/galmi/img/rocks/1.png" alt="" srcset="" class="rock-image" onclick="clickOnRock(event); registerClick(); fbq('trackCustom', 'Clicked-Rock');" draggable="false">
           </div>
         </div>
         <div class="purchasables-container-special">
@@ -699,6 +699,7 @@
           <p>~ The Rock, Galmi ~</p>
           <p>Level: <span id="stats-galmi-level">1</span></p>
           <p>Total Clicks: <span class="total-clicks-ever">0</span></p>
+          <p>Highest Clicks-per-Second: <span id="stats-cps-max">0</span></p>
           <br>
           <p>~ Power-Up ~</p>
           <p>Collected: <span id="stats-total-powerups-golden">0</span></p>
@@ -714,7 +715,7 @@
           <p>Chromite Staff: <span id="stats-timestamp-toolt4">0</span></p>
         </div>
         <br>
-        <p>v.0.6.2</p>
+        <p>v.0.6.3</p>
       </div>
     </div>
   </section>

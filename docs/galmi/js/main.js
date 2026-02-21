@@ -1,6 +1,21 @@
+
+// CLICKS PER SECOND TRACKING
+let clicksThisSecond = 0;
+function registerClick() {clicksThisSecond++;}
+function getClicksPerSecondRecord() {return clicksPerSecondRecordedMax <= 23 ? `${clicksPerSecondRecordedMax}` : `Auto`}
+
 // TIME LOOP
 setInterval(() => {
   generateIncome(1);
+
+  if (clicksThisSecond > clicksPerSecondRecordedMax) {
+    clicksPerSecondRecordedMax = clicksThisSecond;
+    
+    document.getElementById('stats-cps-max').innerHTML = getClicksPerSecondRecord();
+  }
+
+  clicksThisSecond = 0;
+
 }, 1000);
 setInterval(() => {
   timeStats[1] = (Date.now() - timeStats[0])
