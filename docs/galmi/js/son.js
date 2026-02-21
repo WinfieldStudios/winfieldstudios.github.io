@@ -146,6 +146,8 @@ function getPowerupRocksPerClickMultiplier() {
       powerupRocksPerClickMultiplier = Math.max(1, totalPowerupsGolden) * 10;
       break;
     case 3:
+      powerupRocksPerClickMultiplier = Math.max(1, totalPowerupsGolden) * 2;
+      break;
     case 2:
       powerupRocksPerClickMultiplier = (2 + totalPowerupsGolden);
       break;
