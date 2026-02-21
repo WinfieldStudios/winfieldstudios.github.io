@@ -121,7 +121,7 @@ function load() {
   const timeWhenPlayerSaved = JSON.parse(localStorage.getItem('timeWhenPlayerSaved'));
   if (timeWhenPlayerSaved !== null) {
     currentTime = Date.now();
-    if (timeWhenPlayerSaved < currentTime - AUTOSAVE_INTERVAL_SECONDS) {
+    if (timeWhenPlayerSaved < currentTime - AUTOSAVE_INTERVAL_MILLISECONDS) {
       generateIncome(currentTime - timeWhenPlayerSaved);
     }
     timeStats[2] += Math.floor(currentTime - timeWhenPlayerSaved);

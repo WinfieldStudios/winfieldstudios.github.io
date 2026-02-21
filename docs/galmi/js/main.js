@@ -43,7 +43,7 @@ function timestamp(milliseconds) {
 setInterval(() => {
   save('AUTO-SAVE...');
 
-}, AUTOSAVE_INTERVAL_SECONDS); // Every 2 minutes
+}, AUTOSAVE_INTERVAL_MILLISECONDS); // Every 2 minutes
 
 // OFFLINE INCOME
 function generateIncome(seconds) {
