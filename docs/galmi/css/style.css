@@ -601,6 +601,7 @@ input[type="radio"]:checked + label {
   color: var(--primary-color);
   padding: 10px;
   transition: opacity 1s ease-out;  /* Add transition here */
+  z-index: 20000;
 }
 
 .stats-dot:hover + .stats-content {
