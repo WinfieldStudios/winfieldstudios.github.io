@@ -20,8 +20,6 @@ window.addEventListener("mousemove", (e) => {
 // POWER UP OBJECT
 // we call it "SON" because it's Galmi's son that is falling
 const SON = {
-  // Power Bonus
-  baseClickMultiplier: 10,
 
   // spawn the power up every...
   baseTimeUntilSpawnsMin: 60000, // 60 to
@@ -142,10 +140,10 @@ function getPowerupRocksPerClickMultiplier() {
   switch (upgradeGalmi.level) {
     case 6:
     case 5:
-      powerupRocksPerClickMultiplier = SON.baseClickMultiplier * totalPowerupsGolden * 100;
+      powerupRocksPerClickMultiplier = Math.max(1, totalPowerupsGolden) * 100;
       break;
     case 4:
-      powerupRocksPerClickMultiplier = SON.baseClickMultiplier * totalPowerupsGolden;
+      powerupRocksPerClickMultiplier = Math.max(1, totalPowerupsGolden) * 10;
       break;
     case 3:
     case 2:
