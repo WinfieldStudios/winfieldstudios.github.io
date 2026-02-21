@@ -31,7 +31,7 @@ function rockTalk() {
     if (isGalmiTalking) return;
     const galmiTalkMessage = document.createElement("div");
     galmiTalkMessage.textContent = getVoiceline();
-    galmiTalkMessage.style.cssText = `color: var(--primary-color); position: fixed; top: 35%; left: 52.25%; transform: translateX(-50%); font-size: 20px; font-family: "Pixelated"; pointer-events: none;`;
+    galmiTalkMessage.style.cssText = `color: var(--primary-color); position: fixed; top: ${upgradeGalmi.level < TOTAL_ROCK_IMAGES ? 35 : 15}%; left: 52.25%; transform: translateX(-50%); font-size: 20px; font-family: "Pixelated"; pointer-events: none;`;
     document.getElementById("particle-layer").appendChild(galmiTalkMessage);
     isGalmiTalking = true;
     galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, 4500);
