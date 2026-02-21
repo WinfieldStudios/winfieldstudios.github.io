@@ -7,7 +7,8 @@ let isGalmiTalking = false;
 
 // CLICKING THE ROCK
 function clickOnRock(event) {
-  rocks.count += rocksPerClick;
+  const clickAmount = window.isPowerupGoldenActive ? (rocksPerClick * getPowerupRocksPerClickMultiplier()) : rocksPerClick;
+  rocks.count += clickAmount;
   totalClicksEver++;
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
 
@@ -17,7 +18,7 @@ function clickOnRock(event) {
   const y = event.offsetY - (50 + Math.floor(Math.random() * 30) + 1);
 
   const div = document.createElement('div');
-  div.innerHTML = `+${formatNumber(Math.round(rocksPerClick))}`;
+  div.innerHTML = `+${formatNumber(Math.round(clickAmount))}`;
   div.style.cssText = `color: ${window.isPowerupGoldenActive ? "#FFD24A" : "var(--primary-color)"}; text-shadow: ${window.isPowerupGoldenActive ? "0 0 12px rgba(255,200,80,1)" : "none"}; position: absolute; top: ${y}px; left: ${x}px; font-size: ${window.isPowerupGoldenActive ? (window.matchMedia("(min-aspect-ratio: 21/9)").matches ? 42 : 24) : (window.matchMedia("(min-aspect-ratio: 21/9)").matches ? 30 : 15)}px; font-weight: ${window.isPowerupGoldenActive ? "bold" : "lighter"}; font-family: "Pixelated"; pointer-events: none;`;
 
   rockImageContainer.appendChild(div);

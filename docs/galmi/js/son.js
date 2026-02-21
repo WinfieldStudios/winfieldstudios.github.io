@@ -91,10 +91,10 @@ function activateSonBonus() {
   if (!window.isPowerupGoldenActive) {
     window.isPowerupGoldenActive = true;
 
-    // Apply bonus
-    originalRocksPerClick = rocksPerClick;
-    rocksPerClick *= getPowerupRocksPerClickMultiplier();
-    bonusRocksPerClick = rocksPerClick - originalRocksPerClick;
+    // Apply bonus (REMOVED AND ADDED TO ROCK.JS)
+    // originalRocksPerClick = rocksPerClick;
+    // rocksPerClick *= getPowerupRocksPerClickMultiplier();
+    // bonusRocksPerClick = rocksPerClick - originalRocksPerClick;
 
     // make Galmi glow gold while bonus is active
     const rockImage = document.querySelector('.rock-image');
@@ -124,7 +124,7 @@ function deactivateSonBonus() {
   if (!window.isPowerupGoldenActive) return;
   window.isPowerupGoldenActive = false;
 
-  rocksPerClick = Math.ceil(rocksPerClick - bonusRocksPerClick);
+  // (REMOVED) rocksPerClick = Math.ceil(rocksPerClick - bonusRocksPerClick);
   document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
   document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);
 
@@ -169,3 +169,17 @@ function getPowerupGoldenSpawnTimeMax() {
 function getPowerupGoldenDuration() {
   return SON.basePowerupDuration + ((upgradeGalmi.level + totalPowerupsGolden - 1) * 1000);
 }
+
+// function force() {
+//   console.log("Wife is in labor..");
+//   clearTimeout(powerupGoldenSpawnTimeout);
+//   clearTimeout(powerupGoldenDespawnTimeout);
+
+//   if (powerupGoldenDocumentElement) {
+//     console.log("Aborting the child..");
+//     powerupGoldenDocumentElement.remove();
+//     powerupGoldenDocumentElement = null;
+//   }
+
+//   spawnSon();
+// }
