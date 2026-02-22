@@ -101,7 +101,7 @@ function load() {
   if (timeWhenPlayerSaved !== null) {
     currentTime = Date.now();
     if (timeWhenPlayerSaved < currentTime - AUTOSAVE_INTERVAL_MILLISECONDS) {
-      generateIncome(currentTime - timeWhenPlayerSaved);
+      generateIncome(Math.ceil((currentTime - timeWhenPlayerSaved) / 1000));
     }
     timeStats[2] += Math.floor(currentTime - timeWhenPlayerSaved);
     document.getElementById('stats-total-seconds-offline').innerHTML = timestamp(timeStats[2]);
