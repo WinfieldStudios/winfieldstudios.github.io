@@ -84,6 +84,7 @@ function spawnSon() {
   powerupGoldenDocumentElement.addEventListener("click", (event) => {
     despawnSon();
     activateSonBonus();
+    playClick();
   });
 
   document.body.appendChild(powerupGoldenDocumentElement);

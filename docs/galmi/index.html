@@ -19,6 +19,7 @@
   <script src="/galmi/js/save.js" defer></script>
   <script src="/galmi/js/main.js" defer></script>
   <script src="/galmi/js/son.js" defer></script>
+  <script src="/galmi/js/audio.js" defer></script>
 
   <!-- Meta Pixel Code -->
   <script src="/js/meta-pixel.js"></script>
@@ -151,7 +152,7 @@
       <div class="middle">
         
         <!--GALMI UPGRADE-->
-        <div class="upgrade-galmi-button purchasable hidden" onclick="purchaseUpgradeGalmi(); fbq('trackCustom', 'Clicked-Upgrade-Galmi');">
+        <div class="upgrade-galmi-button purchasable hidden" onclick="purchaseUpgradeGalmi(); playBuy(); fbq('trackCustom', 'Clicked-Upgrade-Galmi');">
           <div class="left-section">
             <img src="/galmi/img/icons/rock_upgrade.png" alt="" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -178,14 +179,14 @@
         <div><br><br><br><br><br></div>
         <div>
           <div class="rock-image-container">
-            <img src="/galmi/img/rocks/1.png" alt="" srcset="" class="rock-image" onclick="clickOnRock(event); registerClick(); fbq('trackCustom', 'Clicked-Rock');" draggable="false">
+            <img src="/galmi/img/rocks/1.png" alt="" srcset="" class="rock-image" onclick="clickOnRock(event); playClick(); registerClick(); fbq('trackCustom', 'Clicked-Rock');" draggable="false">
           </div>
         </div>
         <div class="purchasables-container-special">
           <div>
 
             <!-- PICKAXE UPGRADE-->
-            <div class="upgrade-pickaxe-button purchasable hidden" onclick="purchaseUpgradePickaxe(); fbq('trackCustom', 'Clicked-Upgrade-Pickaxe');">
+            <div class="upgrade-pickaxe-button purchasable hidden" onclick="purchaseUpgradePickaxe(); playBuy(); fbq('trackCustom', 'Clicked-Upgrade-Pickaxe');">
               <div class="left-section">
                 <img src="/galmi/img/icons/pickaxe.png" alt="" srcset="" class="purchasable-icon" id="purchasable-icon-pickaxe" draggable="false">
               </div>
@@ -240,7 +241,7 @@
             </div>
 
             <!--HOUSING--> 
-            <div class="housing-button purchasable hidden" onclick="purchaseHousing()">
+            <div class="housing-button purchasable hidden" onclick="purchaseHousing(); playBuy();">
               <div class="left-section">
                 <img src="/galmi/img/icons/housing.png" alt="" srcset="" class="purchasable-icon" draggable="false">
               </div>
@@ -273,7 +274,7 @@
           </div>
           <div>
             <!--HIRE--> 
-            <div class="hire-button purchasable hidden" onclick="purchaseHire()">
+            <div class="hire-button purchasable hidden" onclick="purchaseHire(); playBuy();">
               <div class="left-section">
                 <img src="/galmi/img/icons/worker.png" alt="" srcset="" class="purchasable-icon" draggable="false">
               </div>
@@ -303,7 +304,7 @@
             </div>
 
             <!--UPGRADE WORKER (PROMOTE)--> 
-            <div class="upgrade-worker-button purchasable hidden" onclick="purchaseUpgradeWorker()">
+            <div class="upgrade-worker-button purchasable hidden" onclick="purchaseUpgradeWorker(); playBuy();">
               <div class="left-section">
                 <img src="/galmi/img/icons/promote.png" alt="" srcset="" class="purchasable-icon" draggable="false">
               </div>
@@ -338,7 +339,7 @@
       <div class="right">
 
         <!--EXTRACT--> 
-        <div class="extract-button purchasable hidden" onclick="purchaseExtract(); fbq('trackCustom', 'Clicked-Extract');">
+        <div class="extract-button purchasable hidden" onclick="purchaseExtract(); playBuy(); fbq('trackCustom', 'Clicked-Extract');">
           <div class="left-section">
             <img src="/galmi/img/icons/extract.png" alt="" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -377,7 +378,7 @@
         <div><br></div>
 
         <!--SMELT--> 
-        <div class="smelt-button purchasable hidden" onclick="purchaseSmelt()">
+        <div class="smelt-button purchasable hidden" onclick="purchaseSmelt(); playBuy();">
           <div class="left-section">
             <img src="/galmi/img/icons/smelt.png" alt="" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -409,7 +410,7 @@
         </div>
 
         <!--BLAST--> 
-        <div class="blast-button purchasable hidden" onclick="purchaseBlast()">
+        <div class="blast-button purchasable hidden" onclick="purchaseBlast(); playBuy();">
           <div class="left-section">
             <img src="/galmi/img/icons/blast.png" alt="" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -441,7 +442,7 @@
         <div><br></div>
 
         <!--REDUCE--> 
-        <div class="reduce-button purchasable hidden" onclick="purchaseReduce()">
+        <div class="reduce-button purchasable hidden" onclick="purchaseReduce(); playBuy();">
           <div class="left-section">
             <img src="/galmi/img/icons/reduce.png" alt="" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -473,7 +474,7 @@
         </div>
 
         <!--REFINE--> 
-        <div class="refine-button purchasable hidden" onclick="purchaseRefine()">
+        <div class="refine-button purchasable hidden" onclick="purchaseRefine(); playBuy();">
           <div class="left-section">
             <img src="/galmi/img/icons/refine.png" alt="" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -505,7 +506,7 @@
         <div><br></div>
 
         <!--MIX--> 
-        <div class="mix-button purchasable hidden" onclick="purchaseMix()">
+        <div class="mix-button purchasable hidden" onclick="purchaseMix(); playBuy();">
           <div class="left-section">
             <img src="/galmi/img/icons/mix.png" alt="" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -537,7 +538,7 @@
         </div>
         
         <!--PRODUCE--> 
-        <div class="produce-button purchasable hidden" onclick="purchaseProduce()">
+        <div class="produce-button purchasable hidden" onclick="purchaseProduce(); playBuy();">
           <div class="left-section">
             <img src="/galmi/img/icons/produce.png" alt="" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -573,62 +574,65 @@
     
     <div class="gpm-selector">
       <input type="radio" name="global-purchase-multiplier" id="option1">
-        <label for="option1" onclick="setGlobalPurchaseMultiplier(1)" class="gpm-label-hidden">
+        <label for="option1" onclick="setGlobalPurchaseMultiplier(1); playClick();" class="gpm-label-hidden">
           x1
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option10">
-        <label for="option10" onclick="setGlobalPurchaseMultiplier(10)" class="gpm-label-hidden">
+        <label for="option10" onclick="setGlobalPurchaseMultiplier(10); playClick();" class="gpm-label-hidden">
           x10
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option100">
-        <label for="option100" onclick="setGlobalPurchaseMultiplier(100)" class="gpm-label-hidden">
+        <label for="option100" onclick="setGlobalPurchaseMultiplier(100); playClick();" class="gpm-label-hidden">
           x100
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000">
-        <label for="option1000" onclick="setGlobalPurchaseMultiplier(1000)" class="gpm-label-hidden">
+        <label for="option1000" onclick="setGlobalPurchaseMultiplier(1000); playClick();" class="gpm-label-hidden">
           x1K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option10000">
-        <label for="option10000" onclick="setGlobalPurchaseMultiplier(10000)" class="gpm-label-hidden">
+        <label for="option10000" onclick="setGlobalPurchaseMultiplier(10000); playClick();" class="gpm-label-hidden">
           x10K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option100000">
-        <label for="option100000" onclick="setGlobalPurchaseMultiplier(100000)" class="gpm-label-hidden">
+        <label for="option100000" onclick="setGlobalPurchaseMultiplier(100000); playClick();" class="gpm-label-hidden">
           x100K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000">
-        <label for="option1000000" onclick="setGlobalPurchaseMultiplier(1000000)" class="gpm-label-hidden">
+        <label for="option1000000" onclick="setGlobalPurchaseMultiplier(1000000); playClick();" class="gpm-label-hidden">
           x1M
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000">
-        <label for="option1000000000" onclick="setGlobalPurchaseMultiplier(1000000000)" class="gpm-label-hidden">
+        <label for="option1000000000" onclick="setGlobalPurchaseMultiplier(1000000000); playClick();" class="gpm-label-hidden">
           x1B
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000000">
-        <label for="option1000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000)" class="gpm-label-hidden">
+        <label for="option1000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000); playClick();" class="gpm-label-hidden">
           x1T
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000000000">
-        <label for="option1000000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000000)" class="gpm-label-hidden">
+        <label for="option1000000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000000); playClick();" class="gpm-label-hidden">
           x1Q
         </label>
     </div>
     <div class="game-buttons">
-      <button class="game-button" onclick="save('SAVED!')">
+      <button class="game-button" onclick="save('SAVED!'); playClick();">
         <img src="/galmi/img/icons/floppy_disk.png" alt="" class="save-icon" draggable="false">
       </button>
     </div>
     <div class="util-buttons">
-      <button class="util-button scientific-notation-toggle-display removed" onclick="toggleScientificNotation()">
+      <button class="util-button scientific-notation-toggle-display removed" onclick="toggleScientificNotation(); playClick();">
         <span id="scientific-notation-toggle">ABBREVIATED</span>
       </button>
-      <button class="util-button" onclick="toggleDarkMode()">
+      <button class="util-button" id="util-button-mute-toggle" onclick="switchVolume();">
+        MUTE
+      </button>
+      <button class="util-button" onclick="toggleDarkMode(); playClick();">
         <span id="dark-mode-toggle">DARK</span> MODE
       </button>
-      <button class="util-button" id="util-button-load" onclick="clickLoad()">
+      <button class="util-button" id="util-button-load" onclick="clickLoad(); playClick();">
         LOAD SAVE
       </button>
-      <button class="util-button" id="util-button-restart" onclick="clickRestart()">
+      <button class="util-button" id="util-button-restart" onclick="clickRestart(); playClick();">
         RESTART
       </button>
     </div>
@@ -714,9 +718,12 @@
           <p>FINAL FORM: <span id="stats-timestamp-grow5">0</span></p>
         </div>
         <br>
-        <p>v.0.8.8</p>
+        <p>v.0.8.9</p>
       </div>
     </div>
   </section>
+  <audio id="sfxClick" src="/galmi/audio/click.wav" preload="auto"></audio>
+  <audio id="sfxBuy"   src="/galmi/audio/buy.wav" preload="auto"></audio>
+  <audio id="music"    src="/galmi/audio/music.wav" preload="auto" loop></audio>
 </body>
 </html>
