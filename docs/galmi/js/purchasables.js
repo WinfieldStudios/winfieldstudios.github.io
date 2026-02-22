@@ -25,6 +25,7 @@ const purchasables = {
   upgradeGalmi: {
     name: 'upgrade-galmi',
     level: PURCHASABLES_STARTING_LEVEL,
+    clicked: PURCHASABLES_STARTING_CLICKED,
     costs: {
       rocks: {
         name: "rocks",

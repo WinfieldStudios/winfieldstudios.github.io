@@ -126,6 +126,8 @@ function restart() {
   for (const purchasable of Object.values(purchasables)) {
     if (localStorage.getItem(`${purchasable.name}Level`) !== null) {
       purchasable.level = PURCHASABLES_STARTING_LEVEL;
+    }
+    if (localStorage.getItem(`${purchasable.name}Clicked`) !== null) {
       purchasable.clicked = PURCHASABLES_STARTING_CLICKED;
     }
   }
