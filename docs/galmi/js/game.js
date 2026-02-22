@@ -397,7 +397,7 @@ function updateUpgradePickaxe() {
       pickaxeIcon.src = pickaxeIcons[0];
     }
   } else if (upgradePickaxe.level <= UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_3) {
-    upgradePickaxe.costs.limestone.amount = 100 + Math.floor(upgradePickaxe.level / UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_2 / 2) * 200 * Math.ceil(Math.log2(((upgradePickaxe.level - UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_2))));
+    upgradePickaxe.costs.limestone.amount = 100 + Math.floor(upgradePickaxe.level / (UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_2 / 2)) * 200 * Math.ceil(Math.log2(((upgradePickaxe.level - UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_2))));
     upgradePickaxe.costs.steel.amount = (upgradePickaxe.level - UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_2) * 4;
     limestoneDisplay.classList.remove("removed");
     steelDisplay.classList.remove("removed");
