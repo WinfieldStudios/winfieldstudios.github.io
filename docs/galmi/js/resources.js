@@ -18,6 +18,7 @@ const resources = {
       this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
       
       document.querySelector('.scientific-notation-toggle-display').classList.add("removed");
+      document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = formatNumberWithCommas(getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1));
       
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
