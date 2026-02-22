@@ -560,10 +560,12 @@ function purchaseMix() {
 function purchaseProduce() {
   if (
     chromiumore.count >= produce.costs.chromiumore.amount * globalPurchaseMultiplier &&
-    aluminum.count >= produce.costs.aluminum.amount * globalPurchaseMultiplier
+    aluminum.count >= produce.costs.aluminum.amount * globalPurchaseMultiplier &&
+    ferrochrome.count >= produce.costs.ferrochrome.amount * globalPurchaseMultiplier
   ) {
     chromiumore.count -= produce.costs.chromiumore.amount * globalPurchaseMultiplier;
     aluminum.count -= produce.costs.aluminum.amount * globalPurchaseMultiplier;
+    ferrochrome.count -= produce.costs.aluminum.amount * globalPurchaseMultiplier;
 
     if (canRockTalk == true) rockTalk();
 
