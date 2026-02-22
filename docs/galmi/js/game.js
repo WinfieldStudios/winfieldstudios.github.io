@@ -293,18 +293,11 @@ function purchaseUpgradePickaxe() {
 
     upgradePickaxe.level += 1;
 
-    if (upgradePickaxe.level <= 11) {
-      rocksPerClick++;
-    } else if (upgradePickaxe.level <= 21) {
-      rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
-    } else if (upgradePickaxe.level <= 51) {
-      rocksPerClick += Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
-    } else {
-      if (timeStats[8] == 0) {
-        timeStats[8] = Date.now() - timeStats[0];
-        document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
-      }
-      rocksPerClick += Math.floor(rocks.gross * 0.0001);
+    rocksPerClick += getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level);
+
+    if (upgradePickaxe.level > 51 && timeStats[8] == 0) {
+      timeStats[8] = Date.now() - timeStats[0];
+      document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
     }
     updateUpgradePickaxe();
 
@@ -319,7 +312,20 @@ function purchaseUpgradePickaxe() {
     }
       */
     checkPurchasables();
+    document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1);
   }
+}
+
+function getUpgradePickaxeRocksPerClickIncrease(pickaxeLevel) {
+    if (pickaxeLevel <= 11) {
+      return 1;
+    } else if (pickaxeLevel <= 21) {
+      return Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
+    } else if (pickaxeLevel <= 51) {
+      return Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2))) * Math.max(2, Math.floor(Math.log2(rocks.gross + 2)));
+    } else {
+      return Math.floor(rocks.gross * 0.0001);
+    }
 }
 
 function updateUpgradePickaxe() {
