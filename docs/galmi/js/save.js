@@ -177,6 +177,7 @@ function updateUI() {
   document.getElementById('stats-timestamp-grow2').innerHTML = timestamp(timeStats[4])
   document.getElementById('stats-timestamp-grow3').innerHTML = timestamp(timeStats[5])
   document.getElementById('stats-timestamp-grow4').innerHTML = timestamp(timeStats[6])
+  document.getElementById('stats-timestamp-grow5').innerHTML = timestamp(timeStats[7])
   document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
   document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
   document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;

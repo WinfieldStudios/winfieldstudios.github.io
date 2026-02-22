@@ -23,7 +23,8 @@ const preloadImages = [
   '/galmi/img/rocks/2.png',
   '/galmi/img/rocks/3.png',
   '/galmi/img/rocks/4.png',
-  '/galmi/img/rocks/5.png'
+  '/galmi/img/rocks/5.png',
+  '/galmi/img/rocks/6.png'
 ]
 
 preloadImages.forEach(src => {

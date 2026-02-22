@@ -670,5 +670,5 @@ input[type="radio"]:checked + label {
     drop-shadow(0 0 14px var(--golden))
     drop-shadow(0 0 35px var(--golden-shadow))
     drop-shadow(0 0 70px var(--golden-shadow-dark));
-  transition: filter 0.25s ease-in-out;
+    transition: filter 0.25s ease-in-out;
 }

@@ -24,7 +24,7 @@ const resources = {
         extract.button.classList.remove("hidden");
         upgradeGalmi.button.classList.remove("removed");
 
-        if (upgradeGalmi.level === 5) upgradeGalmi.button.classList.add("removed");
+        if (upgradeGalmi.level === TOTAL_ROCK_IMAGES) upgradeGalmi.button.classList.add("removed");
         if (hasExtractedAfterUpgradingPickaxe) upgradeGalmi.button.classList.remove("hidden");
 
         if (this.gross > 9999999999) document.querySelector('.scientific-notation-toggle-display').classList.remove("removed");

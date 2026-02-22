@@ -131,6 +131,8 @@ function purchaseUpgradeGalmi() {
   if (rocks.count >= upgradeGalmi.costs.rocks.amount) {
     rocks.count -= upgradeGalmi.costs.rocks.amount;
 
+    upgradeGalmi.button.classList.remove("removed");
+    document.getElementById("upgrade-galmi-tooltip-header").innerHTML = "Unlock a New Base-Resource: ";
     switch (upgradeGalmi.level) {
       case 1:
         ironore.count += 1;
@@ -162,11 +164,18 @@ function purchaseUpgradeGalmi() {
       case 4:
         aluminum.count += 1;
         gainResourceParticle(aluminum, 1);
+        nextBaseResourceIcon.src = "";
         timeStats[6] = Date.now() - timeStats[0];
         document.getElementById('stats-timestamp-grow4').innerHTML = timestamp(timeStats[6])
-        upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
+        document.getElementById("upgrade-galmi-tooltip-header").innerHTML = "BIG BOI INCOMING!!!!!";
+        upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL6_COST_ROCKS;
         upgradeGalmi.level += 1;
         break;
+      case 5:
+        timeStats[7] = Date.now() - timeStats[0];
+        document.getElementById('stats-timestamp-grow5').innerHTML = timestamp(timeStats[7]) 
+        upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
+        upgradeGalmi.level += 1; 
       default:
         upgradeGalmi.button.classList.add("removed");
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL;
@@ -195,11 +204,29 @@ function updateUpgradeGalmi() {
   nextBaseResourceIcon = document.querySelector('.next-base-resource');
 
   upgradeGalmi.button.classList.remove("removed");
+  document.getElementById("upgrade-galmi-tooltip-header").innerHTML = "Unlock a New Base-Resource: ";
   switch (upgradeGalmi.level) {
-    case 1: upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_BASE_COST_ROCKS; nextBaseResourceIcon.src = "/galmi/img/icons/iron_ore.png"; break;
-    case 2: upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL3_COST_ROCKS; nextBaseResourceIcon.src = "/galmi/img/icons/obsidian.png"; break;
-    case 3: upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL4_COST_ROCKS; nextBaseResourceIcon.src = "/galmi/img/icons/chromiumore.png"; break;
-    case 4: upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL5_COST_ROCKS; nextBaseResourceIcon.src = "/galmi/img/icons/aluminum.png"; break;
+    case 1: 
+      upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_BASE_COST_ROCKS; 
+      nextBaseResourceIcon.src = "/galmi/img/icons/iron_ore.png"; 
+      break;
+    case 2: 
+      upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL3_COST_ROCKS; 
+      nextBaseResourceIcon.src = "/galmi/img/icons/obsidian.png"; 
+      break;
+    case 3: 
+      upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL4_COST_ROCKS; 
+      nextBaseResourceIcon.src = "/galmi/img/icons/chromiumore.png"; 
+      break;
+    case 4: 
+      upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL5_COST_ROCKS; 
+      nextBaseResourceIcon.src = "/galmi/img/icons/aluminum.png"; 
+      break;
+    case 5: 
+      upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL6_COST_ROCKS; 
+      nextBaseResourceIcon.src = ""; 
+      document.getElementById("upgrade-galmi-tooltip-header").innerHTML = "BIG BOI INCOMING!!!!!";
+      break;
     default: 
       upgradeGalmi.button.classList.add("removed");
       upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL

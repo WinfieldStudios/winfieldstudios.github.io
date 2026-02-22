@@ -29,9 +29,12 @@ function rockTalk() {
   // Bonus message particle
   if (document.getElementById("particle-layer")) {
     if (isGalmiTalking) return;
+    let spacefromTop = 35;
+    if (upgradeGalmi.level >= TOTAL_ROCK_IMAGES) spacefromTop = 15;
+    else if (upgradeGalmi.level === 5) spacefromTop = 30;
     const galmiTalkMessage = document.createElement("div");
     galmiTalkMessage.textContent = getVoiceline();
-    galmiTalkMessage.style.cssText = `color: var(--primary-color); position: fixed; top: ${upgradeGalmi.level < TOTAL_ROCK_IMAGES ? 35 : 15}%; left: 52.25%; transform: translateX(-50%); font-size: 20px; font-family: "Pixelated"; pointer-events: none;`;
+    galmiTalkMessage.style.cssText = `color: var(--primary-color); position: fixed; top: ${spacefromTop}%; left: 52.25%; transform: translateX(-50%); font-size: 20px; font-family: "Pixelated"; pointer-events: none;`;
     document.getElementById("particle-layer").appendChild(galmiTalkMessage);
     isGalmiTalking = true;
     galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, 4500);
@@ -211,37 +214,43 @@ function getVoiceline() {
       break;
 
 
-    // case 5: // rock hard dude (stern / intense)
-    //   voicelines = [
-    //     "Focus. Don't waste clicks.",
-    //     "I don't need luck. I need discipline.",
-    //     "You hesitate. That's why you lose.",
-    //     "Keep your hands steady. Keep your mind sharper.",
-    //     "Do it again. Faster.",
-    //     "Stop celebrating. We're not done.",
-    //     "Every click is a choice. Choose better.",
-    //     "You want progress? Earn it.",
-    //     "You think this is hard? Good.",
-    //     "We don't quit when it's boring.",
-    //     "You're stronger than your excuses.",
-    //     "That upgrade wasn't clean. But it'll do.",
-    //     "Stay sharp. Stay moving.",
-    //     "Don't look away. Keep clicking.",
-    //     "Control the pace. Control the fight.",
-    //     "I've been a pebble. I remember.",
-    //     "We're not here to feel good. We're here to win.",
-    //     "You can rest when the numbers stop climbing.",
-    //     "I don't want easy. I want better.",
-    //     "Good. Now prove it wasn't luck.",
-    //     "Your will is showing. Don't let it slip.",
-    //     "You're improving. Don't get cocky.",
-    //     "We harden under pressure.",
-    //     "You have potential. Stop wasting it.",
-    //     "Again."
-    //   ];
-    //   break;
+    case 5: // rock hard dude (stern / intense)
+      voicelines = [
+        // For Sure
+        "I DON'T NEED ANY CALMING TEA!",
+        "Stone Cold.",
+        "I can't feel my legs...",
 
-    case 5: // giga chad gym bro (supportive hype)
+        // unsure
+        "Focus. Don't waste clicks.",
+        "I don't need luck. I need discipline.",
+        "You hesitate. That's why you lose.",
+        "Keep your hands steady. Keep your mind sharper.",
+        "Do it again. Faster.",
+        "Stop celebrating. We're not done.",
+        "Every click is a choice. Choose better.",
+        "You want progress? Earn it.",
+        "You think this is hard? Good.",
+        "We don't quit when it's boring.",
+        "You're stronger than your excuses.",
+        "That upgrade wasn't clean. But it'll do.",
+        "Stay sharp. Stay moving.",
+        "Don't look away. Keep clicking.",
+        "Control the pace. Control the fight.",
+        "I've been a pebble. I remember.",
+        "We're not here to feel good. We're here to win.",
+        "You can rest when the numbers stop climbing.",
+        "I don't want easy. I want better.",
+        "Good. Now prove it wasn't luck.",
+        "Your will is showing. Don't let it slip.",
+        "You're improving. Don't get cocky.",
+        "We harden under pressure.",
+        "You have potential. Stop wasting it.",
+        "Again."
+      ];
+      break;
+
+    case 6: // giga chad gym bro (supportive hype)
       voicelines = [
 
         // For Sure:
