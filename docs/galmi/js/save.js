@@ -39,6 +39,7 @@ function save(textPlayed = "SAVED!") {
 
 function load() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
+  deactivateSonBonus();
 
   const savedTotalPowerupsGolden = JSON.parse(localStorage.getItem('totalPowerupsGolden'));
   if (savedTotalPowerupsGolden !== null) totalPowerupsGolden = savedTotalPowerupsGolden;
