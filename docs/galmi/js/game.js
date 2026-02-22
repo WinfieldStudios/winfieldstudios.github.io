@@ -409,8 +409,8 @@ function updateUpgradePickaxe() {
     stainlesssteelDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[2];
   } else {
-    upgradePickaxe.costs.stainlesssteel.amount = 10000;
-    upgradePickaxe.costs.chromium.amount = Math.pow(10, Math.max(0, upgradePickaxe.level - (UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4 + 1)));
+    upgradePickaxe.costs.stainlesssteel.amount = Math.pow(10, Math.max(4, upgradePickaxe.level - (UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4 + 1)));
+    upgradePickaxe.costs.chromium.amount = Math.pow(10, Math.max(2, upgradePickaxe.level - (UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4 + 1)));
     stainlesssteelDisplay.classList.remove("removed");
     chromiumDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[3];
