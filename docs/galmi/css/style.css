@@ -29,6 +29,8 @@
   --golden:#FFD24A;
   --golden-shadow:rgba(255, 200, 80, 0.9);
   --golden-shadow-dark:rgba(255, 150, 0, 0.7);
+  --alert-primary:#EEF1F4;
+  --alert-secondary:#861d1d;
 }
 :root[data-theme="light"] {
   --primary-color: #2A2A2E;
@@ -47,6 +49,8 @@
   --golden:#10ffeb;
   --golden-shadow:rgba(12, 170, 157, 0.9);
   --golden-shadow-dark:rgba(11, 102, 97, 0.7);
+  --alert-primary:#EEF1F4;
+  --alert-secondary:#be1818;
 }
 
 /* Dark theme scenic background - muted night/dusk feel */
@@ -519,6 +523,10 @@ input[type="radio"]:checked + label {
   color: var(--secondary-color);
   background-color: var(--primary-color);
   transform: scale(1.02);
+}
+.util-button.confirm-armed {
+  color: var(--alert-primary) !important;
+  background-color: var(--alert-secondary) !important;
 }
 
 .tooltip {

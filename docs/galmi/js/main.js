@@ -294,3 +294,37 @@ function checkMultiplierTiers() {
     document.querySelector('label[for="option1000000000000000"]').classList.add("gpm-label-hidden");
   }
 }
+
+function makeDoubleConfirmHandler(buttonId, actionFn) {
+  const btn = document.getElementById(buttonId);
+  if (!btn) return () => actionFn();
+
+  let armed = false;
+  let timer = null;
+  let text = btn.innerHTML;
+
+  function reset() {
+    armed = false;
+    if (timer) clearTimeout(timer);
+    timer = null;
+    btn.classList.remove('confirm-armed'); // CSS goes back to normal automatically
+    btn.innerHTML = text;
+  }
+
+  return function () {
+    if (!armed) {
+      armed = true;
+      btn.classList.add('confirm-armed');
+      btn.innerHTML = text + "?";
+
+      timer = setTimeout(reset, 1000);
+      return;
+    }
+
+    reset();
+    actionFn();
+  };
+}
+
+const clickLoad = makeDoubleConfirmHandler('util-button-load', load);
+const clickRestart = makeDoubleConfirmHandler('util-button-restart', restart);
