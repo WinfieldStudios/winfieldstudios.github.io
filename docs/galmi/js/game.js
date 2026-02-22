@@ -360,7 +360,6 @@ function purchaseUpgradePickaxe() {
     }
       */
     checkPurchasables();
-    document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = formatNumberWithCommas(getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1));
   }
 }
 
@@ -409,14 +408,15 @@ function updateUpgradePickaxe() {
     stainlesssteelDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[2];
   } else {
-    upgradePickaxe.costs.stainlesssteel.amount = Math.pow(10, Math.max(4, upgradePickaxe.level - (UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4 + 1)));
-    upgradePickaxe.costs.chromium.amount = Math.pow(10, Math.max(2, upgradePickaxe.level - (UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4 + 1)));
+    upgradePickaxe.costs.stainlesssteel.amount = Math.pow(10, Math.max(4, Math.floor((upgradePickaxe.level - (UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4 + 1)) / 2)));
+    upgradePickaxe.costs.chromium.amount = Math.pow(10, Math.max(1, upgradePickaxe.level - UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4));
     stainlesssteelDisplay.classList.remove("removed");
     chromiumDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[3];
   }
 
   document.querySelector('.purchased-total-pickaxe').innerHTML = formatNumber(upgradePickaxe.level - 1);
+  document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = formatNumberWithCommas(getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1));
   /*
   if (upgradePickaxe.level > 1) {
     blast.button.classList.remove("hidden");
