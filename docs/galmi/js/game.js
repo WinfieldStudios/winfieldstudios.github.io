@@ -76,6 +76,21 @@ function purchaseExtract() {
           else aluminumToAdd += 1;
           break;
       }
+    } else if (globalPurchaseMultiplier === 10){
+      switch (upgradeGalmi.level) {
+        case 5:
+          aluminumToAdd += (Math.random() * globalPurchaseMultiplier) < (globalPurchaseMultiplier * 1e-8) ? 1 : 0;
+        case 4:
+          chromiumoreToAdd += (Math.random() * globalPurchaseMultiplier) < (globalPurchaseMultiplier * 0.00001) ? 1 : 0;
+        case 3:
+          obsidianToAdd += (Math.random() * globalPurchaseMultiplier) < (globalPurchaseMultiplier * 0.01) ? 1 : 0;
+        case 2:
+          ironoreToAdd += 1;
+        default:
+          limestoneToAdd += 5;
+          coalToAdd += 5;
+      }
+      
     } else {
       switch (upgradeGalmi.level) {
         case 5:
