@@ -634,7 +634,7 @@ input[type="radio"]:checked + label {
   position: fixed;
   top: -60px;
   width: fixed;
-  height: 40px;
+  height: 64px;
   z-index: 9998;
   cursor: pointer;
   user-select: none;
@@ -642,20 +642,21 @@ input[type="radio"]:checked + label {
   pointer-events: auto;
   filter: drop-shadow(0 0 14px rgba(255, 200, 80, 0.95));
 
-  /* NEW: slow fall */
-  animation: son-fall 30s linear forwards, son-drift 1s ease-in-out infinite alternate;
+  /* slow fall */
+  animation: son-fall 30s linear forwards, son-drift 2s ease-in-out infinite alternate, son-sway 2s ease-in-out infinite alternate;
 }
-
 @keyframes son-fall {
-  from { transform: translateY(-20vh) scale(1); opacity: 1; }
-  to   { transform: translateY(120vh) scale(1); opacity: 1; }
+  from { top: -20vh; opacity: 1; }
+  to   { top: 120vh; opacity: 1; }
 }
-
 @keyframes son-drift {
   from { margin-left: 0px; }
-  to   { margin-left: 12px; }
+  to   { margin-left: 40px; }
 }
-
+@keyframes son-sway {
+  0%   { transform: rotate( 15deg); }
+  100% { transform: rotate(-15deg); }
+}
 .rock-image.son-active {
   filter:
     brightness(1.18)

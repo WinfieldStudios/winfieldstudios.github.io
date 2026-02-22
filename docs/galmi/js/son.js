@@ -52,11 +52,30 @@ function spawnSon() {
 
   powerupGoldenDocumentElement = document.createElement("img");
   powerupGoldenDocumentElement.id = "son";
-  const rockImage = document.querySelector('.rock-image');
-  powerupGoldenDocumentElement.src = rockImage ? rockImage.src : SON.imgSrc;
+
+  let sonSrc = "/galmi/img/rocks/son/1.png";
+
+  switch (upgradeGalmi.level) {
+    case 6:
+    case 5:
+      sonSrc = "/galmi/img/rocks/son/3.png";
+      break;
+    case 4:
+      sonSrc = "/galmi/img/rocks/son/2.png";
+      break;
+    default:
+      sonSrc = "/galmi/img/rocks/son/1.png";
+      break;
+  }
+  powerupGoldenDocumentElement.src = sonSrc;
 
   powerupGoldenDocumentElement.alt = "Son";
   powerupGoldenDocumentElement.draggable = false;
+
+  powerupGoldenDocumentElement.onerror = () => {
+    despawnSon();
+    scheduleNextSon();
+  };
 
   const pad = 60;
   const x = randInt(pad, Math.max(pad, window.innerWidth - pad - 56));
