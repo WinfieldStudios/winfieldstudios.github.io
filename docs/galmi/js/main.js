@@ -2,7 +2,7 @@
 // CLICKS PER SECOND TRACKING
 let clicksThisSecond = 0;
 function registerClick() {clicksThisSecond++;}
-function getClicksPerSecondRecord() {return clicksPerSecondRecordedMax <= 23 ? `${clicksPerSecondRecordedMax}` : `Auto`}
+function getClicksPerSecondRecord() {return clicksPerSecondRecordedMax <= 23 ? `${clicksPerSecondRecordedMax}` : `${clicksPerSecondRecordedMax} [Auto]`}
 
 // TIME LOOP
 setInterval(() => {
