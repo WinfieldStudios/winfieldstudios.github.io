@@ -77,7 +77,7 @@ const resources = {
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
-        this.gross += value - this.count; 
+        this.gross += value - this.count;
       }
       this.currentCount = value;
       this.countSource.innerHTML = formatNumberWithCommas(value);
@@ -85,7 +85,8 @@ const resources = {
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
-        smelt.button.classList.remove("hidden");
+        if (this.gross >= 4) smelt.button.classList.remove("hidden");
+        else smelt.button.classList.add("hidden");
       } else {
         this.displayContainer.classList.add("hidden");
         smelt.button.classList.add("hidden");

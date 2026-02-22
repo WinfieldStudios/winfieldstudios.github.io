@@ -47,11 +47,11 @@ function rockTalk() {
 }
 
 function getVoiceline() {
-  let voicelines = ["..."];
+  let voicelines = [""];
 
   switch (upgradeGalmi.level) {
     case 1:
-      voicelines = ["..."];
+      voicelines = [""];
       break;
     case 2:
       voicelines = [

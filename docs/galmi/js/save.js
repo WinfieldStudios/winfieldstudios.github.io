@@ -19,10 +19,8 @@ function save(textPlayed = "SAVED!") {
   }
 
   for (const purchasable of Object.values(purchasables)) {
-    const key = `${purchasable.name}Level`;
-    localStorage.setItem(key, JSON.stringify(purchasable.level));
-    const key2 = `${purchasable.name}Clicked`;
-    localStorage.setItem(key2, JSON.stringify(purchasable.clicked));
+    localStorage.setItem(`${purchasable.name}Level`, JSON.stringify(purchasable.level));
+    localStorage.setItem(`${purchasable.name}Clicked`, JSON.stringify(purchasable.clicked));
   }
 
   for (const resource of Object.values(resources)) {
@@ -93,9 +91,7 @@ function load() {
     if (savedGross !== null) resource.gross = savedGross;
 
     const savedCount = JSON.parse(localStorage.getItem(`${resource.name}Count`));
-    if (savedCount !== null) {
-      resource.count = savedCount;
-    }
+    if (savedCount !== null) resource.count = savedCount;
   }
 
   updateUI();
