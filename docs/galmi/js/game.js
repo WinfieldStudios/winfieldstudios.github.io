@@ -403,7 +403,7 @@ function updateUpgradePickaxe() {
     steelDisplay.classList.remove("removed");
     pickaxeIcon.src = pickaxeIcons[1];
   } else if (upgradePickaxe.level <= UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4) {
-    upgradePickaxe.costs.obsidian.amount = ((upgradePickaxe.level - UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_3 + 1) * 100) + 200;
+    upgradePickaxe.costs.obsidian.amount = ((upgradePickaxe.level - (UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_3 + 1)) * 100) + 200;
     upgradePickaxe.costs.stainlesssteel.amount = Math.ceil(Math.pow((upgradePickaxe.level - UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_3), 1.8));
     obsidianDisplay.classList.remove("removed");
     stainlesssteelDisplay.classList.remove("removed");
