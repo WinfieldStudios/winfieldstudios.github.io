@@ -151,7 +151,7 @@ function updateUI() {
   updateUpgradeGalmi();
   updateUpgradePickaxe();
   checkPurchasables();
-  document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1);
+  document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = formatNumberWithCommas(getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1));
   document.querySelector('.purchased-total-extract').innerHTML = extract.level - 1;
   document.getElementById('purchased-clicked-extract').innerHTML = formatNumber(extract.clicked);
   document.querySelector('.purchased-total-blast').innerHTML = blast.level - 1;

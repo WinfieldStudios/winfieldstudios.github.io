@@ -312,7 +312,7 @@ function purchaseUpgradePickaxe() {
     }
       */
     checkPurchasables();
-    document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1);
+    document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = formatNumberWithCommas(getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1));
   }
 }
 
