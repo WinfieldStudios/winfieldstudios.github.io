@@ -316,7 +316,7 @@ function makeDoubleConfirmHandler(buttonId, actionFn) {
     if (!armed) {
       armed = true;
       btn.classList.add('confirm-armed');
-      btn.innerHTML = text + "?";
+      btn.innerHTML = "YOU SURE?";
 
       timer = setTimeout(reset, 1000);
       return;
