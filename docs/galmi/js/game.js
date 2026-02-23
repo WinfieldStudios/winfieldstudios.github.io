@@ -79,6 +79,7 @@ function purchaseExtract() {
     } else if (globalPurchaseMultiplier === 10){
       let availableValueToGain = 10;
       switch (upgradeGalmi.level) {
+        case 6:
         case 5:
           aluminumToAdd += (Math.random() * 10) < 1e-7 ? 1 : 0;
           availableValueToGain -= aluminumToAdd;
@@ -99,6 +100,7 @@ function purchaseExtract() {
       
     } else {
       switch (upgradeGalmi.level) {
+        case 6:
         case 5:
           aluminumToAdd += Math.max(0, Math.floor((globalPurchaseMultiplier * 1e-9) + Math.floor(Math.random() * (globalPurchaseMultiplier * 1e-9) - (globalPurchaseMultiplier * 1e-9 / 2))));
           aluminumToAdd += (Math.random() * globalPurchaseMultiplier) < (globalPurchaseMultiplier * 1e-8) ? 1 : 0;

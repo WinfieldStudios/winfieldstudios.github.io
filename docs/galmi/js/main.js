@@ -69,6 +69,7 @@ function generateIncome(seconds) {
     coalToAdd = 0;
 
     switch (upgradeGalmi.level) {
+      case 6:
       case 5:
         aluminumToAdd += Math.max(0, Math.floor((baseResourcesPerSecond * 0.000000001 + 0.5) + Math.floor(Math.random() * (baseResourcesPerSecond * 0.0000000005) - (baseResourcesPerSecond * 0.0000000005 / 2))));
       case 4:
