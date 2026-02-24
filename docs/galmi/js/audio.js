@@ -115,10 +115,10 @@ function setVolumeMusic(v) {
 function setVolumeSfx(v) {
     sfxVolume = v;
     sfxClickGalmi.volume = switchVolumeSfxIndex == 0 ? 0 : v;
-    sfxClickUI.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxClickUI.volume = switchVolumeSfxIndex == 0 ? 0 : v / 2;
     sfxClickGalmiSuper.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxClickPurchasable.volume = switchVolumeSfxIndex == 0 ? 0 : v;
-    sfxClickSave.volume = switchVolumeSfxIndex == 0 ? 0 : v / 2;
+    sfxClickSave.volume = switchVolumeSfxIndex == 0 ? 0 : v;
 }
 
 function switchVolumeMusic() {
