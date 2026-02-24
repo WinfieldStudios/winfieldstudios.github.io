@@ -305,12 +305,13 @@ img {
   transform: translateY(1px) scale(1);
 }
 .galmi-voiceline {
-  position: fixed;
+  text-align: center;
   color: var(--primary-color); 
   font-size: 1vw;
   font-family: "Pixelated";
   pointer-events: none;
   left: 45%;
+  white-space: nowrap;
 }
 
 .purchasables-container-special {
