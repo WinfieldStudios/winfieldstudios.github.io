@@ -102,6 +102,7 @@ const resources = {
     countSource: document.querySelector('.ironore-count'),
     displayContainer: document.querySelector('.ironore-resource-display'),
     statsGross: document.getElementById('gross-ironore'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-ore'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -111,8 +112,14 @@ const resources = {
       this.countSource.innerHTML = formatNumberWithCommas(value);
       this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
-      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
-      else this.displayContainer.classList.add("hidden");
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
+      }
+      else {
+        this.displayContainer.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
+      }
     }
   },
 
@@ -123,6 +130,7 @@ const resources = {
     countSource: document.querySelector('.pigiron-count'),
     displayContainer: document.querySelector('.pigiron-resource-display'),
     statsGross: document.getElementById('gross-pigiron'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-iron'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -136,10 +144,12 @@ const resources = {
         this.displayContainer.classList.remove("hidden");
         hire.button.classList.remove("hidden");
         blast.button.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
       } else {
         this.displayContainer.classList.add("hidden");
         hire.button.classList.add("hidden");
         blast.button.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
       }
     }
   },
@@ -151,6 +161,7 @@ const resources = {
     countSource: document.querySelector('.steel-count'),
     displayContainer: document.querySelector('.steel-resource-display'),
     statsGross: document.getElementById('gross-steel'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-steel'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -163,9 +174,11 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
         upgradeWorker.button.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
       } else {
         this.displayContainer.classList.add("hidden");
         upgradeWorker.button.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
       }
     }
   },
@@ -177,6 +190,7 @@ const resources = {
     countSource: document.querySelector('.obsidian-count'),
     displayContainer: document.querySelector('.obsidian-resource-display'),
     statsGross: document.getElementById('gross-obsidian'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-obsidian'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -188,8 +202,10 @@ const resources = {
 
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
       } else {
         this.displayContainer.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
       }
     }
   },
@@ -201,6 +217,7 @@ const resources = {
     countSource: document.querySelector('.chromiumore-count'),
     displayContainer: document.querySelector('.chromiumore-resource-display'),
     statsGross: document.getElementById('gross-chromiumore'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-chromite'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -213,9 +230,11 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
         reduce.button.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
       } else {
         this.displayContainer.classList.add("hidden");
         reduce.button.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
       }
     }
   },
@@ -227,6 +246,7 @@ const resources = {
     countSource: document.querySelector('.ferrochrome-count'),
     displayContainer: document.querySelector('.ferrochrome-resource-display'),
     statsGross: document.getElementById('gross-ferrochrome'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-ferrochrome'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -239,9 +259,11 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
         refine.button.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
       } else {
         this.displayContainer.classList.add("hidden");
         refine.button.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
       }
     }
   },
@@ -253,6 +275,7 @@ const resources = {
     countSource: document.querySelector('.stainlesssteel-count'),
     displayContainer: document.querySelector('.stainlesssteel-resource-display'),
     statsGross: document.getElementById('gross-stainlesssteel'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-stainlesssteel'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -262,8 +285,14 @@ const resources = {
       this.countSource.innerHTML = formatNumberWithCommas(value);
       this.statsGross.innerHTML = formatNumberWithCommas(this.gross);
 
-      if (this.gross > 0) this.displayContainer.classList.remove("hidden");
-      else this.displayContainer.classList.add("hidden");
+      if (this.gross > 0) {
+        this.displayContainer.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
+      }
+      else {
+        this.displayContainer.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
+      }
     }
   },
 
@@ -274,6 +303,7 @@ const resources = {
     countSource: document.querySelector('.aluminum-count'),
     displayContainer: document.querySelector('.aluminum-resource-display'),
     statsGross: document.getElementById('gross-aluminum'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-aluminum'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -287,11 +317,13 @@ const resources = {
         this.displayContainer.classList.remove("hidden");
         produce.button.classList.remove("hidden");
         mix.button.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
       } else {
         this.displayContainer.classList.add("hidden");
         produce.button.classList.add("hidden");
         mix.button.classList.add("hidden");
         housing.button.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
       }
     }
   },
@@ -303,6 +335,7 @@ const resources = {
     countSource: document.querySelector('.concrete-count'),
     displayContainer: document.querySelector('.concrete-resource-display'),
     statsGross: document.getElementById('gross-concrete'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-concrete'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.count) {
@@ -315,8 +348,11 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
         housing.button.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
+        this.statsGrossDisplay.classList.remove("removed");
       } else {
         this.displayContainer.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
       }
     }
   },
@@ -328,6 +364,7 @@ const resources = {
     countSource: document.querySelector('.chromium-count'),
     displayContainer: document.querySelector('.chromium-resource-display'),
     statsGross: document.getElementById('gross-chromium'),
+    statsGrossDisplay: document.getElementById('stats-resource-gross-chromium'),
     get count() { return this.currentCount; },
     set count(value) {
       if (value > this.currentCount) {
@@ -340,8 +377,12 @@ const resources = {
       if (this.gross > 0) {
         this.displayContainer.classList.remove("hidden");
         housing.button.classList.remove("hidden");
+        this.statsGrossDisplay.classList.remove("removed");
       }
-      else this.displayContainer.classList.add("hidden");
+      else {
+        this.displayContainer.classList.add("hidden");
+        this.statsGrossDisplay.classList.add("removed");
+      }
     }
   }
 };
