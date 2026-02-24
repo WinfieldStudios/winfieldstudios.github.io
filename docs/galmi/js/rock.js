@@ -32,12 +32,10 @@ function rockTalk() {
     let spacefromTop = 35;
     if (upgradeGalmi.level >= TOTAL_ROCK_IMAGES) spacefromTop = 15;
     else if (upgradeGalmi.level === 5) spacefromTop = 30;
-    const galmiTalkMessage = document.createElement("div");
-    galmiTalkMessage.textContent = getVoiceline();
-    galmiTalkMessage.style.cssText = `color: var(--primary-color); position: fixed; top: ${spacefromTop}%; left: 52.25%; transform: translateX(-50%); font-size: 20px; font-family: "Pixelated"; pointer-events: none;`;
-    document.getElementById("particle-layer").appendChild(galmiTalkMessage);
+    const galmiTalkMessage = document.getElementById("galmi-voiceline");
+    galmiTalkMessage.innerHTML = getVoiceline();
     isGalmiTalking = true;
-    galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, GALMI_VOICELINE_DISPLAY_DURATION_MILLISECONDS);
+    galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.innerHTML = ""; isGalmiTalking = false;}, GALMI_VOICELINE_DISPLAY_DURATION_MILLISECONDS);
   }
 
   // Reset the cooldown + (re)start the 15s unlock timer
@@ -270,7 +268,7 @@ function getVoiceline() {
         "Spent the whole summer trappin' out the sedan.",
         "I was born in Terraria.",
         "Malph just R Flashed.",
-        "Tiny's my cousin.",
+        "My cousin's name is Tiny.",
         "Thank Rock I'm not a cookie.",
         "Oh my Rock.",
         "Bears. Beets. Battle Rock Galactica.",

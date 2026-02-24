@@ -304,6 +304,14 @@ img {
   opacity: 0.95;
   transform: translateY(1px) scale(1);
 }
+.galmi-voiceline {
+  position: fixed;
+  color: var(--primary-color); 
+  font-size: 1vw;
+  font-family: "Pixelated";
+  pointer-events: none;
+  left: 45%;
+}
 
 .purchasables-container-special {
   display: flex;
