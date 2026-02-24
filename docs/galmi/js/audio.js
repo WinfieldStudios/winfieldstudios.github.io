@@ -9,9 +9,8 @@ music.muted = true;
 const playClickPooled = makePool("/galmi/audio/click.wav", 8, 0.6);
 const playBuyPooled   = makePool("/galmi/audio/buy.wav",   4, 0.7);
 
-let muted = true;
-let sfxVolume = 0.2;
-let musicVolume = 0.02;
+let sfxVolume = 0;
+let musicVolume = 0;
 let soundStarted = false;
 let switchVolumeIndex = 0;
 
@@ -79,6 +78,8 @@ function setMuted(on) {
 
 function setSfxVolume(v) {
     sfxVolume = v;
+    sfxClick.volume = v;
+    sfxBuy.volume = v;
 }
 
 function setMusicVolume(v) {
@@ -88,19 +89,33 @@ function setMusicVolume(v) {
 
 function switchVolume() {
     switch (switchVolumeIndex) {
-        case 0:
+        case 3:
+            setMuted(true);
+            document.getElementById('util-button-mute-toggle').innerHTML = "MUTED";
+            switchVolumeIndex = 0;
+            break;
+        case 2:
+            setMusicVolume(0.2);
+            setSfxVolume(1);
+            document.getElementById('util-button-mute-toggle').innerHTML = "LOUD";
+            switchVolumeIndex = 3;
+            break;
+        case 1:
+            setMusicVolume(0.08);
+            setSfxVolume(0.5);
+            document.getElementById('util-button-mute-toggle').innerHTML = "NORMAL";
+            switchVolumeIndex = 2;
+            break;
+        default:
             setMuted(false);
+            setMusicVolume(0.02);
+            setSfxVolume(0.2);
             document.getElementById('util-button-mute-toggle').innerHTML = "QUIET";
             if (!soundStarted) {
                 music.volume = musicVolume;
                 music.play().catch(() => {});
             }
             switchVolumeIndex = 1;
-            break;
-        default:
-            setMuted(true);
-            document.getElementById('util-button-mute-toggle').innerHTML = "MUTED";
-            switchVolumeIndex = 0;
             break;
     }
 }
