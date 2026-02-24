@@ -37,7 +37,7 @@ function rockTalk() {
     galmiTalkMessage.style.cssText = `color: var(--primary-color); position: fixed; top: ${spacefromTop}%; left: 52.25%; transform: translateX(-50%); font-size: 20px; font-family: "Pixelated"; pointer-events: none;`;
     document.getElementById("particle-layer").appendChild(galmiTalkMessage);
     isGalmiTalking = true;
-    galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, 4500);
+    galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, 10000);
   }
 
   // Reset the cooldown + (re)start the 15s unlock timer
@@ -46,7 +46,7 @@ function rockTalk() {
   if (canRockTalkTimeout) clearTimeout(canRockTalkTimeout);
   canRockTalkTimeout = setTimeout(() => {
     canRockTalk = true;
-  }, 10000);
+  }, 60000);
 }
 
 function getVoiceline() {
@@ -58,6 +58,14 @@ function getVoiceline() {
       break;
     case 2:
       voicelines = [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
         "...",
         "....",
         ".....",
@@ -85,6 +93,9 @@ function getVoiceline() {
       voicelines = [
 
         // For Sure
+        "",
+        "",
+        "",
         "...",
         "..!",
         "....",
@@ -92,19 +103,33 @@ function getVoiceline() {
         ".....!",
         "?.....",
         "!.....",
-        ". . .",
         ".......",
         "....!",
         "........",
         "........?",
         ".........!",
-        ". . . . .",
         "..........",
         "...!....!",
         "....!....",
         "..?.........?",
         ".!...!.....!",
-        ". . . . . . .",
+        "...",
+        "..!",
+        "....",
+        ".....?",
+        ".....!",
+        "?.....",
+        "!.....",
+        ".......",
+        "....!",
+        "........",
+        "........?",
+        ".........!",
+        "..........",
+        "...!....!",
+        "....!....",
+        "..?.........?",
+        ".!...!.....!",
         "...",
         "..!",
         "....",
@@ -126,17 +151,21 @@ function getVoiceline() {
         ".!...!.....!",
         ". . . . . . .",
         "(╥﹏╥)",
-        
-        // Unsure
-        "*stone noises*",
-        "*404 mouth not found*",
-        "*confused pebble sounds*",
-        "*shakes violently*",
-        "hm...",
+        "( ꩜ ᯅ ꩜;)",
+        "(╥‸╥)",
+        "(⸝⸝๑﹏๑⸝⸝)",
+        "(｡•́︿•̀｡)",
+        "~ stone noises ~",
+        "~ 404 mouth not found ~",
+        "~ confused pebble sounds ~",
+        "~ shakes violently ~",
+        "hm...?",
         "hmm....",
         "hMMM....!",
-        "u— ...",
         "asdf...",
+        
+        // Unsure
+        "u— ...",
         "ngh....",
         "grr....",
         "rrr.....",
@@ -153,6 +182,7 @@ function getVoiceline() {
       voicelines = [
         
         // For Sure:
+        "i can talk?",
         "im a buff baby...",
         "i hungry for minerals :3",
         "67",
@@ -171,24 +201,27 @@ function getVoiceline() {
         "personally, i prefer the ground",
         "im helping!!1!",
         "rawr xD",
-        "hehe derp.",
+        "hehe derp",
         "i can haz clicks?",
-        "LE CLICK.",
+        "LE CLICK",
         "trolololol",
         "click harder senpai",
         "y u stop clickin",
         "rock.exe has stopped working",
+        "keep clickin!",
+        "bravo 6 going rock",
+        "no u",
+        "vro",
+        "deez rocks",
 
         // Unsure:
-        "omg im talkin now o_o",
-        "u mad? im rock.",
+        "u mad? im rock",
         "lolwut",
-        "brb becoming legendary.",
-        "pls click. thx.",
-        "no u.",
-        "IM A ROCK. deal w/ it.",
-        "so wow. much mineral.",
-        "epic win.",
+        "brb becoming legendary",
+        "pls click thx",
+        "IM A ROCK deal w/ it",
+        "so wow much mineral",
+        "epic win",
         "epic fail... jk we gud.",
         "i liek dis.",
         "you jelly?",
@@ -198,13 +231,12 @@ function getVoiceline() {
         "dat click tho",
         "such progress. wow.",
         "i can haz upgrade plz",
-        "don't panic. it's just a rock.",
+        "dont panic im just rock",
         "omnomnom minerals",
         "like a boss.",
         "this is fine.",
         "FIRST. (jk)",
         "keyboard cat would be proud",
-        "okay but srsly keep clickin",
         "ayy lmao",
         "i'm not crying ur crying",
         "i'm baby... but also a unit",
@@ -218,8 +250,19 @@ function getVoiceline() {
       voicelines = [
         // For Sure
         "I DON'T NEED ANY CALMING TEA!",
-        "Stone Cold.",
         "I can't feel my legs...",
+        "She a nice lady and she shakin' her yams.",
+        "Spent the whole summer trappin' out the sedan.",
+        "I was born in Terraria.",
+        "Malph just R Flashed.",
+        "Tiny's my cousin.",
+        "Thank Rock I'm not a cookie.",
+        "Oh my Rock.",
+        "Bears. Beets. Battle Rock Galactica.",
+        "Have you played Rock Souls?",
+        "Don't take me for Granite.",
+        "I've been to too many Rock Bottoms.",
+        "Crack me harder daddy.",
 
         // unsure
         "Focus. Don't waste clicks.",
@@ -246,6 +289,7 @@ function getVoiceline() {
         "You're improving. Don't get cocky.",
         "We harden under pressure.",
         "You have potential. Stop wasting it.",
+        "Stone Cold.",
         "Again."
       ];
       break;
@@ -270,6 +314,7 @@ function getVoiceline() {
         "I'M ROCK SOLID...",
         "DON'T STOP NOW, PLEASE.",
         "CHROMITE? IRON? WHATEVER. WE EAT IT ALL.",
+        "ROCK ON!",
 
         // Unsure:
         "WE'RE ASCENDING, KING.",
