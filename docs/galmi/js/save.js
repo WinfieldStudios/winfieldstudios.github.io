@@ -180,7 +180,8 @@ function updateUI() {
   document.getElementById('stats-timestamp-grow4').innerHTML = timestamp(timeStats[6])
   document.getElementById('stats-timestamp-grow5').innerHTML = timestamp(timeStats[7])
   document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
-  document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
+  document.getElementById('stats-clicking-power').innerHTML = formatNumberWithCommas(rocksPerClick);
+  document.querySelector('.total-clicks-ever').innerHTML = formatNumberWithCommas(totalClicksEver);
   document.getElementById('stats-total-powerups-golden').innerHTML = totalPowerupsGolden;
   document.getElementById('stats-powerups-golden-multiplier').innerHTML = getPowerupRocksPerClickMultiplier();
   document.getElementById('stats-powerups-golden-duration').innerHTML = Math.floor(getPowerupGoldenDuration() / 1000);

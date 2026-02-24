@@ -9,7 +9,7 @@ let isGalmiTalking = false;
 function clickOnRock(event) {
   rocks.count += rocksPerClick;
   totalClicksEver++;
-  document.querySelector('.total-clicks-ever').innerHTML = totalClicksEver;
+  document.querySelector('.total-clicks-ever').innerHTML = formatNumberWithCommas(totalClicksEver);
 
   if (canRockTalk == true) rockTalk();
 
