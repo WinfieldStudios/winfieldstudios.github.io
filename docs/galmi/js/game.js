@@ -419,6 +419,7 @@ function updateUpgradePickaxe() {
 
   document.querySelector('.purchased-total-pickaxe').innerHTML = formatNumber(upgradePickaxe.level - 1);
   document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = formatNumberWithCommas(getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1));
+  document.getElementById('stats-clicking-power').innerHTML = formatNumberWithCommas(rocksPerClick);
   /*
   if (upgradePickaxe.level > 1) {
     blast.button.classList.remove("hidden");
