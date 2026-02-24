@@ -23,6 +23,9 @@ function clickOnRock(event) {
   rockImageContainer.appendChild(div);
   div.classList.add('fade-up');
   timeout(div);
+
+  if (window.isPowerupGoldenActive) playClickGalmiSuper();
+  else playClickGalmi();
 }
 
 function rockTalk() {
