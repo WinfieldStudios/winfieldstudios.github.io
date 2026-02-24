@@ -37,7 +37,7 @@ function rockTalk() {
     galmiTalkMessage.style.cssText = `color: var(--primary-color); position: fixed; top: ${spacefromTop}%; left: 52.25%; transform: translateX(-50%); font-size: 20px; font-family: "Pixelated"; pointer-events: none;`;
     document.getElementById("particle-layer").appendChild(galmiTalkMessage);
     isGalmiTalking = true;
-    galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, 10000);
+    galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.remove(); isGalmiTalking = false;}, GALMI_VOICELINE_DISPLAY_DURATION_MILLISECONDS);
   }
 
   // Reset the cooldown + (re)start the 15s unlock timer
@@ -46,7 +46,7 @@ function rockTalk() {
   if (canRockTalkTimeout) clearTimeout(canRockTalkTimeout);
   canRockTalkTimeout = setTimeout(() => {
     canRockTalk = true;
-  }, 60000);
+  }, GALMI_VOICELINE_DOWNTIME_DURATION_MILLISECONDS);
 }
 
 function getVoiceline() {
@@ -58,14 +58,8 @@ function getVoiceline() {
       break;
     case 2:
       voicelines = [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
+
+        // For Sure
         "...",
         "....",
         ".....",
@@ -78,24 +72,32 @@ function getVoiceline() {
         "....",
         ".....",
         "......",
-        "...",
-        "....",
-        ".....",
-        "......",
-        "...",
-        "....",
-        ".....",
-        "......",
-        "...?"
+        "...?",
+
+        // Unsure
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+
       ];
       break;
     case 3:
       voicelines = [
 
         // For Sure
-        "",
-        "",
-        "",
         "...",
         "..!",
         "....",
@@ -103,28 +105,13 @@ function getVoiceline() {
         ".....!",
         "?.....",
         "!.....",
+        ". . .",
         ".......",
         "....!",
         "........",
         "........?",
         ".........!",
-        "..........",
-        "...!....!",
-        "....!....",
-        "..?.........?",
-        ".!...!.....!",
-        "...",
-        "..!",
-        "....",
-        ".....?",
-        ".....!",
-        "?.....",
-        "!.....",
-        ".......",
-        "....!",
-        "........",
-        "........?",
-        ".........!",
+        ". . . . .",
         "..........",
         "...!....!",
         "....!....",
@@ -155,16 +142,16 @@ function getVoiceline() {
         "(╥‸╥)",
         "(⸝⸝๑﹏๑⸝⸝)",
         "(｡•́︿•̀｡)",
+        "( ͡° ͜ʖ ͡°)",
+        "(⇀‸↼‶)",
         "~ stone noises ~",
         "~ 404 mouth not found ~",
-        "~ confused pebble sounds ~",
         "~ shakes violently ~",
+        "~ eats a rock ~",
         "hm...?",
         "hmm....",
         "hMMM....!",
         "asdf...",
-        
-        // Unsure
         "u— ...",
         "ngh....",
         "grr....",
@@ -173,8 +160,29 @@ function getVoiceline() {
         "c—cl— ...",
         "I— ...",
         "m—mph!...",
-        ".....(pls help)",
-        ".....(i am trying ok)"
+        ".....(plz hlp)",
+        ".....(i tryn ok)",
+        
+        // Unsure
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
       ];
       break;
 
@@ -186,6 +194,8 @@ function getVoiceline() {
         "im a buff baby...",
         "i hungry for minerals :3",
         "67",
+        "69",
+        "21",
         "unirocktualowkenuinely",
         "(˶ᵔ ᵕ ᵔ˶)",
         "(¬_¬\")",
@@ -213,35 +223,40 @@ function getVoiceline() {
         "no u",
         "vro",
         "deez rocks",
+        "i so hungie i could eat boulder",
+        "i eat rocks",
+        "ty 4 growing me",
+        "lets go 2 candy mountain, rocky",
+        "TEEHEE",
+        "shut up",
+        "=3",
+        "i rock",
+        "i used to be in terraria",
+        "who is dat rock w da parachute?",
+        "is chromite green?",
+        "wut is ur highest clicks per second?",
+        "look at ur stats in the bottom left!",
+        "this is fine",
+        "i liek dat.",
+        "lolwut",
+        "i can haz upgrade plz",
+        "i watch bluey sumtimez",
+        "tung tung tung tung tung",
+        "bad biscitz make baker broke bro",
+        "mmmmmmm check plz!!!",
+        "i wish 4 a rockwich!",
 
         // Unsure:
-        "u mad? im rock",
-        "lolwut",
-        "brb becoming legendary",
-        "pls click thx",
-        "IM A ROCK deal w/ it",
-        "so wow much mineral",
         "epic win",
-        "epic fail... jk we gud.",
-        "i liek dis.",
         "you jelly?",
         "2 stronk 4 u.",
-        "i'm smol but fierce >:3",
         "huehuehue",
         "dat click tho",
-        "such progress. wow.",
-        "i can haz upgrade plz",
+        "such progress wow",
         "dont panic im just rock",
         "omnomnom minerals",
-        "like a boss.",
-        "this is fine.",
-        "FIRST. (jk)",
-        "keyboard cat would be proud",
-        "ayy lmao",
-        "i'm not crying ur crying",
-        "i'm baby... but also a unit",
-        "hold up... is this power??",
-        "click click boom"
+        "like a boss",
+        "keyboard cat would be proud"
       ];
       break;
 
@@ -262,35 +277,35 @@ function getVoiceline() {
         "Have you played Rock Souls?",
         "Don't take me for Granite.",
         "I've been to too many Rock Bottoms.",
-        "Crack me harder daddy.",
+        "You know nothing, John Stone",
+        "I'm so hungry, I could eat a mountain.",
+        "I'm stoned.",
+        "That's a lotta goblins...",
+        "You tryna tell me a goblin bought a hellcat?",
+        "I eat rocks for breakfast... without any milk!",
+        "These goblins are graveling in fear.",
+        "They're goblin these rocks.",
+        "You're stuck between me and a hard place.",
+        "My goblin sense is tingling.",
+        "Don't forget to upgrade your tool.",
+        "Mine your own business.",
+        "These rocks are all natural baby.",
+        "I must capture the rockatar to restore my honor.",
+        "The boulder feels conflicted.",
+        "I'll bury you in a rock-a-lanche!",
+        "Hm! Hm! Hm! Hm! Hm!",
+        "You know who else likes rocks? My mom!",
+        "I eat shale.",
+        "When do we get to the deepslate?",
+        "Where are the diamonds?",
+        "You can see your stats in the bottom left vro.",
+        "I'd use all 3 of my wishes for 999Q rocks.",
+        "Everybody dies in their nightmares.",
+        "Lean wit me, Pop wit me, ...if you rock wit me.",
+        "That little guy in the parachute is my son.",
 
         // unsure
-        "Focus. Don't waste clicks.",
-        "I don't need luck. I need discipline.",
-        "You hesitate. That's why you lose.",
-        "Keep your hands steady. Keep your mind sharper.",
-        "Do it again. Faster.",
-        "Stop celebrating. We're not done.",
-        "Every click is a choice. Choose better.",
-        "You want progress? Earn it.",
-        "You think this is hard? Good.",
-        "We don't quit when it's boring.",
-        "You're stronger than your excuses.",
-        "That upgrade wasn't clean. But it'll do.",
-        "Stay sharp. Stay moving.",
-        "Don't look away. Keep clicking.",
-        "Control the pace. Control the fight.",
-        "I've been a pebble. I remember.",
-        "We're not here to feel good. We're here to win.",
-        "You can rest when the numbers stop climbing.",
-        "I don't want easy. I want better.",
-        "Good. Now prove it wasn't luck.",
-        "Your will is showing. Don't let it slip.",
-        "You're improving. Don't get cocky.",
-        "We harden under pressure.",
-        "You have potential. Stop wasting it.",
-        "Stone Cold.",
-        "Again."
+        "Stone cold."
       ];
       break;
 
@@ -308,15 +323,21 @@ function getVoiceline() {
         "BRO I'M PROUD OF YOU. NO JOKE.",
         "THAT UPGRADE? ABSOLUTE UNIT MOVE.",
         "LET'S GO! MINERAL MINDSET.",
-        "BRO... WE'RE CRACKED.",
+        "BRO... YOU'RE CRACKED.",
+        "BRO... WE'RE CRAGGED.",
         "AIN'T NOTHIN' BUT A PEANUT.",
         "AIN'T NUTH' TO IT BUT TO DO IT.",
         "I'M ROCK SOLID...",
         "DON'T STOP NOW, PLEASE.",
-        "CHROMITE? IRON? WHATEVER. WE EAT IT ALL.",
+        "CHROMITE? IRON? ROCKS? I'LL EAT IT ALL.",
         "ROCK ON!",
+        "I TURNED MYSELF INTO A ROCK, MORTY!",
+        "I'M SO HUNGRY; I COULD EAT THE PLANET.",
+        "ROCK AND STONE!",
+        "FOR CARL!",
 
         // Unsure:
+        "I RECOMMEND FRIEREN!",
         "WE'RE ASCENDING, KING.",
         "LOCK IN. BREATHE. CLICK.",
         "ONE MORE CLICK. NOW ANOTHER.",
@@ -336,7 +357,7 @@ function getVoiceline() {
       break;
 
     default:
-      voicelines = ["..."];
+      voicelines = [""];
       break;
   }
 

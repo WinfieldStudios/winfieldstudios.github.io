@@ -206,7 +206,7 @@ body {
 }
 
 img {
-  filter: drop-shadow(0 0 3px #EEF1F4);
+  filter: drop-shadow(0 0 2px #EEF1F4);
 }
 
 .main {
@@ -288,12 +288,17 @@ img {
   opacity: 0.9;
   max-height: 22vw;
   min-width: 44px;
-  filter: drop-shadow(0 0 100px var(--primary-color-faded-more));
+  filter: 
+    drop-shadow(0 0 40px var(--primary-color-faded-more))
+    drop-shadow(0 0 3px #EEF1F4);
 }
 .rock-image:hover {
   opacity: 1;
   transform: translateY(-1px) scale(1.03);
   cursor: pointer;
+  filter: 
+    drop-shadow(0 0 30px var(--primary-color-faded-more))
+    drop-shadow(0 0 3px #EEF1F4);
 }
 .rock-image:active {
   opacity: 0.95;
@@ -599,7 +604,8 @@ input[type="radio"]:checked + label {
   font-size: 18px;
   color: var(--primary-color);
   border: none;
-  opacity: 0.8;
+  text-shadow: 0 0 3px var(--golden);
+  opacity: 1;
 }
 .stats-content {
   position: absolute;
