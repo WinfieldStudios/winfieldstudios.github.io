@@ -9,9 +9,15 @@ const sfxClickSave = document.getElementById("sfxClickSave");
 music.muted = true;
 sfxClickGalmi.muted = true;
 sfxClickUI.muted = true;
+sfxClickGalmiSuper.muted = true;
+sfxClickPurchasable.muted = true;
+sfxClickSave.muted = true;
 
 const playClickGalmiPooled = makePool("/galmi/audio/clickgalmi.wav", 8, 0.6);
 const playClickUIPooled = makePool("/galmi/audio/clickui.wav", 4, 0.7);
+const playClickGalmiSuperPooled = makePool("/galmi/audio/clickgalmisuper.wav", 8, 0.6);
+const playClickPurchasablePooled = makePool("/galmi/audio/clickpurchasable.wav", 4, 0.7);
+const playClickSavePooled = makePool("/galmi/audio/clicksave.wav", 8, 0.6);
 
 let musicVolume = 0;
 let sfxVolume = 0;
@@ -19,7 +25,7 @@ let soundStarted = false;
 let switchVolumeMusicIndex = 0;
 let switchVolumeSfxIndex = 0;
 
-setMutedSfx(false);
+setMutedSfx(true);
 
 document.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("music");
@@ -96,6 +102,9 @@ function setMutedMusic(on) {
 function setMutedSfx(on) {
     sfxClickGalmi.muted = on;
     sfxClickUI.muted = on;
+    sfxClickGalmiSuper.muted = on;
+    sfxClickPurchasable.muted = on;
+    sfxClickSave.muted = on;
 }
 
 function setVolumeMusic(v) {
@@ -107,6 +116,9 @@ function setVolumeSfx(v) {
     sfxVolume = v;
     sfxClickGalmi.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxClickUI.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxClickGalmiSuper.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxClickPurchasable.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxClickSave.volume = switchVolumeSfxIndex == 0 ? 0 : v / 2;
 }
 
 function switchVolumeMusic() {
@@ -142,6 +154,7 @@ function switchVolumeMusic() {
 function switchVolumeSfx() {
     switch (switchVolumeSfxIndex) {
         case 3:
+            setMutedSfx(true);
             document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS";
             switchVolumeSfxIndex = 0;
             setVolumeSfx(0);
@@ -157,6 +170,7 @@ function switchVolumeSfx() {
             setVolumeSfx(0.5);
             break;
         default:
+            setMutedSfx(false);
             document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS /  ";
             switchVolumeSfxIndex = 1;
             setVolumeSfx(0.2);

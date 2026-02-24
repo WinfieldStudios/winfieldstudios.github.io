@@ -319,6 +319,7 @@ function makeDoubleConfirmHandler(buttonId, actionFn) {
       btn.innerHTML = "YOU SURE?";
 
       timer = setTimeout(reset, 1000);
+      playClickUI();
       return;
     }
 

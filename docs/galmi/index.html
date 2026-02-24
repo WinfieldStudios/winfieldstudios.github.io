@@ -308,7 +308,7 @@
             </div>
 
             <!--UPGRADE WORKER (PROMOTE)--> 
-            <div class="upgrade-worker-button purchasable hidden" onclick="purchaseUpgradeWorker(); playClickUI();">
+            <div class="upgrade-worker-button purchasable hidden" onclick="purchaseUpgradeWorker(); playClickPurchasable();">
               <div class="left-section">
                 <img src="/galmi/img/icons/promote.png" alt="Promote Icon" srcset="" class="purchasable-icon" draggable="false">
               </div>
@@ -343,7 +343,7 @@
       <div class="right">
 
         <!--EXTRACT--> 
-        <div class="extract-button purchasable hidden" onclick="purchaseExtract(); playClickUI(); fbq('trackCustom', 'Clicked-Extract');">
+        <div class="extract-button purchasable hidden" onclick="purchaseExtract(); playClickPurchasable(); fbq('trackCustom', 'Clicked-Extract');">
           <div class="left-section">
             <img src="/galmi/img/icons/extract.png" alt="Extract Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -382,7 +382,7 @@
         <div><br></div>
 
         <!--SMELT--> 
-        <div class="smelt-button purchasable hidden" onclick="purchaseSmelt(); playClickUI();">
+        <div class="smelt-button purchasable hidden" onclick="purchaseSmelt(); playClickPurchasable();">
           <div class="left-section">
             <img src="/galmi/img/icons/smelt.png" alt="Smelt Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -414,7 +414,7 @@
         </div>
 
         <!--BLAST--> 
-        <div class="blast-button purchasable hidden" onclick="purchaseBlast(); playClickUI();">
+        <div class="blast-button purchasable hidden" onclick="purchaseBlast(); playClickPurchasable();">
           <div class="left-section">
             <img src="/galmi/img/icons/blast.png" alt="Blast Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -446,7 +446,7 @@
         <div><br></div>
 
         <!--REDUCE--> 
-        <div class="reduce-button purchasable hidden" onclick="purchaseReduce(); playClickUI();">
+        <div class="reduce-button purchasable hidden" onclick="purchaseReduce(); playClickPurchasable();">
           <div class="left-section">
             <img src="/galmi/img/icons/reduce.png" alt="Reduce Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -478,7 +478,7 @@
         </div>
 
         <!--REFINE--> 
-        <div class="refine-button purchasable hidden" onclick="purchaseRefine(); playClickUI();">
+        <div class="refine-button purchasable hidden" onclick="purchaseRefine(); playClickPurchasable();">
           <div class="left-section">
             <img src="/galmi/img/icons/refine.png" alt="Refine Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -510,7 +510,7 @@
         <div><br></div>
 
         <!--MIX--> 
-        <div class="mix-button purchasable hidden" onclick="purchaseMix(); playClickUI();">
+        <div class="mix-button purchasable hidden" onclick="purchaseMix(); playClickPurchasable();">
           <div class="left-section">
             <img src="/galmi/img/icons/mix.png" alt="Mix Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -542,7 +542,7 @@
         </div>
         
         <!--PRODUCE--> 
-        <div class="produce-button purchasable hidden" onclick="purchaseProduce(); playClickUI();">
+        <div class="produce-button purchasable hidden" onclick="purchaseProduce(); playClickPurchasable();">
           <div class="left-section">
             <img src="/galmi/img/icons/produce.png" alt="Produce Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -636,10 +636,10 @@
       <button class="util-button" onclick="toggleDarkMode(); playClickUI();">
         <span id="dark-mode-toggle">DARK</span> MODE
       </button>
-      <button class="util-button" id="util-button-load" onclick="load(); playClickUI();">
+      <button class="util-button" id="util-button-load" onclick="load(); playClickSave();">
         LOAD SAVE
       </button>
-      <button class="util-button" id="util-button-restart" onclick="clickRestart(); playClickUI();">
+      <button class="util-button" id="util-button-restart" onclick="clickRestart();">
         RESTART
       </button>
     </div>
