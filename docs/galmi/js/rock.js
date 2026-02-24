@@ -17,7 +17,7 @@ function clickOnRock(event) {
   const y = event.offsetY - (50 + Math.floor(Math.random() * 30) + 1);
 
   const div = document.createElement('div');
-  div.innerHTML = `+${formatNumber(Math.round(rocksPerClick))}`;
+  div.innerHTML = `+${formatNumberWithCommas(Math.round(rocksPerClick))}`;
   div.style.cssText = `color: ${window.isPowerupGoldenActive ? "var(--golden)" : "var(--primary-color)"}; text-shadow: ${window.isPowerupGoldenActive ? "0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black" : "none"}; position: absolute; top: ${y}px; left: ${x}px; font-size: ${window.isPowerupGoldenActive ? (window.matchMedia("(min-aspect-ratio: 21/9)").matches ? 42 : 24) : (window.matchMedia("(min-aspect-ratio: 21/9)").matches ? 30 : 15)}px; font-weight: ${window.isPowerupGoldenActive ? "bold" : "lighter"}; font-family: "Pixelated"; pointer-events: none;`;
 
   rockImageContainer.appendChild(div);
