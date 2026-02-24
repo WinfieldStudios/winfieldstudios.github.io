@@ -578,65 +578,68 @@
     
     <div class="gpm-selector">
       <input type="radio" name="global-purchase-multiplier" id="option1">
-        <label for="option1" onclick="setGlobalPurchaseMultiplier(1); playClick();" class="gpm-label-hidden">
+        <label for="option1" onclick="setGlobalPurchaseMultiplier(1); playBuy();" class="gpm-label-hidden">
           x1
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option10">
-        <label for="option10" onclick="setGlobalPurchaseMultiplier(10); playClick();" class="gpm-label-hidden">
+        <label for="option10" onclick="setGlobalPurchaseMultiplier(10); playBuy();" class="gpm-label-hidden">
           x10
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option100">
-        <label for="option100" onclick="setGlobalPurchaseMultiplier(100); playClick();" class="gpm-label-hidden">
+        <label for="option100" onclick="setGlobalPurchaseMultiplier(100); playBuy();" class="gpm-label-hidden">
           x100
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000">
-        <label for="option1000" onclick="setGlobalPurchaseMultiplier(1000); playClick();" class="gpm-label-hidden">
+        <label for="option1000" onclick="setGlobalPurchaseMultiplier(1000); playBuy();" class="gpm-label-hidden">
           x1K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option10000">
-        <label for="option10000" onclick="setGlobalPurchaseMultiplier(10000); playClick();" class="gpm-label-hidden">
+        <label for="option10000" onclick="setGlobalPurchaseMultiplier(10000); playBuy();" class="gpm-label-hidden">
           x10K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option100000">
-        <label for="option100000" onclick="setGlobalPurchaseMultiplier(100000); playClick();" class="gpm-label-hidden">
+        <label for="option100000" onclick="setGlobalPurchaseMultiplier(100000); playBuy();" class="gpm-label-hidden">
           x100K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000">
-        <label for="option1000000" onclick="setGlobalPurchaseMultiplier(1000000); playClick();" class="gpm-label-hidden">
+        <label for="option1000000" onclick="setGlobalPurchaseMultiplier(1000000); playBuy();" class="gpm-label-hidden">
           x1M
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000">
-        <label for="option1000000000" onclick="setGlobalPurchaseMultiplier(1000000000); playClick();" class="gpm-label-hidden">
+        <label for="option1000000000" onclick="setGlobalPurchaseMultiplier(1000000000); playBuy();" class="gpm-label-hidden">
           x1B
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000000">
-        <label for="option1000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000); playClick();" class="gpm-label-hidden">
+        <label for="option1000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000); playBuy();" class="gpm-label-hidden">
           x1T
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000000000">
-        <label for="option1000000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000000); playClick();" class="gpm-label-hidden">
+        <label for="option1000000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000000); playBuy();" class="gpm-label-hidden">
           x1Q
         </label>
     </div>
     <div class="game-buttons">
-      <button class="game-button" onclick="save('SAVED!'); playClick();">
+      <button class="game-button" onclick="save('SAVED!'); playBuy();">
         <img src="/galmi/img/icons/floppy_disk.png" alt="Save Icon Button" class="save-icon" draggable="false">
       </button>
     </div>
     <div class="util-buttons">
-      <button class="util-button scientific-notation-toggle-display removed" onclick="toggleScientificNotation(); playClick();">
+      <button class="util-button scientific-notation-toggle-display removed" onclick="toggleScientificNotation(); playBuy();">
         <span id="scientific-notation-toggle">ABBREVIATED</span>
       </button>
-      <!-- <button class="util-button" id="util-button-mute-toggle" onclick="switchVolume();">
-        MUTE
+      <!-- <button class="util-button" id="util-button-sfx-switch" onclick="switchVolumeSfx(); playBuy();">
+        SOUNDS
+      </button>
+      <button class="util-button" id="util-button-music-switch" onclick="switchVolumeMusic();">
+        MUSIC
       </button> -->
-      <button class="util-button" onclick="toggleDarkMode(); playClick();">
+      <button class="util-button" onclick="toggleDarkMode(); playBuy();">
         <span id="dark-mode-toggle">DARK</span> MODE
       </button>
-      <button class="util-button" id="util-button-load" onclick="load(); playClick();">
+      <button class="util-button" id="util-button-load" onclick="load(); playBuy();">
         LOAD SAVE
       </button>
-      <button class="util-button" id="util-button-restart" onclick="clickRestart(); playClick();">
+      <button class="util-button" id="util-button-restart" onclick="clickRestart(); playBuy();">
         RESTART
       </button>
     </div>

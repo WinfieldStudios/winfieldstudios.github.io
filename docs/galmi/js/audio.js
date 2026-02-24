@@ -6,13 +6,16 @@ sfxClick.muted = true;
 sfxBuy.muted = true;
 music.muted = true;
 
+setMutedSfx(false);
+
 const playClickPooled = makePool("/galmi/audio/click.wav", 8, 0.6);
 const playBuyPooled   = makePool("/galmi/audio/buy.wav",   4, 0.7);
 
 let sfxVolume = 0;
 let musicVolume = 0;
 let soundStarted = false;
-let switchVolumeIndex = 0;
+let switchVolumeMusicIndex = 0;
+let switchVolumeSfxIndex = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("music");
@@ -69,53 +72,76 @@ function makePool(src, size = 6, volume = sfxVolume) {
     };
 }
 
-function setMuted(on) {
-    switchVolumeIndex = 0;
+function setMutedMusic(on) {
     music.muted = on;
+}
+function setMutedSfx(on) {
     sfxClick.muted = on;
     sfxBuy.muted = on;
 }
 
-function setSfxVolume(v) {
+function setVolumeSfx(v) {
     sfxVolume = v;
-    sfxClick.volume = v;
-    sfxBuy.volume = v;
+    sfxClick.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxBuy.volume = switchVolumeSfxIndex == 0 ? 0 : v;
 }
 
-function setMusicVolume(v) {
+function setVolumeMusic(v) {
     musicVolume = v;
-    music.volume = switchVolumeIndex == 0 ? 0 : v;
+    music.volume = switchVolumeMusicIndex == 0 ? 0 : v;
 }
 
-function switchVolume() {
-    switch (switchVolumeIndex) {
+function switchVolumeSfx() {
+    switch (switchVolumeSfxIndex) {
         case 3:
-            setMuted(true);
-            document.getElementById('util-button-mute-toggle').innerHTML = "MUTED";
-            switchVolumeIndex = 0;
+            document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS";
+            switchVolumeSfxIndex = 0;
+            setVolumeSfx(0);
             break;
         case 2:
-            setMusicVolume(0.2);
-            setSfxVolume(1);
-            document.getElementById('util-button-mute-toggle').innerHTML = "LOUD";
-            switchVolumeIndex = 3;
+            document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS ///";
+            switchVolumeSfxIndex = 3;
+            setVolumeSfx(1);
             break;
         case 1:
-            setMusicVolume(0.08);
-            setSfxVolume(0.5);
-            document.getElementById('util-button-mute-toggle').innerHTML = "NORMAL";
-            switchVolumeIndex = 2;
+            document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS // ";
+            switchVolumeSfxIndex = 2;
+            setVolumeSfx(0.5);
             break;
         default:
-            setMuted(false);
-            setMusicVolume(0.02);
-            setSfxVolume(0.2);
-            document.getElementById('util-button-mute-toggle').innerHTML = "QUIET";
+            document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS /  ";
+            switchVolumeSfxIndex = 1;
+            setVolumeSfx(0.2);
+            break;
+    }
+}
+
+function switchVolumeMusic() {
+    switch (switchVolumeMusicIndex) {
+        case 3:
+            setMutedMusic(true);
+            document.getElementById('util-button-music-switch').innerHTML = "MUSIC";
+            switchVolumeMusicIndex = 0;
+            break;
+        case 2:
+            document.getElementById('util-button-music-switch').innerHTML = "MUSIC ///";
+            switchVolumeMusicIndex = 3;
+            setVolumeMusic(0.2);
+            break;
+        case 1:
+            document.getElementById('util-button-music-switch').innerHTML = "MUSIC //";
+            switchVolumeMusicIndex = 2;
+            setVolumeMusic(0.08);
+            break;
+        default:
+            setMutedMusic(false);
+            document.getElementById('util-button-music-switch').innerHTML = "MUSIC /";
             if (!soundStarted) {
                 music.volume = musicVolume;
                 music.play().catch(() => {});
             }
-            switchVolumeIndex = 1;
+            switchVolumeMusicIndex = 1;
+            setVolumeMusic(0.02);
             break;
     }
 }
