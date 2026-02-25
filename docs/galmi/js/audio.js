@@ -22,8 +22,6 @@ const playClickSavePooled = makePool("/galmi/audio/clicksave.wav", 8, 0.6);
 let musicVolume = 0;
 let sfxVolume = 0;
 let soundStarted = false;
-let switchVolumeMusicIndex = 0;
-let switchVolumeSfxIndex = 0;
 
 setMutedSfx(true);
 
@@ -48,6 +46,11 @@ function unlockAudioOnce() {
             a.currentTime = 0;
         }).catch(() => {});
     });
+
+    if (switchVolumeMusicIndex !== 0 && !soundStarted) {
+        music.volume = musicVolume;
+        music.play().catch(() => {});
+    }
 }
 
 document.addEventListener("pointerdown", unlockAudioOnce, { once: true });
@@ -149,6 +152,8 @@ function switchVolumeMusic() {
             setVolumeMusic(0.02);
             break;
     }
+
+    localStorage.setItem('switchVolumeMusicIndex', JSON.stringify(switchVolumeMusicIndex));
 }
 
 function switchVolumeSfx() {
@@ -174,6 +179,65 @@ function switchVolumeSfx() {
             document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS /  ";
             switchVolumeSfxIndex = 1;
             setVolumeSfx(0.2);
+            break;
+    }
+    localStorage.setItem('switchVolumeSfxIndex', JSON.stringify(switchVolumeSfxIndex));
+}
+
+function loadVolumes() {
+    switch (switchVolumeMusicIndex) {
+        case 3:
+            setMutedMusic(false);
+            if (!soundStarted) {
+                music.volume = musicVolume;
+                music.play().catch(() => {});
+            }
+            document.getElementById('util-button-music-switch').innerHTML = "MUSIC ///";
+            setVolumeMusic(0.2);
+            break;
+        case 2:
+            setMutedMusic(false);
+            if (!soundStarted) {
+                music.volume = musicVolume;
+                music.play().catch(() => {});
+            }
+            document.getElementById('util-button-music-switch').innerHTML = "MUSIC //";
+            setVolumeMusic(0.08);
+            break;
+        case 1:
+            setMutedMusic(false);
+            if (!soundStarted) {
+                music.volume = musicVolume;
+                music.play().catch(() => {});
+            }
+            document.getElementById('util-button-music-switch').innerHTML = "MUSIC /";
+            setVolumeMusic(0.02);
+            break;
+        default:
+            setMutedMusic(true);
+            document.getElementById('util-button-music-switch').innerHTML = "MUSIC";
+            break;
+    }
+    switch (switchVolumeSfxIndex) {
+        case 3:
+            setMutedSfx(false);
+            document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS ///";
+            setVolumeSfx(1);
+            break;
+        case 2:
+            setMutedSfx(false);
+            document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS // ";
+            setVolumeSfx(0.5);
+            break;
+        case 1:
+            setMutedSfx(false);
+            document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS /  ";
+            setVolumeSfx(0.2);
+            break;
+        default:
+            setMutedSfx(true);
+            document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS";
+            setVolumeSfx(0);
             break;
     }
 }

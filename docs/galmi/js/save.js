@@ -8,6 +8,10 @@ function save(textPlayed = "SAVED!") {
   localStorage.setItem('clicksPerSecondRecordedMax', JSON.stringify(clicksPerSecondRecordedMax));
   localStorage.setItem('rocksPerClick', JSON.stringify(rocksPerClick));
   localStorage.setItem('hasExtractedAfterUpgradingPickaxe', JSON.stringify(hasExtractedAfterUpgradingPickaxe));
+
+  localStorage.setItem('switchVolumeMusicIndex', JSON.stringify(switchVolumeMusicIndex));
+  localStorage.setItem('switchVolumeSfxIndex', JSON.stringify(switchVolumeSfxIndex));
+
   localStorage.setItem('darkMode', JSON.stringify(darkMode));
   localStorage.setItem('showingScientificNotation', JSON.stringify(showingScientificNotation));
 
@@ -55,6 +59,12 @@ function load() {
 
   const savedHasExtractedAfterUpgradingPickaxe = JSON.parse(localStorage.getItem('hasExtractedAfterUpgradingPickaxe'));
   if (savedHasExtractedAfterUpgradingPickaxe !== null) hasExtractedAfterUpgradingPickaxe = savedHasExtractedAfterUpgradingPickaxe;
+
+  const savedSwitchVolumeMusicIndex = JSON.parse(localStorage.getItem('switchVolumeMusicIndex'));
+  if (savedSwitchVolumeMusicIndex !== null) switchVolumeMusicIndex = savedSwitchVolumeMusicIndex;
+  const savedSwitchVolumeSfxIndex = JSON.parse(localStorage.getItem('switchVolumeSfxIndex'));
+  if (savedSwitchVolumeSfxIndex !== null) switchVolumeSfxIndex = savedSwitchVolumeSfxIndex;
+  if (switchVolumeMusicIndex + switchVolumeSfxIndex > 0) loadVolumes();
 
   const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
   if (savedDarkMode !== null) {
