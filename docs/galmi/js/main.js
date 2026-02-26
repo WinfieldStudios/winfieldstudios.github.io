@@ -136,6 +136,9 @@ function generateIncome(seconds) {
 
 // MULTIPLIER
 function setGlobalPurchaseMultiplier(value) {
+  if (globalPurchaseMultiplier != value) {
+    playClickPurchasable();
+  }
   globalPurchaseMultiplier = value;
 
   const display = document.querySelectorAll('.multiplier');
