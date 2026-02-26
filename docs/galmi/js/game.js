@@ -226,7 +226,7 @@ function purchaseUpgradeGalmi() {
     }
     updateExtractTooltip();
 
-    playClickPurchasable();
+    playGrow();
   }
 }
 

@@ -100,6 +100,9 @@ function playGrow() {
 }
 function playTool() {
     if (!audioUnlocked) return;
+    if (sfxTool.currentTime == 0 && sfxTool2.currentTime == 0 && sfxTool3.currentTime == 0) {
+
+    }
     switch(Math.floor(Math.random() * 3) + 1) {
         case 3:
             sfxTool3.currentTime = 0;
@@ -162,12 +165,12 @@ function setVolumeSfx(v) {
     sfxClickGalmi.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxClickUI.volume = switchVolumeSfxIndex == 0 ? 0 : v / 2;
     sfxClickGalmiSuper.volume = switchVolumeSfxIndex == 0 ? 0 : v;
-    sfxClickPurchasable.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxClickPurchasable.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
     sfxClickSave.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxGrow.volume = switchVolumeSfxIndex == 0 ? 0 : v;
-    sfxTool.volume = switchVolumeSfxIndex == 0 ? 0 : v;
-    sfxTool2.volume = switchVolumeSfxIndex == 0 ? 0 : v;
-    sfxTool3.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxTool.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
+    sfxTool2.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
+    sfxTool3.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
 }
 
 function switchVolumeMusic() {
