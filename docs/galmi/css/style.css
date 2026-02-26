@@ -217,6 +217,7 @@ img {
 .resource-icon {
   height: 1vw;
   min-height: 10px;
+  vertical-align: top;
 }
 
 .left {
