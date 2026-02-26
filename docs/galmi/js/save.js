@@ -42,7 +42,7 @@ function save(textPlayed = "SAVED!") {
 }
 
 function load() {
-  setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
+  setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT, true);
   deactivateSonBonus();
 
   const savedTotalPowerupsGolden = JSON.parse(localStorage.getItem('totalPowerupsGolden'));
@@ -120,7 +120,7 @@ function load() {
 }
 
 function restart() {
-  setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT);
+  setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT, true);
   deactivateSonBonus();
   document.getElementById('galmi-voiceline').innerHTML = "";
   playClickSave();

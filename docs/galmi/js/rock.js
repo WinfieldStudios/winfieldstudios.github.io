@@ -29,7 +29,7 @@ function clickOnRock(event) {
 }
 
 //On Grow talk function
-window.growthTalk = function(message="") {
+window.growthTalk = function(message="", powerupIsActive=false) {
   if (!document.getElementById("particle-layer")) return;
 
   const galmiTalkMessage = document.getElementById("galmi-voiceline");
@@ -41,11 +41,23 @@ window.growthTalk = function(message="") {
   }
 
   galmiTalkMessage.innerHTML = message;
-
+  if (powerupIsActive) {
+    galmiTalkMessage.style.cssText = `animation: son-drift 2s ease-in-out infinite alternate, son-sway 2s ease-in-out infinite alternate; color: var(--golden); text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;`;
+  } else {
+    galmiTalkMessage.style.cssText = `animation: none; color: var(--primary-color);`;
+  }
   galmiTalkMessageTimeout = setTimeout(() => {
     galmiTalkMessage.innerHTML = "";
     isGrowTalking = false;
-  }, GALMI_VOICELINE_DISPLAY_DURATION_MILLISECONDS); // length of the message display in milliseconds
+  }, powerupIsActive ? getPowerupGoldenDuration() : GALMI_VOICELINE_DISPLAY_DURATION_MILLISECONDS); // length of the message display in milliseconds
+
+  // Reset the cooldown
+  canRockTalk = false;
+
+  if (canRockTalkTimeout) clearTimeout(canRockTalkTimeout);
+  canRockTalkTimeout = setTimeout(() => {
+    canRockTalk = true;
+  }, GALMI_VOICELINE_DOWNTIME_DURATION_MILLISECONDS);
 }
 
 function rockTalk() {
@@ -58,6 +70,7 @@ function rockTalk() {
     else if (upgradeGalmi.level === 5) spacefromTop = 30;
     const galmiTalkMessage = document.getElementById("galmi-voiceline");
     galmiTalkMessage.innerHTML = getVoiceline();
+    galmiTalkMessage.style.cssText = `animation: none; color: var(--primary-color);`;
     isGalmiTalking = true;
     galmiTalkMessageTimeout = setTimeout(() => {galmiTalkMessage.innerHTML = ""; isGalmiTalking = false;}, GALMI_VOICELINE_DISPLAY_DURATION_MILLISECONDS);
   }

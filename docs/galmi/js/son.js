@@ -111,7 +111,8 @@ function activateSonBonus() {
 
     // Apply bonus
     originalRocksPerClick = rocksPerClick;
-    rocksPerClick *= getPowerupRocksPerClickMultiplier();
+    multiplier = getPowerupRocksPerClickMultiplier();
+    rocksPerClick *= multiplier;
     bonusRocksPerClick = rocksPerClick - originalRocksPerClick;
 
     // make Galmi glow gold while bonus is active
@@ -130,6 +131,7 @@ function activateSonBonus() {
     //   setTimeout(() => msg.remove(), SON.basePowerupDuration);
     // }
   }
+  growthTalk(`x${multiplier}`, true);
 
   powerupGoldenBonusEndTimeout = setTimeout(() => {
     deactivateSonBonus();

@@ -9,7 +9,6 @@ function checkPurchasables() {
     for (const cost of Object.values(purchasable.costs)) {
       const resource = resources[cost.name];
       if (!resource) {
-        console.log("Unknown resource: ", cost.name);
         continue;
       }
       if (purchasable.name === 'upgrade-galmi' || purchasable.name === 'upgrade-pickaxe') {
@@ -186,7 +185,7 @@ function purchaseUpgradeGalmi() {
         document.getElementById('stats-timestamp-grow3').innerHTML = timestamp(timeStats[5])
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL5_COST_ROCKS;
         upgradeGalmi.level += 1;
-        growthTalk("i can talk?")
+        growthTalk("i haz mouth now!")
         break;
       case 4:
         aluminum.count += 1;
@@ -197,14 +196,14 @@ function purchaseUpgradeGalmi() {
         document.getElementById("upgrade-galmi-tooltip-header").innerHTML = "BIG BOI INCOMING!!!!!";
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL6_COST_ROCKS;
         upgradeGalmi.level += 1;
-        growthTalk("OOOOOOOOOOH YEAH I FEEL ROCK HARD!.");
+        growthTalk("I can't feel my legs...");
         break;
       case 5:
         timeStats[7] = Date.now() - timeStats[0];
         document.getElementById('stats-timestamp-grow5').innerHTML = timestamp(timeStats[7]) 
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
         upgradeGalmi.level += 1;
-        growthTalk("HOW ROCK HARD ARE YOU???")
+        growthTalk("...AND I DANCE LIKE A MAN!")
       default:
         upgradeGalmi.button.classList.add("removed");
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL;
@@ -349,11 +348,15 @@ function purchaseUpgradePickaxe() {
 
     if (canRockTalk == true) rockTalk();
 
+    // PLAY SOUND
+    if (upgradePickaxe.level > UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4) playGrow();
+    else playTool();
+
     upgradePickaxe.level += 1;
 
     rocksPerClick += getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level);
 
-    if (upgradePickaxe.level > 51 && timeStats[8] == 0) {
+    if (upgradePickaxe.level > UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4 && timeStats[8] == 0) {
       timeStats[8] = Date.now() - timeStats[0];
       document.getElementById('stats-timestamp-toolt4').innerHTML = timestamp(timeStats[8])
     }
@@ -370,9 +373,6 @@ function purchaseUpgradePickaxe() {
     }
       */
     checkPurchasables();
-
-    // PLAY SOUND
-    playTool();
   }
 }
 
@@ -616,7 +616,6 @@ function purchaseProduce() {
 }
 
 function purchaseUpgradeWorker() {
-  console.log(upgradeWorker.costs);
   if (
     obsidian.count >= upgradeWorker.costs.obsidian.amount * globalPurchaseMultiplier &&
     steel.count >= upgradeWorker.costs.steel.amount * globalPurchaseMultiplier

@@ -100,27 +100,23 @@ function playGrow() {
 }
 function playTool() {
     if (!audioUnlocked) return;
-    if (sfxTool.currentTime == 0 && sfxTool2.currentTime == 0 && sfxTool3.currentTime == 0) {
-
-    }
-    switch(Math.floor(Math.random() * 3) + 1) {
-        case 3:
-            sfxTool3.currentTime = 0;
-            sfxTool3.play().catch(() => {});
-            console.log("switch case ", 3);
-            break;
-        case 2:
-            sfxTool2.currentTime = 0;
-            sfxTool2.play().catch(() => {});
-            console.log("switch case ", 2);
-            break;
-        case 1:
-        default:
-            sfxTool.currentTime = 0;
-            sfxTool.play().catch(() => {});
-            console.log("switch case ", 1);
-            break;
-    } 
+    sfxTool.currentTime = 0;
+    sfxTool.play().catch(() => {});
+    // switch(Math.floor(Math.random() * 3) + 1) {
+    //     case 3:
+    //         sfxTool3.currentTime = 0;
+    //         sfxTool3.play().catch(() => {});
+    //         break;
+    //     case 2:
+    //         sfxTool2.currentTime = 0;
+    //         sfxTool2.play().catch(() => {});
+    //         break;
+    //     case 1:
+    //     default:
+    //         sfxTool.currentTime = 0;
+    //         sfxTool.play().catch(() => {});
+    //         break;
+    // } 
 }
 
 function makePool(src, size = 6, volume = sfxVolume) {
@@ -163,7 +159,7 @@ function setVolumeMusic(v) {
 function setVolumeSfx(v) {
     sfxVolume = v;
     sfxClickGalmi.volume = switchVolumeSfxIndex == 0 ? 0 : v;
-    sfxClickUI.volume = switchVolumeSfxIndex == 0 ? 0 : v / 2;
+    sfxClickUI.volume = switchVolumeSfxIndex == 0 ? 0 : v / 3;
     sfxClickGalmiSuper.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxClickPurchasable.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
     sfxClickSave.volume = switchVolumeSfxIndex == 0 ? 0 : v;
