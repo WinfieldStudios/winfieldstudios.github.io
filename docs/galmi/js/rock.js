@@ -28,6 +28,24 @@ function clickOnRock(event) {
   else playClickGalmi();
 }
 
+//On Grow talk function
+window.growthTalk = function(message) {
+  if (!document.getElementById("particle-layer")) return;
+
+  const galmiTalkMessage = document.getElementById("galmi-voiceline");
+
+  // Cancel out current Galmi Message timeout if it exists, so that the new message can be displayed immediately
+  if (galmiTalkMessageTimeout) {
+    clearTimeout(galmiTalkMessageTimeout);
+  }
+
+  galmiTalkMessage.innerHTML = message;
+
+  galmiTalkMessageTimeout = setTimeout(() => {
+    galmiTalkMessage.innerHTML = "";
+  }, 2500); // length of the message display in milliseconds
+}
+
 function rockTalk() {
   // Bonus message particle
   if (document.getElementById("particle-layer")) {
@@ -98,6 +116,8 @@ function getVoiceline() {
     case 3:
       voicelines = [
 
+        //       Growth Opening One liner  "( ꩜ ᯅ ꩜;)",
+
         // For Sure
         "...",
         "..!",
@@ -139,7 +159,6 @@ function getVoiceline() {
         ".!...!.....!",
         ". . . . . . .",
         "(╥﹏╥)",
-        "( ꩜ ᯅ ꩜;)",
         "(╥‸╥)",
         "(⸝⸝๑﹏๑⸝⸝)",
         "(｡•́︿•̀｡)",
@@ -189,9 +208,8 @@ function getVoiceline() {
 
     case 4: // early 2010s internet speak rock
       voicelines = [
-        
+        // One Liner for Growth         "i can talk?",
         // For Sure:
-        "i can talk?",
         "im a buff baby...",
         "i hungry for minerals :3",
         "67",
@@ -264,13 +282,14 @@ function getVoiceline() {
 
     case 5: // rock hard dude (stern / intense)
       voicelines = [
-        // For Sure
+        // For Sure 
+        // One Liner for Growth         "OOOOOOOOOOH YEAH I FEEL ROCK HARD!.",
         "I DON'T NEED ANY CALMING TEA!",
         "I can't feel my legs...",
         "She a nice lady and she shakin' her yams.",
         "Spent the whole summer trappin' out the sedan.",
         "I was born in Terraria.",
-        "Malph just R Flashed.",
+        "Malph just R Flashed. I feel like I have a 6PEK!",
         "My cousin's name is Tiny.",
         "Thank Rock I'm not a cookie.",
         "Oh my Rock.",
@@ -312,7 +331,7 @@ function getVoiceline() {
 
     case 6: // giga chad gym bro (supportive hype)
       voicelines = [
-
+        // One Liner for Growth         "OOOOOOOOOOH YEAH I FEEL ROCK HARD!."
         // For Sure:
         "...AND I DANCE LIKE A MAN!",
         "YES BRO! THAT'S A CLEAN REP!",
@@ -345,7 +364,7 @@ function getVoiceline() {
         "YOU'RE BUILT DIFFERENT. I CAN TELL.",
         "WE DON'T CHASE MOTIVATION. WE CHASE RESULTS.",
         "YOU'RE NOT TIRED. YOU'RE ADAPTING.",
-        "BIG ENERGY. BIG ROCK.",
+        "BIG FEET. BIG ROCK.",
         "THIS IS WHAT PEAK EVOLUTION LOOKS LIKE.",
         "YOU'RE A MACHINE. BUT WITH A SOUL.",
         "KEEP GOING. FUTURE YOU IS CHEERING.",
