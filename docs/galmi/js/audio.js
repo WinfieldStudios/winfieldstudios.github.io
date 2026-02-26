@@ -5,6 +5,10 @@ const sfxClickGalmiSuper = document.getElementById("sfxClickGalmiSuper");
 const sfxClickUI = document.getElementById("sfxClickUI");
 const sfxClickPurchasable = document.getElementById("sfxClickPurchasable");
 const sfxClickSave = document.getElementById("sfxClickSave");
+const sfxGrow = document.getElementById("sfxGrow");
+const sfxTool = document.getElementById("sfxTool");
+const sfxTool2 = document.getElementById("sfxTool2");
+const sfxTool3 = document.getElementById("sfxTool3");
 
 music.muted = true;
 sfxClickGalmi.muted = true;
@@ -12,12 +16,20 @@ sfxClickUI.muted = true;
 sfxClickGalmiSuper.muted = true;
 sfxClickPurchasable.muted = true;
 sfxClickSave.muted = true;
+sfxGrow.muted = true;
+sfxTool.muted = true;
+sfxTool2.muted = true;
+sfxTool3.muted = true;
 
 const playClickGalmiPooled = makePool("/galmi/audio/clickgalmi.wav", 8, 0.6);
 const playClickUIPooled = makePool("/galmi/audio/clickui.wav", 4, 0.7);
 const playClickGalmiSuperPooled = makePool("/galmi/audio/clickgalmisuper.wav", 8, 0.6);
 const playClickPurchasablePooled = makePool("/galmi/audio/clickpurchasable.wav", 4, 0.7);
 const playClickSavePooled = makePool("/galmi/audio/clicksave.wav", 8, 0.6);
+const playGrowPooled = makePool("/galmi/audio/grow.wav", 4, 0.7);
+const playToolPooled = makePool("/galmi/audio/tool.wav", 1, 0.7);
+const playTool2Pooled = makePool("/galmi/audio/tool2.wav", 1, 0.7);
+const playTool3Pooled = makePool("/galmi/audio/tool3.wav", 1, 0.7);
 
 let musicVolume = 0;
 let sfxVolume = 0;
@@ -81,6 +93,32 @@ function playClickSave() {
     sfxClickSave.currentTime = 0;
     sfxClickSave.play().catch(() => {});
 }
+function playGrow() {
+    if (!audioUnlocked) return;
+    sfxGrow.currentTime = 0;
+    sfxGrow.play().catch(() => {});
+}
+function playTool() {
+    if (!audioUnlocked) return;
+    switch(Math.floor(Math.random() * 3) + 1) {
+        case 3:
+            sfxTool3.currentTime = 0;
+            sfxTool3.play().catch(() => {});
+            console.log("switch case ", 3);
+            break;
+        case 2:
+            sfxTool2.currentTime = 0;
+            sfxTool2.play().catch(() => {});
+            console.log("switch case ", 2);
+            break;
+        case 1:
+        default:
+            sfxTool.currentTime = 0;
+            sfxTool.play().catch(() => {});
+            console.log("switch case ", 1);
+            break;
+    } 
+}
 
 function makePool(src, size = 6, volume = sfxVolume) {
     const pool = Array.from({ length: size }, () => {
@@ -108,6 +146,10 @@ function setMutedSfx(on) {
     sfxClickGalmiSuper.muted = on;
     sfxClickPurchasable.muted = on;
     sfxClickSave.muted = on;
+    sfxGrow.muted = on;
+    sfxTool.muted = on;
+    sfxTool2.muted = on;
+    sfxTool3.muted = on;
 }
 
 function setVolumeMusic(v) {
@@ -122,6 +164,10 @@ function setVolumeSfx(v) {
     sfxClickGalmiSuper.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxClickPurchasable.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxClickSave.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxGrow.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxTool.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxTool2.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxTool3.volume = switchVolumeSfxIndex == 0 ? 0 : v;
 }
 
 function switchVolumeMusic() {

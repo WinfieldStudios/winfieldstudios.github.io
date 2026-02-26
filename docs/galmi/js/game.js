@@ -371,7 +371,8 @@ function purchaseUpgradePickaxe() {
       */
     checkPurchasables();
 
-    playClickPurchasable();
+    // PLAY SOUND
+    playTool();
   }
 }
 
