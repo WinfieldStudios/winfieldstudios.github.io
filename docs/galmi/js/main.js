@@ -185,6 +185,13 @@ function toggleScientificNotation() {
       span.innerHTML = formatNumberWithCommas(resource.count);
     }
   }
+  upgradeGalmi.costs.rocks.source.innerHTML = formatNumberWithCommas(upgradeGalmi.costs.rocks.amount); 
+  upgradePickaxe.costs.limestone.source.innerHTML = formatNumber(upgradePickaxe.costs.limestone.amount); 
+  upgradePickaxe.costs.steel.source.innerHTML = formatNumber(upgradePickaxe.costs.steel.amount); 
+  upgradePickaxe.costs.stainlesssteel.source.innerHTML = formatNumber(upgradePickaxe.costs.stainlesssteel.amount); 
+  upgradePickaxe.costs.chromium.source.innerHTML = formatNumber(upgradePickaxe.costs.chromium.amount); 
+
+  localStorage.setItem('showingScientificNotation', JSON.stringify(showingScientificNotation));
 }
 
 // FORMAT NUMBERS FOR DISPLAY (E.G. 1024 -> 1.024K, 123425899906842624 -> 123.4Q, 1234000000000000000 -> 1.126e18, ETC.)
