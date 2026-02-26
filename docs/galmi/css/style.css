@@ -365,11 +365,13 @@ img {
   height: 0.9vw;
   min-height: 10px;
   opacity: 0.5;
+  vertical-align: middle;
 }
 .cost-info {
   display: flex;
   gap: 5px;
   font-family: "Pixelated";
+  align-items: center;
 }
 .right-section {
   position: absolute;
@@ -598,6 +600,7 @@ input[type="radio"]:checked + label {
 }
 .info-icon {
   width: 16px;
+  vertical-align: middle;
 }
 
 .stats-tooltip {

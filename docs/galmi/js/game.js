@@ -142,8 +142,8 @@ function purchaseExtract() {
       hasExtractedAfterUpgradingPickaxe = true;
     }
 
-    document.querySelector('.purchased-total-extract').innerHTML = formatNumber(extract.level - 1);
-    document.getElementById('purchased-clicked-extract').innerHTML = formatNumber(extract.clicked);
+    document.querySelector('.purchased-total-extract').innerHTML = formatNumberWithCommas(extract.level - 1);
+    document.getElementById('purchased-clicked-extract').innerHTML = formatNumberWithCommas(extract.clicked);
 
     playClickPurchasable();
   }
@@ -428,7 +428,7 @@ function updateUpgradePickaxe() {
     pickaxeIcon.src = pickaxeIcons[3];
   }
 
-  document.querySelector('.purchased-total-pickaxe').innerHTML = formatNumber(upgradePickaxe.level - 1);
+  document.querySelector('.purchased-total-pickaxe').innerHTML = formatNumberWithCommas(upgradePickaxe.level - 1);
   document.getElementById('upgrade-pickaxe-rocksperclick-increase').innerHTML = formatNumberWithCommas(getUpgradePickaxeRocksPerClickIncrease(upgradePickaxe.level + 1));
   document.getElementById('stats-clicking-power').innerHTML = formatNumberWithCommas(rocksPerClick);
   /*
@@ -459,8 +459,8 @@ function purchaseBlast() {
     blast.clicked++;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-blast').innerHTML = formatNumber(blast.level - 1);
-    document.getElementById('purchased-clicked-blast').innerHTML = formatNumber(blast.clicked);
+    document.querySelector('.purchased-total-blast').innerHTML = formatNumberWithCommas(blast.level - 1);
+    document.getElementById('purchased-clicked-blast').innerHTML = formatNumberWithCommas(blast.clicked);
 
     playClickPurchasable();
   }
@@ -485,8 +485,8 @@ function purchaseSmelt() {
     smelt.clicked++;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-smelt').innerHTML = formatNumber(smelt.level - 1);
-    document.getElementById('purchased-clicked-smelt').innerHTML = formatNumber(smelt.clicked);
+    document.querySelector('.purchased-total-smelt').innerHTML = formatNumberWithCommas(smelt.level - 1);
+    document.getElementById('purchased-clicked-smelt').innerHTML = formatNumberWithCommas(smelt.clicked);
 
     playClickPurchasable();
   }
@@ -506,8 +506,8 @@ function purchaseHire() {
     hire.clicked++;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-workers').innerHTML = formatNumber(hire.level - 1);
-    document.getElementById('purchased-clicked-workers').innerHTML = formatNumber(hire.clicked);
+    document.querySelector('.purchased-total-workers').innerHTML = formatNumberWithCommas(hire.level - 1);
+    document.getElementById('purchased-clicked-workers').innerHTML = formatNumberWithCommas(hire.clicked);
 
     playClickPurchasable();
   }
@@ -532,8 +532,8 @@ function purchaseReduce() {
     reduce.clicked++;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-reduce').innerHTML = formatNumber(reduce.level - 1);
-    document.getElementById('purchased-clicked-reduce').innerHTML = formatNumber(reduce.clicked);
+    document.querySelector('.purchased-total-reduce').innerHTML = formatNumberWithCommas(reduce.level - 1);
+    document.getElementById('purchased-clicked-reduce').innerHTML = formatNumberWithCommas(reduce.clicked);
 
     playClickPurchasable();
   }
@@ -556,8 +556,8 @@ function purchaseRefine() {
     refine.clicked++;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-refine').innerHTML = formatNumber(refine.level - 1);
-    document.getElementById('purchased-clicked-refine').innerHTML = formatNumber(refine.clicked);
+    document.querySelector('.purchased-total-refine').innerHTML = formatNumberWithCommas(refine.level - 1);
+    document.getElementById('purchased-clicked-refine').innerHTML = formatNumberWithCommas(refine.clicked);
 
     playClickPurchasable();
   }
@@ -582,8 +582,8 @@ function purchaseMix() {
     mix.clicked++;
     checkPurchasables(); 
 
-    document.querySelector('.purchased-total-mix').innerHTML = formatNumber(mix.level - 1);
-    document.getElementById('purchased-clicked-mix').innerHTML = formatNumber(mix.clicked);
+    document.querySelector('.purchased-total-mix').innerHTML = formatNumberWithCommas(mix.level - 1);
+    document.getElementById('purchased-clicked-mix').innerHTML = formatNumberWithCommas(mix.clicked);
 
     playClickPurchasable();
   }
@@ -608,8 +608,8 @@ function purchaseProduce() {
     produce.clicked++;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-produce').innerHTML = formatNumber(produce.level - 1);
-    document.getElementById('purchased-clicked-produce').innerHTML = formatNumber(produce.clicked);
+    document.querySelector('.purchased-total-produce').innerHTML = formatNumberWithCommas(produce.level - 1);
+    document.getElementById('purchased-clicked-produce').innerHTML = formatNumberWithCommas(produce.clicked);
 
     playClickPurchasable();
   }
@@ -630,8 +630,8 @@ function purchaseUpgradeWorker() {
     upgradeWorker.clicked++;
     checkPurchasables();
 
-    document.querySelector('.purchased-total-promoted').innerHTML = formatNumber(upgradeWorker.level - 1);
-    document.getElementById('purchased-clicked-promoted').innerHTML = formatNumber(upgradeWorker.clicked);
+    document.querySelector('.purchased-total-promoted').innerHTML = formatNumberWithCommas(upgradeWorker.level - 1);
+    document.getElementById('purchased-clicked-promoted').innerHTML = formatNumberWithCommas(upgradeWorker.clicked);
 
     playClickPurchasable();
   }
@@ -657,8 +657,8 @@ function purchaseHousing() {
 
     checkPurchasables();
 
-    document.querySelector('.purchased-total-housing').innerHTML = formatNumber(housing.level - 1);
-    document.getElementById('purchased-clicked-housing').innerHTML = formatNumber(housing.clicked);
+    document.querySelector('.purchased-total-housing').innerHTML = formatNumberWithCommas(housing.level - 1);
+    document.getElementById('purchased-clicked-housing').innerHTML = formatNumberWithCommas(housing.clicked);
 
     playClickPurchasable();
   }
