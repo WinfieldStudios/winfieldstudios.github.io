@@ -29,7 +29,7 @@ function clickOnRock(event) {
 }
 
 //On Grow talk function
-window.growthTalk = function(message) {
+window.growthTalk = function(message="") {
   if (!document.getElementById("particle-layer")) return;
 
   const galmiTalkMessage = document.getElementById("galmi-voiceline");
@@ -43,7 +43,7 @@ window.growthTalk = function(message) {
 
   galmiTalkMessageTimeout = setTimeout(() => {
     galmiTalkMessage.innerHTML = "";
-  }, 2500); // length of the message display in milliseconds
+  }, GALMI_VOICELINE_DISPLAY_DURATION_MILLISECONDS); // length of the message display in milliseconds
 }
 
 function rockTalk() {

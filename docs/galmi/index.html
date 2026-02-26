@@ -152,7 +152,7 @@
       <div class="middle">
         
         <!--GALMI UPGRADE-->
-        <div class="upgrade-galmi-button purchasable hidden" onclick="purchaseUpgradeGalmi(); playClickUI(); fbq('trackCustom', 'Clicked-Upgrade-Galmi');">
+        <div class="upgrade-galmi-button purchasable hidden" onclick="purchaseUpgradeGalmi(); fbq('trackCustom', 'Clicked-Upgrade-Galmi');">
           <div class="left-section">
             <img src="/galmi/img/icons/rock_upgrade.png" alt="Grow Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -190,7 +190,7 @@
           <div>
 
             <!-- PICKAXE UPGRADE-->
-            <div class="upgrade-pickaxe-button purchasable hidden" onclick="purchaseUpgradePickaxe(); playClickPurchasable(); fbq('trackCustom', 'Clicked-Upgrade-Pickaxe');">
+            <div class="upgrade-pickaxe-button purchasable hidden" onclick="purchaseUpgradePickaxe(); fbq('trackCustom', 'Clicked-Upgrade-Pickaxe');">
               <div class="left-section">
                 <img src="/galmi/img/icons/pickaxe.png" alt="Tool Icon" srcset="" class="purchasable-icon" id="purchasable-icon-pickaxe" draggable="false">
               </div>
@@ -245,7 +245,7 @@
             </div>
 
             <!--HOUSING--> 
-            <div class="housing-button purchasable hidden" onclick="purchaseHousing(); playClickPurchasable();">
+            <div class="housing-button purchasable hidden" onclick="purchaseHousing();">
               <div class="left-section">
                 <img src="/galmi/img/icons/housing.png" alt="Housing Icon" srcset="" class="purchasable-icon" draggable="false">
               </div>
@@ -278,7 +278,7 @@
           </div>
           <div>
             <!--HIRE--> 
-            <div class="hire-button purchasable hidden" onclick="purchaseHire(); playClickPurchasable();">
+            <div class="hire-button purchasable hidden" onclick="purchaseHire();">
               <div class="left-section">
                 <img src="/galmi/img/icons/worker.png" alt="Worker Icon" srcset="" class="purchasable-icon" draggable="false">
               </div>
@@ -308,7 +308,7 @@
             </div>
 
             <!--UPGRADE WORKER (PROMOTE)--> 
-            <div class="upgrade-worker-button purchasable hidden" onclick="purchaseUpgradeWorker(); playClickPurchasable();">
+            <div class="upgrade-worker-button purchasable hidden" onclick="purchaseUpgradeWorker();">
               <div class="left-section">
                 <img src="/galmi/img/icons/promote.png" alt="Promote Icon" srcset="" class="purchasable-icon" draggable="false">
               </div>
@@ -343,7 +343,7 @@
       <div class="right">
 
         <!--EXTRACT--> 
-        <div class="extract-button purchasable hidden" onclick="purchaseExtract(); playClickPurchasable(); fbq('trackCustom', 'Clicked-Extract');">
+        <div class="extract-button purchasable hidden" onclick="purchaseExtract(); fbq('trackCustom', 'Clicked-Extract');">
           <div class="left-section">
             <img src="/galmi/img/icons/extract.png" alt="Extract Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -382,7 +382,7 @@
         <div><br></div>
 
         <!--SMELT--> 
-        <div class="smelt-button purchasable hidden" onclick="purchaseSmelt(); playClickPurchasable();">
+        <div class="smelt-button purchasable hidden" onclick="purchaseSmelt();">
           <div class="left-section">
             <img src="/galmi/img/icons/smelt.png" alt="Smelt Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -414,7 +414,7 @@
         </div>
 
         <!--BLAST--> 
-        <div class="blast-button purchasable hidden" onclick="purchaseBlast(); playClickPurchasable();">
+        <div class="blast-button purchasable hidden" onclick="purchaseBlast();">
           <div class="left-section">
             <img src="/galmi/img/icons/blast.png" alt="Blast Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -446,7 +446,7 @@
         <div><br></div>
 
         <!--REDUCE--> 
-        <div class="reduce-button purchasable hidden" onclick="purchaseReduce(); playClickPurchasable();">
+        <div class="reduce-button purchasable hidden" onclick="purchaseReduce();">
           <div class="left-section">
             <img src="/galmi/img/icons/reduce.png" alt="Reduce Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -478,7 +478,7 @@
         </div>
 
         <!--REFINE--> 
-        <div class="refine-button purchasable hidden" onclick="purchaseRefine(); playClickPurchasable();">
+        <div class="refine-button purchasable hidden" onclick="purchaseRefine();">
           <div class="left-section">
             <img src="/galmi/img/icons/refine.png" alt="Refine Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -510,7 +510,7 @@
         <div><br></div>
 
         <!--MIX--> 
-        <div class="mix-button purchasable hidden" onclick="purchaseMix(); playClickPurchasable();">
+        <div class="mix-button purchasable hidden" onclick="purchaseMix();">
           <div class="left-section">
             <img src="/galmi/img/icons/mix.png" alt="Mix Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -542,7 +542,7 @@
         </div>
         
         <!--PRODUCE--> 
-        <div class="produce-button purchasable hidden" onclick="purchaseProduce(); playClickPurchasable();">
+        <div class="produce-button purchasable hidden" onclick="purchaseProduce();">
           <div class="left-section">
             <img src="/galmi/img/icons/produce.png" alt="Produce Icon" srcset="" class="purchasable-icon" draggable="false">
           </div>
@@ -578,43 +578,43 @@
     
     <div class="gpm-selector">
       <input type="radio" name="global-purchase-multiplier" id="option1">
-        <label for="option1" onclick="setGlobalPurchaseMultiplier(1); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option1" onclick="setGlobalPurchaseMultiplier(1);" class="gpm-label-hidden">
           x1
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option10">
-        <label for="option10" onclick="setGlobalPurchaseMultiplier(10); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option10" onclick="setGlobalPurchaseMultiplier(10);" class="gpm-label-hidden">
           x10
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option100">
-        <label for="option100" onclick="setGlobalPurchaseMultiplier(100); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option100" onclick="setGlobalPurchaseMultiplier(100);" class="gpm-label-hidden">
           x100
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000">
-        <label for="option1000" onclick="setGlobalPurchaseMultiplier(1000); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option1000" onclick="setGlobalPurchaseMultiplier(1000);" class="gpm-label-hidden">
           x1K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option10000">
-        <label for="option10000" onclick="setGlobalPurchaseMultiplier(10000); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option10000" onclick="setGlobalPurchaseMultiplier(10000);" class="gpm-label-hidden">
           x10K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option100000">
-        <label for="option100000" onclick="setGlobalPurchaseMultiplier(100000); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option100000" onclick="setGlobalPurchaseMultiplier(100000);" class="gpm-label-hidden">
           x100K
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000">
-        <label for="option1000000" onclick="setGlobalPurchaseMultiplier(1000000); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option1000000" onclick="setGlobalPurchaseMultiplier(1000000);" class="gpm-label-hidden">
           x1M
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000">
-        <label for="option1000000000" onclick="setGlobalPurchaseMultiplier(1000000000); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option1000000000" onclick="setGlobalPurchaseMultiplier(1000000000);" class="gpm-label-hidden">
           x1B
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000000">
-        <label for="option1000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option1000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000);" class="gpm-label-hidden">
           x1T
         </label>
       <input type="radio" name="global-purchase-multiplier" id="option1000000000000000">
-        <label for="option1000000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000000); playClickPurchasable();" class="gpm-label-hidden">
+        <label for="option1000000000000000" onclick="setGlobalPurchaseMultiplier(1000000000000000);" class="gpm-label-hidden">
           x1Q
         </label>
     </div>
@@ -752,7 +752,7 @@
           <p>Grow 5: <span id="stats-timestamp-grow5">0</span></p>
         </div>
         <br>
-        <p>v.0.8.20</p>
+        <p>v.0.8.21</p>
       </div>
     </div>
   </section>

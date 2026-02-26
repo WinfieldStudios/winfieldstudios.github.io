@@ -144,6 +144,8 @@ function purchaseExtract() {
 
     document.querySelector('.purchased-total-extract').innerHTML = formatNumber(extract.level - 1);
     document.getElementById('purchased-clicked-extract').innerHTML = formatNumber(extract.clicked);
+
+    playClickPurchasable();
   }
 }
 
@@ -223,6 +225,8 @@ function purchaseUpgradeGalmi() {
       upgradeGalmi.button.classList.add("removed");
     }
     updateExtractTooltip();
+
+    playClickPurchasable();
   }
 }
 
@@ -366,6 +370,8 @@ function purchaseUpgradePickaxe() {
     }
       */
     checkPurchasables();
+
+    playClickPurchasable();
   }
 }
 
@@ -454,6 +460,8 @@ function purchaseBlast() {
 
     document.querySelector('.purchased-total-blast').innerHTML = formatNumber(blast.level - 1);
     document.getElementById('purchased-clicked-blast').innerHTML = formatNumber(blast.clicked);
+
+    playClickPurchasable();
   }
 }
 
@@ -478,6 +486,8 @@ function purchaseSmelt() {
 
     document.querySelector('.purchased-total-smelt').innerHTML = formatNumber(smelt.level - 1);
     document.getElementById('purchased-clicked-smelt').innerHTML = formatNumber(smelt.clicked);
+
+    playClickPurchasable();
   }
 }
 
@@ -497,6 +507,8 @@ function purchaseHire() {
 
     document.querySelector('.purchased-total-workers').innerHTML = formatNumber(hire.level - 1);
     document.getElementById('purchased-clicked-workers').innerHTML = formatNumber(hire.clicked);
+
+    playClickPurchasable();
   }
 }
 
@@ -521,6 +533,8 @@ function purchaseReduce() {
 
     document.querySelector('.purchased-total-reduce').innerHTML = formatNumber(reduce.level - 1);
     document.getElementById('purchased-clicked-reduce').innerHTML = formatNumber(reduce.clicked);
+
+    playClickPurchasable();
   }
 }
 
@@ -543,6 +557,8 @@ function purchaseRefine() {
 
     document.querySelector('.purchased-total-refine').innerHTML = formatNumber(refine.level - 1);
     document.getElementById('purchased-clicked-refine').innerHTML = formatNumber(refine.clicked);
+
+    playClickPurchasable();
   }
 }
 
@@ -567,6 +583,8 @@ function purchaseMix() {
 
     document.querySelector('.purchased-total-mix').innerHTML = formatNumber(mix.level - 1);
     document.getElementById('purchased-clicked-mix').innerHTML = formatNumber(mix.clicked);
+
+    playClickPurchasable();
   }
 }
 
@@ -591,6 +609,8 @@ function purchaseProduce() {
 
     document.querySelector('.purchased-total-produce').innerHTML = formatNumber(produce.level - 1);
     document.getElementById('purchased-clicked-produce').innerHTML = formatNumber(produce.clicked);
+
+    playClickPurchasable();
   }
 }
 
@@ -612,6 +632,7 @@ function purchaseUpgradeWorker() {
     document.querySelector('.purchased-total-promoted').innerHTML = formatNumber(upgradeWorker.level - 1);
     document.getElementById('purchased-clicked-promoted').innerHTML = formatNumber(upgradeWorker.clicked);
 
+    playClickPurchasable();
   }
 }
 
@@ -638,5 +659,6 @@ function purchaseHousing() {
     document.querySelector('.purchased-total-housing').innerHTML = formatNumber(housing.level - 1);
     document.getElementById('purchased-clicked-housing').innerHTML = formatNumber(housing.clicked);
 
+    playClickPurchasable();
   }
 }
