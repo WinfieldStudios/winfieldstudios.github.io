@@ -70,6 +70,7 @@ let hasExtractedAfterUpgradingPickaxe = false;
 let globalPurchaseMultiplier = GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT;
 let darkMode = true;
 let showingScientificNotation = false;
+let isGrowTalking = false;
 
 let switchVolumeMusicIndex = 0;
 let switchVolumeSfxIndex = 0;

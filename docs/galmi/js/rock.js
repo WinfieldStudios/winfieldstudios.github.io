@@ -34,6 +34,7 @@ window.growthTalk = function(message="") {
 
   const galmiTalkMessage = document.getElementById("galmi-voiceline");
 
+  isGrowTalking = true;
   // Cancel out current Galmi Message timeout if it exists, so that the new message can be displayed immediately
   if (galmiTalkMessageTimeout) {
     clearTimeout(galmiTalkMessageTimeout);
@@ -43,12 +44,14 @@ window.growthTalk = function(message="") {
 
   galmiTalkMessageTimeout = setTimeout(() => {
     galmiTalkMessage.innerHTML = "";
+    isGrowTalking = false;
   }, GALMI_VOICELINE_DISPLAY_DURATION_MILLISECONDS); // length of the message display in milliseconds
 }
 
 function rockTalk() {
   // Bonus message particle
   if (document.getElementById("particle-layer")) {
+    if (isGrowTalking) return;
     if (isGalmiTalking) return;
     let spacefromTop = 35;
     if (upgradeGalmi.level >= TOTAL_ROCK_IMAGES) spacefromTop = 15;
