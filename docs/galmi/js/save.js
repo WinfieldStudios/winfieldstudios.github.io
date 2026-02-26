@@ -67,10 +67,10 @@ function load() {
   if (switchVolumeMusicIndex + switchVolumeSfxIndex > 0) loadVolumes();
 
   const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+  darkMode = true;
   if (savedDarkMode !== null) {
-    darkMode = savedDarkMode;
+    if (savedDarkMode == false) toggleDarkMode();
     document.getElementById("dark-mode-toggle").innerText = darkMode ? "DARK" : "LIGHT";
-    if (!darkMode) toggleDarkMode();
   }
 
   for (let i = 0; i < timeStats.length; i++) {

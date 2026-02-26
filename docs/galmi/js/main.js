@@ -164,13 +164,13 @@ function setGlobalPurchaseMultiplier(value) {
 
 // DARK MODE
 function toggleDarkMode() {
-  const currentTheme = document.documentElement.getAttribute("data-theme");
-  const targetTheme = currentTheme === "light" ? "dark" : "light";
+  const targetTheme = darkMode == false ? "dark" : "light";
 
   document.documentElement.setAttribute("data-theme", targetTheme);
   document.getElementById("dark-mode-toggle").innerText = targetTheme === "light" ? "LIGHT" : "DARK";
 
   darkMode = targetTheme === "dark";
+  localStorage.setItem('darkMode', JSON.stringify(darkMode));
 }
 
 // TOGGLE SCIENTIFIC NOTATION
