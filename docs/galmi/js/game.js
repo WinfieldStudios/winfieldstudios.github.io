@@ -166,6 +166,7 @@ function purchaseUpgradeGalmi() {
         document.getElementById('stats-timestamp-grow1').innerHTML = timestamp(timeStats[3])
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL3_COST_ROCKS;
         upgradeGalmi.level += 1;
+        growthTalk("");
         break;
       case 2:
         obsidian.count += 1;
@@ -175,7 +176,7 @@ function purchaseUpgradeGalmi() {
         document.getElementById('stats-timestamp-grow2').innerHTML = timestamp(timeStats[4])
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL4_COST_ROCKS;
         upgradeGalmi.level += 1;
-        growthTalk("( ꩜ ᯅ ꩜;)");
+        growthTalk("꩜ᯅ꩜;");
         break;
       case 3:
         chromiumore.count += 1;
@@ -185,7 +186,7 @@ function purchaseUpgradeGalmi() {
         document.getElementById('stats-timestamp-grow3').innerHTML = timestamp(timeStats[5])
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL5_COST_ROCKS;
         upgradeGalmi.level += 1;
-        growthTalk("i haz mouth now!")
+        growthTalk("i haz mouth?")
         break;
       case 4:
         aluminum.count += 1;
@@ -196,14 +197,14 @@ function purchaseUpgradeGalmi() {
         document.getElementById("upgrade-galmi-tooltip-header").innerHTML = "BIG BOI INCOMING!!!!!";
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL6_COST_ROCKS;
         upgradeGalmi.level += 1;
-        growthTalk("I can't feel my legs...");
+        growthTalk("That's much better. Thanks for the rocks.");
         break;
       case 5:
         timeStats[7] = Date.now() - timeStats[0];
         document.getElementById('stats-timestamp-grow5').innerHTML = timestamp(timeStats[7]) 
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
         upgradeGalmi.level += 1;
-        growthTalk("...AND I DANCE LIKE A MAN!")
+        growthTalk("THAT HIT THE SPOT!")
       default:
         upgradeGalmi.button.classList.add("removed");
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL;
