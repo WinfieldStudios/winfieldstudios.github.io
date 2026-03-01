@@ -176,7 +176,7 @@ function purchaseUpgradeGalmi() {
         document.getElementById('stats-timestamp-grow2').innerHTML = timestamp(timeStats[4])
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL4_COST_ROCKS;
         upgradeGalmi.level += 1;
-        growthTalk("꩜ᯅ꩜;");
+        growthTalk("꩜ᯅ꩜");
         break;
       case 3:
         chromiumore.count += 1;
@@ -186,7 +186,7 @@ function purchaseUpgradeGalmi() {
         document.getElementById('stats-timestamp-grow3').innerHTML = timestamp(timeStats[5])
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL5_COST_ROCKS;
         upgradeGalmi.level += 1;
-        growthTalk("i haz mouth?")
+        growthTalk("i haz mouth!?")
         break;
       case 4:
         aluminum.count += 1;
