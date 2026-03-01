@@ -132,8 +132,6 @@ function getVoiceline() {
     case 3:
       voicelines = [
 
-        //       Growth Opening One liner  "( ꩜ ᯅ ꩜;)",
-
         // For Sure
         "...",
         "..!",
@@ -224,7 +222,6 @@ function getVoiceline() {
 
     case 4: // early 2010s internet speak rock
       voicelines = [
-        // One Liner for Growth         "i can talk?",
         // For Sure:
         "im a buff baby...",
         "i hungry for minerals :3",
@@ -299,7 +296,6 @@ function getVoiceline() {
     case 5: // rock hard dude (stern / intense)
       voicelines = [
         // For Sure 
-        // One Liner for Growth         "OOOOOOOOOOH YEAH I FEEL ROCK HARD!.",
         "I DON'T NEED ANY CALMING TEA!",
         "I can't feel my legs...",
         "Spent the whole summer trappin' out the sedan.",
@@ -346,7 +342,6 @@ function getVoiceline() {
 
     case 6: // giga chad gym bro (supportive hype)
       voicelines = [
-        // One Liner for Growth         "OOOOOOOOOOH YEAH I FEEL ROCK HARD!."
         // For Sure:
         "...AND I DANCE LIKE A MAN!",
         "i love you",
