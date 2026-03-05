@@ -172,9 +172,9 @@ function setVolumeSfx(v) {
 function switchVolumeMusic() {
     switch (switchVolumeMusicIndex) {
         case 3:
-            setMutedMusic(true);
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC";
             switchVolumeMusicIndex = 0;
+            setVolumeMusic(0);
             break;
         case 2:
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC ///";
@@ -204,17 +204,19 @@ function switchVolumeMusic() {
 function switchVolumeSfx() {
     switch (switchVolumeSfxIndex) {
         case 3:
-            setMutedSfx(true);
+            setMutedSfx(false);
             document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS";
             switchVolumeSfxIndex = 0;
             setVolumeSfx(0);
             break;
         case 2:
+            setMutedSfx(false);
             document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS ///";
             switchVolumeSfxIndex = 3;
             setVolumeSfx(1);
             break;
         case 1:
+            setMutedSfx(false);
             document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS // ";
             switchVolumeSfxIndex = 2;
             setVolumeSfx(0.5);
@@ -259,8 +261,9 @@ function loadVolumes() {
             setVolumeMusic(0.02);
             break;
         default:
-            setMutedMusic(true);
+            setMutedMusic(false);
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC";
+            setVolumeMusic(0);
             break;
     }
     switch (switchVolumeSfxIndex) {
@@ -280,7 +283,7 @@ function loadVolumes() {
             setVolumeSfx(0.2);
             break;
         default:
-            setMutedSfx(true);
+            setMutedSfx(false);
             document.getElementById('util-button-sfx-switch').innerHTML = "SOUNDS";
             setVolumeSfx(0);
             break;
