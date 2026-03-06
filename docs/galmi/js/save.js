@@ -64,7 +64,7 @@ function load() {
   if (savedSwitchVolumeMusicIndex !== null) switchVolumeMusicIndex = savedSwitchVolumeMusicIndex;
   const savedSwitchVolumeSfxIndex = JSON.parse(localStorage.getItem('switchVolumeSfxIndex'));
   if (savedSwitchVolumeSfxIndex !== null) switchVolumeSfxIndex = savedSwitchVolumeSfxIndex;
-  if (switchVolumeMusicIndex + switchVolumeSfxIndex > 0) loadVolumes();
+  loadVolumes();
 
   const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
   darkMode = true;
@@ -123,7 +123,7 @@ function restart() {
   setGlobalPurchaseMultiplier(GLOBAL_PURCHASE_MULTIPLIER_STARTING_AMOUNT, true);
   deactivateSonBonus();
   document.getElementById('galmi-voiceline').innerHTML = "";
-  playClickSave();
+  playClickUI();
 
   if (localStorage.getItem('totalPowerupsGolden') !== null) totalPowerupsGolden = TOTAL_POWERUPS_GOLDEN_STARTING_AMOUNT;
   if (localStorage.getItem('totalClicksEver') !== null) totalClicksEver = TOTAL_CLICKS_EVER_STARTING_AMOUNT;

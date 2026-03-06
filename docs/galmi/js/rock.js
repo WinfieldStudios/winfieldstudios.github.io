@@ -356,8 +356,10 @@ function getVoiceline() {
         "I'M SO HUNGRY; I COULD EAT THE PLANET.",
         "ROCK AND STONE!",
         "FOR CARL!",
-        "YOU'VE GOT THOSE OCEAN EYES.",
+        "YOU'VE GOT THOSE OCEAN EYES, BRO.",
         "GOTTA GET MY PROTEIN IN.",
+        "GOTTA GET MY CREATINE IN.",
+        "I'M ROCKS-MAXXING!",
         "I'M WEIGHING IN AT SIXTY-SIX TONS.",
         "WHAT AM I COOKING!?",
         "LOOK AT ME! CLICK ON ME!",
@@ -365,6 +367,8 @@ function getVoiceline() {
         "ROCK ME BABY",
         "HAVE YOU SEEN MY SON?",
         "I WAS IN PARIS",
+        "I WAS IN PANGEA",
+        "I WAS IN EGYPT",
         "I JUST USED MY ULT!",
         "MINERAL MINDSET.",
         "BRO... YOU'RE CRAGGED.",
@@ -380,6 +384,7 @@ function getVoiceline() {
         "BIG FEET? BIG ROCK.",
         "THIS IS WHAT PEAK EVOLUTION LOOKS LIKE.",
         "RESPECT. DISCIPLINE. CONSISTENCY.",
+        "DO A PUSH-UP!",
 
         // Unsure:
         "YOU CLICK LIKE YOU MEAN IT.",

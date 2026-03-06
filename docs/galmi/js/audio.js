@@ -63,6 +63,8 @@ function unlockAudioOnce() {
         music.volume = musicVolume;
         music.play().catch(() => {});
     }
+    
+    loadVolumes();
 }
 
 document.addEventListener("pointerdown", unlockAudioOnce, { once: true });
@@ -162,7 +164,7 @@ function setVolumeSfx(v) {
     sfxClickUI.volume = switchVolumeSfxIndex == 0 ? 0 : v / 3;
     sfxClickGalmiSuper.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxClickPurchasable.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
-    sfxClickSave.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxClickSave.volume = switchVolumeSfxIndex == 0 ? 0 : v / 3;
     sfxGrow.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxTool.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
     sfxTool2.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
