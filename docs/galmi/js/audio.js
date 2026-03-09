@@ -288,6 +288,8 @@ function loadVolumes() {
             if (!soundStarted) {
                 music.volume = musicVolume;
                 music.play().catch(() => {});
+                musicAlt.volume = musicVolume;
+                musicAlt.play().catch(() => {});
             }
             document.getElementById('util-button-music-switch').innerHTML = "ALT ///";
             setVolumeMusic(0.2);
@@ -299,6 +301,8 @@ function loadVolumes() {
             if (!soundStarted) {
                 music.volume = musicVolume;
                 music.play().catch(() => {});
+                musicAlt.volume = musicVolume;
+                musicAlt.play().catch(() => {});
             }
             document.getElementById('util-button-music-switch').innerHTML = "ALT //";
             setVolumeMusic(0.05);
@@ -310,6 +314,8 @@ function loadVolumes() {
             if (!soundStarted) {
                 music.volume = musicVolume;
                 music.play().catch(() => {});
+                musicAlt.volume = musicVolume;
+                musicAlt.play().catch(() => {});
             }
             document.getElementById('util-button-music-switch').innerHTML = "ALT /";
             setVolumeMusic(0.01);
@@ -321,6 +327,8 @@ function loadVolumes() {
             if (!soundStarted) {
                 music.volume = musicVolume;
                 music.play().catch(() => {});
+                musicAlt.volume = musicVolume;
+                musicAlt.play().catch(() => {});
             }
             document.getElementById('util-button-music-switch').innerHTML = "ALT";
             setVolumeMusic(0);
@@ -332,6 +340,8 @@ function loadVolumes() {
             if (!soundStarted) {
                 music.volume = musicVolume;
                 music.play().catch(() => {});
+                musicAlt.volume = musicVolume;
+                musicAlt.play().catch(() => {});
             }
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC ///";
             setVolumeMusic(0.2);
@@ -343,6 +353,8 @@ function loadVolumes() {
             if (!soundStarted) {
                 music.volume = musicVolume;
                 music.play().catch(() => {});
+                musicAlt.volume = musicVolume;
+                musicAlt.play().catch(() => {});
             }
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC //";
             setVolumeMusic(0.05);
@@ -354,6 +366,8 @@ function loadVolumes() {
             if (!soundStarted) {
                 music.volume = musicVolume;
                 music.play().catch(() => {});
+                musicAlt.volume = musicVolume;
+                musicAlt.play().catch(() => {});
             }
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC /";
             setVolumeMusic(0.01);

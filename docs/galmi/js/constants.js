@@ -72,7 +72,7 @@ let darkMode = true;
 let showingScientificNotation = false;
 let isGrowTalking = false;
 
-let switchVolumeMusicIndex = 2;
+let switchVolumeMusicIndex = 1;
 let switchVolumeSfxIndex = 2;
 
 const timeStats = [
