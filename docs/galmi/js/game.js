@@ -191,7 +191,7 @@ function purchaseUpgradeGalmi() {
       case 4:
         aluminum.count += 1;
         gainResourceParticle(aluminum, 1);
-        nextBaseResourceIcon.src = "";
+        nextBaseResourceIcon.src = "/galmi/img/icons/rock_upgrade.png";
         timeStats[6] = Date.now() - timeStats[0];
         document.getElementById('stats-timestamp-grow4').innerHTML = timestamp(timeStats[6])
         document.getElementById("upgrade-galmi-tooltip-header").innerHTML = "BIG BOI INCOMING!!!!!";
@@ -202,6 +202,7 @@ function purchaseUpgradeGalmi() {
       case 5:
         timeStats[7] = Date.now() - timeStats[0];
         document.getElementById('stats-timestamp-grow5').innerHTML = timestamp(timeStats[7]) 
+        nextBaseResourceIcon.src = "";
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
         upgradeGalmi.level += 1;
         growthTalk("THAT HIT THE SPOT!")
@@ -255,7 +256,7 @@ function updateUpgradeGalmi() {
       break;
     case 5: 
       upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL6_COST_ROCKS; 
-      nextBaseResourceIcon.src = ""; 
+      nextBaseResourceIcon.src = "/galmi/img/icons/rock_upgrade.png"; 
       document.getElementById("upgrade-galmi-tooltip-header").innerHTML = "BIG BOI INCOMING!!!!!";
       break;
     default: 
@@ -350,7 +351,7 @@ function purchaseUpgradePickaxe() {
     if (canRockTalk == true) rockTalk();
 
     // PLAY SOUND
-    if (upgradePickaxe.level > UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4) playGrow();
+    if (upgradePickaxe.level > UPGRADE_PICKAXE_LEVEL_THRESHOLD_TIER_4) playStaff();
     else playTool();
 
     upgradePickaxe.level += 1;
