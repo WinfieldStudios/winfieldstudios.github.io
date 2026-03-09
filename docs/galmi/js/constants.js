@@ -72,8 +72,8 @@ let darkMode = true;
 let showingScientificNotation = false;
 let isGrowTalking = false;
 
-let switchVolumeMusicIndex = 0;
-let switchVolumeSfxIndex = 0;
+let switchVolumeMusicIndex = 2;
+let switchVolumeSfxIndex = 2;
 
 const timeStats = [
     0, // [0] time when game started in Unix Epoch

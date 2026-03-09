@@ -1,5 +1,6 @@
 
 const music = document.getElementById("music");
+const musicAlt = document.getElementById("musicAlt");
 const sfxClickGalmi = document.getElementById("sfxClickGalmi");
 const sfxClickGalmiSuper = document.getElementById("sfxClickGalmiSuper");
 const sfxClickUI = document.getElementById("sfxClickUI");
@@ -11,6 +12,7 @@ const sfxStaff = document.getElementById("sfxStaff");
 const sfxSon = document.getElementById("sfxSon");
 
 music.muted = true;
+musicAlt.muted = true;
 sfxClickGalmi.muted = true;
 sfxClickUI.muted = true;
 sfxClickGalmiSuper.muted = true;
@@ -20,6 +22,10 @@ sfxGrow.muted = true;
 sfxTool.muted = true;
 sfxStaff.muted = true;
 sfxSon.muted = true;
+
+let musicVolume = 0;
+let sfxVolume = 0;
+let soundStarted = false;
 
 const playClickGalmiPooled = makePool("/galmi/audio/clickgalmi.wav", 8, 0.6);
 const playClickUIPooled = makePool("/galmi/audio/clickui.wav", 4, 0.7);
@@ -31,16 +37,14 @@ const playToolPooled = makePool("/galmi/audio/tool.wav", 1, 0.7);
 const playStaffPooled = makePool("/galmi/audio/toolstaff.wav", 1, 0.7);
 const playSonPooled = makePool("/galmi/audio/clickgalmison.wav", 1, 0.7);
 
-let musicVolume = 0;
-let sfxVolume = 0;
-let soundStarted = false;
-
 setMutedSfx(true);
 
 document.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("music");
+    const musicAlt = document.getElementById("musicAlt");
     if (!music) return; // prevents crash
     music.volume = musicVolume;
+    musicAlt.volume = musicVolume;
 });
 
 let audioUnlocked = false;
@@ -62,6 +66,8 @@ function unlockAudioOnce() {
     if (switchVolumeMusicIndex !== 0 && !soundStarted) {
         music.volume = musicVolume;
         music.play().catch(() => {});
+        musicAlt.volume = musicVolume;
+        musicAlt.play().catch(() => {});
     }
     
     loadVolumes();
@@ -166,6 +172,7 @@ function setMutedSfx(on) {
 function setVolumeMusic(v) {
     musicVolume = v;
     music.volume = switchVolumeMusicIndex == 0 ? 0 : v;
+    musicAlt.volume = switchVolumeMusicIndex == 0 ? 0 : v;
 }
 
 function setVolumeSfx(v) {
@@ -183,9 +190,37 @@ function setVolumeSfx(v) {
 
 function switchVolumeMusic() {
     switch (switchVolumeMusicIndex) {
-        case 3:
+        case 7:
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC";
             switchVolumeMusicIndex = 0;
+            setVolumeMusic(0);
+            break;
+        case 6:
+            document.getElementById('util-button-music-switch').innerHTML = "ALT ///";
+            switchVolumeMusicIndex = 7;
+            setVolumeMusic(0.2);
+            break;
+        case 5:
+            document.getElementById('util-button-music-switch').innerHTML = "ALT //";
+            switchVolumeMusicIndex = 6;
+            setVolumeMusic(0.05);
+            break;
+        case 4:
+            document.getElementById('util-button-music-switch').innerHTML = "ALT /";
+            if (!soundStarted) {
+                music.volume = musicVolume;
+                music.play().catch(() => {});
+                music.muted = true;
+                musicAlt.muted = false;
+                musicAlt.volume = musicVolume;
+                musicAlt.play().catch(() => {});
+            }
+            switchVolumeMusicIndex = 5;
+            setVolumeMusic(0.01);
+            break;
+        case 3:
+            document.getElementById('util-button-music-switch').innerHTML = "ALT";
+            switchVolumeMusicIndex = 4;
             setVolumeMusic(0);
             break;
         case 2:
@@ -202,8 +237,11 @@ function switchVolumeMusic() {
             setMutedMusic(false);
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC /";
             if (!soundStarted) {
+                music.muted = false;
                 music.volume = musicVolume;
                 music.play().catch(() => {});
+                musicAlt.volume = musicVolume;
+                musicAlt.muted = true;
             }
             switchVolumeMusicIndex = 1;
             setVolumeMusic(0.01);
@@ -245,6 +283,50 @@ function switchVolumeSfx() {
 
 function loadVolumes() {
     switch (switchVolumeMusicIndex) {
+        case 7:
+            setMutedMusic(false);
+            if (!soundStarted) {
+                music.volume = musicVolume;
+                music.play().catch(() => {});
+            }
+            document.getElementById('util-button-music-switch').innerHTML = "ALT ///";
+            setVolumeMusic(0.2);
+            music.muted = true;
+            musicAlt.muted = false;
+            break;
+        case 6:
+            setMutedMusic(false);
+            if (!soundStarted) {
+                music.volume = musicVolume;
+                music.play().catch(() => {});
+            }
+            document.getElementById('util-button-music-switch').innerHTML = "ALT //";
+            setVolumeMusic(0.05);
+            music.muted = true;
+            musicAlt.muted = false;
+            break;
+        case 5:
+            setMutedMusic(false);
+            if (!soundStarted) {
+                music.volume = musicVolume;
+                music.play().catch(() => {});
+            }
+            document.getElementById('util-button-music-switch').innerHTML = "ALT /";
+            setVolumeMusic(0.01);
+            music.muted = true;
+            musicAlt.muted = false;
+            break;
+        case 4:
+            setMutedMusic(false);
+            if (!soundStarted) {
+                music.volume = musicVolume;
+                music.play().catch(() => {});
+            }
+            document.getElementById('util-button-music-switch').innerHTML = "ALT";
+            setVolumeMusic(0);
+            music.muted = true;
+            musicAlt.muted = true;
+            break;
         case 3:
             setMutedMusic(false);
             if (!soundStarted) {
@@ -253,6 +335,8 @@ function loadVolumes() {
             }
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC ///";
             setVolumeMusic(0.2);
+            music.muted = false;
+            musicAlt.muted = true;
             break;
         case 2:
             setMutedMusic(false);
@@ -261,7 +345,9 @@ function loadVolumes() {
                 music.play().catch(() => {});
             }
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC //";
-            setVolumeMusic(0.08);
+            setVolumeMusic(0.05);
+            music.muted = false;
+            musicAlt.muted = true;
             break;
         case 1:
             setMutedMusic(false);
@@ -270,12 +356,16 @@ function loadVolumes() {
                 music.play().catch(() => {});
             }
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC /";
-            setVolumeMusic(0.02);
+            setVolumeMusic(0.01);
+            music.muted = false;
+            musicAlt.muted = true;
             break;
         default:
             setMutedMusic(false);
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC";
             setVolumeMusic(0);
+            music.muted = true;
+            musicAlt.muted = true;
             break;
     }
     switch (switchVolumeSfxIndex) {
