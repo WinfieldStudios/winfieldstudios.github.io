@@ -7,8 +7,8 @@ const sfxClickPurchasable = document.getElementById("sfxClickPurchasable");
 const sfxClickSave = document.getElementById("sfxClickSave");
 const sfxGrow = document.getElementById("sfxGrow");
 const sfxTool = document.getElementById("sfxTool");
-const sfxTool2 = document.getElementById("sfxTool2");
-const sfxTool3 = document.getElementById("sfxTool3");
+const sfxStaff = document.getElementById("sfxStaff");
+const sfxSon = document.getElementById("sfxSon");
 
 music.muted = true;
 sfxClickGalmi.muted = true;
@@ -18,8 +18,8 @@ sfxClickPurchasable.muted = true;
 sfxClickSave.muted = true;
 sfxGrow.muted = true;
 sfxTool.muted = true;
-sfxTool2.muted = true;
-sfxTool3.muted = true;
+sfxStaff.muted = true;
+sfxSon.muted = true;
 
 const playClickGalmiPooled = makePool("/galmi/audio/clickgalmi.wav", 8, 0.6);
 const playClickUIPooled = makePool("/galmi/audio/clickui.wav", 4, 0.7);
@@ -28,8 +28,8 @@ const playClickPurchasablePooled = makePool("/galmi/audio/clickpurchasable.wav",
 const playClickSavePooled = makePool("/galmi/audio/clicksave.wav", 8, 0.6);
 const playGrowPooled = makePool("/galmi/audio/grow.wav", 4, 0.7);
 const playToolPooled = makePool("/galmi/audio/tool.wav", 1, 0.7);
-const playTool2Pooled = makePool("/galmi/audio/tool2.wav", 1, 0.7);
-const playTool3Pooled = makePool("/galmi/audio/tool3.wav", 1, 0.7);
+const playStaffPooled = makePool("/galmi/audio/toolstaff.wav", 1, 0.7);
+const playSonPooled = makePool("/galmi/audio/clickgalmison.wav", 1, 0.7);
 
 let musicVolume = 0;
 let sfxVolume = 0;
@@ -80,6 +80,11 @@ function playClickGalmiSuper() {
     sfxClickGalmiSuper.currentTime = 0;
     sfxClickGalmiSuper.play().catch(() => {});
 }
+function playClickGalmiSon() {
+    if (!audioUnlocked) return;
+    sfxSon.currentTime = 0;
+    sfxSon.play().catch(() => {});
+}
 function playClickUI() {
     if (!audioUnlocked) return;
     sfxClickUI.currentTime = 0;
@@ -100,18 +105,23 @@ function playGrow() {
     sfxGrow.currentTime = 0;
     sfxGrow.play().catch(() => {});
 }
+function playStaff() {
+    if (!audioUnlocked) return;
+    sfxStaff.currentTime = 0;
+    sfxStaff.play().catch(() => {});
+}
 function playTool() {
     if (!audioUnlocked) return;
     sfxTool.currentTime = 0;
     sfxTool.play().catch(() => {});
     // switch(Math.floor(Math.random() * 3) + 1) {
     //     case 3:
-    //         sfxTool3.currentTime = 0;
-    //         sfxTool3.play().catch(() => {});
+    //         sfxSon.currentTime = 0;
+    //         sfxSon.play().catch(() => {});
     //         break;
     //     case 2:
-    //         sfxTool2.currentTime = 0;
-    //         sfxTool2.play().catch(() => {});
+    //         sfxStaff.currentTime = 0;
+    //         sfxStaff.play().catch(() => {});
     //         break;
     //     case 1:
     //     default:
@@ -149,8 +159,8 @@ function setMutedSfx(on) {
     sfxClickSave.muted = on;
     sfxGrow.muted = on;
     sfxTool.muted = on;
-    sfxTool2.muted = on;
-    sfxTool3.muted = on;
+    sfxStaff.muted = on;
+    sfxSon.muted = on;
 }
 
 function setVolumeMusic(v) {
@@ -161,14 +171,14 @@ function setVolumeMusic(v) {
 function setVolumeSfx(v) {
     sfxVolume = v;
     sfxClickGalmi.volume = switchVolumeSfxIndex == 0 ? 0 : v;
-    sfxClickUI.volume = switchVolumeSfxIndex == 0 ? 0 : v / 3;
-    sfxClickGalmiSuper.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxClickUI.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxClickGalmiSuper.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
     sfxClickPurchasable.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
     sfxClickSave.volume = switchVolumeSfxIndex == 0 ? 0 : v / 3;
     sfxGrow.volume = switchVolumeSfxIndex == 0 ? 0 : v;
     sfxTool.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
-    sfxTool2.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
-    sfxTool3.volume = switchVolumeSfxIndex == 0 ? 0 : v / 1.5;
+    sfxStaff.volume = switchVolumeSfxIndex == 0 ? 0 : v;
+    sfxSon.volume = switchVolumeSfxIndex == 0 ? 0 : v / 3;
 }
 
 function switchVolumeMusic() {
@@ -186,7 +196,7 @@ function switchVolumeMusic() {
         case 1:
             document.getElementById('util-button-music-switch').innerHTML = "MUSIC //";
             switchVolumeMusicIndex = 2;
-            setVolumeMusic(0.08);
+            setVolumeMusic(0.05);
             break;
         default:
             setMutedMusic(false);
@@ -196,7 +206,7 @@ function switchVolumeMusic() {
                 music.play().catch(() => {});
             }
             switchVolumeMusicIndex = 1;
-            setVolumeMusic(0.02);
+            setVolumeMusic(0.01);
             break;
     }
 

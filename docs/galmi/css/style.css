@@ -549,7 +549,7 @@ input[type="radio"]:checked + label {
 .tooltip {
   position: absolute;
   font-family: 'CodeStyle';
-  top: 5%;
+  top: 6%;
   left: 2%;
 }
 .dot {
@@ -562,7 +562,7 @@ input[type="radio"]:checked + label {
 /* when the purchasable card is hovered, make the dot fully visible */
 .purchasable:hover .dot,
 .purchasable:focus-within .dot {
-  opacity: 0.75;
+  opacity: 1;
 }
 .content {
   position: absolute;
