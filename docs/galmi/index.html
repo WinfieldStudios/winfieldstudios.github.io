@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Galmi</title>
+  <meta name="description" content="Galmi is a browser-based resource-manager clicker game centered around a mysterious rock.">
+  <meta name="keywords" content="Galmi, clicker game, idle game, resource manager, browser game, mysterious rock">
   <link rel="icon" type="image/png" href="/galmi/img/rocks/favi.png">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/galmi/css/style.css" />
@@ -20,9 +22,22 @@
   <script src="/galmi/js/main.js" defer></script>
   <script src="/galmi/js/son.js" defer></script>
   <script src="/galmi/js/audio.js" defer></script>
+  <script type="application/ld+json"> 
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Galmi",
+      "genre": "Incremental / Clicker",
+      "url": "https://winfieldstudios.io/galmi",
+      "author": {
+        "@type": "Organization",
+        "name": "Winfield Studios"
+      }
+    }
+  </script>
 </head>
-<div id="particle-layer"></div>
 <body onload="load()">
+  <div id="particle-layer"></div>
   <section>
     <div class="main">
       <div class="left">
