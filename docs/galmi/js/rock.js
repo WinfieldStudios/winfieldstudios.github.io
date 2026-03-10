@@ -24,7 +24,7 @@ function clickOnRock(event) {
   div.classList.add('fade-up');
   timeout(div);
 
-  if (window.isPowerupGoldenActive) playClickGalmiSuper();
+  if (window.isPowerupGoldenActive) playClickUI();
   else playClickGalmi();
 }
 

@@ -167,6 +167,7 @@ function purchaseUpgradeGalmi() {
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL3_COST_ROCKS;
         upgradeGalmi.level += 1;
         growthTalk("");
+        playClickGalmiSuper();
         break;
       case 2:
         obsidian.count += 1;
@@ -177,6 +178,7 @@ function purchaseUpgradeGalmi() {
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL4_COST_ROCKS;
         upgradeGalmi.level += 1;
         growthTalk("꩜ᯅ꩜");
+        playClickGalmiSuper();
         break;
       case 3:
         chromiumore.count += 1;
@@ -187,6 +189,7 @@ function purchaseUpgradeGalmi() {
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL5_COST_ROCKS;
         upgradeGalmi.level += 1;
         growthTalk("i haz mouth!?")
+        playClickGalmiSuper();
         break;
       case 4:
         aluminum.count += 1;
@@ -198,6 +201,7 @@ function purchaseUpgradeGalmi() {
         upgradeGalmi.costs.rocks.amount = UPGRADE_GALMI_LVL6_COST_ROCKS;
         upgradeGalmi.level += 1;
         growthTalk("That's much better. Thanks for the rocks.");
+        playGrow();
         break;
       case 5:
         timeStats[7] = Date.now() - timeStats[0];
@@ -206,6 +210,7 @@ function purchaseUpgradeGalmi() {
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL
         upgradeGalmi.level += 1;
         growthTalk("THAT HIT THE SPOT!")
+        playGrow();
       default:
         upgradeGalmi.button.classList.add("removed");
         upgradeGalmi.costs.rocks.amount = 0; // MAX LEVEL;
@@ -226,8 +231,6 @@ function purchaseUpgradeGalmi() {
       upgradeGalmi.button.classList.add("removed");
     }
     updateExtractTooltip();
-
-    playGrow();
   }
 }
 
