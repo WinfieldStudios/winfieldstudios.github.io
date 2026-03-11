@@ -137,7 +137,7 @@ function generateIncome(seconds) {
 // MULTIPLIER
 function setGlobalPurchaseMultiplier(value, loaded=false) {
   if (globalPurchaseMultiplier != value) {
-    if (!loaded) playClickPurchasable();
+    if (!loaded) playClickUI();
   }
   globalPurchaseMultiplier = value;
 
